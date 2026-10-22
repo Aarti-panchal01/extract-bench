@@ -1,0 +1,29 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install pinned dependencies
+        run: pip install -r requirements.txt
+      - name: Corpus rebuild matches the committed fixtures
+        run: |
+          python -m extract_bench.build_corpus
+          git diff --exit-code -- corpus/
+      - name: Test suite (includes a full --quick benchmark run)
+        run: python -m pytest -q
+      - name: Demo on one page
+        run: python -m extract_bench.demo cookie_modal-3 --lines 2
