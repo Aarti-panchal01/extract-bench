@@ -54,5 +54,42 @@
       "english_stoplist_f1": 0.0,
       "matching_stoplist_f1": 0.0
     }
-  ]
+  ],
+  "readability_short_title_check": {
+    "n_test": 40,
+    "title_matches": 0,
+    "short_title_matches": 35,
+    "misses": [
+      {
+        "doc_id": "docs_code-2",
+        "title_match": false,
+        "short_title_match": false,
+        "short_title": "Scheduling jobs | Riverside Post"
+      },
+      {
+        "doc_id": "docs_code-4",
+        "title_match": false,
+        "short_title_match": false,
+        "short_title": "Scheduling jobs | Harbor Daily"
+      },
+      {
+        "doc_id": "listing-0",
+        "title_match": false,
+        "short_title_match": false,
+        "short_title": "Winter jackets | Harbor Daily"
+      },
+      {
+        "doc_id": "listing-1",
+        "title_match": false,
+        "short_title_match": false,
+        "short_title": "Running shoes | Northwind Journal"
+      },
+      {
+        "doc_id": "listing-5",
+        "title_match": false,
+        "short_title_match": false,
+        "short_title": "Coffee grinders | Atlas Weekly"
+      }
+    ]
+  }
 }

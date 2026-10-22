@@ -55,8 +55,8 @@
       "code_line_recall": 1.0,
       "code_line_exact": 1.0,
       "title_match": 0.0,
-      "latency_ms_median": 3.9485500019509345,
-      "latency_ms_p90": 6.820000009611249,
+      "latency_ms_median": 4.384499989100732,
+      "latency_ms_p90": 6.6645999904721975,
       "n_errors": 0,
       "n_docs_with_any_failure": 40
     },
@@ -92,8 +92,8 @@
       "code_line_recall": 1.0,
       "code_line_exact": 1.0,
       "title_match": 1.0,
-      "latency_ms_median": 11.605100007727742,
-      "latency_ms_p90": 18.48319999407977,
+      "latency_ms_median": 9.56669999868609,
+      "latency_ms_p90": 16.77049999125302,
       "n_errors": 0,
       "n_docs_with_any_failure": 22
     },
@@ -129,8 +129,8 @@
       "code_line_recall": 1.0,
       "code_line_exact": 1.0,
       "title_match": 1.0,
-      "latency_ms_median": 10.934499994618818,
-      "latency_ms_p90": 17.374400020344183,
+      "latency_ms_median": 10.932399993180297,
+      "latency_ms_p90": 17.424300021957606,
       "n_errors": 0,
       "n_docs_with_any_failure": 24
     },
@@ -166,8 +166,8 @@
       "code_line_recall": 1.0,
       "code_line_exact": 1.0,
       "title_match": null,
-      "latency_ms_median": 1.3999500079080462,
-      "latency_ms_p90": 3.2296999997925013,
+      "latency_ms_median": 1.4604500029236078,
+      "latency_ms_p90": 2.419299999019131,
       "n_errors": 0,
       "n_docs_with_any_failure": 40
     },
@@ -203,8 +203,8 @@
       "code_line_recall": 1.0,
       "code_line_exact": 1.0,
       "title_match": 0.0,
-      "latency_ms_median": 1.1215999984415248,
-      "latency_ms_p90": 2.092899987474084,
+      "latency_ms_median": 1.4934000064386055,
+      "latency_ms_p90": 2.5981999933719635,
       "n_errors": 0,
       "n_docs_with_any_failure": 40
     },
@@ -240,8 +240,8 @@
       "code_line_recall": 1.0,
       "code_line_exact": 1.0,
       "title_match": null,
-      "latency_ms_median": 4.102350008906797,
-      "latency_ms_p90": 6.801800016546622,
+      "latency_ms_median": 3.6487000033957884,
+      "latency_ms_p90": 5.743999994592741,
       "n_errors": 0,
       "n_docs_with_any_failure": 40
     },
@@ -277,8 +277,8 @@
       "code_line_recall": 0.0,
       "code_line_exact": 0.0,
       "title_match": null,
-      "latency_ms_median": 3.530100002535619,
-      "latency_ms_p90": 5.381900002248585,
+      "latency_ms_median": 3.308550003566779,
+      "latency_ms_p90": 5.108000012114644,
       "n_errors": 0,
       "n_docs_with_any_failure": 32
     }

@@ -10,17 +10,19 @@ Python 3.11.9 on Windows-10-10.0.26200-SP0.
 
 | Extractor | Config | F1 [95% CI] | Precision | Recall | Boilerplate leak rate | Table rows kept | Code lines kept (exact) | Title match | Median ms |
 |---|---|---|---|---|---|---|---|---|---|
-| readability-lxml | library defaults | 0.925 [0.898, 0.949] | 0.871 | 1.000 | 0.181 | 1.00 | 1.00 (1.00) | 0.00 | 3.95 |
-| trafilatura (best-config) | tuned on dev: include_comments=False, favor_precision=False, favor_recall=False | 0.840 [0.753, 0.914] | 0.813 | 0.945 | 0.111 | 1.00 | 1.00 (1.00) | 1.00 | 11.61 |
+| readability-lxml | library defaults | 0.925 [0.898, 0.949] | 0.871 | 1.000 | 0.181 | 1.00 | 1.00 (1.00) | 0.00 | 4.38 |
+| trafilatura (best-config) | tuned on dev: include_comments=False, favor_precision=False, favor_recall=False | 0.840 [0.753, 0.914] | 0.813 | 0.945 | 0.111 | 1.00 | 1.00 (1.00) | 1.00 | 9.57 |
 | trafilatura | library defaults | 0.831 [0.746, 0.905] | 0.798 | 0.945 | 0.160 | 1.00 | 1.00 (1.00) | 1.00 | 10.93 |
-| html2text | body_width=0, otherwise defaults | 0.706 [0.634, 0.769] | 0.579 | 1.000 | 0.811 | 1.00 | 1.00 (1.00) | n/a | 1.40 |
-| bs4-naive | soup.get_text() on the whole page | 0.693 [0.621, 0.756] | 0.564 | 1.000 | 0.885 | 1.00 | 1.00 (1.00) | 0.00 | 1.12 |
-| markdownify | library defaults on the whole page | 0.693 [0.622, 0.755] | 0.562 | 1.000 | 0.811 | 1.00 | 1.00 (1.00) | n/a | 4.10 |
-| justext | library defaults, English stoplist | 0.554 [0.418, 0.687] | 0.549 | 0.572 | 0.124 | 0.17 | 0.00 (0.00) | n/a | 3.53 |
+| html2text | body_width=0, otherwise defaults | 0.706 [0.634, 0.769] | 0.579 | 1.000 | 0.811 | 1.00 | 1.00 (1.00) | n/a | 1.46 |
+| bs4-naive | soup.get_text() on the whole page | 0.693 [0.621, 0.756] | 0.564 | 1.000 | 0.885 | 1.00 | 1.00 (1.00) | 0.00 | 1.49 |
+| markdownify | library defaults on the whole page | 0.693 [0.622, 0.755] | 0.562 | 1.000 | 0.811 | 1.00 | 1.00 (1.00) | n/a | 3.65 |
+| justext | library defaults, English stoplist | 0.554 [0.418, 0.687] | 0.549 | 0.572 | 0.124 | 0.17 | 0.00 (0.00) | n/a | 3.31 |
 
 ## Paired comparison of the top two (by mean test F1)
 
-readability-lxml minus trafilatura (best-config): mean F1 difference +0.085, 95% CI [+0.018, +0.166], bootstrap p = 0.009. Verdict: **significantly different**.
+readability-lxml minus trafilatura (best-config): mean F1 difference +0.085, 95% CI [+0.018, +0.166], bootstrap p = 0.009. Verdict: **significantly different** (resampling single pages).
+
+Pages of the same type are built from the same template, so they are not independent. Resampling whole page types instead (10 groups): +0.085, 95% CI [-0.005, +0.227], p = 0.084. Verdict: **not significantly different** (resampling page types).
 
 Best-config trafilatura minus default trafilatura: +0.009 [+0.001, +0.018], significantly different.
 
@@ -38,7 +40,9 @@ The listing-page gold counts only the intro line as content, which is a judgment
 | markdownify | 0.759 [0.732, 0.787] |
 | justext | 0.616 [0.473, 0.747] |
 
-Top two without listing pages: readability-lxml minus trafilatura (best-config) = +0.020 [-0.018, +0.072], p = 0.397: **not significantly different**.
+Top two without listing pages: readability-lxml minus trafilatura (best-config) = +0.020 [-0.018, +0.072], p = 0.397: **not significantly different** (resampling pages).
+
+Resampling page types instead: [-0.012, +0.058], p = 0.256: **not significantly different**.
 
 ## F1 by page type (mean of 4 test pages each, so treat as rough)
 

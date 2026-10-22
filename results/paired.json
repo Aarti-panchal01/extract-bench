@@ -8,6 +8,16 @@
   "p_value": 0.0094,
   "significant": true,
   "verdict": "significantly different",
+  "cluster_by_page_type": {
+    "mean_diff": 0.0850135246040866,
+    "lo": -0.004777473552404369,
+    "hi": 0.22672943084375155,
+    "n": 40,
+    "n_groups": 10,
+    "p_value": 0.0842,
+    "significant": false,
+    "verdict": "not significantly different"
+  },
   "all_vs_top": {
     "trafilatura": {
       "mean_diff": 0.0936876165648344,
@@ -151,6 +161,18 @@
       "hi": 0.07204704616365516,
       "n": 36,
       "p_value": 0.3972,
+      "significant": false,
+      "verdict": "not significantly different"
+    },
+    "paired_top_two_cluster_by_page_type": {
+      "a": "readability-lxml",
+      "b": "trafilatura (best-config)",
+      "mean_diff": 0.020445149493811557,
+      "lo": -0.012184993671585997,
+      "hi": 0.05751879706182545,
+      "n": 36,
+      "n_groups": 9,
+      "p_value": 0.2556,
       "significant": false,
       "verdict": "not significantly different"
     }
