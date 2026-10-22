@@ -19,6 +19,7 @@ import csv
 import json
 import os
 import random
+import re
 import urllib.request
 from pathlib import Path
 
@@ -48,6 +49,17 @@ def metric_label(row: dict) -> str:
     return "GOOD" if float(row["f1"]) >= 0.8 and float(row["leak_rate"]) <= 0.2 else "BAD"
 
 
+def parse_verdict(text: str) -> str:
+    """Read the model's one-word answer. "NOT GOOD" counts as BAD; anything unclear is BAD."""
+    words = re.findall(r"[A-Z]+", (text or "").upper())
+    if words[:2] == ["NOT", "GOOD"]:
+        return "BAD"
+    for w in words:
+        if w in ("GOOD", "BAD"):
+            return w
+    return "BAD"
+
+
 def mock_judge(gold: str, output: str) -> str:
     """Offline stand-in: a crude length-ratio rule. Exists so the pipeline can be
     tested without a key. Its kappa says nothing about real LLM judges."""
@@ -66,7 +78,7 @@ def groq_judge(gold: str, output: str) -> str:
             "max_tokens": 3, "messages": [{"role": "user", "content": PROMPT.format(gold=gold, output=output)}]}
     data = _post("https://api.groq.com/openai/v1/chat/completions",
                  {"Authorization": f"Bearer {os.environ['GROQ_API_KEY']}", "Content-Type": "application/json"}, body)
-    return "GOOD" if "GOOD" in data["choices"][0]["message"]["content"].upper() else "BAD"
+    return parse_verdict(data["choices"][0]["message"]["content"])
 
 
 def anthropic_judge(gold: str, output: str) -> str:
@@ -76,7 +88,7 @@ def anthropic_judge(gold: str, output: str) -> str:
                  {"x-api-key": os.environ["ANTHROPIC_API_KEY"], "anthropic-version": "2023-06-01",
                   "content-type": "application/json"}, body)
     text = "".join(b.get("text", "") for b in data.get("content", []))
-    return "GOOD" if "GOOD" in text.upper() else "BAD"
+    return parse_verdict(text)
 
 
 def pick_judge(mock: bool):
@@ -107,18 +119,29 @@ def run(n: int = 60, mock: bool = False, seed: int = 7, results_dir: Path = RESU
         rows = [r for r in csv.DictReader(f) if r["split"] == "test"]
     rng = random.Random(seed)
     sample = rng.sample(rows, min(n, len(rows)))
-    m_labels, j_labels, items = [], [], []
+    m_labels, j_labels, items, errors = [], [], [], []
     for r in sample:
         g = "\n".join(gold[r["doc_id"]]["main"])[:4000]
         o = outputs[(r["extractor"], r["doc_id"])][:4000]
-        jl = judge(g, o)
+        try:
+            jl = judge(g, o)
+        except Exception as e:  # noqa: BLE001 - one failed API call must not lose the whole run
+            errors.append({"extractor": r["extractor"], "doc_id": r["doc_id"],
+                           "error": f"{type(e).__name__}: {e}"[:200]})
+            continue
         ml = metric_label(r)
         m_labels.append(ml)
         j_labels.append(jl)
         items.append({"extractor": r["extractor"], "doc_id": r["doc_id"], "metric": ml, "judge": jl})
+    if not items:
+        res = {"skipped": True, "reason": "every judge call failed", "judge": name, "errors": errors}
+        out_path.write_text(json.dumps(res, indent=2))
+        return res
     agree = sum(a == b for a, b in zip(m_labels, j_labels)) / len(m_labels)
-    res = {"skipped": False, "judge": name, "n": len(items), "agreement": agree,
-           "cohen_kappa": stats.cohen_kappa(m_labels, j_labels), "items": items}
+    res = {"skipped": False, "judge": name, "n": len(items), "n_errors": len(errors), "agreement": agree,
+           "metric_good_rate": m_labels.count("GOOD") / len(m_labels),
+           "judge_good_rate": j_labels.count("GOOD") / len(j_labels),
+           "cohen_kappa": stats.cohen_kappa(m_labels, j_labels), "items": items, "errors": errors}
     out_path.write_text(json.dumps(res, indent=2))
     return res
 
