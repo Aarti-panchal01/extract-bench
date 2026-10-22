@@ -1,0 +1,1190 @@
+{
+  "skipped": false,
+  "judge": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "seed": 7,
+  "sampling": "20 per extractor",
+  "n_errors": 0,
+  "n": 140,
+  "agreement": 0.8928571428571429,
+  "metric_good_rate": 0.32142857142857145,
+  "judge_good_rate": 0.2714285714285714,
+  "cohen_kappa": 0.7439024390243903,
+  "cohen_kappa_ci95": [
+    0.6142691415313226,
+    0.8601398601398601
+  ],
+  "confusion": {
+    "metric_GOOD_judge_GOOD": 34,
+    "metric_GOOD_judge_BAD": 11,
+    "metric_BAD_judge_GOOD": 4,
+    "metric_BAD_judge_BAD": 91
+  },
+  "per_extractor": {
+    "bs4-naive": {
+      "n": 20,
+      "agree": 20,
+      "metric_good": 0,
+      "judge_good": 0
+    },
+    "html2text": {
+      "n": 20,
+      "agree": 20,
+      "metric_good": 0,
+      "judge_good": 0
+    },
+    "justext": {
+      "n": 20,
+      "agree": 16,
+      "metric_good": 6,
+      "judge_good": 2
+    },
+    "markdownify": {
+      "n": 20,
+      "agree": 20,
+      "metric_good": 0,
+      "judge_good": 0
+    },
+    "readability-lxml": {
+      "n": 20,
+      "agree": 15,
+      "metric_good": 14,
+      "judge_good": 15
+    },
+    "trafilatura": {
+      "n": 20,
+      "agree": 18,
+      "metric_good": 11,
+      "judge_good": 11
+    },
+    "trafilatura (best-config)": {
+      "n": 20,
+      "agree": 16,
+      "metric_good": 14,
+      "judge_good": 10
+    }
+  },
+  "items": [
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "nested_div-0",
+      "f1": 0.7273,
+      "leak_rate": 0.875,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "docs_code-1",
+      "f1": 0.9123,
+      "leak_rate": 0.875,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "news-2",
+      "f1": 0.7446,
+      "leak_rate": 0.9,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "blog_comments-5",
+      "f1": 0.8304,
+      "leak_rate": 0.9167,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "cookie_modal-0",
+      "f1": 0.7067,
+      "leak_rate": 0.9,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "product_spec-4",
+      "f1": 0.7257,
+      "leak_rate": 0.9,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "cookie_modal-2",
+      "f1": 0.7474,
+      "leak_rate": 0.9,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "nested_div-4",
+      "f1": 0.7829,
+      "leak_rate": 0.8889,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "recipe-0",
+      "f1": 0.7284,
+      "leak_rate": 0.875,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "non_english-2",
+      "f1": 0.7521,
+      "leak_rate": 0.8,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "listing-0",
+      "f1": 0.0796,
+      "leak_rate": 0.9615,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "product_spec-1",
+      "f1": 0.6473,
+      "leak_rate": 0.9,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "blog_comments-2",
+      "f1": 0.9059,
+      "leak_rate": 0.875,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "blog_comments-3",
+      "f1": 0.8185,
+      "leak_rate": 0.9091,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "forum-2",
+      "f1": 0.7681,
+      "leak_rate": 0.8571,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "recipe-1",
+      "f1": 0.7733,
+      "leak_rate": 0.8571,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "news-3",
+      "f1": 0.784,
+      "leak_rate": 0.9,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "cookie_modal-4",
+      "f1": 0.7388,
+      "leak_rate": 0.9091,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "product_spec-0",
+      "f1": 0.7601,
+      "leak_rate": 0.8889,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "bs4-naive",
+      "doc_id": "listing-1",
+      "f1": 0.0764,
+      "leak_rate": 0.963,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "news-5",
+      "f1": 0.8428,
+      "leak_rate": 0.9,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "blog_comments-5",
+      "f1": 0.8344,
+      "leak_rate": 0.9167,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "recipe-0",
+      "f1": 0.7305,
+      "leak_rate": 0.875,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "cookie_modal-4",
+      "f1": 0.7419,
+      "leak_rate": 0.9091,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "forum-3",
+      "f1": 0.5875,
+      "leak_rate": 0.875,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "recipe-2",
+      "f1": 0.7638,
+      "leak_rate": 0.875,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "news-2",
+      "f1": 0.76,
+      "leak_rate": 0.9,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "product_spec-4",
+      "f1": 0.7345,
+      "leak_rate": 0.9,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "product_spec-5",
+      "f1": 0.7785,
+      "leak_rate": 0.8889,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "blog_comments-2",
+      "f1": 0.9113,
+      "leak_rate": 0.875,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "listing-1",
+      "f1": 0.0853,
+      "leak_rate": 0.2222,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "recipe-3",
+      "f1": 0.819,
+      "leak_rate": 0.8333,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "cookie_modal-0",
+      "f1": 0.7105,
+      "leak_rate": 0.9,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "docs_code-1",
+      "f1": 0.9181,
+      "leak_rate": 0.875,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "forum-2",
+      "f1": 0.7877,
+      "leak_rate": 0.8571,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "non_english-1",
+      "f1": 0.7273,
+      "leak_rate": 0.8333,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "non_english-2",
+      "f1": 0.7879,
+      "leak_rate": 0.8,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "product_spec-0",
+      "f1": 0.7705,
+      "leak_rate": 0.8889,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "listing-4",
+      "f1": 0.1003,
+      "leak_rate": 0.2609,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "html2text",
+      "doc_id": "news-3",
+      "f1": 0.8,
+      "leak_rate": 0.9,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "product_spec-5",
+      "f1": 0.8514,
+      "leak_rate": 0.1111,
+      "metric": "GOOD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "docs_code-4",
+      "f1": 0.89,
+      "leak_rate": 0.125,
+      "metric": "GOOD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "cookie_modal-2",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "recipe-0",
+      "f1": 0.0,
+      "leak_rate": 0.0,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "forum-1",
+      "f1": 0.5732,
+      "leak_rate": 0.1429,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "nested_div-4",
+      "f1": 0.8458,
+      "leak_rate": 0.4444,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "recipe-1",
+      "f1": 0.0,
+      "leak_rate": 0.0,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "cookie_modal-0",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "blog_comments-5",
+      "f1": 0.9026,
+      "leak_rate": 0.5,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "listing-5",
+      "f1": 0.0,
+      "leak_rate": 0.0,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "product_spec-1",
+      "f1": 0.7422,
+      "leak_rate": 0.1,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "forum-4",
+      "f1": 0.0,
+      "leak_rate": 0.0,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "nested_div-1",
+      "f1": 0.8467,
+      "leak_rate": 0.4444,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "listing-1",
+      "f1": 0.0,
+      "leak_rate": 0.0,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "forum-2",
+      "f1": 0.0,
+      "leak_rate": 0.0,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "news-1",
+      "f1": 0.9347,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "docs_code-2",
+      "f1": 0.9012,
+      "leak_rate": 0.1429,
+      "metric": "GOOD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "forum-3",
+      "f1": 0.0,
+      "leak_rate": 0.0,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "listing-4",
+      "f1": 0.0,
+      "leak_rate": 0.0,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "justext",
+      "doc_id": "nested_div-2",
+      "f1": 0.7805,
+      "leak_rate": 0.5,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "nested_div-4",
+      "f1": 0.7829,
+      "leak_rate": 0.8889,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "listing-5",
+      "f1": 0.1,
+      "leak_rate": 0.2174,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "forum-4",
+      "f1": 0.6258,
+      "leak_rate": 0.9,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "docs_code-4",
+      "f1": 0.8876,
+      "leak_rate": 0.875,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "recipe-1",
+      "f1": 0.76,
+      "leak_rate": 0.8571,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "cookie_modal-1",
+      "f1": 0.6333,
+      "leak_rate": 0.9231,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "recipe-2",
+      "f1": 0.7525,
+      "leak_rate": 0.875,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "non_english-5",
+      "f1": 0.7661,
+      "leak_rate": 0.8,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "nested_div-1",
+      "f1": 0.7758,
+      "leak_rate": 0.8889,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "recipe-3",
+      "f1": 0.8047,
+      "leak_rate": 0.8333,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "forum-3",
+      "f1": 0.5651,
+      "leak_rate": 0.875,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "docs_code-1",
+      "f1": 0.9123,
+      "leak_rate": 0.875,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "product_spec-1",
+      "f1": 0.6473,
+      "leak_rate": 0.9,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "blog_comments-3",
+      "f1": 0.8146,
+      "leak_rate": 0.9091,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "blog_comments-5",
+      "f1": 0.8264,
+      "leak_rate": 0.9167,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "listing-0",
+      "f1": 0.0884,
+      "leak_rate": 0.1923,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "forum-2",
+      "f1": 0.7681,
+      "leak_rate": 0.8571,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "product_spec-4",
+      "f1": 0.7257,
+      "leak_rate": 0.9,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "docs_code-2",
+      "f1": 0.9174,
+      "leak_rate": 0.8571,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "markdownify",
+      "doc_id": "cookie_modal-0",
+      "f1": 0.708,
+      "leak_rate": 0.9,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "non_english-5",
+      "f1": 0.837,
+      "leak_rate": 0.6,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "news-3",
+      "f1": 0.9789,
+      "leak_rate": 0.1,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "blog_comments-3",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "cookie_modal-0",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "product_spec-5",
+      "f1": 0.9618,
+      "leak_rate": 0.1111,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "nested_div-0",
+      "f1": 0.7737,
+      "leak_rate": 0.625,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "nested_div-1",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "nested_div-2",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "recipe-3",
+      "f1": 0.8762,
+      "leak_rate": 0.5,
+      "metric": "BAD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "listing-4",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "news-2",
+      "f1": 0.975,
+      "leak_rate": 0.1,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "forum-3",
+      "f1": 0.8856,
+      "leak_rate": 0.125,
+      "metric": "GOOD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "recipe-1",
+      "f1": 0.875,
+      "leak_rate": 0.4286,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "recipe-2",
+      "f1": 0.9157,
+      "leak_rate": 0.25,
+      "metric": "BAD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "news-5",
+      "f1": 0.9841,
+      "leak_rate": 0.1,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "docs_code-0",
+      "f1": 0.9797,
+      "leak_rate": 0.1429,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "forum-4",
+      "f1": 0.8242,
+      "leak_rate": 0.3,
+      "metric": "BAD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "product_spec-0",
+      "f1": 0.9595,
+      "leak_rate": 0.1111,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "product_spec-1",
+      "f1": 0.9091,
+      "leak_rate": 0.2,
+      "metric": "GOOD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "readability-lxml",
+      "doc_id": "non_english-2",
+      "f1": 0.943,
+      "leak_rate": 0.2,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "blog_comments-5",
+      "f1": 0.8849,
+      "leak_rate": 0.6667,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "listing-5",
+      "f1": 0.2113,
+      "leak_rate": 0.0435,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "recipe-0",
+      "f1": 0.9494,
+      "leak_rate": 0.125,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "non_english-1",
+      "f1": 0.8556,
+      "leak_rate": 0.3333,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "listing-4",
+      "f1": 0.25,
+      "leak_rate": 0.0,
+      "metric": "BAD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "news-1",
+      "f1": 0.8322,
+      "leak_rate": 0.2222,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "nested_div-2",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "blog_comments-2",
+      "f1": 0.9426,
+      "leak_rate": 0.5,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "non_english-2",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "docs_code-4",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "cookie_modal-1",
+      "f1": 0.7372,
+      "leak_rate": 0.6154,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "recipe-2",
+      "f1": 0.959,
+      "leak_rate": 0.125,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "recipe-3",
+      "f1": 0.9079,
+      "leak_rate": 0.3333,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "forum-4",
+      "f1": 0.874,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "product_spec-0",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "cookie_modal-2",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "docs_code-1",
+      "f1": 0.983,
+      "leak_rate": 0.125,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "cookie_modal-0",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "cookie_modal-4",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura",
+      "doc_id": "forum-1",
+      "f1": 0.764,
+      "leak_rate": 0.1429,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "news-2",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "non_english-5",
+      "f1": 0.8716,
+      "leak_rate": 0.4,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "cookie_modal-1",
+      "f1": 0.7372,
+      "leak_rate": 0.6154,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "docs_code-2",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "non_english-1",
+      "f1": 0.8556,
+      "leak_rate": 0.3333,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "recipe-3",
+      "f1": 0.9079,
+      "leak_rate": 0.3333,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "listing-1",
+      "f1": 0.1875,
+      "leak_rate": 0.037,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "docs_code-0",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "news-5",
+      "f1": 0.9202,
+      "leak_rate": 0.2,
+      "metric": "GOOD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "recipe-2",
+      "f1": 0.959,
+      "leak_rate": 0.125,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "product_spec-1",
+      "f1": 0.8266,
+      "leak_rate": 0.1,
+      "metric": "GOOD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "product_spec-0",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "nested_div-2",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "forum-2",
+      "f1": 0.8507,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "docs_code-4",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "nested_div-1",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "forum-1",
+      "f1": 0.764,
+      "leak_rate": 0.1429,
+      "metric": "BAD",
+      "judge": "BAD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "cookie_modal-4",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "cookie_modal-0",
+      "f1": 1.0,
+      "leak_rate": 0.0,
+      "metric": "GOOD",
+      "judge": "GOOD"
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "doc_id": "blog_comments-3",
+      "f1": 0.9602,
+      "leak_rate": 0.1818,
+      "metric": "GOOD",
+      "judge": "BAD"
+    }
+  ],
+  "errors": []
+}

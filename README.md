@@ -44,6 +44,86 @@ Full generated tables: [results/RESULTS.md](results/RESULTS.md). Latency numbers
 
 ![Leak vs recall](charts/leak_vs_recall.png)
 
+## How it fits together
+
+```mermaid
+flowchart LR
+    G["build_corpus.py<br/>seeded generator"] -->|HTML| H["corpus/html/<br/>60 pages"]
+    G -->|"gold written at<br/>generation time"| GJ["corpus/gold.jsonl<br/>main text, boilerplate,<br/>tables, code, split"]
+    H --> A["adapters/<br/>6 tools, one contract<br/>extract(html) -> {title, text}"]
+    A --> T["run.py<br/>tune trafilatura on dev only,<br/>then freeze"]
+    T --> M["metrics.py<br/>P/R/F1, leak rate,<br/>tables, code, title"]
+    GJ --> M
+    M --> S["stats.py<br/>bootstrap CIs, paired and<br/>page-type cluster tests"]
+    M --> X["taxonomy.py<br/>14 failure labels"]
+    S --> R["results/ + charts/<br/>test split only"]
+    X --> R
+    R --> J["judge.py (optional)<br/>LLM GOOD/BAD vs metric rule"]
+    GJ --> J
+    J --> JR["judge_report.py<br/>kappa, judge vs judge"]
+```
+
+## Try it on one page
+
+`python -m extract_bench.demo blog_comments-2` runs every tool on one test page and prints the scores, the first lines of each output, and which planted boilerplate leaked. Recorded output (trimmed by `--lines 3`):
+
+```text
+page: blog_comments-2  type: blog_comments  lang: en  split: test
+gold title: Switching to a standing desk changed my mornings
+gold main text: 534 tokens, 8 boilerplate snippets planted
+
+extractor             F1     P     R  leak  labels
+trafilatura         0.94  0.89  1.00  0.50  comment_or_signature_leak
+readability-lxml    1.00  1.00  1.00  0.00  title_wrong
+justext             0.94  0.88  1.00  0.50  comment_or_signature_leak
+html2text           0.91  0.84  1.00  0.88  nav_or_footer_leak, comment_or_signature_leak
+bs4-naive           0.91  0.83  1.00  0.88  nav_or_footer_leak, comment_or_signature_leak, title_wrong
+markdownify         0.90  0.82  1.00  0.88  nav_or_footer_leak, comment_or_signature_leak
+
+--- trafilatura  (607 words, title: 'Switching to a standing desk changed my mornings')
+    Switching to a standing desk changed my mornings
+    Growing tomatoes on a balcony convinced me that cheap tools are often good enough even on the...
+    Training for a half marathon showed me quickly that the hardest part is starting and I wish I...
+    ... (11 more lines)
+    leaked: comment x4
+
+--- readability-lxml  (542 words, title: 'Switching to a standing desk changed my mornings | The Morning Ledger')
+    Switching to a standing desk changed my mornings
+    Growing tomatoes on a balcony convinced me that cheap tools are often good enough even on the...
+    Training for a half marathon showed me quickly that the hardest part is starting and I wish I...
+    ... (6 more lines)
+
+--- justext  (611 words, title: None)
+    Switching to a standing desk changed my mornings
+    Growing tomatoes on a balcony convinced me that cheap tools are often good enough even on the...
+    Training for a half marathon showed me quickly that the hardest part is starting and I wish I...
+    ... (15 more lines)
+    leaked: comment x4
+
+--- html2text  (655 words, title: None)
+    * [Home](/home)
+    * [Archive](/archive)
+    * [About](/about)
+    ... (26 more lines)
+    leaked: comment x4, footer x1, footer_links x1, nav x1
+
+--- bs4-naive  (650 words, title: 'Switching to a standing desk changed my mornings | The Morning Ledger')
+    Switching to a standing desk changed my mornings | The Morning Ledger
+    Home
+    Archive
+    ... (29 more lines)
+    leaked: comment x4, footer x1, footer_links x1, nav x1
+
+--- markdownify  (667 words, title: None)
+    Switching to a standing desk changed my mornings | The Morning Ledger
+    * [Home](/home)
+    * [Archive](/archive)
+    ... (29 more lines)
+    leaked: comment x4, footer x1, footer_links x1, nav x1
+```
+
+What this one page shows: F1 alone would call trafilatura and jusText fine (0.94), but both kept all four reader comments. That is why leak rate is reported next to F1. `--html your_page.html` runs the same tools on any file, without scores.
+
 ## How to run
 
 Python 3.11 or newer.
@@ -57,18 +137,41 @@ python -m extract_bench.build_corpus     # rebuild the 60 fixtures + gold (deter
 python -m extract_bench.run              # full run: results/ and charts/ (about 30 seconds)
 python -m extract_bench.run --quick      # fewer resamples, 1 timing repeat
 python -m extract_bench.side_checks      # jusText stoplists + readability short_title() (not ranked)
-python -m pytest -q                      # 70 tests (one runs the whole benchmark in --quick mode)
+python -m extract_bench.demo blog_comments-2   # one page, every tool, side by side
+python -m pytest -q                      # full suite (one test runs the whole benchmark in --quick mode)
 ```
+
+GitHub Actions (`.github/workflows/tests.yml`) runs on every push with Python 3.11 and 3.12: it rebuilds the corpus and fails if any fixture changes, runs the test suite, and runs the demo.
 
 Optional LLM judge (off by default, never part of the ranking):
 
 ```bash
-python -m extract_bench.judge            # writes results/judge.json with skipped: true if no key
 python -m extract_bench.judge --mock     # offline stand-in, only checks the pipeline
-GROQ_API_KEY=... python -m extract_bench.judge --n 60
+GROQ_API_KEY=... JUDGE_MODEL=openai/gpt-oss-120b python -m extract_bench.judge --per-extractor 20 --out-name judge_gpt-oss-120b.json
+python -m extract_bench.judge_report results/judge_gpt-oss-120b.json results/judge_qwen3.8-27b.json   # writes results/JUDGE.md
 ```
 
-The judge labels a sample of (extractor, page) outputs GOOD or BAD, and reports Cohen's kappa against the metric rule (F1 at least 0.8 and leak rate at most 0.2). It has not been run with a real model for the published results.
+Without a key the judge writes a file with `skipped: true` and stops.
+
+## Does the metric agree with an LLM judge?
+
+The token metric is my choice, so I checked it against two LLM judges. Each judge sees the gold main text and one tool's output and answers GOOD or BAD. The metric rule says GOOD when F1 is at least 0.8 and leak rate is at most 0.2. Sample: 20 test pages per extractor, 140 items, seed 7, the same items for both judges, Groq free tier, temperature 0, 0 failed calls.
+
+| Judge | Agreement with metric rule | Cohen's kappa [95% CI] | Share judged GOOD |
+|---|---|---|---|
+| qwen/qwen3.8-27b | 0.89 | 0.74 [0.61, 0.86] | 0.27 |
+| openai/gpt-oss-120b | 0.82 | 0.52 [0.36, 0.67] | 0.14 |
+| the two judges with each other | 0.84 | 0.53 [0.37, 0.69] | |
+
+The metric rule says GOOD on 0.32 of the items. Full tables: [results/JUDGE.md](results/JUDGE.md).
+
+What I take from it:
+
+- **Where they disagree, the metric is the lenient one.** The two judges agree with each other on 118 of 140 items. On 9 of those 118 the metric disagrees with both, and on all 9 the metric said GOOD and both judges said BAD. In 3 of the 9 the tool dropped 21 to 26% of the real text (recall 0.74 to 0.79) but had precision near 1.0, so F1 still cleared 0.8. In the other 6, recall was at least 0.86 but precision was 0.71 to 0.95: extra text got through, either text the leak rule does not track or tracked boilerplate that stayed under its 0.2 limit.
+- **No disagreement on the clear cases.** bs4, html2text and markdownify are BAD on all 60 of their items for the metric and for both judges.
+- **The choice of judge matters about as much as the metric.** gpt-oss-120b is much stricter than qwen3.8-27b, and the two judges agree with each other (kappa 0.53) less well than qwen agrees with the metric (0.74). One judge model is not ground truth.
+- **The judge is not fully stable.** I re-asked gpt-oss-120b 12 of its BAD-versus-metric-GOOD items with the same prompt at temperature 0. Every reply ended normally (no cut-off output read as BAD), but 2 of 12 came back GOOD this time ([results/judge_recheck_gpt-oss-120b.txt](results/judge_recheck_gpt-oss-120b.txt)).
+- **Post-hoc only:** a stricter rule (precision and recall both at least 0.9, leak at most 0.2) raises kappa to 0.89 with qwen and 0.59 with gpt-oss. I picked it after seeing these same items, so it is a lead for the next version, not a result.
 
 ## The corpus
 
@@ -109,7 +212,7 @@ All text is normalized first: markdown links and images become their visible tex
 - Percentile bootstrap CI of the mean, resampling pages, 10,000 resamples, fixed seed. Same seed gives the same interval.
 - Paired bootstrap on the per-page difference for two systems on the same pages. If the CI crosses 0 the verdict is "not significantly different".
 - Cluster (page-type) paired bootstrap: the same test, but each resample draws whole page types. The 4 test pages of a type come from one template, so the page-level interval is too narrow when one type drives a gap. Both are reported for the top two; the per-row CIs in the tables are page-level.
-- Cohen's kappa for the optional judge.
+- Cohen's kappa for the optional judge, with a percentile bootstrap CI over judged items.
 
 ## Fairness rules
 
@@ -131,7 +234,7 @@ All text is normalized first: markdown links and images become their visible tex
 - **Same author for pages and gold.** I decided what counts as content. The listing-page sensitivity check shows how much one decision can move the ranking.
 - **No JavaScript rendering.** Static HTML only.
 - **Small n, few templates.** 40 test pages, 4 per type, from 10 templates. Per-type cells are directions, not rankings, and the honest unit of variation is closer to 10 page types than 40 pages.
-- **Metric is not a human.** Bag-of-words F1 ignores order and formatting. The judge that would measure this gap is built but not yet run with a real model.
+- **Metric is not a human, and neither is the judge.** Bag-of-words F1 ignores order and formatting. Two LLM judges were run on 140 items (above), but no human labels exist, and the two judges disagree with each other about as often as with the metric.
 - **Uneven tuning.** Only trafilatura got a tuned row. The side check shows jusText recovers on German and French with the right stoplist, but not on Italian or Hindi.
 - **One machine** for latency. Latency also moves a little on every rerun; every other number is identical run to run.
 
@@ -149,11 +252,15 @@ extract_bench/
   charts.py         matplotlib charts
   judge.py          optional LLM judge
   side_checks.py    off-protocol checks, not ranked
+  judge_report.py   judge vs metric vs judge, writes results/JUDGE.md
+  demo.py           one page, every tool, side by side
 corpus/             60 HTML fixtures + gold.jsonl
-results/            summary.json, paired.json, taxonomy.json, excerpts.json, per_doc.csv, outputs.jsonl, RESULTS.md
+results/            summary.json, paired.json, taxonomy.json, excerpts.json, per_doc.csv, outputs.jsonl, RESULTS.md,
+                    judge_*.json + JUDGE.md (LLM judge runs)
 charts/             f1_ci.png, f1_by_page_type.png, leak_vs_recall.png, latency.png
 tests/              pytest suite
 POST.md             plain-words write-up
+.github/workflows/  CI: rebuild corpus and check it matches, run tests, run the demo
 ```
 
 Adding a tool means adding one adapter module and one line in `extract_bench/adapters/__init__.py`.

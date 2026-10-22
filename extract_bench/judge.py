@@ -4,11 +4,12 @@ with a model's opinion. It is never part of the main ranking.
     python -m extract_bench.judge                 # skipped unless a key is set
     python -m extract_bench.judge --mock          # offline stand-in judge (pipeline check only)
     GROQ_API_KEY=... python -m extract_bench.judge --n 60
+    GROQ_API_KEY=... JUDGE_MODEL=qwen/qwen3.8-27b python -m extract_bench.judge --per-extractor 20 --out-name judge_qwen3.8-27b.json
     ANTHROPIC_API_KEY=... python -m extract_bench.judge --n 60
 
 The metric label for a page is GOOD when F1 >= 0.8 and leak rate <= 0.2.
 The judge sees the gold content and the extractor output and answers GOOD or
-BAD. Agreement is reported as Cohen's kappa. Results go to results/judge.json.
+BAD. Agreement is reported as Cohen's kappa. Results go to results/judge.json unless --out-name is given.
 Model names can be changed with JUDGE_MODEL.
 """
 

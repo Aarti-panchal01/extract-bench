@@ -53,7 +53,7 @@ Other patterns from the failure taxonomy:
 - **Same author for pages and gold.** I decided what counts as content. The listing result shows how far one such decision moves a ranking.
 - **No JavaScript rendering.** Static HTML only. Pages built in the browser are out of scope.
 - **Small n, wide intervals.** 40 test pages, 4 per type, built from 10 templates. The per-type heatmap shows direction, not a ranking.
-- **Metric is not a human.** Bag-of-words F1 ignores order and formatting. An optional LLM judge is built but not yet run with a real model, so that gap is unmeasured.
+- **Metric is not a human.** Bag-of-words F1 ignores order and formatting. I checked it against two LLM judges on 140 outputs. Kappa was 0.74 with one and 0.52 with the other, and the two judges agreed with each other at only 0.53. Where both judges disagreed with the metric (9 cases), the metric was the lenient one every time. No human labels yet.
 - **Tuning was uneven.** Only trafilatura got a tuned row. In a side check outside the ranking, jusText with the matching stoplist recovered the German and French pages (F1 1.00 and 0.89), but still returned nothing on Italian and Hindi.
 - **Latency is one laptop.** Medians were 1 to 12 ms per page. Use them for order only.
 

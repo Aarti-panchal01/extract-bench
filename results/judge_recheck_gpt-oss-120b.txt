@@ -1,0 +1,14 @@
+# Re-ask of 12 items where gpt-oss-120b said BAD and the metric rule said GOOD (Oct 23, same prompt, temperature 0, full text)
+# columns: extractor doc_id finish_reason reply completion_tokens
+justext product_spec-5 stop 'BAD' 34
+justext cookie_modal-2 stop 'BAD' 41
+justext cookie_modal-0 stop 'BAD' 86
+justext news-1 stop 'BAD' 98
+justext docs_code-2 stop 'BAD' 39
+readability-lxml cookie_modal-0 stop 'BAD' 60
+readability-lxml product_spec-5 stop 'BAD' 45
+readability-lxml news-2 stop 'BAD' 62
+readability-lxml forum-3 stop 'BAD' 60
+readability-lxml news-5 stop 'GOOD' 38
+readability-lxml docs_code-0 stop 'GOOD' 64
+readability-lxml product_spec-0 stop 'BAD' 32

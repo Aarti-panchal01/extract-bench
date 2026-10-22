@@ -1,4 +1,0 @@
-{
-  "skipped": true,
-  "reason": "no GROQ_API_KEY or ANTHROPIC_API_KEY set; run with --mock for an offline pipeline check"
-}
