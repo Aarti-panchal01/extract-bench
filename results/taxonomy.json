@@ -1,0 +1,154 @@
+{
+  "test_counts": {
+    "trafilatura": {
+      "nav_or_footer_leak": 15,
+      "related_or_teaser_leak": 8,
+      "comment_or_signature_leak": 4,
+      "low_recall": 2,
+      "over_extraction": 7,
+      "commerce_or_listing_leak": 4,
+      "consent_or_modal_leak": 3
+    },
+    "readability-lxml": {
+      "related_or_teaser_leak": 17,
+      "title_wrong": 40,
+      "commerce_or_listing_leak": 8,
+      "nav_or_footer_leak": 10,
+      "comment_or_signature_leak": 4,
+      "over_extraction": 5,
+      "consent_or_modal_leak": 3
+    },
+    "justext": {
+      "comment_or_signature_leak": 4,
+      "related_or_teaser_leak": 9,
+      "code_lost": 4,
+      "commerce_or_listing_leak": 4,
+      "table_lost": 5,
+      "low_recall": 2,
+      "empty_output": 15,
+      "over_extraction": 2
+    },
+    "html2text": {
+      "over_extraction": 33,
+      "nav_or_footer_leak": 40,
+      "related_or_teaser_leak": 27,
+      "script_or_noscript_leak": 16,
+      "comment_or_signature_leak": 10,
+      "commerce_or_listing_leak": 8,
+      "consent_or_modal_leak": 8
+    },
+    "bs4-naive": {
+      "over_extraction": 33,
+      "nav_or_footer_leak": 40,
+      "related_or_teaser_leak": 27,
+      "script_or_noscript_leak": 16,
+      "title_wrong": 40,
+      "comment_or_signature_leak": 10,
+      "commerce_or_listing_leak": 12,
+      "consent_or_modal_leak": 8
+    },
+    "markdownify": {
+      "over_extraction": 33,
+      "nav_or_footer_leak": 40,
+      "related_or_teaser_leak": 27,
+      "script_or_noscript_leak": 16,
+      "comment_or_signature_leak": 10,
+      "commerce_or_listing_leak": 8,
+      "consent_or_modal_leak": 8
+    },
+    "trafilatura (best-config)": {
+      "nav_or_footer_leak": 15,
+      "related_or_teaser_leak": 8,
+      "low_recall": 2,
+      "over_extraction": 7,
+      "commerce_or_listing_leak": 4,
+      "consent_or_modal_leak": 3
+    }
+  },
+  "by_page_type_f1": {
+    "readability-lxml": {
+      "news": 0.9742093097864937,
+      "blog_comments": 1.0,
+      "docs_code": 0.9776764084576464,
+      "product_spec": 0.9469132941352474,
+      "forum": 0.8652277134545822,
+      "recipe": 0.8909779875805743,
+      "listing": 0.8809523809523809,
+      "cookie_modal": 0.9271186440677965,
+      "nested_div": 0.9021495740604737,
+      "non_english": 0.8862268864542919
+    },
+    "trafilatura (best-config)": {
+      "news": 0.9130186606640446,
+      "blog_comments": 0.9809077368100626,
+      "docs_code": 0.9957434733257662,
+      "product_spec": 0.9289738528777017,
+      "forum": 0.7997973685424099,
+      "recipe": 0.930265880073516,
+      "listing": 0.2148234803558191,
+      "cookie_modal": 0.9343033509700176,
+      "nested_div": 0.771689497716895,
+      "non_english": 0.9317936515723887
+    },
+    "trafilatura": {
+      "news": 0.9130186606640446,
+      "blog_comments": 0.8941668172025845,
+      "docs_code": 0.9957434733257662,
+      "product_spec": 0.9289738528777017,
+      "forum": 0.7997973685424099,
+      "recipe": 0.930265880073516,
+      "listing": 0.2148234803558191,
+      "cookie_modal": 0.9343033509700176,
+      "nested_div": 0.771689497716895,
+      "non_english": 0.9317936515723887
+    },
+    "html2text": {
+      "news": 0.7748746663065519,
+      "blog_comments": 0.844290645682999,
+      "docs_code": 0.9162017288995051,
+      "product_spec": 0.7352821760931876,
+      "forum": 0.6804293352605825,
+      "recipe": 0.7716512323773531,
+      "listing": 0.09407452765057578,
+      "cookie_modal": 0.7101186313045641,
+      "nested_div": 0.7714258964289575,
+      "non_english": 0.7614330114330115
+    },
+    "bs4-naive": {
+      "news": 0.7596059013156351,
+      "blog_comments": 0.8388808108039227,
+      "docs_code": 0.9107242176355332,
+      "product_spec": 0.7254173325325504,
+      "forum": 0.6598129608373614,
+      "recipe": 0.7709812858234624,
+      "listing": 0.08412765759549051,
+      "cookie_modal": 0.7063092926064664,
+      "nested_div": 0.751423983952078,
+      "non_english": 0.7257088793788905
+    },
+    "markdownify": {
+      "news": 0.7596059013156351,
+      "blog_comments": 0.8346739447314369,
+      "docs_code": 0.9107242176355332,
+      "product_spec": 0.7254173325325504,
+      "forum": 0.6598129608373614,
+      "recipe": 0.7586967573450879,
+      "listing": 0.09297542879092235,
+      "cookie_modal": 0.7074010058371737,
+      "nested_div": 0.751423983952078,
+      "non_english": 0.7257088793788905
+    },
+    "justext": {
+      "news": 0.9648730426161926,
+      "blog_comments": 0.8989536195267852,
+      "docs_code": 0.9033663389995741,
+      "product_spec": 0.8166294145646825,
+      "forum": 0.14331210191082802,
+      "recipe": 0.0,
+      "listing": 0.0,
+      "cookie_modal": 1.0,
+      "nested_div": 0.8154411994194181,
+      "non_english": 0.0
+    }
+  }
+}

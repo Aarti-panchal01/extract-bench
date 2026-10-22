@@ -1,0 +1,322 @@
+[
+  {
+    "label": "consent_or_modal_leak",
+    "extractor": "trafilatura",
+    "doc_id": "cookie_modal-1",
+    "f1": 0.737,
+    "precision": 0.584,
+    "recall": 1.0,
+    "leaked_snippets": [
+      "We use cookies and similar technologies to personalise content, measure advertising and improve your experience on our site.",
+      "By clicking Accept all you consent to the storage of cookies on your device to enhance site navigation and analyse usage.",
+      "Our partners may combine this information with other data you have provided to them or that they have collected from your use of their services."
+    ],
+    "output_head": "We use cookies and similar technologies to personalise content, measure advertising and improve your experience on our site.\nBy clicking Accept all you consent to the storage of cookies on your device to enhance site navigation and analyse usage.\nOur partners may combine this information with other data you have provided to them or that they have collected from your use of their services.\nGet our ",
+    "gold_head": "Hospital administrators voted on Tuesday to plant twelve thousand street trees after months of public hearings. Teachers at the district's largest school warned that delays could force them to reopen the central library despite concerns about the budget. The national weather service secured new fund"
+  },
+  {
+    "label": "consent_or_modal_leak",
+    "extractor": "readability-lxml",
+    "doc_id": "cookie_modal-1",
+    "f1": 0.708,
+    "precision": 0.549,
+    "recall": 1.0,
+    "leaked_snippets": [
+      "We use cookies and similar technologies to personalise content, measure advertising and improve your experience on our site.",
+      "By clicking Accept all you consent to the storage of cookies on your device to enhance site navigation and analyse usage.",
+      "Our partners may combine this information with other data you have provided to them or that they have collected from your use of their services."
+    ],
+    "output_head": "We use cookies and similar technologies to personalise content, measure advertising and improve your experience on our site.\n\nBy clicking Accept all you consent to the storage of cookies on your device to enhance site navigation and analyse usage.\n\nOur partners may combine this information with other data you have provided to them or that they have collected from your use of their services.\nAccept",
+    "gold_head": "Hospital administrators voted on Tuesday to plant twelve thousand street trees after months of public hearings. Teachers at the district's largest school warned that delays could force them to reopen the central library despite concerns about the budget. The national weather service secured new fund"
+  },
+  {
+    "label": "consent_or_modal_leak",
+    "extractor": "html2text",
+    "doc_id": "cookie_modal-0",
+    "f1": 0.71,
+    "precision": 0.551,
+    "recall": 1.0,
+    "leaked_snippets": [
+      "We use cookies and similar technologies to personalise content, measure advertising and improve your experience on our site.",
+      "By clicking Accept all you consent to the storage of cookies on your device to enhance site navigation and analyse usage.",
+      "Our partners may combine this information with other data you have provided to them or that they have collected from your use of their services."
+    ],
+    "output_head": "We use cookies and similar technologies to personalise content, measure advertising and improve your experience on our site.\n\nBy clicking Accept all you consent to the storage of cookies on your device to enhance site navigation and analyse usage.\n\nOur partners may combine this information with other data you have provided to them or that they have collected from your use of their services.\n\nAccep",
+    "gold_head": "Regional transport officials began a formal review to repair the coastal highway before the winter storms arrive. The national weather service secured new funding to plant twelve thousand street trees after months of public hearings. A coalition of local farmers began a formal review to build a seco"
+  },
+  {
+    "label": "consent_or_modal_leak",
+    "extractor": "markdownify",
+    "doc_id": "cookie_modal-0",
+    "f1": 0.708,
+    "precision": 0.548,
+    "recall": 1.0,
+    "leaked_snippets": [
+      "We use cookies and similar technologies to personalise content, measure advertising and improve your experience on our site.",
+      "By clicking Accept all you consent to the storage of cookies on your device to enhance site navigation and analyse usage.",
+      "Our partners may combine this information with other data you have provided to them or that they have collected from your use of their services."
+    ],
+    "output_head": "The state water board secured new funding to expand the northern rail line | Northwind Journal\n\nWe use cookies and similar technologies to personalise content, measure advertising and improve your experience on our site.\n\nBy clicking Accept all you consent to the storage of cookies on your device to enhance site navigation and analyse usage.\n\nOur partners may combine this information with other da",
+    "gold_head": "Regional transport officials began a formal review to repair the coastal highway before the winter storms arrive. The national weather service secured new funding to plant twelve thousand street trees after months of public hearings. A coalition of local farmers began a formal review to build a seco"
+  },
+  {
+    "label": "consent_or_modal_leak",
+    "extractor": "trafilatura (best-config)",
+    "doc_id": "cookie_modal-1",
+    "f1": 0.737,
+    "precision": 0.584,
+    "recall": 1.0,
+    "leaked_snippets": [
+      "We use cookies and similar technologies to personalise content, measure advertising and improve your experience on our site.",
+      "By clicking Accept all you consent to the storage of cookies on your device to enhance site navigation and analyse usage.",
+      "Our partners may combine this information with other data you have provided to them or that they have collected from your use of their services."
+    ],
+    "output_head": "We use cookies and similar technologies to personalise content, measure advertising and improve your experience on our site.\nBy clicking Accept all you consent to the storage of cookies on your device to enhance site navigation and analyse usage.\nOur partners may combine this information with other data you have provided to them or that they have collected from your use of their services.\nGet our ",
+    "gold_head": "Hospital administrators voted on Tuesday to plant twelve thousand street trees after months of public hearings. Teachers at the district's largest school warned that delays could force them to reopen the central library despite concerns about the budget. The national weather service secured new fund"
+  },
+  {
+    "label": "related_or_teaser_leak",
+    "extractor": "trafilatura",
+    "doc_id": "news-1",
+    "f1": 0.832,
+    "precision": 0.713,
+    "recall": 1.0,
+    "leaked_snippets": [
+      "Inside the volunteer crew that restores old pianos for schools The national weather service approved a plan to expand the northern rail line while critics called the timeline unrealistic."
+    ],
+    "output_head": "The national weather service voted on Tuesday to open three new clinics as ridership climbed for a third straight year. The national weather service are asking residents to help open three new clinics with money from a federal grant.\nUniversity researchers announced that they will open three new clinics despite concerns about the budget. University researchers postponed a decision to expand the no",
+    "gold_head": "The national weather service voted on Tuesday to open three new clinics as ridership climbed for a third straight year. The national weather service are asking residents to help open three new clinics with money from a federal grant. University researchers announced that they will open three new cli"
+  },
+  {
+    "label": "related_or_teaser_leak",
+    "extractor": "readability-lxml",
+    "doc_id": "news-1",
+    "f1": 0.959,
+    "precision": 0.921,
+    "recall": 1.0,
+    "leaked_snippets": [
+      "Share this story on Facebook, X, LinkedIn or by email with a friend."
+    ],
+    "output_head": "The port authority began a formal review to plant twelve thousand street trees\n\nMarch 11, 2026\n\nThe national weather service voted on Tuesday to open three new clinics as ridership climbed for a third straight year. The national weather service are asking residents to help open three new clinics with money from a federal grant.\n\nUniversity researchers announced that they will open three new clinic",
+    "gold_head": "The national weather service voted on Tuesday to open three new clinics as ridership climbed for a third straight year. The national weather service are asking residents to help open three new clinics with money from a federal grant. University researchers announced that they will open three new cli"
+  },
+  {
+    "label": "related_or_teaser_leak",
+    "extractor": "html2text",
+    "doc_id": "news-1",
+    "f1": 0.697,
+    "precision": 0.534,
+    "recall": 1.0,
+    "leaked_snippets": [
+      "How one baker turned a garage into the busiest cafe in town Regional transport officials warned that delays could force them to rebuild the flooded river walkway as ridership climbed for a third straight year.",
+      "Inside the volunteer crew that restores old pianos for schools The national weather service approved a plan to expand the northern rail line while critics called the timeline unrealistic.",
+      "How one baker turned a garage into the busiest cafe in town Teachers at the district's largest school warned that delays could force them to replace aging school buses before the winter storms arrive."
+    ],
+    "output_head": "  * [Home](/home)\n  * [World](/world)\n  * [Business](/business)\n  * [Technology](/technology)\n  * [Science](/science)\n  * [Sports](/sports)\n  * [Opinion](/opinion)\n\n\n\nPlease enable JavaScript in your browser settings to load comments, maps and interactive charts on this page.\n\n# The port authority began a formal review to plant twelve thousand street trees\n\nMarch 11, 2026\n\nThe national weather ser",
+    "gold_head": "The national weather service voted on Tuesday to open three new clinics as ridership climbed for a third straight year. The national weather service are asking residents to help open three new clinics with money from a federal grant. University researchers announced that they will open three new cli"
+  },
+  {
+    "label": "related_or_teaser_leak",
+    "extractor": "markdownify",
+    "doc_id": "news-1",
+    "f1": 0.678,
+    "precision": 0.512,
+    "recall": 1.0,
+    "leaked_snippets": [
+      "How one baker turned a garage into the busiest cafe in town Regional transport officials warned that delays could force them to rebuild the flooded river walkway as ridership climbed for a third straight year.",
+      "Inside the volunteer crew that restores old pianos for schools The national weather service approved a plan to expand the northern rail line while critics called the timeline unrealistic.",
+      "How one baker turned a garage into the busiest cafe in town Teachers at the district's largest school warned that delays could force them to replace aging school buses before the winter storms arrive."
+    ],
+    "output_head": "The port authority began a formal review to plant twelve thousand street trees | Northwind Journal\n\n* [Home](/home)\n* [World](/world)\n* [Business](/business)\n* [Technology](/technology)\n* [Science](/science)\n* [Sports](/sports)\n* [Opinion](/opinion)\n\nPlease enable JavaScript in your browser settings to load comments, maps and interactive charts on this page.\n\nThe port authority began a formal revi",
+    "gold_head": "The national weather service voted on Tuesday to open three new clinics as ridership climbed for a third straight year. The national weather service are asking residents to help open three new clinics with money from a federal grant. University researchers announced that they will open three new cli"
+  },
+  {
+    "label": "related_or_teaser_leak",
+    "extractor": "trafilatura (best-config)",
+    "doc_id": "news-1",
+    "f1": 0.832,
+    "precision": 0.713,
+    "recall": 1.0,
+    "leaked_snippets": [
+      "Inside the volunteer crew that restores old pianos for schools The national weather service approved a plan to expand the northern rail line while critics called the timeline unrealistic."
+    ],
+    "output_head": "The national weather service voted on Tuesday to open three new clinics as ridership climbed for a third straight year. The national weather service are asking residents to help open three new clinics with money from a federal grant.\nUniversity researchers announced that they will open three new clinics despite concerns about the budget. University researchers postponed a decision to expand the no",
+    "gold_head": "The national weather service voted on Tuesday to open three new clinics as ridership climbed for a third straight year. The national weather service are asking residents to help open three new clinics with money from a federal grant. University researchers announced that they will open three new cli"
+  },
+  {
+    "label": "comment_or_signature_leak",
+    "extractor": "trafilatura",
+    "doc_id": "blog_comments-0",
+    "f1": 0.87,
+    "precision": 0.77,
+    "recall": 1.0,
+    "leaked_snippets": [
+      "Totally disagree with the third point, but the rest is spot on in my experience.",
+      "Does anyone know whether this works for people living in very small flats with no balcony?",
+      "I tried this last year and gave up after a month, maybe I will give it another shot."
+    ],
+    "output_head": "Keeping a paper journal changed my mornings\nReading one book a week reminded me that progress is rarely a straight line and the numbers backed it up. Keeping a paper journal reminded me that the hardest part is starting which surprised me more than anything.\nGrowing tomatoes on a balcony showed me quickly that cheap tools are often good enough although my neighbors still think I am strange. Growin",
+    "gold_head": "Reading one book a week reminded me that progress is rarely a straight line and the numbers backed it up. Keeping a paper journal reminded me that the hardest part is starting which surprised me more than anything. Growing tomatoes on a balcony showed me quickly that cheap tools are often good enoug"
+  },
+  {
+    "label": "comment_or_signature_leak",
+    "extractor": "justext",
+    "doc_id": "blog_comments-0",
+    "f1": 0.856,
+    "precision": 0.748,
+    "recall": 1.0,
+    "leaked_snippets": [
+      "Totally disagree with the third point, but the rest is spot on in my experience.",
+      "Does anyone know whether this works for people living in very small flats with no balcony?",
+      "I tried this last year and gave up after a month, maybe I will give it another shot."
+    ],
+    "output_head": "Keeping a paper journal changed my mornings\nReading one book a week reminded me that progress is rarely a straight line and the numbers backed it up. Keeping a paper journal reminded me that the hardest part is starting which surprised me more than anything.\nGrowing tomatoes on a balcony showed me quickly that cheap tools are often good enough although my neighbors still think I am strange. Growin",
+    "gold_head": "Reading one book a week reminded me that progress is rarely a straight line and the numbers backed it up. Keeping a paper journal reminded me that the hardest part is starting which surprised me more than anything. Growing tomatoes on a balcony showed me quickly that cheap tools are often good enoug"
+  },
+  {
+    "label": "comment_or_signature_leak",
+    "extractor": "html2text",
+    "doc_id": "blog_comments-0",
+    "f1": 0.808,
+    "precision": 0.678,
+    "recall": 1.0,
+    "leaked_snippets": [
+      "Totally disagree with the third point, but the rest is spot on in my experience.",
+      "Does anyone know whether this works for people living in very small flats with no balcony?",
+      "I tried this last year and gave up after a month, maybe I will give it another shot."
+    ],
+    "output_head": "  * [Home](/home)\n  * [Archive](/archive)\n  * [About](/about)\n  * [Newsletter](/newsletter)\n  * [Contact](/contact)\n\n\n\n# Keeping a paper journal changed my mornings\n\nReading one book a week reminded [me that](/topics/me) progress is rarely a straight line and the numbers backed it up. Keeping a paper journal reminded me that the hardest part is starting which surprised me more than anything.\n\nGrow",
+    "gold_head": "Reading one book a week reminded me that progress is rarely a straight line and the numbers backed it up. Keeping a paper journal reminded me that the hardest part is starting which surprised me more than anything. Growing tomatoes on a balcony showed me quickly that cheap tools are often good enoug"
+  },
+  {
+    "label": "comment_or_signature_leak",
+    "extractor": "markdownify",
+    "doc_id": "blog_comments-0",
+    "f1": 0.795,
+    "precision": 0.66,
+    "recall": 1.0,
+    "leaked_snippets": [
+      "Totally disagree with the third point, but the rest is spot on in my experience.",
+      "Does anyone know whether this works for people living in very small flats with no balcony?",
+      "I tried this last year and gave up after a month, maybe I will give it another shot."
+    ],
+    "output_head": "Keeping a paper journal changed my mornings | Northwind Journal\n\n* [Home](/home)\n* [Archive](/archive)\n* [About](/about)\n* [Newsletter](/newsletter)\n* [Contact](/contact)\n\nKeeping a paper journal changed my mornings\n===========================================\n\nReading one book a week reminded [me that](/topics/me) progress is rarely a straight line and the numbers backed it up. Keeping a paper jou",
+    "gold_head": "Reading one book a week reminded me that progress is rarely a straight line and the numbers backed it up. Keeping a paper journal reminded me that the hardest part is starting which surprised me more than anything. Growing tomatoes on a balcony showed me quickly that cheap tools are often good enoug"
+  },
+  {
+    "label": "empty_output",
+    "extractor": "justext",
+    "doc_id": "recipe-0",
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "leaked_snippets": [],
+    "output_head": "",
+    "gold_head": "This is the recipe I make when friends come over on short notice. The whole thing comes together in one pot with very little washing up. The trick is to cook the aromatics slowly so they turn sweet. Ingredients 200 grams fresh spinach 2 ripe bananas, mashed 400 grams canned tomatoes 100 grams unsalt"
+  },
+  {
+    "label": "over_extraction",
+    "extractor": "trafilatura",
+    "doc_id": "listing-0",
+    "f1": 0.211,
+    "precision": 0.118,
+    "recall": 1.0,
+    "leaked_snippets": [],
+    "output_head": "Winter jackets\nShowing 20 results in winter jackets. Prices include tax and every order ships with free returns.\n- Velo Ultralight winter jacketUSD 132.50\n- Brightline Compact winter jacketUSD 81.50\n- Lumen Ultralight winter jacketUSD 151.50\n- Kestrel Studio winter jacketUSD 172.50\n- Brightline Trail winter jacketUSD 31.50\n- Velo Everyday winter jacketUSD 94.00\n- Kestrel Trail winter jacketUSD 236",
+    "gold_head": "Showing 20 results in winter jackets. Prices include tax and every order ships with free returns."
+  },
+  {
+    "label": "over_extraction",
+    "extractor": "readability-lxml",
+    "doc_id": "listing-1",
+    "f1": 0.762,
+    "precision": 0.615,
+    "recall": 1.0,
+    "leaked_snippets": [],
+    "output_head": "Running shoes\n\nShowing 20 results in running shoes. Prices include tax and every order ships with free returns.\n\nCopyright 2026 Northwind Journal Media Group, all rights reserved worldwide.",
+    "gold_head": "Showing 20 results in running shoes. Prices include tax and every order ships with free returns."
+  },
+  {
+    "label": "over_extraction",
+    "extractor": "html2text",
+    "doc_id": "listing-0",
+    "f1": 0.089,
+    "precision": 0.047,
+    "recall": 1.0,
+    "leaked_snippets": [],
+    "output_head": "  * [Shop](/shop)\n  * [Deals](/deals)\n  * [New arrivals](/new-arrivals)\n  * [Support](/support)\n  * [Account](/account)\n\n\n\n  * Filter by brand\n  * Price range\n  * Colour\n  * Size\n  * Customer rating\n\n\n\n# Winter jackets\n\nShowing 20 results in winter jackets. Prices include tax and every order ships with free returns.\n\n  * [Velo Ultralight winter jacket](/p/802424)USD 132.504.0 out of 5 stars from 6",
+    "gold_head": "Showing 20 results in winter jackets. Prices include tax and every order ships with free returns."
+  },
+  {
+    "label": "over_extraction",
+    "extractor": "markdownify",
+    "doc_id": "listing-0",
+    "f1": 0.088,
+    "precision": 0.046,
+    "recall": 1.0,
+    "leaked_snippets": [],
+    "output_head": "Winter jackets | Harbor Daily\n\n* [Shop](/shop)\n* [Deals](/deals)\n* [New arrivals](/new-arrivals)\n* [Support](/support)\n* [Account](/account)\n\n* [Filter by brand](#filter-by-brand)\n* [Price range](#price-range)\n* [Colour](#colour)\n* [Size](#size)\n* [Customer rating](#customer-rating)\n\nWinter jackets\n==============\n\nShowing 20 results in winter jackets. Prices include tax and every order ships with ",
+    "gold_head": "Showing 20 results in winter jackets. Prices include tax and every order ships with free returns."
+  },
+  {
+    "label": "over_extraction",
+    "extractor": "trafilatura (best-config)",
+    "doc_id": "listing-0",
+    "f1": 0.211,
+    "precision": 0.118,
+    "recall": 1.0,
+    "leaked_snippets": [],
+    "output_head": "Winter jackets\nShowing 20 results in winter jackets. Prices include tax and every order ships with free returns.\n- Velo Ultralight winter jacketUSD 132.50\n- Brightline Compact winter jacketUSD 81.50\n- Lumen Ultralight winter jacketUSD 151.50\n- Kestrel Studio winter jacketUSD 172.50\n- Brightline Trail winter jacketUSD 31.50\n- Velo Everyday winter jacketUSD 94.00\n- Kestrel Trail winter jacketUSD 236",
+    "gold_head": "Showing 20 results in winter jackets. Prices include tax and every order ships with free returns."
+  },
+  {
+    "label": "script_or_noscript_leak",
+    "extractor": "html2text",
+    "doc_id": "news-1",
+    "f1": 0.697,
+    "precision": 0.534,
+    "recall": 1.0,
+    "leaked_snippets": [
+      "Please enable JavaScript in your browser settings to load comments, maps and interactive charts on this page."
+    ],
+    "output_head": "  * [Home](/home)\n  * [World](/world)\n  * [Business](/business)\n  * [Technology](/technology)\n  * [Science](/science)\n  * [Sports](/sports)\n  * [Opinion](/opinion)\n\n\n\nPlease enable JavaScript in your browser settings to load comments, maps and interactive charts on this page.\n\n# The port authority began a formal review to plant twelve thousand street trees\n\nMarch 11, 2026\n\nThe national weather ser",
+    "gold_head": "The national weather service voted on Tuesday to open three new clinics as ridership climbed for a third straight year. The national weather service are asking residents to help open three new clinics with money from a federal grant. University researchers announced that they will open three new cli"
+  },
+  {
+    "label": "script_or_noscript_leak",
+    "extractor": "bs4-naive",
+    "doc_id": "news-1",
+    "f1": 0.678,
+    "precision": 0.512,
+    "recall": 1.0,
+    "leaked_snippets": [
+      "Please enable JavaScript in your browser settings to load comments, maps and interactive charts on this page."
+    ],
+    "output_head": "The port authority began a formal review to plant twelve thousand street trees | Northwind Journal\nHome\nWorld\nBusiness\nTechnology\nScience\nSports\nOpinion\nPlease enable JavaScript in your browser settings to load comments, maps and interactive charts on this page.\nThe port authority began a formal review to plant twelve thousand street trees\nMarch 11, 2026\nThe national weather service voted on Tuesd",
+    "gold_head": "The national weather service voted on Tuesday to open three new clinics as ridership climbed for a third straight year. The national weather service are asking residents to help open three new clinics with money from a federal grant. University researchers announced that they will open three new cli"
+  },
+  {
+    "label": "script_or_noscript_leak",
+    "extractor": "markdownify",
+    "doc_id": "news-1",
+    "f1": 0.678,
+    "precision": 0.512,
+    "recall": 1.0,
+    "leaked_snippets": [
+      "Please enable JavaScript in your browser settings to load comments, maps and interactive charts on this page."
+    ],
+    "output_head": "The port authority began a formal review to plant twelve thousand street trees | Northwind Journal\n\n* [Home](/home)\n* [World](/world)\n* [Business](/business)\n* [Technology](/technology)\n* [Science](/science)\n* [Sports](/sports)\n* [Opinion](/opinion)\n\nPlease enable JavaScript in your browser settings to load comments, maps and interactive charts on this page.\n\nThe port authority began a formal revi",
+    "gold_head": "The national weather service voted on Tuesday to open three new clinics as ridership climbed for a third straight year. The national weather service are asking residents to help open three new clinics with money from a federal grant. University researchers announced that they will open three new cli"
+  },
+  {
+    "label": "table_lost",
+    "extractor": "justext",
+    "doc_id": "product_spec-0",
+    "f1": 0.841,
+    "precision": 0.916,
+    "recall": 0.778,
+    "leaked_snippets": [],
+    "output_head": "Lumen Air laptop, 2026 edition\nAdd to cart now and get free delivery on orders over fifty dollars, returns within thirty days.\nThe battery was tuned to see accurate colors in bright rooms in almost any lighting. The webcam lets you see accurate colors in bright rooms in almost any lighting. The trackpad was tuned to work a full day away from a charger even under heavy load.\nThe cooling system was ",
+    "gold_head": "The battery was tuned to see accurate colors in bright rooms in almost any lighting. The webcam lets you see accurate colors in bright rooms in almost any lighting. The trackpad was tuned to work a full day away from a charger even under heavy load. The cooling system was tuned to type quietly in sh"
+  }
+]

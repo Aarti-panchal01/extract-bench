@@ -1,0 +1,158 @@
+{
+  "a": "readability-lxml",
+  "b": "trafilatura (best-config)",
+  "mean_diff": 0.0850135246040866,
+  "lo": 0.01813967609139788,
+  "hi": 0.16610403081911926,
+  "n": 40,
+  "p_value": 0.0094,
+  "significant": true,
+  "verdict": "significantly different",
+  "all_vs_top": {
+    "trafilatura": {
+      "mean_diff": 0.0936876165648344,
+      "lo": 0.025853367098112277,
+      "hi": 0.17377412987591256,
+      "n": 40,
+      "p_value": 0.0038,
+      "significant": true,
+      "verdict": "significantly different"
+    },
+    "justext": {
+      "mean_diff": 0.3708876481912007,
+      "lo": 0.24685557512727263,
+      "hi": 0.4999107184896827,
+      "n": 40,
+      "p_value": 0.0,
+      "significant": true,
+      "verdict": "significantly different"
+    },
+    "html2text": {
+      "mean_diff": 0.21916703475121987,
+      "lo": 0.1604650441563553,
+      "hi": 0.2865380781635195,
+      "n": 40,
+      "p_value": 0.0,
+      "significant": true,
+      "verdict": "significantly different"
+    },
+    "bs4-naive": {
+      "mean_diff": 0.23184598764680966,
+      "lo": 0.1729411776500511,
+      "hi": 0.2989669060148791,
+      "n": 40,
+      "p_value": 0.0,
+      "significant": true,
+      "verdict": "significantly different"
+    },
+    "markdownify": {
+      "mean_diff": 0.23250117865928174,
+      "lo": 0.17456294569374722,
+      "hi": 0.298324321109533,
+      "n": 40,
+      "p_value": 0.0,
+      "significant": true,
+      "verdict": "significantly different"
+    },
+    "trafilatura (best-config)": {
+      "mean_diff": 0.0850135246040866,
+      "lo": 0.01813967609139788,
+      "hi": 0.16610403081911926,
+      "n": 40,
+      "p_value": 0.0094,
+      "significant": true,
+      "verdict": "significantly different"
+    }
+  },
+  "best_config_vs_default": {
+    "mean_diff": 0.00867409196074781,
+    "lo": 0.001434245366284201,
+    "hi": 0.018020130751738424,
+    "n": 40,
+    "p_value": 0.0346,
+    "significant": true,
+    "verdict": "significantly different"
+  },
+  "sensitivity_without_listing": {
+    "excluded_page_types": [
+      "listing"
+    ],
+    "n": 36,
+    "ranking": [
+      {
+        "extractor": "readability-lxml",
+        "f1": {
+          "mean": 0.9300555353330117,
+          "lo": 0.9046310973997376,
+          "hi": 0.9528113940602859,
+          "n": 36
+        }
+      },
+      {
+        "extractor": "trafilatura (best-config)",
+        "f1": {
+          "mean": 0.9096103858392003,
+          "lo": 0.8487189621195338,
+          "hi": 0.9534837289756419,
+          "n": 36
+        }
+      },
+      {
+        "extractor": "trafilatura",
+        "f1": {
+          "mean": 0.8999725058828137,
+          "lo": 0.8398888284854147,
+          "hi": 0.9427455116962672,
+          "n": 36
+        }
+      },
+      {
+        "extractor": "html2text",
+        "f1": {
+          "mean": 0.7739674804207459,
+          "lo": 0.7476197655716535,
+          "hi": 0.800299680728724,
+          "n": 36
+        }
+      },
+      {
+        "extractor": "bs4-naive",
+        "f1": {
+          "mean": 0.7609849627651,
+          "lo": 0.7338808846486051,
+          "hi": 0.788771781944717,
+          "n": 36
+        }
+      },
+      {
+        "extractor": "markdownify",
+        "f1": {
+          "mean": 0.7592738870628608,
+          "lo": 0.7324023888411602,
+          "hi": 0.7869290655609462,
+          "n": 36
+        }
+      },
+      {
+        "extractor": "justext",
+        "f1": {
+          "mean": 0.6158417463374978,
+          "lo": 0.47284790069491256,
+          "hi": 0.7468185827278098,
+          "n": 36
+        }
+      }
+    ],
+    "paired_top_two": {
+      "a": "readability-lxml",
+      "b": "trafilatura (best-config)",
+      "mean_diff": 0.020445149493811557,
+      "lo": -0.017764569307398444,
+      "hi": 0.07204704616365516,
+      "n": 36,
+      "p_value": 0.3972,
+      "significant": false,
+      "verdict": "not significantly different"
+    }
+  }
+}

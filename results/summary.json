@@ -1,0 +1,286 @@
+{
+  "header": {
+    "benchmark": "extract-bench",
+    "corpus_seed": 20261023,
+    "bootstrap_seed": 1234,
+    "bootstrap_iters": 10000,
+    "timing_repeats": 3,
+    "n_dev": 20,
+    "n_test": 40,
+    "reported_split": "test",
+    "versions": {
+      "beautifulsoup4": "4.15.0",
+      "html2text": "2025.4.15",
+      "jusText": "3.0.2",
+      "lxml": "6.1.3",
+      "lxml_html_clean": "0.4.5",
+      "markdownify": "1.2.3",
+      "readability-lxml": "0.9",
+      "trafilatura": "2.3.1"
+    },
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "unavailable_adapters": []
+  },
+  "summary": [
+    {
+      "extractor": "readability-lxml",
+      "config": "library defaults",
+      "n_docs": 40,
+      "f1": {
+        "mean": 0.9251452198949487,
+        "lo": 0.8984408618443105,
+        "hi": 0.9494551949500852,
+        "n": 40
+      },
+      "precision": {
+        "mean": 0.8706487656737796,
+        "lo": 0.8276732236539154,
+        "hi": 0.9106652230638711,
+        "n": 40
+      },
+      "recall": {
+        "mean": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "n": 40
+      },
+      "leak_rate": {
+        "mean": 0.18092924386402648,
+        "lo": 0.12314664567517829,
+        "hi": 0.24272264277087643,
+        "n": 40
+      },
+      "table_row_recall": 1.0,
+      "code_line_recall": 1.0,
+      "code_line_exact": 1.0,
+      "title_match": 0.0,
+      "latency_ms_median": 3.9485500019509345,
+      "latency_ms_p90": 6.820000009611249,
+      "n_errors": 0,
+      "n_docs_with_any_failure": 40
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "config": "tuned on dev: include_comments=False, favor_precision=False, favor_recall=False",
+      "n_docs": 40,
+      "f1": {
+        "mean": 0.8401316952908623,
+        "lo": 0.7530770728162183,
+        "hi": 0.9140949677666362,
+        "n": 40
+      },
+      "precision": {
+        "mean": 0.8134055772108504,
+        "lo": 0.720573833812501,
+        "hi": 0.8956077768701556,
+        "n": 40
+      },
+      "recall": {
+        "mean": 0.9453836277856216,
+        "lo": 0.886446661545172,
+        "hi": 0.9858108958159724,
+        "n": 40
+      },
+      "leak_rate": {
+        "mean": 0.11106001586979848,
+        "lo": 0.06705130198404655,
+        "hi": 0.1602242621257567,
+        "n": 40
+      },
+      "table_row_recall": 1.0,
+      "code_line_recall": 1.0,
+      "code_line_exact": 1.0,
+      "title_match": 1.0,
+      "latency_ms_median": 11.605100007727742,
+      "latency_ms_p90": 18.48319999407977,
+      "n_errors": 0,
+      "n_docs_with_any_failure": 22
+    },
+    {
+      "extractor": "trafilatura",
+      "config": "library defaults",
+      "n_docs": 40,
+      "f1": {
+        "mean": 0.8314576033301144,
+        "lo": 0.745633421833373,
+        "hi": 0.9047486959683285,
+        "n": 40
+      },
+      "precision": {
+        "mean": 0.7979119669481742,
+        "lo": 0.7057570392613712,
+        "hi": 0.8793545444236246,
+        "n": 40
+      },
+      "recall": {
+        "mean": 0.9454907596066124,
+        "lo": 0.8865532318483937,
+        "hi": 0.9859284196004587,
+        "n": 40
+      },
+      "leak_rate": {
+        "mean": 0.1599236522334348,
+        "lo": 0.10075648430675604,
+        "hi": 0.22519865566197084,
+        "n": 40
+      },
+      "table_row_recall": 1.0,
+      "code_line_recall": 1.0,
+      "code_line_exact": 1.0,
+      "title_match": 1.0,
+      "latency_ms_median": 10.934499994618818,
+      "latency_ms_p90": 17.374400020344183,
+      "n_errors": 0,
+      "n_docs_with_any_failure": 24
+    },
+    {
+      "extractor": "html2text",
+      "config": "body_width=0, otherwise defaults",
+      "n_docs": 40,
+      "f1": {
+        "mean": 0.7059781851437288,
+        "lo": 0.6335310543959053,
+        "hi": 0.768755338532033,
+        "n": 40
+      },
+      "precision": {
+        "mean": 0.5794267526479574,
+        "lo": 0.5142136550110338,
+        "hi": 0.6403324118711762,
+        "n": 40
+      },
+      "recall": {
+        "mean": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "n": 40
+      },
+      "leak_rate": {
+        "mean": 0.8113968730544816,
+        "lo": 0.7444144658934061,
+        "hi": 0.8650215899740357,
+        "n": 40
+      },
+      "table_row_recall": 1.0,
+      "code_line_recall": 1.0,
+      "code_line_exact": 1.0,
+      "title_match": null,
+      "latency_ms_median": 1.3999500079080462,
+      "latency_ms_p90": 3.2296999997925013,
+      "n_errors": 0,
+      "n_docs_with_any_failure": 40
+    },
+    {
+      "extractor": "bs4-naive",
+      "config": "soup.get_text() on the whole page",
+      "n_docs": 40,
+      "f1": {
+        "mean": 0.693299232248139,
+        "lo": 0.6211335456844176,
+        "hi": 0.7562945149008102,
+        "n": 40
+      },
+      "precision": {
+        "mean": 0.5638420597171279,
+        "lo": 0.49915949222236894,
+        "hi": 0.6245675788281982,
+        "n": 40
+      },
+      "recall": {
+        "mean": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "n": 40
+      },
+      "leak_rate": {
+        "mean": 0.8850157260211606,
+        "lo": 0.8735464964534256,
+        "hi": 0.896436416944569,
+        "n": 40
+      },
+      "table_row_recall": 1.0,
+      "code_line_recall": 1.0,
+      "code_line_exact": 1.0,
+      "title_match": 0.0,
+      "latency_ms_median": 1.1215999984415248,
+      "latency_ms_p90": 2.092899987474084,
+      "n_errors": 0,
+      "n_docs_with_any_failure": 40
+    },
+    {
+      "extractor": "markdownify",
+      "config": "library defaults on the whole page",
+      "n_docs": 40,
+      "f1": {
+        "mean": 0.6926440412356669,
+        "lo": 0.621626286155184,
+        "hi": 0.7547240080923068,
+        "n": 40
+      },
+      "precision": {
+        "mean": 0.5622269314150243,
+        "lo": 0.4983245627733703,
+        "hi": 0.6222627065286457,
+        "n": 40
+      },
+      "recall": {
+        "mean": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "n": 40
+      },
+      "leak_rate": {
+        "mean": 0.8113968730544816,
+        "lo": 0.7444144658934061,
+        "hi": 0.8650215899740357,
+        "n": 40
+      },
+      "table_row_recall": 1.0,
+      "code_line_recall": 1.0,
+      "code_line_exact": 1.0,
+      "title_match": null,
+      "latency_ms_median": 4.102350008906797,
+      "latency_ms_p90": 6.801800016546622,
+      "n_errors": 0,
+      "n_docs_with_any_failure": 40
+    },
+    {
+      "extractor": "justext",
+      "config": "library defaults, English stoplist",
+      "n_docs": 40,
+      "f1": {
+        "mean": 0.5542575717037481,
+        "lo": 0.4179306093631896,
+        "hi": 0.6870341284202114,
+        "n": 40
+      },
+      "precision": {
+        "mean": 0.5488034834396309,
+        "lo": 0.41257116706568964,
+        "hi": 0.6815683175087792,
+        "n": 40
+      },
+      "recall": {
+        "mean": 0.5721209949916283,
+        "lo": 0.4293353214679603,
+        "hi": 0.7104888655253877,
+        "n": 40
+      },
+      "leak_rate": {
+        "mean": 0.12360569985569984,
+        "lo": 0.06996185064935065,
+        "hi": 0.1844490891053391,
+        "n": 40
+      },
+      "table_row_recall": 0.16666666666666666,
+      "code_line_recall": 0.0,
+      "code_line_exact": 0.0,
+      "title_match": null,
+      "latency_ms_median": 3.530100002535619,
+      "latency_ms_p90": 5.381900002248585,
+      "n_errors": 0,
+      "n_docs_with_any_failure": 32
+    }
+  ]
+}

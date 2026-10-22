@@ -1,0 +1,63 @@
+{
+  "grid": [
+    {
+      "options": {
+        "include_comments": true,
+        "favor_precision": false,
+        "favor_recall": false
+      },
+      "dev_f1": 0.8333976392467779,
+      "dev_leak_rate": 0.26211399711399713
+    },
+    {
+      "options": {
+        "include_comments": true,
+        "favor_precision": true,
+        "favor_recall": false
+      },
+      "dev_f1": 0.7970134451008577,
+      "dev_leak_rate": 0.20444444444444443
+    },
+    {
+      "options": {
+        "include_comments": true,
+        "favor_precision": false,
+        "favor_recall": true
+      },
+      "dev_f1": 0.8117468488569648,
+      "dev_leak_rate": 0.3312608225108225
+    },
+    {
+      "options": {
+        "include_comments": false,
+        "favor_precision": false,
+        "favor_recall": false
+      },
+      "dev_f1": 0.8404998888388047,
+      "dev_leak_rate": 0.2221139971139971
+    },
+    {
+      "options": {
+        "include_comments": false,
+        "favor_precision": true,
+        "favor_recall": false
+      },
+      "dev_f1": 0.8042317480548036,
+      "dev_leak_rate": 0.16444444444444445
+    },
+    {
+      "options": {
+        "include_comments": false,
+        "favor_precision": false,
+        "favor_recall": true
+      },
+      "dev_f1": 0.8188490984489916,
+      "dev_leak_rate": 0.2912608225108225
+    }
+  ],
+  "chosen": {
+    "include_comments": false,
+    "favor_precision": false,
+    "favor_recall": false
+  }
+}
