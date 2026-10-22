@@ -1,0 +1,58 @@
+{
+  "justext_language_check": [
+    {
+      "doc_id": "non_english-0",
+      "lang": "es",
+      "split": "dev",
+      "stoplist": "Spanish",
+      "stoplist_available": true,
+      "english_stoplist_f1": 0.0,
+      "matching_stoplist_f1": 0.881
+    },
+    {
+      "doc_id": "non_english-1",
+      "lang": "de",
+      "split": "test",
+      "stoplist": "German",
+      "stoplist_available": true,
+      "english_stoplist_f1": 0.0,
+      "matching_stoplist_f1": 1.0
+    },
+    {
+      "doc_id": "non_english-2",
+      "lang": "fr",
+      "split": "test",
+      "stoplist": "French",
+      "stoplist_available": true,
+      "english_stoplist_f1": 0.0,
+      "matching_stoplist_f1": 0.888
+    },
+    {
+      "doc_id": "non_english-3",
+      "lang": "pt",
+      "split": "dev",
+      "stoplist": "Portuguese",
+      "stoplist_available": true,
+      "english_stoplist_f1": 0.0,
+      "matching_stoplist_f1": 0.893
+    },
+    {
+      "doc_id": "non_english-4",
+      "lang": "it",
+      "split": "test",
+      "stoplist": "Italian",
+      "stoplist_available": true,
+      "english_stoplist_f1": 0.0,
+      "matching_stoplist_f1": 0.0
+    },
+    {
+      "doc_id": "non_english-5",
+      "lang": "hi",
+      "split": "test",
+      "stoplist": "Hindi",
+      "stoplist_available": true,
+      "english_stoplist_f1": 0.0,
+      "matching_stoplist_f1": 0.0
+    }
+  ]
+}
