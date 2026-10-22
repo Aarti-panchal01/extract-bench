@@ -19,7 +19,13 @@ def html_fragment_to_text(fragment: str) -> str:
     out: list[str] = []
 
     def walk(el):
-        tag = el.tag if isinstance(el.tag, str) else ""
+        if not isinstance(el.tag, str):
+            # HTML comments and processing instructions: their .text is not
+            # visible content, only the tail is
+            if el.tail:
+                out.append(el.tail)
+            return
+        tag = el.tag
         if tag in ("script", "style"):
             if el.tail:
                 out.append(el.tail)
