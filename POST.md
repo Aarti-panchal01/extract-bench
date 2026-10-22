@@ -55,6 +55,13 @@ Other patterns from the failure taxonomy:
 - **Small n, wide intervals.** 40 test pages, 4 per type, built from 10 templates. The per-type heatmap shows direction, not a ranking.
 - **Metric is not a human.** Bag-of-words F1 ignores order and formatting. I checked it against two LLM judges on 140 outputs. Kappa was 0.74 with one and 0.52 with the other, and the two judges agreed with each other at only 0.53. Where both judges disagreed with the metric (9 cases), the metric was the lenient one every time. No human labels yet.
 - **Tuning was uneven.** Only trafilatura got a tuned row. In a side check outside the ranking, jusText with the matching stoplist recovered the German and French pages (F1 1.00 and 0.89), but still returned nothing on Italian and Hindi.
-- **Latency is one laptop.** Medians were 1 to 12 ms per page. Use them for order only.
+- **No third-party content.** Every page is generated from sentence banks I wrote, so there is no scraped text.
+- **Latency is one laptop.** Medians were 1 to 11 ms per page. Use them for order only.
+
+## What I would do next
+
+1. Hand-label about 40 of the judged outputs and measure each LLM judge's true-positive and true-negative rate against a human, with bootstrap intervals.
+2. Add a small set of real pages, with gold labelled by someone other than me, and check whether the top two still tie.
+3. Publish a second gold variant for listing pages, since that one decision moves the ranking.
 
 One command rebuilds the corpus from a seed, reruns every tool, and regenerates every number and chart here (latency varies a little run to run). Library versions are pinned and printed in the results header.
