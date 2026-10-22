@@ -31,8 +31,9 @@ The write-up for a general audience is in [POST.md](POST.md).
 | markdownify | 0.693 [0.622, 0.755] | 0.811 | 4 |
 | justext | 0.554 [0.418, 0.687] | 0.124 | 4 |
 
-- Top two, paired bootstrap: readability-lxml minus tuned trafilatura = +0.085 [+0.018, +0.166], **significantly different**.
-- Sensitivity check without the 4 listing pages (where the gold is a judgment call): +0.020 [-0.018, +0.072], **not significantly different**. Most of the gap comes from one page type.
+- Top two, paired bootstrap over pages: readability-lxml minus tuned trafilatura = +0.085 [+0.018, +0.166], significantly different.
+- But pages of one type share a template, so they are not independent. Resampling whole page types gives [-0.005, +0.227]: **not significantly different**.
+- Sensitivity check without the 4 listing pages (where the gold is a judgment call): +0.020 [-0.018, +0.072], **not significantly different** either way of resampling. Most of the gap comes from one page type.
 - jusText returned an empty string with no error on 15 of 40 test pages (all non-English pages, all recipes, all listings, 3 forum threads).
 - html2text and markdownify keep everything: recall 1.00, but nav menus leak on 40 of 40 pages and output is about 1.7 times the real content.
 - trafilatura keeps reader comments by default. Dev tuning picked `include_comments=False`, which removed comment leaks on 4 test pages.
@@ -55,8 +56,8 @@ pip install -r requirements.txt
 python -m extract_bench.build_corpus     # rebuild the 60 fixtures + gold (deterministic)
 python -m extract_bench.run              # full run: results/ and charts/ (about 30 seconds)
 python -m extract_bench.run --quick      # fewer resamples, 1 timing repeat
-python -m extract_bench.side_checks      # jusText with matching language stoplists (not ranked)
-python -m pytest -q                      # 64 tests
+python -m extract_bench.side_checks      # jusText stoplists + readability short_title() (not ranked)
+python -m pytest -q                      # 70 tests (one runs the whole benchmark in --quick mode)
 ```
 
 Optional LLM judge (off by default, never part of the ranking):
@@ -107,11 +108,14 @@ All text is normalized first: markdown links and images become their visible tex
 
 - Percentile bootstrap CI of the mean, resampling pages, 10,000 resamples, fixed seed. Same seed gives the same interval.
 - Paired bootstrap on the per-page difference for two systems on the same pages. If the CI crosses 0 the verdict is "not significantly different".
+- Cluster (page-type) paired bootstrap: the same test, but each resample draws whole page types. The 4 test pages of a type come from one template, so the page-level interval is too narrow when one type drives a gap. Both are reported for the top two; the per-row CIs in the tables are page-level.
 - Cohen's kappa for the optional judge.
 
 ## Fairness rules
 
 - Every tool runs on library defaults. The config used for each row is printed in the results table.
+- readability-lxml returns cleaned HTML, not text. Its adapter turns that HTML into text with a small helper (`adapters/_text.py`) that only adds line breaks at block tags and ` | ` between table cells; it removes nothing except `script`/`style` and HTML comments.
+- Titles use each library's default call. For readability that is `title()`, which returns the whole `<title>` tag (0 of 40 matches). Its `short_title()` helper strips the site name and matches 35 of 40 (side check, `results/side_checks.json`).
 - Exactly one extra "best-config" row: trafilatura, tuned on the 20 dev pages over a 6-setting grid (`results/tuning.json`), then frozen.
 - Only test-split numbers are reported.
 - Library versions are pinned in `requirements.txt` and printed in the header of `results/summary.json` and `results/RESULTS.md`.
@@ -126,10 +130,10 @@ All text is normalized first: markdown links and images become their visible tex
 - **Synthetic pages.** Template text and my guesses at common layouts. Real pages are messier, and studies on real crawls may rank these tools differently.
 - **Same author for pages and gold.** I decided what counts as content. The listing-page sensitivity check shows how much one decision can move the ranking.
 - **No JavaScript rendering.** Static HTML only.
-- **Small n.** 40 test pages, 4 per type. Per-type cells are directions, not rankings.
+- **Small n, few templates.** 40 test pages, 4 per type, from 10 templates. Per-type cells are directions, not rankings, and the honest unit of variation is closer to 10 page types than 40 pages.
 - **Metric is not a human.** Bag-of-words F1 ignores order and formatting. The judge that would measure this gap is built but not yet run with a real model.
 - **Uneven tuning.** Only trafilatura got a tuned row. The side check shows jusText recovers on German and French with the right stoplist, but not on Italian or Hindi.
-- **One machine** for latency.
+- **One machine** for latency. Latency also moves a little on every rerun; every other number is identical run to run.
 
 ## Layout
 
