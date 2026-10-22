@@ -62,3 +62,25 @@ def test_kappa_perfect_and_hand_computed():
 def test_kappa_rejects_bad_input():
     with pytest.raises(ValueError):
         stats.cohen_kappa([], [])
+
+
+def test_cluster_bootstrap_is_deterministic_and_checks_lengths():
+    a, b, g = [0.9, 0.8, 0.7, 0.6], [0.5, 0.5, 0.5, 0.5], ["x", "x", "y", "y"]
+    r1 = stats.cluster_paired_bootstrap(a, b, g, iters=500, seed=5)
+    assert r1 == stats.cluster_paired_bootstrap(a, b, g, iters=500, seed=5)
+    assert r1["n_groups"] == 2 and r1["mean_diff"] == pytest.approx(0.25)
+    with pytest.raises(ValueError):
+        stats.cluster_paired_bootstrap(a, b, ["x"], iters=10)
+
+
+def test_cluster_bootstrap_widens_when_one_group_drives_the_gap():
+    # nine groups with no difference, one group with a huge difference:
+    # page-level resampling calls it significant, group-level resampling does not
+    groups = [f"t{i}" for i in range(10) for _ in range(4)]
+    a = [0.9] * 40
+    b = [0.9] * 36 + [0.1] * 4
+    page = stats.paired_bootstrap(a, b, iters=4000)
+    clus = stats.cluster_paired_bootstrap(a, b, groups, iters=4000)
+    assert page["significant"]
+    assert not clus["significant"] and clus["lo"] <= 0
+    assert (clus["hi"] - clus["lo"]) > (page["hi"] - page["lo"])

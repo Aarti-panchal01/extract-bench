@@ -69,3 +69,27 @@ def test_best_config_options_are_bound():
 
     fn = tfa.make_configured(include_comments=False)
     assert fn.options == {"include_comments": False}
+
+
+def test_fragment_to_text_drops_html_comments_but_keeps_tails():
+    t = html_fragment_to_text("<div><p>kept</p><!-- hidden editor note --> tail text<p>also kept</p></div>")
+    assert "hidden" not in t and "editor" not in t
+    assert "kept" in t and "tail text" in t and "also kept" in t
+
+
+def test_end_to_end_quick_run_writes_results_and_keeps_published_charts(tmp_path):
+    pytest.importorskip("trafilatura")
+    from extract_bench import run as runner
+
+    published = {p.name: p.stat().st_mtime for p in runner.CHARTS.glob("*.png")}
+    assert runner.main(["--quick", "--out", str(tmp_path)]) == 0
+    import json
+
+    summ = json.loads((tmp_path / "summary.json").read_text())
+    assert summ["header"]["reported_split"] == "test" and summ["header"]["n_test"] == 40
+    assert all(s["n_docs"] == 40 for s in summ["summary"])
+    paired = json.loads((tmp_path / "paired.json").read_text())
+    assert paired["cluster_by_page_type"]["n_groups"] == 10
+    assert (tmp_path / "charts" / "f1_ci.png").exists()
+    # a custom --out must not touch the published charts
+    assert {p.name: p.stat().st_mtime for p in runner.CHARTS.glob("*.png")} == published

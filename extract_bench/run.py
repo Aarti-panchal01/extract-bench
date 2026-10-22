@@ -191,7 +191,14 @@ def results_md(header: dict, summary: list[dict], paired: dict, tax: dict, by_ty
     L += ["", "## Paired comparison of the top two (by mean test F1)", "",
           f"{paired['a']} minus {paired['b']}: mean F1 difference {paired['mean_diff']:+.3f}, "
           f"95% CI [{paired['lo']:+.3f}, {paired['hi']:+.3f}], bootstrap p = {paired['p_value']:.3f}. "
-          f"Verdict: **{paired['verdict']}**.", ""]
+          f"Verdict: **{paired['verdict']}** (resampling single pages)."]
+    cl = paired.get("cluster_by_page_type")
+    if cl:
+        L += ["", "Pages of the same type are built from the same template, so they are not independent. "
+              f"Resampling whole page types instead ({cl['n_groups']} groups): {cl['mean_diff']:+.3f}, "
+              f"95% CI [{cl['lo']:+.3f}, {cl['hi']:+.3f}], p = {cl['p_value']:.3f}. "
+              f"Verdict: **{cl['verdict']}** (resampling page types)."]
+    L.append("")
     if paired.get("best_config_vs_default"):
         b = paired["best_config_vs_default"]
         L += [f"Best-config trafilatura minus default trafilatura: {b['mean_diff']:+.3f} "
@@ -205,7 +212,12 @@ def results_md(header: dict, summary: list[dict], paired: dict, tax: dict, by_ty
               "| Extractor | F1 [95% CI] |", "|---|---|"]
         L += [f"| {r['extractor']} | {fmt_ci(r['f1'])} |" for r in sv["ranking"]]
         L += ["", f"Top two without listing pages: {pt['a']} minus {pt['b']} = {pt['mean_diff']:+.3f} "
-              f"[{pt['lo']:+.3f}, {pt['hi']:+.3f}], p = {pt['p_value']:.3f}: **{pt['verdict']}**.", ""]
+              f"[{pt['lo']:+.3f}, {pt['hi']:+.3f}], p = {pt['p_value']:.3f}: **{pt['verdict']}** (resampling pages)."]
+        ct = sv.get("paired_top_two_cluster_by_page_type")
+        if ct:
+            L += ["", f"Resampling page types instead: [{ct['lo']:+.3f}, {ct['hi']:+.3f}], "
+                  f"p = {ct['p_value']:.3f}: **{ct['verdict']}**."]
+        L.append("")
     L += ["## F1 by page type (mean of 4 test pages each, so treat as rough)", "",
           "| Extractor | " + " | ".join(build_corpus.PAGE_TYPES) + " |",
           "|---|" + "---|" * len(build_corpus.PAGE_TYPES)]
@@ -224,11 +236,18 @@ def main(argv=None):
     ap.add_argument("--quick", action="store_true", help="1 timing repeat, 2000 bootstrap resamples")
     ap.add_argument("--no-charts", action="store_true")
     ap.add_argument("--out", default=str(RESULTS))
+    ap.add_argument("--charts-dir", default=None, help="default: charts/ for the default --out, else <out>/charts")
     args = ap.parse_args(argv)
     iters = 2000 if args.quick else stats.DEFAULT_ITERS
     repeats = 1 if args.quick else 3
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
+    if args.charts_dir:
+        charts_dir = Path(args.charts_dir)
+    elif out_dir.resolve() == RESULTS.resolve():
+        charts_dir = CHARTS
+    else:
+        charts_dir = out_dir / "charts"  # a custom --out never overwrites the published charts
 
     if not (build_corpus.CORPUS_DIR / "gold.jsonl").exists():
         build_corpus.write()
@@ -264,7 +283,12 @@ def main(argv=None):
     a, b = summary[0]["extractor"], summary[1]["extractor"]
     def f1s(n):
         return [r["f1"] for r in sorted(test_rows[n], key=lambda r: r["doc_id"])]
+    def types(n, rows=test_rows):
+        return [r["page_type"] for r in sorted(rows[n], key=lambda r: r["doc_id"])]
+
     paired = {"a": a, "b": b, **stats.paired_bootstrap(f1s(a), f1s(b), iters=iters)}
+    # pages of one type share a template, so also resample whole page types
+    paired["cluster_by_page_type"] = stats.cluster_paired_bootstrap(f1s(a), f1s(b), types(a), iters=iters)
     paired["all_vs_top"] = {n: stats.paired_bootstrap(f1s(a), f1s(n), iters=iters)
                             for n in test_rows if n != a}
     if adapters.BEST_CONFIG_NAME in test_rows:
@@ -283,7 +307,10 @@ def main(argv=None):
         return [r["f1"] for r in sorted(sens_rows[n], key=lambda r: r["doc_id"])]
 
     sensitivity = {"excluded_page_types": ["listing"], "n": len(sens_rows[sa]), "ranking": sens,
-                   "paired_top_two": {"a": sa, "b": sb, **stats.paired_bootstrap(sf1(sa), sf1(sb), iters=iters)}}
+                   "paired_top_two": {"a": sa, "b": sb, **stats.paired_bootstrap(sf1(sa), sf1(sb), iters=iters)},
+                   "paired_top_two_cluster_by_page_type": {
+                       "a": sa, "b": sb,
+                       **stats.cluster_paired_bootstrap(sf1(sa), sf1(sb), types(sa, sens_rows), iters=iters)}}
     paired["sensitivity_without_listing"] = sensitivity
 
     tax = {n: dict(Counter(lab for r in rows for lab in r["labels"])) for n, rows in test_rows.items()}
@@ -324,7 +351,7 @@ def main(argv=None):
 
     if not args.no_charts:
         from . import charts
-        charts.make_all(summary, by_type, test_rows, CHARTS)
+        charts.make_all(summary, by_type, test_rows, charts_dir)
 
     print()
     for s in summary:
@@ -334,6 +361,8 @@ def main(argv=None):
     print(f"without listing: {pt['a']} vs {pt['b']}: diff {pt['mean_diff']:+.3f} "
           f"[{pt['lo']:+.3f}, {pt['hi']:+.3f}] -> {pt['verdict']}")
     print(f"\n{a} vs {b}: diff {paired['mean_diff']:+.3f} [{paired['lo']:+.3f}, {paired['hi']:+.3f}] -> {paired['verdict']}")
+    cl = paired["cluster_by_page_type"]
+    print(f"  resampling page types: [{cl['lo']:+.3f}, {cl['hi']:+.3f}] -> {cl['verdict']}")
     return 0
 
 
