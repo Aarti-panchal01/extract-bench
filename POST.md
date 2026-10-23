@@ -1,77 +1,37 @@
-# We ran 6 open-source extractors on 40 tricky pages. Here is where each one breaks.
+# My benchmark ranked extractors one way. 40 real pages ranked them the other way.
 
-Every agent that reads the web starts the same way. It fetches HTML and turns it into text a model can read. If that step keeps the cookie banner and drops the recipe, nothing after it can fix the answer.
+Every agent that reads the web first turns HTML into text. I built a small benchmark of open-source extractors for that step.
 
-So I built a small benchmark for that first step: 60 synthetic pages across 10 types. News, blogs with comments, docs with code, spec tables, forums, recipes, listing pages that should give back almost nothing, pages under a cookie banner and modal, div-only layouts, and six non-English languages. Gold text is known by construction. I tuned on 20 pages and report only the other 40.
+On my 40 synthetic test pages, readability-lxml came first: F1 0.925 [0.898, 0.949]. jusText came last: 0.554 [0.418, 0.687]. I wrote those pages and their gold text.
 
-The six tools: trafilatura, readability-lxml, jusText, html2text, markdownify, and a naive BeautifulSoup `get_text()` as the floor. All ran on defaults, plus one trafilatura row tuned on dev pages.
+Then I added 40 real English Wikipedia articles. A random draw picked them, by a rule I wrote down before any tool ran. The gold is the Wikipedia API's plain-text extract, so I did not write it. Same code, same metric.
 
-## The headline
+The order flipped.
 
-readability-lxml scored highest: mean token F1 0.93 (95% CI 0.90 to 0.95). Tuned trafilatura came second at 0.84 (0.75 to 0.91). A paired bootstrap over the 40 pages puts the gap of 0.085 at CI 0.018 to 0.166, which looks real.
+- jusText: 0.849 [0.812, 0.882]
+- readability-lxml: 0.788 [0.744, 0.829]
+- trafilatura: 0.735 [0.694, 0.775]
 
-It is not that solid. Pages of one type share a template, so they are not 40 independent pages. Resampling whole page types widens the interval to minus 0.005 to 0.227, which crosses zero.
+Spearman rank correlation with the synthetic order is 0.20 over 7 rows. What held: html2text, markdownify and the naive BeautifulSoup baseline stayed at the bottom (F1 0.588 to 0.626).
 
-Most of the gap comes from one page type. On listing pages, trafilatura kept every product card while readability kept little more than the intro line. My gold says only the intro counts, and that is a judgment call. With the 4 listing pages dropped, the gap shrinks to 0.020 (CI minus 0.018 to 0.072). The two are **not significantly different**.
+## Why it flipped
 
-So the honest headline: the top two are statistically tied, and the ranking hangs on one definition of what a listing page contains.
+On the synthetic set, jusText returned an empty string on 15 of 40 pages. Those were non-English pages, recipes, listings and forum threads. Wikipedia is all English articles. There jusText was the most precise tool (precision 0.936) and trafilatura was the least precise of the top three (0.598, with recall 1.000).
 
-## Three failures worth seeing
+So the synthetic set punished jusText for page types the real set does not contain. Even on the synthetic set, the top two were not significantly different once I resampled whole page types: [-0.005, +0.227].
 
-**1. Cookie text treated as the article.** On one page built only from divs, with the consent box first in the body, both top tools opened their output with:
+## What it means if you benchmark extractors
 
-> We use cookies and similar technologies to personalise content, measure advertising and improve your experience on our site. By clicking Accept all you consent to the storage of cookies...
+1. A tool that is last on one page mix can be first on another. Test on your own mix.
+2. Treat empty output as a failure, not a result.
+3. A benchmark you wrote yourself can only rank the pages you thought of.
 
-trafilatura scored F1 0.74 on that page and readability 0.71. Recall was perfect; the junk simply came along.
+I also checked my pass/fail rule against two LLM judges on 140 outputs. Kappa was 0.74 [0.61, 0.86] with qwen/qwen3.8-27b and 0.52 [0.36, 0.67] with openai/gpt-oss-120b. The two judges agreed with each other at 0.53 [0.37, 0.69].
 
-**2. A listing page read as content.** On a "Winter jackets" listing, trafilatura returned all 20 product cards, one per line:
+## What this does not show
 
-> Velo Ultralight winter jacketUSD 132.50
+- It is not a new ranking. It is 40 articles on one site template, not 40 layouts.
+- It says nothing about non-English pages, recipes, forums or listings. The Wikipedia slice has none.
+- No human labels exist for the judges, and the Wikipedia gold leaves out infobox text and tables.
 
-Precision was 0.12. An agent now has 20 extra "facts". (The missing space is in my markup, not trafilatura's fault.)
-
-**3. Silent empty output.** jusText returned an empty string, with no error, on 15 of 40 test pages. That is every non-English page (its default stoplist is English), every recipe and listing, and three of four forum threads. A pipeline reads that as "no text here", worse than noise.
-
-Other patterns from the failure taxonomy:
-
-- trafilatura keeps reader comments by default (`include_comments=True`). Turning that off was the only change the dev tuning picked, and it removed comment leaks on 4 of 40 test pages.
-- readability-lxml's default `title()` returns the HTML `<title>` with the site name attached, so 0 of 40 matched the headline. Its `short_title()` helper matched 35. trafilatura matched all 40.
-- html2text and markdownify are converters, not extractors. They kept everything, leaked nav menus on all 40 pages, and returned about 1.7 times the real word count.
-- Code and tables survived intact everywhere except jusText.
-
-## Do the results hold on real pages?
-
-Partly. I added 40 real English Wikipedia articles, drawn at random by a rule written down before any tool ran. The page is the normal rendered article with nav, sidebar and footer. The gold is the Wikipedia API's plain-text extract of the same revision, so I did not write it.
-
-- jusText, last on the synthetic set, came first: F1 0.85 (95% CI 0.81 to 0.88). It failed on the synthetic set because of non-English, recipe, listing and forum pages. These are all English articles, which is what its default stoplist expects.
-- readability-lxml was second at 0.79 (0.74 to 0.83), trafilatura third at 0.74 (0.69 to 0.78). On these pages the old top two are no longer tied: readability minus tuned trafilatura is +0.052 (0.008 to 0.098) over pages.
-- html2text, markdownify and the naive baseline were last again, F1 0.59 to 0.63, with recall near 1.00 and precision under 0.5.
-
-Two warnings. It is one site template, so these intervals say nothing about how the tools do across different layouts. And the gold leaves out infobox text and tables, which costs every tool that keeps them. The honest reading is that the synthetic ranking is not a safe guide to real pages, and I would not pick an extractor from either set alone.
-
-## What this means if you build agents
-
-1. Test on your own page mix. Averages hide the page type where a tool falls apart, and a tool that is last on one mix can be first on another.
-2. Read the defaults. One flag changed whether user comments counted as the article.
-3. Treat empty output as a failure, not a result. Log it and fall back to a second extractor.
-4. A markdown converter is not an extractor. It hands the model every menu and footer.
-5. Watch consent boxes and div-only layouts. They fooled both of the best tools here.
-
-## Limits of this benchmark
-
-- **Synthetic pages.** Template text, and layouts that are my guesses at common patterns. Real pages are messier. My first real-page check (40 Wikipedia articles, gold from the Wikipedia API, not from me) reordered the tools: jusText went from last to first, and readability-lxml dropped to second. That is one site template, so it is a warning about the synthetic ranking, not a new ranking.
-- **Same author for pages and gold** on the synthetic set. I decided what counts as content. The listing result shows how far one such decision moves a ranking. The Wikipedia gold is not mine, but it leaves out infobox text and tables.
-- **No JavaScript rendering.** Static HTML only. Pages built in the browser are out of scope.
-- **Small n, wide intervals.** 40 test pages, 4 per type, built from 10 templates. The per-type heatmap shows direction, not a ranking.
-- **Metric is not a human.** Bag-of-words F1 ignores order and formatting. I checked it against two LLM judges on 140 outputs. Kappa was 0.74 with one and 0.52 with the other, and the two judges agreed with each other at only 0.53. Where both judges disagreed with the metric (9 cases), the metric was the lenient one every time. No human labels yet.
-- **Tuning was uneven.** Only trafilatura got a tuned row. In a side check outside the ranking, jusText with the matching stoplist recovered the German and French pages (F1 1.00 and 0.89), but still returned nothing on Italian and Hindi.
-- **No third-party text in the repo.** The synthetic pages come from sentence banks I wrote. The Wikipedia pages are CC BY-SA, so the repo holds only a fetch script, page ids, revision links and hashes.
-- **Latency is one laptop.** Medians were 1 to 11 ms per page. Use them for order only.
-
-## What I would do next
-
-1. Hand-label about 40 of the judged outputs and measure each LLM judge's true-positive and true-negative rate against a human, with bootstrap intervals.
-2. Add real pages from several different site templates, with gold labelled by someone other than me. The Wikipedia slice is a start: one template, 40 articles.
-3. Publish a second gold variant for listing pages, since that one decision moves the ranking.
-
-One command rebuilds the corpus from a seed, reruns every tool, and regenerates every number and chart here (latency varies a little run to run). Library versions are pinned and printed in the results header.
+One command reruns everything. The Wikipedia slice ships page ids, revision links and hashes, not the text (CC BY-SA).

@@ -6,6 +6,8 @@ Everything runs locally. No API keys, no network at run time, no paid services. 
 
 ![F1 with confidence intervals](charts/f1_ci.png)
 
+> **Read this first.** The ranking in the table below is from synthetic pages I wrote, and it does not hold on real pages. On 40 real Wikipedia articles (gold from the Wikipedia API, not from me) jusText is first at 0.849 [0.812, 0.882], readability-lxml second at 0.788 [0.744, 0.829], trafilatura third at 0.735 [0.694, 0.775]. Spearman rank correlation with the synthetic order is 0.20. It is one site template, so it is a warning about the synthetic ranking, not a new ranking. See [Real-page check (Wikipedia)](#real-page-check-wikipedia).
+
 ## Why this exists
 
 Every AI agent that reads the web does the same first step: fetch HTML, turn it into text. If that step keeps the cookie banner and drops the recipe, nothing after it can fix the answer. Teams that pick a web tool for their agent usually look at a vendor's own numbers or a single average.
