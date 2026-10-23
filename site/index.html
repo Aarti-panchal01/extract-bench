@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>extract-bench: six HTML-to-text extractors, three slices</title>
+<meta name="description" content="A reproducible benchmark of six open-source HTML-to-text extractors with known gold, 95% bootstrap intervals, paired tests and a failure taxonomy. Synthetic pages, Wikipedia and Zyte rank the tools three different ways.">
+<meta name="author" content="Aarti Panchal">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f8f4ea" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a1813" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://extract-bench.vercel.app/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="My benchmark ranked extractors one way. Two sets of real pages ranked them two other ways.">
+<meta property="og:description" content="Six open-source HTML-to-text extractors, known gold, 95% bootstrap intervals, paired tests and a failure taxonomy. jusText goes from last to first to fourth.">
+<meta property="og:image" content="https://extract-bench.vercel.app/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Rank of seven extractor rows across three test slices, with jusText going from last to first to fourth.">
+<meta property="og:url" content="https://extract-bench.vercel.app/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="extract-bench: six HTML-to-text extractors, three slices">
+<meta name="twitter:description" content="Known gold, 95% bootstrap intervals, paired tests, a failure taxonomy, and three slices that disagree.">
+<meta name="twitter:image" content="https://extract-bench.vercel.app/assets/og.png">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("xb-theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the report</a>
+
+<header class="topbar">
+  <a class="mark" href="#top" aria-label="extract-bench, top of page">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="4" fill="currentColor"/><path d="M10 8H7v16h3M22 8h3v16h-3" fill="none" stroke="var(--paper)" stroke-width="2"/><circle cx="16" cy="16" r="3.2" fill="#c2452d"/></svg>
+    extract-bench
+  </a>
+  <nav aria-label="Site">
+    <a href="https://github.com/Aarti-panchal01/extract-bench">GitHub</a>
+    <a href="https://github.com/Aarti-panchal01/extract-bench/blob/master/results/RESULTS.md">Results</a>
+    <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch theme">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 1.8a6.2 6.2 0 0 1 0 12.4z" fill="currentColor"/></svg>
+      <span id="theme-label">Dark</span>
+    </button>
+  </nav>
+</header>
+
+<div class="frame" id="top">
+  <aside class="toc-side" aria-label="Contents">
+    <nav class="toc">
+      <p class="toc-title">Contents</p>
+      <ol>
+        <li><a href="#leaderboard">The leaderboard</a></li>
+        <li><a href="#slices">Three slices, three rankings</a></li>
+        <li><a href="#viewer">Look at one page</a></li>
+        <li><a href="#failures">How they fail</a></li>
+        <li><a href="#judge">The metric vs two LLM judges</a></li>
+        <li><a href="#limits">Limits</a></li>
+        <li><a href="#method">Method and rerun</a></li>
+      </ol>
+    </nav>
+  </aside>
+
+  <article id="main">
+    <header class="masthead">
+      <p class="kicker rise">A benchmark report &middot; October 2026</p>
+      <h1 class="rise d1">My benchmark ranked extractors one way. Two sets of real pages ranked them <em>two other ways</em>.</h1>
+      <div class="masthead-grid">
+        <div class="mh-text">
+          <p class="dek rise d2">Every AI agent that reads the web first turns HTML into text. I tested six open-source tools for that step on pages where the right answer is known, with 95% bootstrap intervals on every number and a label for every failure.</p>
+          <p class="dek rise d2">On my synthetic pages <strong>readability-lxml</strong> came first, but the top two are not significantly different once whole page types are resampled. On 40 Wikipedia articles <strong>jusText</strong> jumped from last to first. On 181 pages from 126 sites, with gold labelled by Zyte, readability-lxml and tuned trafilatura <strong>tie at 0.960</strong> and jusText is fourth.</p>
+          <div class="byline rise d3">
+            <span>By <span class="who">Aarti Panchal</span></span>
+            <a href="https://github.com/Aarti-panchal01/extract-bench">Code and data on GitHub</a>
+            <a href="https://github.com/Aarti-panchal01/extract-bench/blob/master/results/RESULTS.md">results/RESULTS.md</a>
+            <a href="https://github.com/Aarti-panchal01/extract-bench/blob/master/results/JUDGE.md">results/JUDGE.md</a>
+          </div>
+        </div>
+        <figure class="glance rise d3" style="margin:0">
+          <p class="glance-title">At a glance: rank in each slice</p>
+          <div class="chart" id="fig-glance"></div>
+          <figcaption><b>Figure 1.</b> Rank by mean F1. jusText (thick red line) goes last, first, fourth. Hover a dot for its F1.</figcaption>
+        </figure>
+      </div>
+
+      <details class="toc-mobile">
+        <summary>Contents</summary>
+        <nav class="toc" aria-label="Contents">
+          <ol>
+            <li><a href="#leaderboard">The leaderboard</a></li>
+            <li><a href="#slices">Three slices, three rankings</a></li>
+            <li><a href="#viewer">Look at one page</a></li>
+            <li><a href="#failures">How they fail</a></li>
+            <li><a href="#judge">The metric vs two LLM judges</a></li>
+            <li><a href="#limits">Limits</a></li>
+            <li><a href="#method">Method and rerun</a></li>
+          </ol>
+        </nav>
+      </details>
+    </header>
+
+    <!-- 1 ============================================================ -->
+    <section id="leaderboard" aria-labelledby="h-leader">
+      <h2 id="h-leader"><span class="sec">1</span>The leaderboard</h2>
+      <div class="col">
+        <p class="lede">I generated 60 pages from a fixed seed: 10 page types, 6 variants each. The gold text is recorded while each page is built, so it is exact. Twenty pages are dev, used only to tune one row. Every number in this section is from the other 40.</p>
+        <p>Each tool runs on library defaults. The one exception is a single extra row, trafilatura tuned on the dev pages and then frozen. F1 is bag-of-tokens overlap with the gold main text. Leak rate is the share of planted boilerplate snippets, like nav menus, cookie banners and reader comments, that got into the output.
+          <span class="sn"><span class="n">1</span>I wrote the pages and I wrote the gold. That is limit 2 at the end, and the reason section 2 exists.</span></p>
+      </div>
+
+      <figure class="wide">
+        <div class="fig-controls">
+          <span>Pages:</span>
+          <div class="seg" id="forest-toggle" role="group" aria-label="Which synthetic test pages">
+            <button type="button" data-mode="all" aria-pressed="true">All 40 test pages</button>
+            <button type="button" data-mode="nolist" aria-pressed="false">Without listing pages (36)</button>
+          </div>
+        </div>
+        <ul class="legend" aria-label="Legend">
+          <li><span class="key-dot" style="background:var(--s-read)"></span>readability-lxml</li>
+          <li><span class="key-dot" style="background:var(--s-traf)"></span>trafilatura (best-config)</li>
+          <li><span class="key-ring" style="color:var(--s-traf)"></span>trafilatura, defaults</li>
+          <li><span class="key-dot" style="background:var(--s-other)"></span>converters and baseline</li>
+          <li><span class="key-dot" style="background:var(--s-jus)"></span>jusText</li>
+        </ul>
+        <div class="chart" id="fig-forest"></div>
+        <figcaption><b>Figure 2.</b> Mean F1 on the synthetic test pages, with 95% bootstrap intervals (10,000 resamples over pages, seed 1234). The red band is where the top two intervals overlap. The toggle drops the 4 listing pages, whose gold counts only the intro line as content, a judgment call.</figcaption>
+      </figure>
+
+      <div class="col">
+        <p>readability-lxml is first. Over pages, its lead over tuned trafilatura looks real: +0.085 [+0.018, +0.166]. But the 4 test pages of a type are built from one template, so they are not independent. When I resample whole page types instead, the same gap has an interval that crosses zero.
+          <span class="sn"><span class="n">2</span>Most of the gap is one page type. On listings, trafilatura scores 0.21 and readability-lxml 0.88 (Figure 4).</span></p>
+      </div>
+
+      <figure class="wide">
+        <div class="chart" id="fig-paired"></div>
+        <figcaption><b>Figure 3.</b> readability-lxml minus trafilatura (best-config), paired bootstrap on the per-page F1 difference. The same gap is significant or not depending on what counts as the unit. A filled dot means the interval clears zero.</figcaption>
+      </figure>
+
+      <figure class="wide">
+        <div class="table-wrap sticky-first">
+          <table id="t-leader">
+            <caption class="small-sans" style="caption-side:bottom;text-align:left;padding:0.6rem 0.7rem">Click a column to sort. <span id="sort-status" aria-live="polite"></span></caption>
+            <thead>
+              <tr>
+                <th scope="col" class="sortable"><button type="button">Extractor <span class="arrow" aria-hidden="true"></span></button></th>
+                <th scope="col" class="sortable" aria-sort="descending"><button type="button">F1 [95% CI] <span class="arrow" aria-hidden="true">&#9660;</span></button></th>
+                <th scope="col" class="sortable"><button type="button">Precision <span class="arrow" aria-hidden="true"></span></button></th>
+                <th scope="col" class="sortable"><button type="button">Recall <span class="arrow" aria-hidden="true"></span></button></th>
+                <th scope="col" class="sortable"><button type="button">Leak rate <span class="arrow" aria-hidden="true"></span></button></th>
+                <th scope="col" class="sortable"><button type="button">Median ms <span class="arrow" aria-hidden="true"></span></button></th>
+                <th scope="col" class="sortable"><button type="button">Title match <span class="arrow" aria-hidden="true"></span></button></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <figcaption><b>Table 1.</b> Synthetic test split, 40 pages. Latency is the median of 3 runs per page on one Windows laptop, so it is only good for ordering. Title match is n/a for tools that have no title call. The config each row ran with is under its name.</figcaption>
+      </figure>
+
+      <figure class="wide">
+        <div class="table-wrap sticky-first">
+          <table class="heat" id="t-heat" aria-describedby="cap-heat"></table>
+        </div>
+        <figcaption id="cap-heat"><b>Figure 4.</b> Mean F1 by page type. 4 test pages each, treat as rough. Darker means higher; the shading is stretched between 0.6 and 1.0, where most cells sit. jusText scores 0.00 on every recipe, listing and non-English page.</figcaption>
+      </figure>
+    </section>
+
+    <!-- 2 ============================================================ -->
+    <section id="slices" aria-labelledby="h-slices">
+      <h2 id="h-slices"><span class="sec">2</span>Three slices, three rankings</h2>
+      <div class="col">
+        <p class="lede">A benchmark I wrote can only rank the pages I thought of. So I scored the same tools, with the same code, on two sets of real pages where I did not write the gold. They do not agree with my set, and they do not fully agree with each other.</p>
+        <div class="slices">
+          <div class="slice">
+            <h4>Synthetic<small>40 test pages, 10 types</small></h4>
+            <p>Pages I generated from a seed: news, blog posts with comments, docs with code, product specs, forums, recipes, listings, cookie modals, div soup and non-English pages. I wrote the gold, so it is exact, and it is mine.</p>
+          </div>
+          <div class="slice">
+            <h4>Wikipedia<small>40 articles, 1 template</small></h4>
+            <p>English articles from a seeded random draw over page ids, by a rule fixed before any tool ran. Gold is the MediaWiki plain-text extract of the same revision. Many articles, one site skin.</p>
+          </div>
+          <div class="slice">
+            <h4>Zyte<small>181 pages, 126 sites</small></h4>
+            <p>The public article-extraction benchmark from Zyte (MIT licence), pinned at one commit. Body text labelled by their team. I used every page and retuned nothing.</p>
+          </div>
+        </div>
+      </div>
+
+      <figure class="wide">
+        <ul class="legend" aria-label="Legend">
+          <li><span class="key-line" style="background:var(--s-jus);height:3px"></span>jusText</li>
+          <li><span class="key-line" style="background:var(--s-read)"></span>readability-lxml</li>
+          <li><span class="key-line" style="background:var(--s-traf)"></span>trafilatura (best-config)</li>
+          <li><span class="key-ring" style="color:var(--s-traf)"></span>trafilatura, defaults</li>
+          <li><span class="key-line" style="background:var(--s-other)"></span>html2text, bs4-naive, markdownify</li>
+        </ul>
+        <div class="chart" id="fig-bump"></div>
+        <figcaption><b>Figure 5.</b> Rank by mean F1 in each slice, with synthetic F1 on the left and Zyte F1 on the right. On Wikipedia the two trafilatura rows are identical (0.735). On Zyte, readability-lxml and tuned trafilatura are tied at 0.960, so their order there is a coin flip.</figcaption>
+      </figure>
+
+      <div class="col">
+        <p>Wikipedia barely agrees with my order: Spearman 0.20 over 7 rows. Zyte agrees more, 0.60 over the 6 tools, and it agrees with Wikipedia at 0.83. What held everywhere: html2text, markdownify and the naive BeautifulSoup baseline stay at the bottom, below readability-lxml and trafilatura.
+          <span class="sn"><span class="n">3</span>With 6 or 7 tools, a rank correlation is a rough signal. Read Table 2 as direction, not as a measurement.</span></p>
+        <div class="table-wrap" style="display:inline-block;max-width:100%">
+          <table class="spearman" id="t-spear">
+            <thead><tr><th scope="col">Spearman rank correlation</th><th scope="col">6 tools</th><th scope="col">7 rows</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="small-sans" style="margin-top:0.5rem"><b>Table 2.</b> The 7 rows count tuned trafilatura as its own row.</p>
+
+        <h3>Why it flipped</h3>
+        <p>On the synthetic set, jusText returned an empty string, with no error, on 15 of 40 pages: every non-English page, every recipe, every listing, and 3 forum threads. Each one scores 0. Wikipedia is all English articles, and there jusText was the most precise tool, at 0.936. On Zyte it was empty again on 30 of 181 pages.</p>
+        <p>So the synthetic set punished jusText for page types the real sets do not contain. Each dot below is one page, and the column of dots at zero is the story.</p>
+      </div>
+
+      <figure class="wide">
+        <div class="chart" id="fig-strips"></div>
+        <figcaption><b>Figure 6.</b> Every page's F1, per tool and slice. Dots are jittered up and down so they do not hide each other. The tall tick is the mean and the bar under it the 95% interval. Red counts are empty outputs.</figcaption>
+      </figure>
+
+      <div class="col">
+        <h3>The tie on many sites</h3>
+        <p>On Zyte, readability-lxml minus tuned trafilatura is +0.000 [-0.011, +0.013] over pages. Pages of one site share a template, so I also resampled whole sites: [-0.013, +0.016]. A tie both ways.
+          <span class="sn"><span class="n">4</span>Not blind. The Zyte dataset's own README publishes results for readability, trafilatura and jusText, so those tools may have been tuned against these pages.</span></p>
+      </div>
+      <figure class="wide">
+        <div class="chart" id="fig-zyte"></div>
+        <figcaption><b>Figure 7.</b> Zyte slice, readability-lxml minus trafilatura (best-config). The tuned config is the one frozen from the synthetic dev pages, not retuned here.</figcaption>
+      </figure>
+
+      <div class="col">
+        <p class="pull">So the Wikipedia flip was a Wikipedia result. On many sites the synthetic top two hold up, and jusText sits in the middle.</p>
+        <h3>If you benchmark extractors</h3>
+        <ol class="takeaways">
+          <li>A tool that is last on one page mix can be first on another. Test on your own mix.</li>
+          <li>Treat empty output as a failure, not a result.</li>
+          <li>A benchmark you wrote yourself can only rank the pages you thought of.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 3 ============================================================ -->
+    <section id="viewer" aria-labelledby="h-viewer">
+      <h2 id="h-viewer"><span class="sec">3</span>Look at one page</h2>
+      <div class="col">
+        <p class="lede">A score hides what a tool actually did. Pick any of the 40 synthetic test pages and two tools.</p>
+        <p>On the left is the page exactly as the tools got it. Next to it is the gold: each main paragraph marked kept or dropped, and each planted boilerplate snippet marked if it leaked. Below, every output line is marked as gold text, leaked boilerplate, or other text.
+          <span class="sn"><span class="n">5</span><code>blog_comments-2</code> is the demo page from the README. F1 calls trafilatura and jusText fine there (0.94), but both kept all four reader comments. That is why leak rate sits next to F1.</span></p>
+      </div>
+
+      <figure class="wide">
+        <div class="viewer" id="viewer-app">
+          <div class="v-controls">
+            <label>Test page <select id="v-page" aria-describedby="v-page-meta"></select></label>
+            <label class="v-pick-a">Output A <select id="v-a"></select></label>
+            <label class="v-pick-b">Output B <select id="v-b"></select></label>
+          </div>
+          <div class="v-matrix" id="v-matrix" role="group" aria-label="F1 of every tool on this page. Click one to show it as output A."></div>
+          <p class="v-matrix-cap">F1 of every tool on this page. Click one to show it as output A. <span id="v-page-meta"></span></p>
+
+          <div class="v-legend" aria-label="Legend">
+            <span><span class="mk k" aria-hidden="true">K</span>kept: gold main text</span>
+            <span><span class="mk d" aria-hidden="true">D</span>dropped gold paragraph</span>
+            <span><span class="mk l" aria-hidden="true">L</span>leaked boilerplate, with its kind</span>
+            <span><span class="mk x" aria-hidden="true">X</span>extra: not gold, not a tracked snippet</span>
+          </div>
+
+          <div class="v-top">
+            <details class="pane" id="v-frame-pane">
+              <summary class="pane-h"><h4>What the browser sees</h4><span class="meta">sandboxed, scripts off</span></summary>
+              <div class="frame-wrap"><iframe id="v-frame" sandbox="" title="The selected test page, rendered with scripts disabled" loading="lazy" referrerpolicy="no-referrer"></iframe></div>
+            </details>
+            <div class="pane">
+              <div class="pane-h"><h4>Gold</h4><span class="meta">written at generation time</span></div>
+              <div class="pane-b" id="v-gold" tabindex="0" role="region" aria-label="Gold text for this page"></div>
+            </div>
+          </div>
+
+          <div class="seg v-tabs" id="v-tabs" role="group" aria-label="Which output to show">
+            <button type="button" data-side="a" aria-pressed="true">A</button>
+            <button type="button" data-side="b" aria-pressed="false">B</button>
+          </div>
+          <div class="v-outs">
+            <div class="pane"><div class="pane-h"></div><div id="v-out-a"></div></div>
+            <div class="pane"><div class="pane-h"></div><div id="v-out-b"></div></div>
+          </div>
+        </div>
+        <figcaption><b>Figure 8.</b> Side-by-side viewer. Highlighting is approximate: each output line is matched to the gold by 4-gram overlap, line by line. The scores themselves are recomputed with the repo's own <code>metrics.score</code> and match <code>results/per_doc.csv</code> exactly.</figcaption>
+      </figure>
+    </section>
+
+    <!-- 4 ============================================================ -->
+    <section id="failures" aria-labelledby="h-fail">
+      <h2 id="h-fail"><span class="sec">4</span>How they fail</h2>
+      <div class="col">
+        <p class="lede">A score says how much went wrong. The taxonomy says what. Each tool and page gets fixed-threshold labels, and the matrix counts the test pages with each label, out of 40.</p>
+      </div>
+      <figure class="wide">
+        <div class="table-wrap sticky-first">
+          <table class="tax" id="t-tax" aria-describedby="cap-tax"></table>
+        </div>
+        <figcaption id="cap-tax"><b>Figure 9.</b> Failure labels on the 40 synthetic test pages. Circle area grows with the count; a faint dot is zero. Empty output is drawn in red.</figcaption>
+      </figure>
+      <div class="col">
+        <p><b>The converters keep everything.</b> html2text, markdownify and the naive BeautifulSoup baseline leak nav or footer on 40 of 40 pages. Their recall is 1.000, and their output is about 1.7 times the real content.</p>
+        <p><b>readability-lxml's title is wrong on 40 of 40.</b> Its default <code>title()</code> returns the whole <code>&lt;title&gt;</code> tag, site name included. Its <code>short_title()</code> helper matches 35 of 40. That is a side check, not part of the ranking.</p>
+        <p><b>jusText fails quietly.</b> Empty output on 15 pages, tables lost on 5, code lost on 4, and no crash on any of them.</p>
+        <p><b>trafilatura keeps reader comments by default.</b> Tuning on the 20 dev pages picked <code>include_comments=False</code>, which removed comment leaks on 4 test pages.
+          <span class="sn"><span class="n">6</span>This is the only tuned row. Tuning was uneven on purpose: one row, picked on dev, frozen, and named as such everywhere.</span></p>
+        <div class="table-wrap">
+          <table id="t-tune">
+            <thead><tr><th scope="col">include_comments</th><th scope="col">favor_precision</th><th scope="col">favor_recall</th><th scope="col">Dev F1</th><th scope="col">Dev leak rate</th><th scope="col"><span class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Chosen</span></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="small-sans" style="margin-top:0.5rem"><b>Table 3.</b> The trafilatura tuning grid, scored on the 20 dev pages only.</p>
+
+        <h3>Would the right stoplist save jusText?</h3>
+        <p>jusText ships a stoplist per language and defaults to English. With the matching stoplist it recovers on the German and French test pages, but stays at 0 on Italian and Hindi. The Spanish and Portuguese pages are dev pages; they recover too.</p>
+        <div class="table-wrap">
+          <table id="t-stop">
+            <thead><tr><th scope="col">Language</th><th scope="col">Page</th><th scope="col">Split</th><th scope="col">F1, English stoplist</th><th scope="col">F1, matching stoplist</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="small-sans" style="margin-top:0.5rem"><b>Table 4.</b> Side check, not ranked: <code>python -m extract_bench.side_checks</code>.</p>
+      </div>
+    </section>
+
+    <!-- 5 ============================================================ -->
+    <section id="judge" aria-labelledby="h-judge">
+      <h2 id="h-judge"><span class="sec">5</span>The metric vs two LLM judges</h2>
+      <div class="col">
+        <p class="lede">The token metric is my choice, so I checked its pass/fail rule against two LLM judges.</p>
+        <p>The rule: GOOD when F1 is at least 0.8 and leak rate is at most 0.2, else BAD. Each judge saw the gold main text and one tool's output and answered GOOD or BAD. 140 items, 20 test pages per tool, seed 7, the same items for both judges, temperature 0, 0 failed calls.
+          <span class="sn"><span class="n">7</span>Kappa intervals are a percentile bootstrap over items, 2,000 resamples, seed 7.</span></p>
+      </div>
+      <figure class="wide">
+        <div class="chart" id="fig-kappa"></div>
+        <figcaption><b>Figure 10.</b> Cohen's kappa with 95% intervals. The two judges agree with each other less well than qwen agrees with the metric. One judge model is not ground truth.</figcaption>
+      </figure>
+      <div class="col">
+        <div class="twocol" id="confusions"></div>
+        <p class="small-sans" style="margin-top:0.5rem"><b>Table 5.</b> Metric rule against each judge. Red cells are disagreements.</p>
+
+        <h3>What I take from it</h3>
+        <p><b>Where they disagree, the metric is the lenient one.</b> The judges agree with each other on 118 of 140 items. On 9 of those the metric disagrees with both, and in all 9 the metric said GOOD. Open any of them in the viewer:</p>
+        <div class="table-wrap">
+          <table id="t-disagree">
+            <thead><tr><th scope="col">Extractor</th><th scope="col">Page</th><th scope="col">F1</th><th scope="col">Leak</th><th scope="col">Metric</th><th scope="col">Both judges</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="small-sans" style="margin-top:0.5rem"><b>Table 6.</b> The 9 items. Click a page to load it in section 3.</p>
+        <p><b>No disagreement on the clear cases.</b> bs4-naive, html2text and markdownify are BAD on all 60 of their items, for the metric and for both judges.</p>
+        <p><b>The judge is not fully stable.</b> I re-asked gpt-oss-120b 12 of its BAD-versus-metric-GOOD items with the same prompt at temperature 0. 2 of 12 came back GOOD this time.</p>
+        <p><b>A lead, not a result.</b> A stricter rule, precision and recall both at least 0.9 with leak at most 0.2, raises kappa to 0.89 with qwen and 0.59 with gpt-oss. I picked it after seeing these same items, so it needs fresh pages before it means anything.</p>
+      </div>
+    </section>
+
+    <!-- 6 ============================================================ -->
+    <section id="limits" aria-labelledby="h-limits">
+      <h2 id="h-limits"><span class="sec">6</span>Limits</h2>
+      <div class="col">
+        <p>A benchmark that hides its limits is marketing. These are the ones I know about.</p>
+        <ol class="limits">
+          <li><b>Synthetic pages.</b> Template text and my guesses at common layouts. The Wikipedia slice reorders the tools, but it is one site template. The Zyte slice agrees with the synthetic top two and puts jusText fourth. Neither real slice covers recipes, forums or listings.</li>
+          <li><b>Same author for pages and gold</b> on the 60 synthetic pages. I decided what counts as content, and the listing-page check shows how much one decision can move the ranking. The Wikipedia gold leaves out infobox text and tables.</li>
+          <li><b>No JavaScript rendering.</b> Static HTML only.</li>
+          <li><b>Small n, few templates.</b> 40 test pages, 4 per type, from 10 templates. Per-type cells are directions, not rankings. The honest unit of variation is closer to 10 page types than 40 pages.</li>
+          <li><b>The metric is not a human, and neither is the judge.</b> Bag-of-words F1 ignores order and formatting. The judges saw 140 of the 420 outputs, no human labels exist, and the two judges disagree with each other about as often as with the metric.</li>
+          <li><b>Uneven tuning.</b> Only trafilatura got a tuned row. jusText recovers on German and French with the right stoplist, but not on Italian or Hindi.</li>
+          <li><b>No third-party text in git.</b> The synthetic pages come from sentence banks written for this project, with invented company names. Wikipedia text is CC BY-SA and the Zyte pages belong to the sites that published them, so those slices ship ids, links and hashes only.</li>
+          <li><b>One machine for latency.</b> Latency also moves a little on every rerun. Every other number is identical run to run.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 7 ============================================================ -->
+    <section id="method" aria-labelledby="h-method">
+      <h2 id="h-method"><span class="sec">7</span>Method and rerun</h2>
+      <div class="col">
+        <p>Everything runs locally: no API keys, no network at run time, no paid services. The two real-page slices fetch their pages once. Same seed, same intervals.</p>
+        <pre class="cmd" tabindex="0" aria-label="Commands to rerun the benchmark"><span class="c"># Python 3.11 or newer</span>
+pip install -r requirements.txt
+python -m extract_bench.build_corpus     <span class="c"># rebuild the 60 pages + gold</span>
+python -m extract_bench.run              <span class="c"># results/ and charts/, about 30 seconds</span>
+python -m extract_bench.side_checks      <span class="c"># jusText stoplists, readability short_title()</span>
+python -m extract_bench.demo blog_comments-2
+python -m extract_bench.wikislice build  <span class="c"># optional, needs network</span>
+python -m extract_bench.wikislice run
+python -m extract_bench.zyteslice build  <span class="c"># optional, needs network</span>
+python -m extract_bench.zyteslice run
+python -m pytest -q</pre>
+        <dl class="facts" id="facts"></dl>
+        <p class="small-sans">Statistics: percentile bootstrap of the mean over pages; paired bootstrap on per-page differences, where an interval that crosses 0 means not significantly different; the same test with whole page types (synthetic) or whole sites (Zyte) as the resampled unit. Every number on this page is read from <code>site/data/site.json</code>, exported from the repo's result files by <code>site/scripts/export_data.py</code>.</p>
+      </div>
+    </section>
+  </article>
+</div>
+
+<footer class="site-foot">
+  <p class="built">Built by <a href="https://aarti-panchal.site">Aarti Panchal</a>.</p>
+  <p>Code and generated corpus: MIT, <a href="https://github.com/Aarti-panchal01/extract-bench">github.com/Aarti-panchal01/extract-bench</a>. Wikipedia text is CC BY-SA 4.0 (Wikipedia contributors). The Zyte article-extraction-benchmark dataset is MIT, Copyright (c) 2020 Scrapinghub; its articles belong to the sites that published them. No third-party text is hosted here: the viewer shows only the synthetic pages, which were generated for this project.</p>
+</footer>
+</body>
+</html>

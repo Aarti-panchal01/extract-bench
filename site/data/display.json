@@ -1,0 +1,429 @@
+{
+ "synthetic": {
+  "rows": {
+   "readability-lxml": {
+    "f1": {
+     "mean": "0.925",
+     "lo": "0.898",
+     "hi": "0.949"
+    },
+    "precision": "0.871",
+    "recall": "1.000",
+    "leak": "0.181",
+    "latency_ms": "4.38"
+   },
+   "trafilatura (best-config)": {
+    "f1": {
+     "mean": "0.840",
+     "lo": "0.753",
+     "hi": "0.914"
+    },
+    "precision": "0.813",
+    "recall": "0.945",
+    "leak": "0.111",
+    "latency_ms": "9.57"
+   },
+   "trafilatura": {
+    "f1": {
+     "mean": "0.831",
+     "lo": "0.746",
+     "hi": "0.905"
+    },
+    "precision": "0.798",
+    "recall": "0.945",
+    "leak": "0.160",
+    "latency_ms": "10.93"
+   },
+   "html2text": {
+    "f1": {
+     "mean": "0.706",
+     "lo": "0.634",
+     "hi": "0.769"
+    },
+    "precision": "0.579",
+    "recall": "1.000",
+    "leak": "0.811",
+    "latency_ms": "1.46"
+   },
+   "bs4-naive": {
+    "f1": {
+     "mean": "0.693",
+     "lo": "0.621",
+     "hi": "0.756"
+    },
+    "precision": "0.564",
+    "recall": "1.000",
+    "leak": "0.885",
+    "latency_ms": "1.49"
+   },
+   "markdownify": {
+    "f1": {
+     "mean": "0.693",
+     "lo": "0.622",
+     "hi": "0.755"
+    },
+    "precision": "0.562",
+    "recall": "1.000",
+    "leak": "0.811",
+    "latency_ms": "3.65"
+   },
+   "justext": {
+    "f1": {
+     "mean": "0.554",
+     "lo": "0.418",
+     "hi": "0.687"
+    },
+    "precision": "0.549",
+    "recall": "0.572",
+    "leak": "0.124",
+    "latency_ms": "3.31"
+   }
+  },
+  "no_listing": {
+   "readability-lxml": {
+    "mean": "0.930",
+    "lo": "0.905",
+    "hi": "0.953"
+   },
+   "trafilatura (best-config)": {
+    "mean": "0.910",
+    "lo": "0.849",
+    "hi": "0.953"
+   },
+   "trafilatura": {
+    "mean": "0.900",
+    "lo": "0.840",
+    "hi": "0.943"
+   },
+   "html2text": {
+    "mean": "0.774",
+    "lo": "0.748",
+    "hi": "0.800"
+   },
+   "bs4-naive": {
+    "mean": "0.761",
+    "lo": "0.734",
+    "hi": "0.789"
+   },
+   "markdownify": {
+    "mean": "0.759",
+    "lo": "0.732",
+    "hi": "0.787"
+   },
+   "justext": {
+    "mean": "0.616",
+    "lo": "0.473",
+    "hi": "0.747"
+   }
+  },
+  "top_pair": {
+   "page": {
+    "diff": "+0.085",
+    "lo": "+0.018",
+    "hi": "+0.166"
+   },
+   "type": {
+    "diff": "+0.085",
+    "lo": "-0.005",
+    "hi": "+0.227"
+   }
+  },
+  "no_listing_pair": {
+   "page": {
+    "diff": "+0.020",
+    "lo": "-0.018",
+    "hi": "+0.072"
+   },
+   "type": {
+    "diff": "+0.020",
+    "lo": "-0.012",
+    "hi": "+0.058"
+   }
+  },
+  "best_vs_default": {
+   "diff": "+0.009",
+   "lo": "+0.001",
+   "hi": "+0.018"
+  }
+ },
+ "wikipedia": {
+  "rows": {
+   "justext": {
+    "f1": {
+     "mean": "0.849",
+     "lo": "0.812",
+     "hi": "0.882"
+    },
+    "precision": "0.936",
+    "recall": "0.802"
+   },
+   "readability-lxml": {
+    "f1": {
+     "mean": "0.788",
+     "lo": "0.744",
+     "hi": "0.829"
+    },
+    "precision": "0.763",
+    "recall": "0.888"
+   },
+   "trafilatura": {
+    "f1": {
+     "mean": "0.735",
+     "lo": "0.694",
+     "hi": "0.775"
+    },
+    "precision": "0.598",
+    "recall": "1.000"
+   },
+   "trafilatura (best-config)": {
+    "f1": {
+     "mean": "0.735",
+     "lo": "0.694",
+     "hi": "0.775"
+    },
+    "precision": "0.598",
+    "recall": "1.000"
+   },
+   "bs4-naive": {
+    "f1": {
+     "mean": "0.626",
+     "lo": "0.584",
+     "hi": "0.669"
+    },
+    "precision": "0.471",
+    "recall": "1.000"
+   },
+   "html2text": {
+    "f1": {
+     "mean": "0.606",
+     "lo": "0.562",
+     "hi": "0.651"
+    },
+    "precision": "0.450",
+    "recall": "1.000"
+   },
+   "markdownify": {
+    "f1": {
+     "mean": "0.588",
+     "lo": "0.545",
+     "hi": "0.631"
+    },
+    "precision": "0.430",
+    "recall": "1.000"
+   }
+  },
+  "vs_top": {
+   "trafilatura": {
+    "diff": "+0.114",
+    "lo": "+0.073",
+    "hi": "+0.155"
+   },
+   "readability-lxml": {
+    "diff": "+0.061",
+    "lo": "+0.019",
+    "hi": "+0.103"
+   },
+   "html2text": {
+    "diff": "+0.242",
+    "lo": "+0.195",
+    "hi": "+0.288"
+   },
+   "bs4-naive": {
+    "diff": "+0.222",
+    "lo": "+0.177",
+    "hi": "+0.267"
+   },
+   "markdownify": {
+    "diff": "+0.261",
+    "lo": "+0.215",
+    "hi": "+0.306"
+   },
+   "trafilatura (best-config)": {
+    "diff": "+0.114",
+    "lo": "+0.073",
+    "hi": "+0.155"
+   }
+  },
+  "readability_minus_trafilatura_best": {
+   "diff": "+0.052",
+   "lo": "+0.008",
+   "hi": "+0.098"
+  }
+ },
+ "zyte": {
+  "rows": {
+   "readability-lxml": {
+    "f1": {
+     "mean": "0.960",
+     "lo": "0.948",
+     "hi": "0.970"
+    },
+    "f1_site": {
+     "mean": "0.960",
+     "lo": "0.947",
+     "hi": "0.970"
+    },
+    "precision": "0.943",
+    "recall": "0.984"
+   },
+   "trafilatura (best-config)": {
+    "f1": {
+     "mean": "0.960",
+     "lo": "0.946",
+     "hi": "0.971"
+    },
+    "f1_site": {
+     "mean": "0.960",
+     "lo": "0.944",
+     "hi": "0.973"
+    },
+    "precision": "0.948",
+    "recall": "0.983"
+   },
+   "trafilatura": {
+    "f1": {
+     "mean": "0.949",
+     "lo": "0.931",
+     "hi": "0.964"
+    },
+    "f1_site": {
+     "mean": "0.949",
+     "lo": "0.930",
+     "hi": "0.965"
+    },
+    "precision": "0.934",
+    "recall": "0.983"
+   },
+   "justext": {
+    "f1": {
+     "mean": "0.718",
+     "lo": "0.666",
+     "hi": "0.769"
+    },
+    "f1_site": {
+     "mean": "0.718",
+     "lo": "0.654",
+     "hi": "0.779"
+    },
+    "precision": "0.741",
+    "recall": "0.742"
+   },
+   "bs4-naive": {
+    "f1": {
+     "mean": "0.639",
+     "lo": "0.608",
+     "hi": "0.669"
+    },
+    "f1_site": {
+     "mean": "0.639",
+     "lo": "0.602",
+     "hi": "0.674"
+    },
+    "precision": "0.504",
+    "recall": "1.000"
+   },
+   "html2text": {
+    "f1": {
+     "mean": "0.620",
+     "lo": "0.588",
+     "hi": "0.651"
+    },
+    "f1_site": {
+     "mean": "0.620",
+     "lo": "0.582",
+     "hi": "0.657"
+    },
+    "precision": "0.485",
+    "recall": "1.000"
+   },
+   "markdownify": {
+    "f1": {
+     "mean": "0.611",
+     "lo": "0.579",
+     "hi": "0.643"
+    },
+    "f1_site": {
+     "mean": "0.611",
+     "lo": "0.573",
+     "hi": "0.649"
+    },
+    "precision": "0.476",
+    "recall": "1.000"
+   }
+  },
+  "vs_top": {
+   "trafilatura": {
+    "page": {
+     "diff": "+0.011",
+     "lo": "-0.004",
+     "hi": "+0.029"
+    },
+    "site": {
+     "diff": "+0.011",
+     "lo": "-0.005",
+     "hi": "+0.030"
+    }
+   },
+   "justext": {
+    "page": {
+     "diff": "+0.242",
+     "lo": "+0.192",
+     "hi": "+0.294"
+    },
+    "site": {
+     "diff": "+0.242",
+     "lo": "+0.182",
+     "hi": "+0.306"
+    }
+   },
+   "html2text": {
+    "page": {
+     "diff": "+0.340",
+     "lo": "+0.309",
+     "hi": "+0.372"
+    },
+    "site": {
+     "diff": "+0.340",
+     "lo": "+0.304",
+     "hi": "+0.377"
+    }
+   },
+   "bs4-naive": {
+    "page": {
+     "diff": "+0.321",
+     "lo": "+0.291",
+     "hi": "+0.352"
+    },
+    "site": {
+     "diff": "+0.321",
+     "lo": "+0.287",
+     "hi": "+0.357"
+    }
+   },
+   "markdownify": {
+    "page": {
+     "diff": "+0.349",
+     "lo": "+0.318",
+     "hi": "+0.381"
+    },
+    "site": {
+     "diff": "+0.349",
+     "lo": "+0.312",
+     "hi": "+0.386"
+    }
+   },
+   "trafilatura (best-config)": {
+    "page": {
+     "diff": "+0.000",
+     "lo": "-0.011",
+     "hi": "+0.013"
+    },
+    "site": {
+     "diff": "+0.000",
+     "lo": "-0.013",
+     "hi": "+0.016"
+    }
+   }
+  }
+ }
+}
