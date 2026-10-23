@@ -39,9 +39,19 @@ Other patterns from the failure taxonomy:
 - html2text and markdownify are converters, not extractors. They kept everything, leaked nav menus on all 40 pages, and returned about 1.7 times the real word count.
 - Code and tables survived intact everywhere except jusText.
 
+## Do the results hold on real pages?
+
+Partly. I added 40 real English Wikipedia articles, drawn at random by a rule written down before any tool ran. The page is the normal rendered article with nav, sidebar and footer. The gold is the Wikipedia API's plain-text extract of the same revision, so I did not write it.
+
+- jusText, last on the synthetic set, came first: F1 0.85 (95% CI 0.81 to 0.88). It failed on the synthetic set because of non-English, recipe, listing and forum pages. These are all English articles, which is what its default stoplist expects.
+- readability-lxml was second at 0.79 (0.74 to 0.83), trafilatura third at 0.74 (0.69 to 0.78). On these pages the old top two are no longer tied: readability minus tuned trafilatura is +0.052 (0.008 to 0.098) over pages.
+- html2text, markdownify and the naive baseline were last again, F1 0.59 to 0.63, with recall near 1.00 and precision under 0.5.
+
+Two warnings. It is one site template, so these intervals say nothing about how the tools do across different layouts. And the gold leaves out infobox text and tables, which costs every tool that keeps them. The honest reading is that the synthetic ranking is not a safe guide to real pages, and I would not pick an extractor from either set alone.
+
 ## What this means if you build agents
 
-1. Test on your own page mix. Averages hide the page type where a tool falls apart.
+1. Test on your own page mix. Averages hide the page type where a tool falls apart, and a tool that is last on one mix can be first on another.
 2. Read the defaults. One flag changed whether user comments counted as the article.
 3. Treat empty output as a failure, not a result. Log it and fall back to a second extractor.
 4. A markdown converter is not an extractor. It hands the model every menu and footer.
@@ -49,19 +59,19 @@ Other patterns from the failure taxonomy:
 
 ## Limits of this benchmark
 
-- **Synthetic pages.** Template text, and layouts that are my guesses at common patterns. Real pages are messier, and studies on real crawls may rank these tools differently.
-- **Same author for pages and gold.** I decided what counts as content. The listing result shows how far one such decision moves a ranking.
+- **Synthetic pages.** Template text, and layouts that are my guesses at common patterns. Real pages are messier. My first real-page check (40 Wikipedia articles, gold from the Wikipedia API, not from me) reordered the tools: jusText went from last to first, and readability-lxml dropped to second. That is one site template, so it is a warning about the synthetic ranking, not a new ranking.
+- **Same author for pages and gold** on the synthetic set. I decided what counts as content. The listing result shows how far one such decision moves a ranking. The Wikipedia gold is not mine, but it leaves out infobox text and tables.
 - **No JavaScript rendering.** Static HTML only. Pages built in the browser are out of scope.
 - **Small n, wide intervals.** 40 test pages, 4 per type, built from 10 templates. The per-type heatmap shows direction, not a ranking.
 - **Metric is not a human.** Bag-of-words F1 ignores order and formatting. I checked it against two LLM judges on 140 outputs. Kappa was 0.74 with one and 0.52 with the other, and the two judges agreed with each other at only 0.53. Where both judges disagreed with the metric (9 cases), the metric was the lenient one every time. No human labels yet.
 - **Tuning was uneven.** Only trafilatura got a tuned row. In a side check outside the ranking, jusText with the matching stoplist recovered the German and French pages (F1 1.00 and 0.89), but still returned nothing on Italian and Hindi.
-- **No third-party content.** Every page is generated from sentence banks I wrote, so there is no scraped text.
+- **No third-party text in the repo.** The synthetic pages come from sentence banks I wrote. The Wikipedia pages are CC BY-SA, so the repo holds only a fetch script, page ids, revision links and hashes.
 - **Latency is one laptop.** Medians were 1 to 11 ms per page. Use them for order only.
 
 ## What I would do next
 
 1. Hand-label about 40 of the judged outputs and measure each LLM judge's true-positive and true-negative rate against a human, with bootstrap intervals.
-2. Add a small set of real pages, with gold labelled by someone other than me, and check whether the top two still tie.
+2. Add real pages from several different site templates, with gold labelled by someone other than me. The Wikipedia slice is a start: one template, 40 articles.
 3. Publish a second gold variant for listing pages, since that one decision moves the ranking.
 
 One command rebuilds the corpus from a seed, reruns every tool, and regenerates every number and chart here (latency varies a little run to run). Library versions are pinned and printed in the results header.

@@ -1,0 +1,486 @@
+{
+  "about": "Wikipedia real-page slice for extract-bench. HTML and gold text are not stored in git (CC BY-SA 4.0); refetch with `python -m extract_bench.wikislice build` or from the permalinks.",
+  "rule": {
+    "seed": 20261023,
+    "id_range": [
+      1,
+      80000000
+    ],
+    "id_batch": 50,
+    "namespace": 0,
+    "skip": [
+      "redirects",
+      "disambiguation pages"
+    ],
+    "wikitext_bytes": [
+      20000,
+      150000
+    ],
+    "min_gold_tokens": 800,
+    "n_pages": 40,
+    "dropped_gold_sections": [
+      "bibliography",
+      "citations",
+      "external links",
+      "footnotes",
+      "further reading",
+      "notes",
+      "notes and references",
+      "references",
+      "see also",
+      "sources"
+    ]
+  },
+  "html_source": "https://en.wikipedia.org/w/index.php?oldid=<revid> (normal article render)",
+  "gold_source": "action=query&prop=extracts&explaintext=1 for the same revision, then normalise_extract()",
+  "licence": "Wikipedia text: CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/ ; authors: see each page history",
+  "fetched_utc": "2026-10-23T00:10Z",
+  "ids_drawn": 5150,
+  "skipped": {
+    "filtered_by_info": 5078,
+    "gold_too_short": 10,
+    "revision_changed": 0
+  },
+  "pages": [
+    {
+      "pageid": 79103310,
+      "title": "Travel Portland",
+      "revid": 1372908754,
+      "wikitext_bytes": 80151,
+      "html_sha256": "bccc6f746c9cb0175e66d70311f090d7d7c8143068f8a2a72ae3b156b29655b9",
+      "gold_sha256": "7614e79ff513f51969cd27e5bbc5b230a6aadc4c348e7167d75193b70a5ec09a",
+      "extract_sha256": "3fed28925f7f4e055d540f174734736d9886b634afe8316d79d21173f2914e61",
+      "n_gold_tokens": 3468,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1372908754"
+    },
+    {
+      "pageid": 42464899,
+      "title": "The Boat Race 2012",
+      "revid": 1316799915,
+      "wikitext_bytes": 37175,
+      "html_sha256": "fb9fb5bf3fe86b1e7b0a8e7f4714b1d4feaa290c94b14501ad4b2c4da01f3bd3",
+      "gold_sha256": "c25ddf5372341a2ef3bcde3837dec5dafb25ecdf393575a9cb07ae2d3fd4f751",
+      "extract_sha256": "f92ed264aadc3a423d54d58c185c250c367fbe60b6dead7f06ec09c7709a3b68",
+      "n_gold_tokens": 1846,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1316799915"
+    },
+    {
+      "pageid": 13480122,
+      "title": "1995–96 Chicago Bulls season",
+      "revid": 1373725764,
+      "wikitext_bytes": 124331,
+      "html_sha256": "3c419b297d9ad3decb8e158ead3abf9465379d5cd381a63bbc059dcf7129fd8e",
+      "gold_sha256": "3bbdd81dd99cdfa450e87a2ce96bedeeff8f04414fc73471dfb137a5fc86abe4",
+      "extract_sha256": "fac9cbc3d4c834866fb66867411e9091636274f5f77083ab71037e4f18cfdb9d",
+      "n_gold_tokens": 3345,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1373725764"
+    },
+    {
+      "pageid": 16164135,
+      "title": "History of County Wexford",
+      "revid": 1369968505,
+      "wikitext_bytes": 74979,
+      "html_sha256": "36a67089c29702f5344bf846cc48c8a2ddaed50f7cb5f0ccf831e25a15dbf322",
+      "gold_sha256": "59b480903e13b454bf575855c08fb5a9b9993f2ea4b9080b588ad6abbc3b571f",
+      "extract_sha256": "3c46047424788c284262ab84c49ac517992f5ff21e8c3d76cd3bbe33420bc4ca",
+      "n_gold_tokens": 7339,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1369968505"
+    },
+    {
+      "pageid": 22878312,
+      "title": "Allotropes of boron",
+      "revid": 1371682485,
+      "wikitext_bytes": 31026,
+      "html_sha256": "8e36daeb5a9150a2df8fb68c3f9f53133cf17efe0b77bd4931ee334911029c72",
+      "gold_sha256": "c40b9ca9d77665525ebbec636a85eeac292f17ed8d25f8c8ae2d256f333d13fc",
+      "extract_sha256": "2d5bf77772c1f40d3bba2936980f73642e2dc19627aa589c4bc2d2adafed10f3",
+      "n_gold_tokens": 1058,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1371682485"
+    },
+    {
+      "pageid": 67966344,
+      "title": "Bhagya Lakshmi",
+      "revid": 1381164046,
+      "wikitext_bytes": 53808,
+      "html_sha256": "7b759510e5cad13b17cd8a529d268bb8762bfc328b5c5a003cdd722c4934ae23",
+      "gold_sha256": "0add42dd613842592772ea5ac443399f4d61dbd386dad71d1d5f24d041fab056",
+      "extract_sha256": "b78f5e84f5eeb20455a39a22444175782416e6240002dcfd62a4f290bd27369a",
+      "n_gold_tokens": 1910,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1381164046"
+    },
+    {
+      "pageid": 25752436,
+      "title": "1740 Batavia massacre",
+      "revid": 1379360311,
+      "wikitext_bytes": 40231,
+      "html_sha256": "a9b46c5e47b7564398c4da6919cba480389135af2ab116aa5a430ad12238e903",
+      "gold_sha256": "5a1839936b7a6e44a0eae278f636ca096f37973ec9e426f4dadb1c26b7bfe064",
+      "extract_sha256": "d9674f3c4eaea493b0126e2b8d88b598abd7976820b49135d1078a9f531e87ee",
+      "n_gold_tokens": 3057,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1379360311"
+    },
+    {
+      "pageid": 7791507,
+      "title": "Lightspeed Electroid Albegas",
+      "revid": 1368492442,
+      "wikitext_bytes": 27265,
+      "html_sha256": "28dd4d41e8fe3b2eefa88698e9efe567ebf2032b871e4b41e8d6b3360d64eb3a",
+      "gold_sha256": "140ad244a3b9fd965e33922dbe0ba7574e20e1ba6647bc3c0dd999c4eff08331",
+      "extract_sha256": "e1e10181888d51c8a9d656b2446908e1bc09d4612aaa462a64896c1beb1e046c",
+      "n_gold_tokens": 805,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1368492442"
+    },
+    {
+      "pageid": 570855,
+      "title": "Minyan",
+      "revid": 1374372295,
+      "wikitext_bytes": 35143,
+      "html_sha256": "bc55f2e0026f0f26734b9daeec5a09895112b460f2cd901d94159324f05c0f45",
+      "gold_sha256": "243c864b5989cad3f212ecdf057cb75cbef03636bf4d386f670fe05b6aa43162",
+      "extract_sha256": "f383db0307c47a3bd52cb19a4d94c6711607bd842824c51e802454c37ab31af7",
+      "n_gold_tokens": 2733,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1374372295"
+    },
+    {
+      "pageid": 14247831,
+      "title": "Option for the poor",
+      "revid": 1366716788,
+      "wikitext_bytes": 20702,
+      "html_sha256": "bdb4046b94f72d9ee5336f780d052a18d58970879c52dbfbd2be70037cdaf973",
+      "gold_sha256": "a6645dac720c52baf5a6a371125b1b659e2738193939775e038971cb1fa18e2c",
+      "extract_sha256": "bf0c31f40225da86a8404071f041ea613759a9d966604b1f2370ad1d250e70ac",
+      "n_gold_tokens": 1928,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1366716788"
+    },
+    {
+      "pageid": 73443244,
+      "title": "I.U. Willets Road",
+      "revid": 1362676103,
+      "wikitext_bytes": 25585,
+      "html_sha256": "79f1b6ceac2a0c73e2b6408c1328c9f20b18f792b369fefe3f5376c8b8db70fe",
+      "gold_sha256": "21adb11505b67ebb14ff9200bd167fbcf1ec498f26bb9bcd96f9909b060812ab",
+      "extract_sha256": "2b20a0163490df104c6fc87be9945c7b5f867db79e15b1daa8bab02cd7c15edf",
+      "n_gold_tokens": 1225,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1362676103"
+    },
+    {
+      "pageid": 7349929,
+      "title": "Armenian hypothesis",
+      "revid": 1374475845,
+      "wikitext_bytes": 25159,
+      "html_sha256": "573b9d2f9438ce1d152d9413ef606dff99bd1ed002733be9269974b6419a4a4d",
+      "gold_sha256": "60dac0a453c76adf3132f55bc72b75f699138462a09bee0d7829fab9485d7138",
+      "extract_sha256": "30a99156240d1ca53fd050e6e95e506c24377afb40c7cb4bbf4023d4acb6be3f",
+      "n_gold_tokens": 1538,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1374475845"
+    },
+    {
+      "pageid": 70260583,
+      "title": "Food swamp",
+      "revid": 1376308951,
+      "wikitext_bytes": 26529,
+      "html_sha256": "3bba2293f618cd7afd0a150f824d6b93000e9b0391f6ae940af9edad89f5a820",
+      "gold_sha256": "62c82a8819ae7adcbc622775726d8fef97231ac571d285890f8568d6a67b6c8b",
+      "extract_sha256": "5a9ffc9d4a21480bbc202826661875cd878e9aeefe74cfa52b94479c69783733",
+      "n_gold_tokens": 1813,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1376308951"
+    },
+    {
+      "pageid": 3485613,
+      "title": "Neale Daniher",
+      "revid": 1372669371,
+      "wikitext_bytes": 23674,
+      "html_sha256": "0ed9a3e0ca1c2a65d4b7b1dce7c48ab4a8505470c2f83780864e2441cfc6b34d",
+      "gold_sha256": "5d5a1404bc33463f5fd3f0e360d04a53263374ac43092532a1ff09aaf8d4a26b",
+      "extract_sha256": "08410cd510ac51e1782655288598000b1f11ca2a518ec91030a733453fbfffa4",
+      "n_gold_tokens": 1474,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1372669371"
+    },
+    {
+      "pageid": 70387599,
+      "title": "Esteban Masson",
+      "revid": 1381039345,
+      "wikitext_bytes": 63394,
+      "html_sha256": "6adf77edc64437a02e4a41345f3a03951336d3fe8ffd1113b4cc543cf48bd39f",
+      "gold_sha256": "039361e28f91faa6d376b949f0899635ba56a6685a49ca8bad40ab8b29274209",
+      "extract_sha256": "bbd7bbb78d69d82dff82aa6605cb08007b5f3fdafa5dcbd107e450cb83cdad34",
+      "n_gold_tokens": 1582,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1381039345"
+    },
+    {
+      "pageid": 13050734,
+      "title": "Comic strip syndication",
+      "revid": 1368203575,
+      "wikitext_bytes": 65925,
+      "html_sha256": "77c8135b7ff8c2ad6ddc83f358f64cf85abe70cb65d6e5bdaf12fd75981d20a2",
+      "gold_sha256": "93bf807e4241110c19f69dee43b9637356ebd666db903a39d965e5cbbe4bedd2",
+      "extract_sha256": "3ac24187f272a8eacc68a269b3f63b41e975338bbfd1bd142f4b1be76ce4af87",
+      "n_gold_tokens": 4874,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1368203575"
+    },
+    {
+      "pageid": 3102140,
+      "title": "Frederica Louisa of Hesse-Darmstadt",
+      "revid": 1372041627,
+      "wikitext_bytes": 20364,
+      "html_sha256": "4eae5d4b307cb1ac6cdb0f65d5bb119dd2990de97b1e7576042294f7b274fa2d",
+      "gold_sha256": "e269e59ea7eb63dd027ebfdfd0e748ecb248b9dcf7ad9350571ee75cbf555b53",
+      "extract_sha256": "105fe12a0787f7b32603f28372144dec6ebbcec8799674f244de0f4d73b812ef",
+      "n_gold_tokens": 1841,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1372041627"
+    },
+    {
+      "pageid": 5742305,
+      "title": "Lily Winters",
+      "revid": 1364717150,
+      "wikitext_bytes": 56365,
+      "html_sha256": "57d9e93e5662499677e2c462f95b5bc16452987a9f1a50061418c844a1ed34e0",
+      "gold_sha256": "68e631a3bfda9bc6850346c0b0b3ccab4c97bdcdef20d3d69cecfb9b1f3127de",
+      "extract_sha256": "60d99241b51687045cf292d4cd95ff057fa98a8e04189bd778fbb8ffddb8d664",
+      "n_gold_tokens": 4352,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1364717150"
+    },
+    {
+      "pageid": 10839226,
+      "title": "Cultured neuronal network",
+      "revid": 1371495805,
+      "wikitext_bytes": 20354,
+      "html_sha256": "e059cb1237d5e05da504ae9784cc2737c891e4dc25467ee8d6b01ee5f5bef935",
+      "gold_sha256": "05c2c88a43fdde1e187af06aee0c153e7691344ce37d89498f2db951dec3b8a1",
+      "extract_sha256": "9150938b10199d587cf138ca647f709e58d93c91b0f0da7f8ac978bba01513b1",
+      "n_gold_tokens": 1993,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1371495805"
+    },
+    {
+      "pageid": 674032,
+      "title": "Yale Daily News",
+      "revid": 1381480275,
+      "wikitext_bytes": 27818,
+      "html_sha256": "5e604014d68caee3f0aa555bd854d38081ba696c9d2e85e79a1719930747aae6",
+      "gold_sha256": "45504d76db73366627edbe30687c158d0cc0d8e3aa425299ecedb553de2250e8",
+      "extract_sha256": "b367437abee386b129d42baf426a4eddac59b5729fb80cbd4988da4f6d66a97c",
+      "n_gold_tokens": 1897,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1381480275"
+    },
+    {
+      "pageid": 5320110,
+      "title": "Tvrtko II of Bosnia",
+      "revid": 1373910544,
+      "wikitext_bytes": 26055,
+      "html_sha256": "834a797c8312aca32f102f87fbbeacea5866da5c2fabc2dcc3e301213e7dded1",
+      "gold_sha256": "b0ce67c9ae47f618f1c2e12974a58c7b631bb598bbd7241ab7ad2a125695c375",
+      "extract_sha256": "306c24923178f37586954b664a1f5285ca4be5bb28a9d7ed374b414d9afcb794",
+      "n_gold_tokens": 3207,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1373910544"
+    },
+    {
+      "pageid": 1410698,
+      "title": "Richards Bay",
+      "revid": 1376597853,
+      "wikitext_bytes": 25256,
+      "html_sha256": "95ed1c84e3a0c07685d7bed5b21295c5a9dca6f8252afc2145bbed5f30f59a01",
+      "gold_sha256": "dc32c99d3608c9f5a3f70d1e2be715b0b5a1a60b4525574b22aa309000659f1f",
+      "extract_sha256": "73ef9e8d9fc36c7ef31a42c09a18ead6c905c5fe019b7c714a67865db4565ad4",
+      "n_gold_tokens": 2410,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1376597853"
+    },
+    {
+      "pageid": 11757865,
+      "title": "Jamario Moon",
+      "revid": 1373167007,
+      "wikitext_bytes": 22296,
+      "html_sha256": "38daceca586efa7d0271a6fc4b3b0efeafd613d7f1bb2c9302cb4a8d5a74bb84",
+      "gold_sha256": "9eb18031000cbfa3c6d28b560e7982f572b3f8f4bd18ad89bb429e1541f759bb",
+      "extract_sha256": "3271e933d1959981d9b201a0eb1a5ab9543d5e6a0f1694b7f3291d7ef585c82c",
+      "n_gold_tokens": 1019,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1373167007"
+    },
+    {
+      "pageid": 58274409,
+      "title": "Salton Buttes",
+      "revid": 1370198340,
+      "wikitext_bytes": 36877,
+      "html_sha256": "2297b5d46fa3ec2e3053a8979e2df5bf6f9ced96c1af394284a2b22fd42bd120",
+      "gold_sha256": "69d7b031333d2aab5dd25fcdd5e5f38765900a64bb3033946fbae1d6e6195281",
+      "extract_sha256": "19e9911f191f552753af7da1571e93e6fc6cbb76d8baf48320c62572489ab3e5",
+      "n_gold_tokens": 2233,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1370198340"
+    },
+    {
+      "pageid": 4738019,
+      "title": "The Open Door",
+      "revid": 1381245892,
+      "wikitext_bytes": 116688,
+      "html_sha256": "01696316f57c19b359796cbba8db505bf14c97d137fab284a0a3a1e305c8361f",
+      "gold_sha256": "756c5e3f0ddf76839a9aceea748630f9689d2873efe80fd723cece1b0a3a1480",
+      "extract_sha256": "ec87a7257c6d6ff251b70148613e3e792c5e6578a2d8ebc907f44b130077f813",
+      "n_gold_tokens": 6244,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1381245892"
+    },
+    {
+      "pageid": 17336734,
+      "title": "Popper and After",
+      "revid": 1362234156,
+      "wikitext_bytes": 25660,
+      "html_sha256": "89ed3d1c592c78739779c87c7a52de80b5b528b05f4d2745d518d946cabaad7b",
+      "gold_sha256": "2138e83f38b9988111eb532eae1842841fec6220fff1476636bef0a67cace444",
+      "extract_sha256": "966489a378356783db866d542c977cb86cd6008667463e87734bd10e33540f38",
+      "n_gold_tokens": 2449,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1362234156"
+    },
+    {
+      "pageid": 2144227,
+      "title": "Bayog",
+      "revid": 1375107766,
+      "wikitext_bytes": 27424,
+      "html_sha256": "e0de836678b874054a47abb13dae8e45c23f37c458323b106adf98b0f37498eb",
+      "gold_sha256": "a74250ab343ae88b6c9bdf1c906c678377cbbd22e51c1ee3d0aa7e3daeb1db55",
+      "extract_sha256": "75a2339fc8dbfaf8b7140324dd3704fe1e6987b69da8fbd11bdf398977e6054c",
+      "n_gold_tokens": 1990,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1375107766"
+    },
+    {
+      "pageid": 13088442,
+      "title": "Interstate 75 in Ohio",
+      "revid": 1362267481,
+      "wikitext_bytes": 49739,
+      "html_sha256": "83487f772d13216a99aa8e788c88fd99d07bab3dff74da1eb08a12c1dd2d9b16",
+      "gold_sha256": "bdf5188138eabace15c0619b630f56a27429a06cafc35e54cd13d2c1a5b4e052",
+      "extract_sha256": "894ad1e52fb0cee514f853c27c085ef652fc84ea8a0a871a0f10302af15bc2c4",
+      "n_gold_tokens": 1448,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1362267481"
+    },
+    {
+      "pageid": 1130329,
+      "title": "Pichi Richi Railway",
+      "revid": 1381403860,
+      "wikitext_bytes": 39436,
+      "html_sha256": "eca8560032a40710760eb0092ed8b458fa677288121129bebf0684da64431dee",
+      "gold_sha256": "1c12e38788af35bde34fcffced9f385dff4de994d061b6b3b7c9ae668dd4a10f",
+      "extract_sha256": "0520342f16e8ea713bcc2ff9cbfd16f653ab4d86ec5a6134d7818a7410774ef5",
+      "n_gold_tokens": 2484,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1381403860"
+    },
+    {
+      "pageid": 24800209,
+      "title": "Our Lady of Bellefonte Hospital",
+      "revid": 1377205109,
+      "wikitext_bytes": 21681,
+      "html_sha256": "5bcf4509786363a56c0ee40cdf056322cb1ec1198e01f7d67feb448690d08cee",
+      "gold_sha256": "0a16e52a5363a306bcac066d33e9899535946052979fd81dfca395ed9fe5bf1a",
+      "extract_sha256": "194b15dcb5d6d61de0c206c0584e3f714c886a8317bdde2586ae6221efb689de",
+      "n_gold_tokens": 1886,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1377205109"
+    },
+    {
+      "pageid": 2522526,
+      "title": "Kelly Field",
+      "revid": 1364989038,
+      "wikitext_bytes": 54733,
+      "html_sha256": "fd830b6f9c1ab4dd23a25cfec6174d6fff02308ad1aee6137baf9eba02877326",
+      "gold_sha256": "e6316718d5a5871d97a35e2fe38a2039e1a7d03eeaae3b6d39e2249b0f12ba89",
+      "extract_sha256": "d76f8415c890c99ec32bc632f71de07ee812c77d6df65adaf257f7e67154a86b",
+      "n_gold_tokens": 6127,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1364989038"
+    },
+    {
+      "pageid": 41924999,
+      "title": "Mike Henderson",
+      "revid": 1372773180,
+      "wikitext_bytes": 29056,
+      "html_sha256": "71df70d940d71852f833a3bfc7ca46d6961aa4220d1bd26b77dbf0dd22e85e0b",
+      "gold_sha256": "6c7edc99f530ef20e1f6c998f2be557b802ab515afd5c36488a27d8ed4f6f9d6",
+      "extract_sha256": "389b5953bbab353e9d3ef5bd4e2008350f155b5f859e5cb89585ae90dffedcd4",
+      "n_gold_tokens": 1063,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1372773180"
+    },
+    {
+      "pageid": 32845594,
+      "title": "Resource recovery",
+      "revid": 1353626706,
+      "wikitext_bytes": 25368,
+      "html_sha256": "51acb1377dda04f4fbc8a5157b8b351a894238bf14066e6a7078f1950dc8ef7d",
+      "gold_sha256": "ca42967875ee255dda7e98bc6a22f9def39904a38f09c360480049894ea65954",
+      "extract_sha256": "aef6b154e74d450e7de22055957d2e3fdced847eaa55588dafdff46824737abd",
+      "n_gold_tokens": 2065,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1353626706"
+    },
+    {
+      "pageid": 50787604,
+      "title": "Battle of Sirte (2016)",
+      "revid": 1373252431,
+      "wikitext_bytes": 114259,
+      "html_sha256": "63f31c0ecef2abe06d7251d58b285d7054fb4f94330d9a22acb60f6ca4d7bc63",
+      "gold_sha256": "19cea33f7368ea97dd4ef09a645ef508874396fd35e4239721944df66c18de92",
+      "extract_sha256": "01a8ea58ed4c9b5ec5b4f8b02869bc619a438d86f578d2e1897625d10c082f35",
+      "n_gold_tokens": 4163,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1373252431"
+    },
+    {
+      "pageid": 27859495,
+      "title": "Vicky Pryce",
+      "revid": 1375657461,
+      "wikitext_bytes": 25336,
+      "html_sha256": "45ac9b93f9cc87428c07a01ed50ceb4dcbdace549fdf76a14b515b14bb2283c9",
+      "gold_sha256": "17b85563206f67e67ee0a8491b3a2e7d3ff9f4cf9a1dbe5423e24fd5a6ba855f",
+      "extract_sha256": "aac7c4a3a157582003987db074701e7d7b555ec596f344ae73a7285e9c5f7640",
+      "n_gold_tokens": 1543,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1375657461"
+    },
+    {
+      "pageid": 631056,
+      "title": "Biwa hōshi",
+      "revid": 1304232429,
+      "wikitext_bytes": 35429,
+      "html_sha256": "26912646645f2ef5b67dccb394344e9f094b995c0e37f388c89af9d960e65594",
+      "gold_sha256": "07fdc6aa3bd56497c2ce4d2d68c7c69c9481e248c7d38bd8ef01ffc010a3df4f",
+      "extract_sha256": "8c20e6c0859e4bcd5250a2a9544a62ddd6ae2c687d8867708566786c58da3c58",
+      "n_gold_tokens": 4019,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1304232429"
+    },
+    {
+      "pageid": 72116674,
+      "title": "2010 Lucas Oil Slick Mist 200",
+      "revid": 1370031792,
+      "wikitext_bytes": 42957,
+      "html_sha256": "cb7377e82c704436c863cc04de874643ca2bb9ec94fe74934d5dc60a92adb36f",
+      "gold_sha256": "f20c194d89d27206098c16d513f1f26dea0fa83a7ec5255a428230a7ae8c8972",
+      "extract_sha256": "103196bafecd360b045babd62f07808f2f1437db81d89acf67fd4705c59f624d",
+      "n_gold_tokens": 2986,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1370031792"
+    },
+    {
+      "pageid": 24786216,
+      "title": "List of Spider-Man enemies in other media",
+      "revid": 1372950555,
+      "wikitext_bytes": 87896,
+      "html_sha256": "91cc10c9f3dd4049c28dbbcb294a05e7fa5c21437bbc0979b3196d7408c525ba",
+      "gold_sha256": "306d81497c5467e74e491cbe4bb7d6502aacec282c11e0b679bbd6acd99e09e1",
+      "extract_sha256": "da9b446e3e9f91f048324729b3f4b176771449b6345382ccd295bdb0b4b88f21",
+      "n_gold_tokens": 3748,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1372950555"
+    },
+    {
+      "pageid": 82181,
+      "title": "Great Apostasy",
+      "revid": 1379942653,
+      "wikitext_bytes": 43611,
+      "html_sha256": "e010310f10d2f1facdc8a79bdea859bb1972c11370e1241458e73972b760b3a7",
+      "gold_sha256": "4ffaed49d621c60be6b36fdbed697fac119bb1db87a7bfedc9eb9afe25e65086",
+      "extract_sha256": "a9ec237180c98baffe03dad51bae01385e604d3c5beabe5c293a54168558a433",
+      "n_gold_tokens": 2818,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1379942653"
+    },
+    {
+      "pageid": 72346465,
+      "title": "Abneet Bharti",
+      "revid": 1380935007,
+      "wikitext_bytes": 28433,
+      "html_sha256": "fe91f5682392a2883defc9ee17a80be18833205eaedf235d9ef2bdc6a3f942e4",
+      "gold_sha256": "bbb9036efb4f8f83d57d75ac13b3f4e7d4a481650339c0efe9e422d0c54a4cf0",
+      "extract_sha256": "c9cafdca2aa7adafc508cc35dcd64d6fffb7e80435ebc2eaaa678b293979dc80",
+      "n_gold_tokens": 953,
+      "permalink": "https://en.wikipedia.org/w/index.php?oldid=1380935007"
+    }
+  ]
+}

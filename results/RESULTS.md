@@ -67,3 +67,57 @@ Resampling page types instead: [-0.012, +0.058], p = 0.256: **not significantly 
 | bs4-naive | 0 | 0 | 0 | 33 | 40 | 8 | 27 | 10 | 16 | 12 | 0 | 0 | 0 | 40 |
 | markdownify | 0 | 0 | 0 | 33 | 40 | 8 | 27 | 10 | 16 | 8 | 0 | 0 | 0 | 0 |
 | trafilatura (best-config) | 0 | 0 | 2 | 7 | 15 | 3 | 8 | 0 | 0 | 4 | 0 | 0 | 0 | 0 |
+
+## Real-page check (Wikipedia)
+
+40 real English Wikipedia articles, rendered page HTML (nav, sidebar, footer, references and navboxes all present). Gold is the MediaWiki plain-text extract of the same revision, normalised (`extract_bench/wikislice.py`), so the gold was not written by the benchmark author. Pages were drawn by a seeded random draw over page ids (seed 20261023, rule in the module docstring), fixed before any tool ran. Same metrics code as above, 10000 bootstrap resamples, page-level 95% intervals. Leak rate is not computed here (this gold has no boilerplate labels). Wikipedia is one site template, so the page-type cluster test does not apply; the intervals cover page-to-page variation within one template only.
+
+| Extractor | F1 [95% CI] | Precision | Recall | Empty outputs | Median ms |
+|---|---|---|---|---|---|
+| justext | 0.849 [0.812, 0.882] | 0.936 | 0.802 | 0 of 40 | 67 |
+| readability-lxml | 0.788 [0.744, 0.829] | 0.763 | 0.888 | 0 of 40 | 132 |
+| trafilatura | 0.735 [0.694, 0.775] | 0.598 | 1.000 | 0 of 40 | 252 |
+| trafilatura (best-config) | 0.735 [0.694, 0.775] | 0.598 | 1.000 | 0 of 40 | 250 |
+| bs4-naive | 0.626 [0.584, 0.669] | 0.471 | 1.000 | 0 of 40 | 57 |
+| html2text | 0.606 [0.562, 0.651] | 0.450 | 1.000 | 0 of 40 | 67 |
+| markdownify | 0.588 [0.545, 0.631] | 0.430 | 1.000 | 0 of 40 | 164 |
+
+Paired F1 difference against the top tool on real pages (resampling pages):
+
+- justext minus trafilatura: +0.114 [+0.073, +0.155], significantly different
+- justext minus readability-lxml: +0.061 [+0.019, +0.103], significantly different
+- justext minus html2text: +0.242 [+0.195, +0.288], significantly different
+- justext minus bs4-naive: +0.222 [+0.177, +0.267], significantly different
+- justext minus markdownify: +0.261 [+0.215, +0.306], significantly different
+- justext minus trafilatura (best-config): +0.114 [+0.073, +0.155], significantly different
+
+The synthetic top pair, readability-lxml minus trafilatura (best-config): +0.052 [+0.008, +0.098], significantly different.
+
+Does the synthetic ranking hold?
+
+- Synthetic order (test F1): readability-lxml > trafilatura (best-config) > trafilatura > html2text > bs4-naive > markdownify > justext
+- Wikipedia order (F1): justext > readability-lxml > trafilatura > trafilatura (best-config) > bs4-naive > html2text > markdownify
+- Spearman rank correlation: 0.20 over all 7 rows, 0.09 over the 6 default-config tools. With 6 to 7 tools, treat it as a rough signal.
+
+Sensitivity check, added after the first run: back matter kept in the gold. The primary gold removes See also, Notes, References, Further reading, External links, Bibliography and Sources. Tools that keep those lists (most do) were therefore charged in precision. The variant keeps the same API extract but does not remove those sections (footnote lists are never in the API extract). It was chosen after seeing the primary result, so it is a check on one design decision, not a second headline.
+
+| Extractor | F1 [95% CI], back matter kept | Precision | Recall |
+|---|---|---|---|
+| justext | 0.837 [0.801, 0.872] | 0.941 | 0.778 |
+| readability-lxml | 0.797 [0.755, 0.837] | 0.780 | 0.881 |
+| trafilatura | 0.751 [0.710, 0.789] | 0.619 | 0.998 |
+| trafilatura (best-config) | 0.751 [0.710, 0.789] | 0.619 | 0.998 |
+| bs4-naive | 0.642 [0.599, 0.684] | 0.487 | 1.000 |
+| html2text | 0.621 [0.578, 0.665] | 0.466 | 1.000 |
+| markdownify | 0.602 [0.560, 0.645] | 0.445 | 1.000 |
+
+- Order with back matter kept: justext > readability-lxml > trafilatura > trafilatura (best-config) > bs4-naive > html2text > markdownify
+- Spearman against the synthetic order: 0.20 over 7 rows, 0.09 over the 6 default-config tools.
+
+Caveats specific to this slice:
+
+- One site template. Wikipedia pages share a skin, so this tests extraction on one real template at many article lengths, not on varied real-world layouts.
+- The extract gold keeps prose and headings only. It drops infobox text, table cells and captions, and the reference and see-also lists were removed by the normaliser. A tool that keeps tables, infobox or reference text loses precision here although that text is arguably content. Recall is the fairer column for those tools.
+- Inline citation markers such as [12] are in the HTML but not in the gold, a small precision cost for every tool.
+- 40 pages is small. The slice is a check on direction, not a second benchmark.
+- HTML and gold text are not in git (CC BY-SA 4.0). `corpus/wikipedia/manifest.json` has page ids, revision permalinks and SHA-256 hashes; `python -m extract_bench.wikislice build` redraws the pages and `run` refetches the pinned revisions and re-scores them. Text: Wikipedia contributors, CC BY-SA 4.0.

@@ -1,0 +1,3382 @@
+{
+  "n_pages": 40,
+  "bootstrap_iters": 10000,
+  "bootstrap_seed": 1234,
+  "timing_repeats": 3,
+  "versions": {
+    "beautifulsoup4": "4.15.0",
+    "html2text": "2025.4.15",
+    "jusText": "3.0.2",
+    "lxml": "6.1.3",
+    "lxml_html_clean": "0.4.5",
+    "markdownify": "1.2.3",
+    "readability-lxml": "0.9",
+    "trafilatura": "2.3.1"
+  },
+  "summary": [
+    {
+      "extractor": "justext",
+      "config": "library defaults, English stoplist",
+      "n_docs": 40,
+      "f1": {
+        "mean": 0.8486117790347911,
+        "lo": 0.8120222410392682,
+        "hi": 0.8822635964406885,
+        "n": 40
+      },
+      "precision": {
+        "mean": 0.9359618356675741,
+        "lo": 0.9087775749749564,
+        "hi": 0.9581093739616543,
+        "n": 40
+      },
+      "recall": {
+        "mean": 0.8018954490316748,
+        "lo": 0.7467097745042796,
+        "hi": 0.8523493114658146,
+        "n": 40
+      },
+      "leak_rate": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 40
+      },
+      "table_row_recall": null,
+      "code_line_recall": null,
+      "code_line_exact": null,
+      "title_match": null,
+      "latency_ms_median": 66.73124998633284,
+      "latency_ms_p90": 140.48230001935735,
+      "n_errors": 0,
+      "n_docs_with_any_failure": 13
+    },
+    {
+      "extractor": "readability-lxml",
+      "config": "library defaults",
+      "n_docs": 40,
+      "f1": {
+        "mean": 0.7875276218370009,
+        "lo": 0.7440288280316322,
+        "hi": 0.8290084665837307,
+        "n": 40
+      },
+      "precision": {
+        "mean": 0.7626291443285613,
+        "lo": 0.7029928496455365,
+        "hi": 0.8207041787622328,
+        "n": 40
+      },
+      "recall": {
+        "mean": 0.8879963153508988,
+        "lo": 0.8312939506293059,
+        "hi": 0.9386859661807421,
+        "n": 40
+      },
+      "leak_rate": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 40
+      },
+      "table_row_recall": null,
+      "code_line_recall": null,
+      "code_line_exact": null,
+      "title_match": 0.0,
+      "latency_ms_median": 132.07070001226384,
+      "latency_ms_p90": 233.61289998865686,
+      "n_errors": 0,
+      "n_docs_with_any_failure": 40
+    },
+    {
+      "extractor": "trafilatura",
+      "config": "library defaults",
+      "n_docs": 40,
+      "f1": {
+        "mean": 0.7350331657722748,
+        "lo": 0.6939010675246363,
+        "hi": 0.7746311087499594,
+        "n": 40
+      },
+      "precision": {
+        "mean": 0.5980721890803167,
+        "lo": 0.5471967545643449,
+        "hi": 0.6479153335630583,
+        "n": 40
+      },
+      "recall": {
+        "mean": 0.9997346776491455,
+        "lo": 0.9993091951926415,
+        "hi": 0.9999775784753364,
+        "n": 40
+      },
+      "leak_rate": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 40
+      },
+      "table_row_recall": null,
+      "code_line_recall": null,
+      "code_line_exact": null,
+      "title_match": 0.0,
+      "latency_ms_median": 251.7183999880217,
+      "latency_ms_p90": 527.1780999901239,
+      "n_errors": 0,
+      "n_docs_with_any_failure": 40
+    },
+    {
+      "extractor": "trafilatura (best-config)",
+      "config": "config tuned on the SYNTHETIC dev split, frozen: include_comments=False, favor_precision=False, favor_recall=False",
+      "n_docs": 40,
+      "f1": {
+        "mean": 0.7350331657722748,
+        "lo": 0.6939010675246363,
+        "hi": 0.7746311087499594,
+        "n": 40
+      },
+      "precision": {
+        "mean": 0.5980721890803167,
+        "lo": 0.5471967545643449,
+        "hi": 0.6479153335630583,
+        "n": 40
+      },
+      "recall": {
+        "mean": 0.9997346776491455,
+        "lo": 0.9993091951926415,
+        "hi": 0.9999775784753364,
+        "n": 40
+      },
+      "leak_rate": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 40
+      },
+      "table_row_recall": null,
+      "code_line_recall": null,
+      "code_line_exact": null,
+      "title_match": 0.0,
+      "latency_ms_median": 249.60085000202525,
+      "latency_ms_p90": 470.8494999795221,
+      "n_errors": 0,
+      "n_docs_with_any_failure": 40
+    },
+    {
+      "extractor": "bs4-naive",
+      "config": "soup.get_text() on the whole page",
+      "n_docs": 40,
+      "f1": {
+        "mean": 0.6262409736205248,
+        "lo": 0.5835860819143589,
+        "hi": 0.6692655082237513,
+        "n": 40
+      },
+      "precision": {
+        "mean": 0.4706944637381065,
+        "lo": 0.4252440431162259,
+        "hi": 0.5180938768850263,
+        "n": 40
+      },
+      "recall": {
+        "mean": 0.9995749250294533,
+        "lo": 0.9988305599344252,
+        "hi": 0.9999768465825261,
+        "n": 40
+      },
+      "leak_rate": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 40
+      },
+      "table_row_recall": null,
+      "code_line_recall": null,
+      "code_line_exact": null,
+      "title_match": 0.0,
+      "latency_ms_median": 56.93484999937937,
+      "latency_ms_p90": 99.98800000175834,
+      "n_errors": 0,
+      "n_docs_with_any_failure": 40
+    },
+    {
+      "extractor": "html2text",
+      "config": "body_width=0, otherwise defaults",
+      "n_docs": 40,
+      "f1": {
+        "mean": 0.6061817913800973,
+        "lo": 0.5623499992376578,
+        "hi": 0.6508750306147609,
+        "n": 40
+      },
+      "precision": {
+        "mean": 0.450176473599603,
+        "lo": 0.40479971474376963,
+        "hi": 0.4978867921024943,
+        "n": 40
+      },
+      "recall": {
+        "mean": 0.9999549091006067,
+        "lo": 0.9998945611161651,
+        "hi": 1.0,
+        "n": 40
+      },
+      "leak_rate": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 40
+      },
+      "table_row_recall": null,
+      "code_line_recall": null,
+      "code_line_exact": null,
+      "title_match": null,
+      "latency_ms_median": 66.73365000460763,
+      "latency_ms_p90": 111.83559999335557,
+      "n_errors": 0,
+      "n_docs_with_any_failure": 37
+    },
+    {
+      "extractor": "markdownify",
+      "config": "library defaults on the whole page",
+      "n_docs": 40,
+      "f1": {
+        "mean": 0.5875169862244309,
+        "lo": 0.5445656019503332,
+        "hi": 0.6305756807044539,
+        "n": 40
+      },
+      "precision": {
+        "mean": 0.4298471883601362,
+        "lo": 0.38663457597666623,
+        "hi": 0.474865023437766,
+        "n": 40
+      },
+      "recall": {
+        "mean": 0.9999632815051613,
+        "lo": 0.9999029335207197,
+        "hi": 1.0,
+        "n": 40
+      },
+      "leak_rate": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 40
+      },
+      "table_row_recall": null,
+      "code_line_recall": null,
+      "code_line_exact": null,
+      "title_match": null,
+      "latency_ms_median": 163.61240000696853,
+      "latency_ms_p90": 333.39020001585595,
+      "n_errors": 0,
+      "n_docs_with_any_failure": 38
+    }
+  ],
+  "paired": {
+    "top": "justext",
+    "vs_top": {
+      "trafilatura": {
+        "mean_diff": 0.11357861326251655,
+        "lo": 0.07271999791319832,
+        "hi": 0.15475988035944,
+        "n": 40,
+        "p_value": 0.0,
+        "significant": true,
+        "verdict": "significantly different"
+      },
+      "readability-lxml": {
+        "mean_diff": 0.061084157197790444,
+        "lo": 0.019381581947530407,
+        "hi": 0.1032236228466333,
+        "n": 40,
+        "p_value": 0.0046,
+        "significant": true,
+        "verdict": "significantly different"
+      },
+      "html2text": {
+        "mean_diff": 0.24242998765469403,
+        "lo": 0.19549711407416206,
+        "hi": 0.28847848181366315,
+        "n": 40,
+        "p_value": 0.0,
+        "significant": true,
+        "verdict": "significantly different"
+      },
+      "bs4-naive": {
+        "mean_diff": 0.22237080541426657,
+        "lo": 0.17655177003994568,
+        "hi": 0.26712317372341327,
+        "n": 40,
+        "p_value": 0.0,
+        "significant": true,
+        "verdict": "significantly different"
+      },
+      "markdownify": {
+        "mean_diff": 0.2610947928103604,
+        "lo": 0.21514500912594128,
+        "hi": 0.30610646805032365,
+        "n": 40,
+        "p_value": 0.0,
+        "significant": true,
+        "verdict": "significantly different"
+      },
+      "trafilatura (best-config)": {
+        "mean_diff": 0.11357861326251655,
+        "lo": 0.07271999791319832,
+        "hi": 0.15475988035944,
+        "n": 40,
+        "p_value": 0.0,
+        "significant": true,
+        "verdict": "significantly different"
+      }
+    },
+    "readability_minus_trafilatura_best": {
+      "a": "readability-lxml",
+      "b": "trafilatura (best-config)",
+      "mean_diff": 0.0524944560647261,
+      "lo": 0.00794019946763506,
+      "hi": 0.09773684162960715,
+      "n": 40,
+      "p_value": 0.0186,
+      "significant": true,
+      "verdict": "significantly different"
+    }
+  },
+  "rank_vs_synthetic": {
+    "synthetic_order": [
+      "readability-lxml",
+      "trafilatura (best-config)",
+      "trafilatura",
+      "html2text",
+      "bs4-naive",
+      "markdownify",
+      "justext"
+    ],
+    "real_order": [
+      "justext",
+      "readability-lxml",
+      "trafilatura",
+      "trafilatura (best-config)",
+      "bs4-naive",
+      "html2text",
+      "markdownify"
+    ],
+    "spearman_all_7": 0.198206241793023,
+    "spearman_base_6": 0.08571428571428573
+  },
+  "back_matter_variant": {
+    "summary": [
+      {
+        "extractor": "justext",
+        "f1": {
+          "mean": 0.8372063066327943,
+          "lo": 0.8008446863817539,
+          "hi": 0.8719432527226548,
+          "n": 40
+        },
+        "precision": {
+          "mean": 0.9412743782313051,
+          "lo": 0.9150855514464377,
+          "hi": 0.9622367892106867,
+          "n": 40
+        },
+        "recall": {
+          "mean": 0.7781790870544,
+          "lo": 0.7238696268183433,
+          "hi": 0.829686905590578,
+          "n": 40
+        }
+      },
+      {
+        "extractor": "readability-lxml",
+        "f1": {
+          "mean": 0.7967730153115312,
+          "lo": 0.7553177223851425,
+          "hi": 0.836878233786213,
+          "n": 40
+        },
+        "precision": {
+          "mean": 0.7796780970949068,
+          "lo": 0.7231144399343875,
+          "hi": 0.8344284675883737,
+          "n": 40
+        },
+        "recall": {
+          "mean": 0.8814697072049128,
+          "lo": 0.8246533255048489,
+          "hi": 0.9327686275831809,
+          "n": 40
+        }
+      },
+      {
+        "extractor": "trafilatura",
+        "f1": {
+          "mean": 0.7505526775236813,
+          "lo": 0.709818796061529,
+          "hi": 0.7894591675979982,
+          "n": 40
+        },
+        "precision": {
+          "mean": 0.6185557099117176,
+          "lo": 0.566857795097807,
+          "hi": 0.6689958638880606,
+          "n": 40
+        },
+        "recall": {
+          "mean": 0.9984515344773671,
+          "lo": 0.9976857200686899,
+          "hi": 0.99911042293946,
+          "n": 40
+        }
+      },
+      {
+        "extractor": "trafilatura (best-config)",
+        "f1": {
+          "mean": 0.7505526775236813,
+          "lo": 0.709818796061529,
+          "hi": 0.7894591675979982,
+          "n": 40
+        },
+        "precision": {
+          "mean": 0.6185557099117176,
+          "lo": 0.566857795097807,
+          "hi": 0.6689958638880606,
+          "n": 40
+        },
+        "recall": {
+          "mean": 0.9984515344773671,
+          "lo": 0.9976857200686899,
+          "hi": 0.99911042293946,
+          "n": 40
+        }
+      },
+      {
+        "extractor": "bs4-naive",
+        "f1": {
+          "mean": 0.6415550792506155,
+          "lo": 0.5990704010752308,
+          "hi": 0.6840346895561915,
+          "n": 40
+        },
+        "precision": {
+          "mean": 0.4874675233059545,
+          "lo": 0.44165647177749845,
+          "hi": 0.534851983826304,
+          "n": 40
+        },
+        "recall": {
+          "mean": 0.9996756425890847,
+          "lo": 0.9991574427322018,
+          "hi": 0.9999649658742404,
+          "n": 40
+        }
+      },
+      {
+        "extractor": "html2text",
+        "f1": {
+          "mean": 0.6211955930927011,
+          "lo": 0.5775120395880593,
+          "hi": 0.6651402741587058,
+          "n": 40
+        },
+        "precision": {
+          "mean": 0.46627248335445726,
+          "lo": 0.41944819229399605,
+          "hi": 0.5143192530685192,
+          "n": 40
+        },
+        "recall": {
+          "mean": 0.9999625447730642,
+          "lo": 0.9999151386061872,
+          "hi": 1.0,
+          "n": 40
+        }
+      },
+      {
+        "extractor": "markdownify",
+        "f1": {
+          "mean": 0.6022818208424185,
+          "lo": 0.5595516325519182,
+          "hi": 0.6449748874243662,
+          "n": 40
+        },
+        "precision": {
+          "mean": 0.44535491564680163,
+          "lo": 0.40126068954970073,
+          "hi": 0.4908824160073392,
+          "n": 40
+        },
+        "recall": {
+          "mean": 0.9999709087744023,
+          "lo": 0.9999257403783869,
+          "hi": 1.0,
+          "n": 40
+        }
+      }
+    ],
+    "order": [
+      "justext",
+      "readability-lxml",
+      "trafilatura",
+      "trafilatura (best-config)",
+      "bs4-naive",
+      "html2text",
+      "markdownify"
+    ],
+    "spearman_all_7": 0.198206241793023,
+    "spearman_base_6": 0.08571428571428573
+  },
+  "synthetic_f1": {
+    "readability-lxml": 0.9251452198949487,
+    "trafilatura (best-config)": 0.8401316952908623,
+    "trafilatura": 0.8314576033301144,
+    "html2text": 0.7059781851437288,
+    "bs4-naive": 0.693299232248139,
+    "markdownify": 0.6926440412356669,
+    "justext": 0.5542575717037481
+  },
+  "taxonomy_counts": {
+    "trafilatura": {
+      "over_extraction": 28
+    },
+    "readability-lxml": {
+      "over_extraction": 17,
+      "low_recall": 6
+    },
+    "justext": {
+      "over_extraction": 1,
+      "low_recall": 12
+    },
+    "html2text": {
+      "over_extraction": 37
+    },
+    "bs4-naive": {
+      "over_extraction": 37
+    },
+    "markdownify": {
+      "over_extraction": 38
+    },
+    "trafilatura (best-config)": {
+      "over_extraction": 28
+    }
+  },
+  "per_doc": {
+    "trafilatura": [
+      {
+        "doc_id": "wiki-79103310",
+        "f1": 0.5668982427462199,
+        "precision": 0.39557431276377325,
+        "recall": 1.0,
+        "n_pred_tokens": 8767,
+        "n_gold_tokens": 3468,
+        "latency_ms": 418.4030999895185,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-42464899",
+        "f1": 0.6932031543372137,
+        "precision": 0.5304597701149425,
+        "recall": 1.0,
+        "n_pred_tokens": 3480,
+        "n_gold_tokens": 1846,
+        "latency_ms": 244.31789998197928,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13480122",
+        "f1": 0.5494902992436699,
+        "precision": 0.3789545299920626,
+        "recall": 0.9991031390134529,
+        "n_pred_tokens": 8819,
+        "n_gold_tokens": 3345,
+        "latency_ms": 809.9929000018165,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-16164135",
+        "f1": 0.8180804815516665,
+        "precision": 0.6921625954918419,
+        "recall": 1.0,
+        "n_pred_tokens": 10603,
+        "n_gold_tokens": 7339,
+        "latency_ms": 358.9285000052769,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-22878312",
+        "f1": 0.4595652173913044,
+        "precision": 0.2984189723320158,
+        "recall": 0.999054820415879,
+        "n_pred_tokens": 3542,
+        "n_gold_tokens": 1058,
+        "latency_ms": 237.09159999270923,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-67966344",
+        "f1": 0.557434916899544,
+        "precision": 0.38760482716301903,
+        "recall": 0.9921465968586387,
+        "n_pred_tokens": 4889,
+        "n_gold_tokens": 1910,
+        "latency_ms": 357.7096000080928,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-25752436",
+        "f1": 0.7684766214177979,
+        "precision": 0.6240048989589713,
+        "recall": 1.0,
+        "n_pred_tokens": 4899,
+        "n_gold_tokens": 3057,
+        "latency_ms": 358.5820999869611,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-7791507",
+        "f1": 0.5375626043405676,
+        "precision": 0.3675799086757991,
+        "recall": 1.0,
+        "n_pred_tokens": 2190,
+        "n_gold_tokens": 805,
+        "latency_ms": 311.174900009064,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-570855",
+        "f1": 0.7391480730223123,
+        "precision": 0.5862290862290862,
+        "recall": 1.0,
+        "n_pred_tokens": 4662,
+        "n_gold_tokens": 2733,
+        "latency_ms": 257.5817999895662,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-14247831",
+        "f1": 0.8542312804607887,
+        "precision": 0.745552977571539,
+        "recall": 1.0,
+        "n_pred_tokens": 2586,
+        "n_gold_tokens": 1928,
+        "latency_ms": 173.84010000387207,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-73443244",
+        "f1": 0.7257109004739336,
+        "precision": 0.5695025569502556,
+        "recall": 1.0,
+        "n_pred_tokens": 2151,
+        "n_gold_tokens": 1225,
+        "latency_ms": 156.71780001139268,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-7349929",
+        "f1": 0.6917022711940635,
+        "precision": 0.5287040220006876,
+        "recall": 1.0,
+        "n_pred_tokens": 2909,
+        "n_gold_tokens": 1538,
+        "latency_ms": 176.55069997999817,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-70260583",
+        "f1": 0.7406045751633987,
+        "precision": 0.5880635744404801,
+        "recall": 1.0,
+        "n_pred_tokens": 3083,
+        "n_gold_tokens": 1813,
+        "latency_ms": 143.07279998320155,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-3485613",
+        "f1": 0.7723342939481268,
+        "precision": 0.6291079812206573,
+        "recall": 1.0,
+        "n_pred_tokens": 2343,
+        "n_gold_tokens": 1474,
+        "latency_ms": 222.29750000406057,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-70387599",
+        "f1": 0.5515077566672477,
+        "precision": 0.38074608904933815,
+        "recall": 1.0,
+        "n_pred_tokens": 4155,
+        "n_gold_tokens": 1582,
+        "latency_ms": 532.5547000102233,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13050734",
+        "f1": 0.8355189851718522,
+        "precision": 0.7175033122331812,
+        "recall": 1.0,
+        "n_pred_tokens": 6793,
+        "n_gold_tokens": 4874,
+        "latency_ms": 306.2422999937553,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-3102140",
+        "f1": 0.9040019641541861,
+        "precision": 0.8248207885304659,
+        "recall": 1.0,
+        "n_pred_tokens": 2232,
+        "n_gold_tokens": 1841,
+        "latency_ms": 184.71150001278147,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-5742305",
+        "f1": 0.8177376925967681,
+        "precision": 0.6916719643992372,
+        "recall": 1.0,
+        "n_pred_tokens": 6292,
+        "n_gold_tokens": 4352,
+        "latency_ms": 295.8121999981813,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-10839226",
+        "f1": 0.8584966616411803,
+        "precision": 0.7520754716981132,
+        "recall": 1.0,
+        "n_pred_tokens": 2650,
+        "n_gold_tokens": 1993,
+        "latency_ms": 148.99710001191124,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-674032",
+        "f1": 0.7995785036880928,
+        "precision": 0.6660814606741573,
+        "recall": 1.0,
+        "n_pred_tokens": 2848,
+        "n_gold_tokens": 1897,
+        "latency_ms": 167.60739998426288,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-5320110",
+        "f1": 0.9345767157219874,
+        "precision": 0.8771881838074398,
+        "recall": 1.0,
+        "n_pred_tokens": 3656,
+        "n_gold_tokens": 3207,
+        "latency_ms": 245.8549999864772,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-1410698",
+        "f1": 0.877755511022044,
+        "precision": 0.7823968821045794,
+        "recall": 0.9995850622406639,
+        "n_pred_tokens": 3079,
+        "n_gold_tokens": 2410,
+        "latency_ms": 212.10199999040924,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-11757865",
+        "f1": 0.659546925566343,
+        "precision": 0.4920328343795268,
+        "recall": 1.0,
+        "n_pred_tokens": 2071,
+        "n_gold_tokens": 1019,
+        "latency_ms": 176.04649998247623,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-58274409",
+        "f1": 0.7149031535136866,
+        "precision": 0.5563029397110114,
+        "recall": 1.0,
+        "n_pred_tokens": 4014,
+        "n_gold_tokens": 2233,
+        "latency_ms": 323.9826000062749,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-4738019",
+        "f1": 0.6835997372454565,
+        "precision": 0.519294743845642,
+        "recall": 1.0,
+        "n_pred_tokens": 12024,
+        "n_gold_tokens": 6244,
+        "latency_ms": 724.8941999860108,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-17336734",
+        "f1": 0.8528643566080446,
+        "precision": 0.7434729811778992,
+        "recall": 1.0,
+        "n_pred_tokens": 3294,
+        "n_gold_tokens": 2449,
+        "latency_ms": 101.87470001983456,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-2144227",
+        "f1": 0.7663263340396841,
+        "precision": 0.6213683223992502,
+        "recall": 0.9994974874371859,
+        "n_pred_tokens": 3201,
+        "n_gold_tokens": 1990,
+        "latency_ms": 219.3810000026133,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13088442",
+        "f1": 0.46144040790312296,
+        "precision": 0.299917149958575,
+        "recall": 1.0,
+        "n_pred_tokens": 4828,
+        "n_gold_tokens": 1448,
+        "latency_ms": 378.8366000226233,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-1130329",
+        "f1": 0.747517303641288,
+        "precision": 0.596828447861605,
+        "recall": 1.0,
+        "n_pred_tokens": 4162,
+        "n_gold_tokens": 2484,
+        "latency_ms": 276.98229998350143,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-24800209",
+        "f1": 0.8719371243643088,
+        "precision": 0.7729508196721312,
+        "recall": 1.0,
+        "n_pred_tokens": 2440,
+        "n_gold_tokens": 1886,
+        "latency_ms": 119.10609999904409,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-2522526",
+        "f1": 0.9122310727313333,
+        "precision": 0.8386257870243635,
+        "recall": 1.0,
+        "n_pred_tokens": 7306,
+        "n_gold_tokens": 6127,
+        "latency_ms": 263.81509998464026,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-41924999",
+        "f1": 0.5803985803985804,
+        "precision": 0.40884615384615386,
+        "recall": 1.0,
+        "n_pred_tokens": 2600,
+        "n_gold_tokens": 1063,
+        "latency_ms": 297.8265999990981,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-32845594",
+        "f1": 0.7721069358758645,
+        "precision": 0.6288063337393422,
+        "recall": 1.0,
+        "n_pred_tokens": 3284,
+        "n_gold_tokens": 2065,
+        "latency_ms": 212.94070000294596,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-50787604",
+        "f1": 0.6012420566146736,
+        "precision": 0.4298399586990191,
+        "recall": 1.0,
+        "n_pred_tokens": 9685,
+        "n_gold_tokens": 4163,
+        "latency_ms": 675.6015999999363,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-27859495",
+        "f1": 0.7512171372930867,
+        "precision": 0.6015594541910332,
+        "recall": 1.0,
+        "n_pred_tokens": 2565,
+        "n_gold_tokens": 1543,
+        "latency_ms": 189.38640001579188,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-631056",
+        "f1": 0.9419899214813079,
+        "precision": 0.8903411608329641,
+        "recall": 1.0,
+        "n_pred_tokens": 4514,
+        "n_gold_tokens": 4019,
+        "latency_ms": 216.85729999444447,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-72116674",
+        "f1": 0.8244064053009388,
+        "precision": 0.701268201033349,
+        "recall": 1.0,
+        "n_pred_tokens": 4258,
+        "n_gold_tokens": 2986,
+        "latency_ms": 270.1960999984294,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-24786216",
+        "f1": 0.9244049821186335,
+        "precision": 0.8594359091951387,
+        "recall": 1.0,
+        "n_pred_tokens": 4361,
+        "n_gold_tokens": 3748,
+        "latency_ms": 527.1780999901239,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-82181",
+        "f1": 0.6951159348791317,
+        "precision": 0.532703213610586,
+        "recall": 1.0,
+        "n_pred_tokens": 5290,
+        "n_gold_tokens": 2818,
+        "latency_ms": 282.6766000071075,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-72346465",
+        "f1": 0.5864615384615385,
+        "precision": 0.4148889856334349,
+        "recall": 1.0,
+        "n_pred_tokens": 2297,
+        "n_gold_tokens": 953,
+        "latency_ms": 193.64390001283027,
+        "error": null
+      }
+    ],
+    "readability-lxml": [
+      {
+        "doc_id": "wiki-79103310",
+        "f1": 0.5737229903137677,
+        "precision": 0.4023922889327604,
+        "recall": 0.9991349480968859,
+        "n_pred_tokens": 8611,
+        "n_gold_tokens": 3468,
+        "latency_ms": 216.60759998485446,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-42464899",
+        "f1": 0.6875232774674115,
+        "precision": 0.5238365493757094,
+        "recall": 1.0,
+        "n_pred_tokens": 3524,
+        "n_gold_tokens": 1846,
+        "latency_ms": 125.19619998056442,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13480122",
+        "f1": 0.9010156131574958,
+        "precision": 0.9138991389913899,
+        "recall": 0.8884902840059791,
+        "n_pred_tokens": 3252,
+        "n_gold_tokens": 3345,
+        "latency_ms": 432.56310001015663,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-16164135",
+        "f1": 0.8076369673491975,
+        "precision": 0.6799925449631907,
+        "recall": 0.9942771494754054,
+        "n_pred_tokens": 10731,
+        "n_gold_tokens": 7339,
+        "latency_ms": 209.2214000003878,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-22878312",
+        "f1": 0.480368395540475,
+        "precision": 0.32301173402868316,
+        "recall": 0.9366729678638941,
+        "n_pred_tokens": 3068,
+        "n_gold_tokens": 1058,
+        "latency_ms": 145.93900000909343,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-67966344",
+        "f1": 0.7751646284101599,
+        "precision": 0.9663799843627834,
+        "recall": 0.6471204188481675,
+        "n_pred_tokens": 1279,
+        "n_gold_tokens": 1910,
+        "latency_ms": 176.22590000974014,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-25752436",
+        "f1": 0.841221794166208,
+        "precision": 0.7259558299691284,
+        "recall": 1.0,
+        "n_pred_tokens": 4211,
+        "n_gold_tokens": 3057,
+        "latency_ms": 153.42849999433383,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-7791507",
+        "f1": 0.8944027697634162,
+        "precision": 0.8351293103448276,
+        "recall": 0.9627329192546584,
+        "n_pred_tokens": 928,
+        "n_gold_tokens": 805,
+        "latency_ms": 101.73640001448803,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-570855",
+        "f1": 0.747909527073338,
+        "precision": 0.5979833406400702,
+        "recall": 0.9981705085986096,
+        "n_pred_tokens": 4562,
+        "n_gold_tokens": 2733,
+        "latency_ms": 233.61289998865686,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-14247831",
+        "f1": 0.8599464763603926,
+        "precision": 0.7543035993740219,
+        "recall": 1.0,
+        "n_pred_tokens": 2556,
+        "n_gold_tokens": 1928,
+        "latency_ms": 104.84310000902042,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-73443244",
+        "f1": 0.757844474761255,
+        "precision": 0.6508494434680726,
+        "recall": 0.9069387755102041,
+        "n_pred_tokens": 1707,
+        "n_gold_tokens": 1225,
+        "latency_ms": 91.34409998659976,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-7349929",
+        "f1": 0.7834970530451867,
+        "precision": 0.9900695134061569,
+        "recall": 0.6482444733420026,
+        "n_pred_tokens": 1007,
+        "n_gold_tokens": 1538,
+        "latency_ms": 104.61340000620112,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-70260583",
+        "f1": 0.742272262026612,
+        "precision": 0.5901692708333334,
+        "recall": 1.0,
+        "n_pred_tokens": 3072,
+        "n_gold_tokens": 1813,
+        "latency_ms": 97.54830002202652,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-3485613",
+        "f1": 0.5662012518054887,
+        "precision": 0.9751243781094527,
+        "recall": 0.3989145183175034,
+        "n_pred_tokens": 603,
+        "n_gold_tokens": 1474,
+        "latency_ms": 151.90170001005754,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-70387599",
+        "f1": 0.6270949720670391,
+        "precision": 0.4963154016212233,
+        "recall": 0.8514538558786346,
+        "n_pred_tokens": 2714,
+        "n_gold_tokens": 1582,
+        "latency_ms": 225.38129999884404,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13050734",
+        "f1": 0.7898135737784817,
+        "precision": 0.9723972397239724,
+        "recall": 0.6649569142388182,
+        "n_pred_tokens": 3333,
+        "n_gold_tokens": 4874,
+        "latency_ms": 150.28329999768175,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-3102140",
+        "f1": 0.9292185730464326,
+        "precision": 0.9704316972205795,
+        "recall": 0.8913633894622488,
+        "n_pred_tokens": 1691,
+        "n_gold_tokens": 1841,
+        "latency_ms": 100.55000000284053,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-5742305",
+        "f1": 0.819431368857089,
+        "precision": 0.6940988835725678,
+        "recall": 1.0,
+        "n_pred_tokens": 6270,
+        "n_gold_tokens": 4352,
+        "latency_ms": 195.3331000113394,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-10839226",
+        "f1": 0.8586816027574322,
+        "precision": 0.7523593808984522,
+        "recall": 1.0,
+        "n_pred_tokens": 2649,
+        "n_gold_tokens": 1993,
+        "latency_ms": 91.83739998843521,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-674032",
+        "f1": 0.5479348237968928,
+        "precision": 0.9743935309973046,
+        "recall": 0.3811280969952557,
+        "n_pred_tokens": 742,
+        "n_gold_tokens": 1897,
+        "latency_ms": 116.49540002690628,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-5320110",
+        "f1": 0.974312205502356,
+        "precision": 0.9504744958481613,
+        "recall": 0.9993763642033052,
+        "n_pred_tokens": 3372,
+        "n_gold_tokens": 3207,
+        "latency_ms": 111.86999999335967,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-1410698",
+        "f1": 0.861219702892885,
+        "precision": 0.8141167775314117,
+        "recall": 0.9141078838174274,
+        "n_pred_tokens": 2706,
+        "n_gold_tokens": 2410,
+        "latency_ms": 92.02880001976155,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-11757865",
+        "f1": 0.9191971178589811,
+        "precision": 0.9664502164502164,
+        "recall": 0.8763493621197253,
+        "n_pred_tokens": 924,
+        "n_gold_tokens": 1019,
+        "latency_ms": 86.98259998345748,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-58274409",
+        "f1": 0.7730656049852864,
+        "precision": 0.630079006772009,
+        "recall": 1.0,
+        "n_pred_tokens": 3544,
+        "n_gold_tokens": 2233,
+        "latency_ms": 167.94389998540282,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-4738019",
+        "f1": 0.7143758967001435,
+        "precision": 0.5566586172972006,
+        "recall": 0.9967969250480462,
+        "n_pred_tokens": 11181,
+        "n_gold_tokens": 6244,
+        "latency_ms": 481.99850000673905,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-17336734",
+        "f1": 0.8799856270212002,
+        "precision": 0.7856913699069619,
+        "recall": 1.0,
+        "n_pred_tokens": 3117,
+        "n_gold_tokens": 2449,
+        "latency_ms": 80.41819999925792,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-2144227",
+        "f1": 0.7906137184115524,
+        "precision": 0.6578771695594126,
+        "recall": 0.9904522613065326,
+        "n_pred_tokens": 2996,
+        "n_gold_tokens": 1990,
+        "latency_ms": 117.76470000040717,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13088442",
+        "f1": 0.715238583889174,
+        "precision": 0.5689795918367347,
+        "recall": 0.962707182320442,
+        "n_pred_tokens": 2450,
+        "n_gold_tokens": 1448,
+        "latency_ms": 163.79080002661794,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-1130329",
+        "f1": 0.7968827723428951,
+        "precision": 0.6774739216239075,
+        "recall": 0.967391304347826,
+        "n_pred_tokens": 3547,
+        "n_gold_tokens": 2484,
+        "latency_ms": 126.07769999885932,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-24800209",
+        "f1": 0.9659393294305483,
+        "precision": 0.969551282051282,
+        "recall": 0.9623541887592789,
+        "n_pred_tokens": 1872,
+        "n_gold_tokens": 1886,
+        "latency_ms": 87.69939999911003,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-2522526",
+        "f1": 0.94298422968055,
+        "precision": 0.9345944212888746,
+        "recall": 0.9515260323159784,
+        "n_pred_tokens": 6238,
+        "n_gold_tokens": 6127,
+        "latency_ms": 132.32800000696443,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-41924999",
+        "f1": 0.8873449131513648,
+        "precision": 0.9390756302521008,
+        "recall": 0.8410159924741298,
+        "n_pred_tokens": 952,
+        "n_gold_tokens": 1063,
+        "latency_ms": 131.81340001756325,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-32845594",
+        "f1": 0.9742377688489718,
+        "precision": 0.9515235457063712,
+        "recall": 0.9980629539951574,
+        "n_pred_tokens": 2166,
+        "n_gold_tokens": 2065,
+        "latency_ms": 148.39930000016466,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-50787604",
+        "f1": 0.961014338191729,
+        "precision": 0.9483161833489242,
+        "recall": 0.9740571703098727,
+        "n_pred_tokens": 4276,
+        "n_gold_tokens": 4163,
+        "latency_ms": 328.2533000165131,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-27859495",
+        "f1": 0.6961883408071748,
+        "precision": 0.6133333333333333,
+        "recall": 0.8049254698639015,
+        "n_pred_tokens": 2025,
+        "n_gold_tokens": 1543,
+        "latency_ms": 90.57130001019686,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-631056",
+        "f1": 0.9398971000935453,
+        "precision": 0.8866093095080521,
+        "recall": 1.0,
+        "n_pred_tokens": 4533,
+        "n_gold_tokens": 4019,
+        "latency_ms": 122.94549998478033,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-72116674",
+        "f1": 0.5284872298624754,
+        "precision": 0.990791896869245,
+        "recall": 0.3603482920294709,
+        "n_pred_tokens": 1086,
+        "n_gold_tokens": 2986,
+        "latency_ms": 137.95949998893775,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-24786216",
+        "f1": 0.9594943240454077,
+        "precision": 0.9288211788211789,
+        "recall": 0.9922625400213447,
+        "n_pred_tokens": 4004,
+        "n_gold_tokens": 3748,
+        "latency_ms": 282.91549999266863,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-82181",
+        "f1": 0.6822292837936935,
+        "precision": 0.5203206562266965,
+        "recall": 0.9904187366926899,
+        "n_pred_tokens": 5364,
+        "n_gold_tokens": 2818,
+        "latency_ms": 161.92299997783266,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-72346465",
+        "f1": 0.5474943904263275,
+        "precision": 0.4253341080766996,
+        "recall": 0.7681007345225603,
+        "n_pred_tokens": 1721,
+        "n_gold_tokens": 953,
+        "latency_ms": 87.12449998711236,
+        "error": null
+      }
+    ],
+    "justext": [
+      {
+        "doc_id": "wiki-79103310",
+        "f1": 0.7183255399688266,
+        "precision": 0.5850562205295611,
+        "recall": 0.9302191464821222,
+        "n_pred_tokens": 5514,
+        "n_gold_tokens": 3468,
+        "latency_ms": 79.64720000745729,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-42464899",
+        "f1": 0.9,
+        "precision": 0.9290657439446367,
+        "recall": 0.8726977248104009,
+        "n_pred_tokens": 1734,
+        "n_gold_tokens": 1846,
+        "latency_ms": 50.70169997634366,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13480122",
+        "f1": 0.8604340567612687,
+        "precision": 0.9742911153119093,
+        "recall": 0.7704035874439462,
+        "n_pred_tokens": 2645,
+        "n_gold_tokens": 3345,
+        "latency_ms": 294.18869997607544,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-16164135",
+        "f1": 0.9223189147683645,
+        "precision": 0.8694655567619737,
+        "recall": 0.9820138983512741,
+        "n_pred_tokens": 8289,
+        "n_gold_tokens": 7339,
+        "latency_ms": 123.18369999411516,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-22878312",
+        "f1": 0.8625180897250362,
+        "precision": 0.8807881773399014,
+        "recall": 0.8449905482041588,
+        "n_pred_tokens": 1015,
+        "n_gold_tokens": 1058,
+        "latency_ms": 56.32499998318963,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-67966344",
+        "f1": 0.7429497568881684,
+        "precision": 0.9753191489361702,
+        "recall": 0.6,
+        "n_pred_tokens": 1175,
+        "n_gold_tokens": 1910,
+        "latency_ms": 87.5623999745585,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-25752436",
+        "f1": 0.9522471910112359,
+        "precision": 0.9104744852282901,
+        "recall": 0.9980372914622179,
+        "n_pred_tokens": 3351,
+        "n_gold_tokens": 3057,
+        "latency_ms": 78.9754000143148,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-7791507",
+        "f1": 0.9406392694063926,
+        "precision": 0.9903846153846154,
+        "recall": 0.8956521739130435,
+        "n_pred_tokens": 728,
+        "n_gold_tokens": 805,
+        "latency_ms": 57.40890000015497,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-570855",
+        "f1": 0.9125973106864826,
+        "precision": 0.8835217540253512,
+        "recall": 0.9436516648371752,
+        "n_pred_tokens": 2919,
+        "n_gold_tokens": 2733,
+        "latency_ms": 140.48230001935735,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-14247831",
+        "f1": 0.9377720870678616,
+        "precision": 0.9261507334344967,
+        "recall": 0.9496887966804979,
+        "n_pred_tokens": 1977,
+        "n_gold_tokens": 1928,
+        "latency_ms": 83.65410001715645,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-73443244",
+        "f1": 0.8639514731369151,
+        "precision": 0.9205909510618652,
+        "recall": 0.8138775510204082,
+        "n_pred_tokens": 1083,
+        "n_gold_tokens": 1225,
+        "latency_ms": 48.400400002719834,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-7349929",
+        "f1": 0.8375677990294034,
+        "precision": 0.7465648854961832,
+        "recall": 0.9538361508452535,
+        "n_pred_tokens": 1965,
+        "n_gold_tokens": 1538,
+        "latency_ms": 78.00459998543374,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-70260583",
+        "f1": 0.9696969696969697,
+        "precision": 0.96,
+        "recall": 0.9795918367346939,
+        "n_pred_tokens": 1850,
+        "n_gold_tokens": 1813,
+        "latency_ms": 35.70390000822954,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-3485613",
+        "f1": 0.7932557205941388,
+        "precision": 0.9714847590953786,
+        "recall": 0.6702849389416553,
+        "n_pred_tokens": 1017,
+        "n_gold_tokens": 1474,
+        "latency_ms": 63.15360000007786,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-70387599",
+        "f1": 0.6042296072507554,
+        "precision": 0.9523809523809523,
+        "recall": 0.4424778761061947,
+        "n_pred_tokens": 735,
+        "n_gold_tokens": 1582,
+        "latency_ms": 82.5829999812413,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13050734",
+        "f1": 0.5347036044086982,
+        "precision": 0.9755434782608695,
+        "recall": 0.3682806729585556,
+        "n_pred_tokens": 1840,
+        "n_gold_tokens": 4874,
+        "latency_ms": 60.79280000994913,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-3102140",
+        "f1": 0.9153623188405798,
+        "precision": 0.9813548788067122,
+        "recall": 0.857686040195546,
+        "n_pred_tokens": 1609,
+        "n_gold_tokens": 1841,
+        "latency_ms": 41.297700023278594,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-5742305",
+        "f1": 0.9543520754283086,
+        "precision": 0.9551208285385501,
+        "recall": 0.9535845588235294,
+        "n_pred_tokens": 4345,
+        "n_gold_tokens": 4352,
+        "latency_ms": 67.17239998397417,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-10839226",
+        "f1": 0.9693438054218393,
+        "precision": 0.9790174002047083,
+        "recall": 0.9598595082789764,
+        "n_pred_tokens": 1954,
+        "n_gold_tokens": 1993,
+        "latency_ms": 27.20209999824874,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-674032",
+        "f1": 0.7391025641025641,
+        "precision": 0.9427636958299264,
+        "recall": 0.6078017923036373,
+        "n_pred_tokens": 1223,
+        "n_gold_tokens": 1897,
+        "latency_ms": 48.675900005036965,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-5320110",
+        "f1": 0.9867610837438423,
+        "precision": 0.9744603222864092,
+        "recall": 0.9993763642033052,
+        "n_pred_tokens": 3289,
+        "n_gold_tokens": 3207,
+        "latency_ms": 56.28430002252571,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-1410698",
+        "f1": 0.9075327018493461,
+        "precision": 0.9940711462450593,
+        "recall": 0.8348547717842324,
+        "n_pred_tokens": 2024,
+        "n_gold_tokens": 2410,
+        "latency_ms": 42.29399998439476,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-11757865",
+        "f1": 0.7032828282828283,
+        "precision": 0.9858407079646018,
+        "recall": 0.5466143277723258,
+        "n_pred_tokens": 565,
+        "n_gold_tokens": 1019,
+        "latency_ms": 37.583000026643276,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-58274409",
+        "f1": 0.6817923993193422,
+        "precision": 0.9296210363495746,
+        "recall": 0.5382892969099866,
+        "n_pred_tokens": 1293,
+        "n_gold_tokens": 2233,
+        "latency_ms": 70.75760001316667,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-4738019",
+        "f1": 0.9097502678645017,
+        "precision": 0.9371709967736458,
+        "recall": 0.883888532991672,
+        "n_pred_tokens": 5889,
+        "n_gold_tokens": 6244,
+        "latency_ms": 217.51350001432002,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-17336734",
+        "f1": 0.9610927152317881,
+        "precision": 0.9744020142677298,
+        "recall": 0.9481420988158432,
+        "n_pred_tokens": 2383,
+        "n_gold_tokens": 2449,
+        "latency_ms": 45.06449998007156,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-2144227",
+        "f1": 0.8917127071823204,
+        "precision": 0.9901840490797545,
+        "recall": 0.8110552763819096,
+        "n_pred_tokens": 1630,
+        "n_gold_tokens": 1990,
+        "latency_ms": 72.25680002011359,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13088442",
+        "f1": 0.761904761904762,
+        "precision": 0.9513960703205792,
+        "recall": 0.6353591160220995,
+        "n_pred_tokens": 967,
+        "n_gold_tokens": 1448,
+        "latency_ms": 141.75939999404363,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-1130329",
+        "f1": 0.8374021188392445,
+        "precision": 0.9784714747039828,
+        "recall": 0.7318840579710145,
+        "n_pred_tokens": 1858,
+        "n_gold_tokens": 2484,
+        "latency_ms": 86.3588000065647,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-24800209",
+        "f1": 0.907391673746814,
+        "precision": 0.9738601823708206,
+        "recall": 0.8494167550371156,
+        "n_pred_tokens": 1645,
+        "n_gold_tokens": 1886,
+        "latency_ms": 36.79750001174398,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-2522526",
+        "f1": 0.9061188811188812,
+        "precision": 0.9755317146621495,
+        "recall": 0.8459278602905174,
+        "n_pred_tokens": 5313,
+        "n_gold_tokens": 6127,
+        "latency_ms": 105.28820002218708,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-41924999",
+        "f1": 0.8056768558951966,
+        "precision": 0.9596879063719116,
+        "recall": 0.6942615239887112,
+        "n_pred_tokens": 769,
+        "n_gold_tokens": 1063,
+        "latency_ms": 66.29009998869151,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-32845594",
+        "f1": 0.799207023506089,
+        "precision": 0.9624829467939973,
+        "recall": 0.6832929782082324,
+        "n_pred_tokens": 1466,
+        "n_gold_tokens": 2065,
+        "latency_ms": 53.803499991772696,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-50787604",
+        "f1": 0.9568328165990937,
+        "precision": 0.9500355197726734,
+        "recall": 0.9637280807110257,
+        "n_pred_tokens": 4223,
+        "n_gold_tokens": 4163,
+        "latency_ms": 142.75969998561777,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-27859495",
+        "f1": 0.7880184331797234,
+        "precision": 0.9670122525918945,
+        "recall": 0.6649384316267012,
+        "n_pred_tokens": 1061,
+        "n_gold_tokens": 1543,
+        "latency_ms": 39.19340000720695,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-631056",
+        "f1": 0.9743087839491069,
+        "precision": 0.9583634175691937,
+        "recall": 0.9907937297835282,
+        "n_pred_tokens": 4155,
+        "n_gold_tokens": 4019,
+        "latency_ms": 48.1627999979537,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-72116674",
+        "f1": 0.9281942977824711,
+        "precision": 0.9781157270029673,
+        "recall": 0.8831212324179505,
+        "n_pred_tokens": 2696,
+        "n_gold_tokens": 2986,
+        "latency_ms": 108.72330001438968,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-24786216",
+        "f1": 0.9229002153625269,
+        "precision": 0.999067454149829,
+        "recall": 0.8575240128068303,
+        "n_pred_tokens": 3217,
+        "n_gold_tokens": 3748,
+        "latency_ms": 133.96719997399487,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-82181",
+        "f1": 0.8067518536046695,
+        "precision": 0.7262141437091735,
+        "recall": 0.9073811213626686,
+        "n_pred_tokens": 3521,
+        "n_gold_tokens": 2818,
+        "latency_ms": 91.12560001085512,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-72346465",
+        "f1": 0.5764705882352941,
+        "precision": 0.9631449631449631,
+        "recall": 0.41133263378803775,
+        "n_pred_tokens": 407,
+        "n_gold_tokens": 953,
+        "latency_ms": 35.97889997763559,
+        "error": null
+      }
+    ],
+    "html2text": [
+      {
+        "doc_id": "wiki-79103310",
+        "f1": 0.5286585365853659,
+        "precision": 0.35930377123912144,
+        "recall": 1.0,
+        "n_pred_tokens": 9652,
+        "n_gold_tokens": 3468,
+        "latency_ms": 111.83559999335557,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-42464899",
+        "f1": 0.5976044027193266,
+        "precision": 0.4261311172668513,
+        "recall": 1.0,
+        "n_pred_tokens": 4332,
+        "n_gold_tokens": 1846,
+        "latency_ms": 64.20299998717383,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13480122",
+        "f1": 0.42120506201599195,
+        "precision": 0.2667889615568671,
+        "recall": 1.0,
+        "n_pred_tokens": 12538,
+        "n_gold_tokens": 3345,
+        "latency_ms": 241.3978000113275,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-16164135",
+        "f1": 0.7737888133270072,
+        "precision": 0.6310404127257093,
+        "recall": 1.0,
+        "n_pred_tokens": 11630,
+        "n_gold_tokens": 7339,
+        "latency_ms": 89.8596000042744,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-22878312",
+        "f1": 0.39536188516925375,
+        "precision": 0.2464443926323152,
+        "recall": 0.999054820415879,
+        "n_pred_tokens": 4289,
+        "n_gold_tokens": 1058,
+        "latency_ms": 59.07289998140186,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-67966344",
+        "f1": 0.45124689752984276,
+        "precision": 0.29140589223019386,
+        "recall": 0.9994764397905759,
+        "n_pred_tokens": 6551,
+        "n_gold_tokens": 1910,
+        "latency_ms": 86.89790000789799,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-25752436",
+        "f1": 0.6400083743326703,
+        "precision": 0.4705972906403941,
+        "recall": 1.0,
+        "n_pred_tokens": 6496,
+        "n_gold_tokens": 3057,
+        "latency_ms": 94.51910000643693,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-7791507",
+        "f1": 0.3187487626212631,
+        "precision": 0.18959020254357042,
+        "recall": 1.0,
+        "n_pred_tokens": 4246,
+        "n_gold_tokens": 805,
+        "latency_ms": 60.84350001765415,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-570855",
+        "f1": 0.5933564915327832,
+        "precision": 0.4218243556104337,
+        "recall": 1.0,
+        "n_pred_tokens": 6479,
+        "n_gold_tokens": 2733,
+        "latency_ms": 102.07970000919886,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-14247831",
+        "f1": 0.6170587293967035,
+        "precision": 0.4461930108771118,
+        "recall": 1.0,
+        "n_pred_tokens": 4321,
+        "n_gold_tokens": 1928,
+        "latency_ms": 66.17860001279041,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-73443244",
+        "f1": 0.5478533094812164,
+        "precision": 0.37727132737911917,
+        "recall": 1.0,
+        "n_pred_tokens": 3247,
+        "n_gold_tokens": 1225,
+        "latency_ms": 50.87489998550154,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-7349929",
+        "f1": 0.5422175215935131,
+        "precision": 0.3719467956469166,
+        "recall": 1.0,
+        "n_pred_tokens": 4135,
+        "n_gold_tokens": 1538,
+        "latency_ms": 72.33729999279603,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-70260583",
+        "f1": 0.6451957295373665,
+        "precision": 0.47622800105069607,
+        "recall": 1.0,
+        "n_pred_tokens": 3807,
+        "n_gold_tokens": 1813,
+        "latency_ms": 41.66909999912605,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-3485613",
+        "f1": 0.4838339077630067,
+        "precision": 0.319116691924659,
+        "recall": 1.0,
+        "n_pred_tokens": 4619,
+        "n_gold_tokens": 1474,
+        "latency_ms": 69.97609999962151,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-70387599",
+        "f1": 0.44122158694742714,
+        "precision": 0.28305600286276617,
+        "recall": 1.0,
+        "n_pred_tokens": 5589,
+        "n_gold_tokens": 1582,
+        "latency_ms": 95.30819999054074,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13050734",
+        "f1": 0.7834123603632565,
+        "precision": 0.6439423966177831,
+        "recall": 1.0,
+        "n_pred_tokens": 7569,
+        "n_gold_tokens": 4874,
+        "latency_ms": 92.29829997639172,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-3102140",
+        "f1": 0.6831168831168831,
+        "precision": 0.5187376725838264,
+        "recall": 1.0,
+        "n_pred_tokens": 3549,
+        "n_gold_tokens": 1841,
+        "latency_ms": 58.444099995540455,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-5742305",
+        "f1": 0.7427254885229115,
+        "precision": 0.5907425003393512,
+        "recall": 1.0,
+        "n_pred_tokens": 7367,
+        "n_gold_tokens": 4352,
+        "latency_ms": 81.68549998663366,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-10839226",
+        "f1": 0.7733798991074893,
+        "precision": 0.6304966782663713,
+        "recall": 1.0,
+        "n_pred_tokens": 3161,
+        "n_gold_tokens": 1993,
+        "latency_ms": 30.786000017542392,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-674032",
+        "f1": 0.6324387397899649,
+        "precision": 0.46245733788395904,
+        "recall": 1.0,
+        "n_pred_tokens": 4102,
+        "n_gold_tokens": 1897,
+        "latency_ms": 54.08110001008026,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-5320110",
+        "f1": 0.8374461417939679,
+        "precision": 0.7203504043126685,
+        "recall": 1.0,
+        "n_pred_tokens": 4452,
+        "n_gold_tokens": 3207,
+        "latency_ms": 59.37120001181029,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-1410698",
+        "f1": 0.7631412286257124,
+        "precision": 0.6169994879672299,
+        "recall": 1.0,
+        "n_pred_tokens": 3906,
+        "n_gold_tokens": 2410,
+        "latency_ms": 55.372700007865205,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-11757865",
+        "f1": 0.5323928944618599,
+        "precision": 0.3627625489498042,
+        "recall": 1.0,
+        "n_pred_tokens": 2809,
+        "n_gold_tokens": 1019,
+        "latency_ms": 45.11390000698157,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-58274409",
+        "f1": 0.6161699779249449,
+        "precision": 0.44526420737786643,
+        "recall": 1.0,
+        "n_pred_tokens": 5015,
+        "n_gold_tokens": 2233,
+        "latency_ms": 73.31890001660213,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-4738019",
+        "f1": 0.6221292283166442,
+        "precision": 0.451514932388459,
+        "recall": 1.0,
+        "n_pred_tokens": 13829,
+        "n_gold_tokens": 6244,
+        "latency_ms": 179.8848999897018,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-17336734",
+        "f1": 0.7778307130379546,
+        "precision": 0.6364345114345115,
+        "recall": 1.0,
+        "n_pred_tokens": 3848,
+        "n_gold_tokens": 2449,
+        "latency_ms": 34.845300018787384,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-2144227",
+        "f1": 0.6450567260940032,
+        "precision": 0.47607655502392343,
+        "recall": 1.0,
+        "n_pred_tokens": 4180,
+        "n_gold_tokens": 1990,
+        "latency_ms": 62.204199988627806,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13088442",
+        "f1": 0.3941208492106696,
+        "precision": 0.2454237288135593,
+        "recall": 1.0,
+        "n_pred_tokens": 5900,
+        "n_gold_tokens": 1448,
+        "latency_ms": 107.83470000023954,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-1130329",
+        "f1": 0.6664877917896431,
+        "precision": 0.4997987927565392,
+        "recall": 1.0,
+        "n_pred_tokens": 4970,
+        "n_gold_tokens": 2484,
+        "latency_ms": 60.733099991921335,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-24800209",
+        "f1": 0.7751746814632142,
+        "precision": 0.6328859060402685,
+        "recall": 1.0,
+        "n_pred_tokens": 2980,
+        "n_gold_tokens": 1886,
+        "latency_ms": 32.514499995158985,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-2522526",
+        "f1": 0.8412742001922285,
+        "precision": 0.7260338902713591,
+        "recall": 1.0,
+        "n_pred_tokens": 8439,
+        "n_gold_tokens": 6127,
+        "latency_ms": 67.28869999642484,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-41924999",
+        "f1": 0.35972927241962777,
+        "precision": 0.21931091396740252,
+        "recall": 1.0,
+        "n_pred_tokens": 4847,
+        "n_gold_tokens": 1063,
+        "latency_ms": 91.23409999301657,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-32845594",
+        "f1": 0.6370507481104427,
+        "precision": 0.46740606609325486,
+        "recall": 1.0,
+        "n_pred_tokens": 4418,
+        "n_gold_tokens": 2065,
+        "latency_ms": 55.82050001248717,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-50787604",
+        "f1": 0.45203322655953093,
+        "precision": 0.29201739618406286,
+        "recall": 1.0,
+        "n_pred_tokens": 14256,
+        "n_gold_tokens": 4163,
+        "latency_ms": 174.60309999296442,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-27859495",
+        "f1": 0.6479109804744908,
+        "precision": 0.4791925465838509,
+        "recall": 1.0,
+        "n_pred_tokens": 3220,
+        "n_gold_tokens": 1543,
+        "latency_ms": 60.70559998624958,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-631056",
+        "f1": 0.8870006621054954,
+        "precision": 0.7969462621455483,
+        "recall": 1.0,
+        "n_pred_tokens": 5043,
+        "n_gold_tokens": 4019,
+        "latency_ms": 60.633699991740286,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-72116674",
+        "f1": 0.6583590648434053,
+        "precision": 0.49079250246629397,
+        "recall": 0.9996651038178165,
+        "n_pred_tokens": 6082,
+        "n_gold_tokens": 2986,
+        "latency_ms": 70.04459999734536,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-24786216",
+        "f1": 0.4524930580707473,
+        "precision": 0.29240131065688874,
+        "recall": 1.0,
+        "n_pred_tokens": 12818,
+        "n_gold_tokens": 3748,
+        "latency_ms": 180.44300001929514,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-82181",
+        "f1": 0.5801935351039736,
+        "precision": 0.40864269141531323,
+        "recall": 1.0,
+        "n_pred_tokens": 6896,
+        "n_gold_tokens": 2818,
+        "latency_ms": 75.03930001985282,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-72346465",
+        "f1": 0.4888432931520903,
+        "precision": 0.32348947725729804,
+        "recall": 1.0,
+        "n_pred_tokens": 2946,
+        "n_gold_tokens": 953,
+        "latency_ms": 47.2044000052847,
+        "error": null
+      }
+    ],
+    "bs4-naive": [
+      {
+        "doc_id": "wiki-79103310",
+        "f1": 0.5390533923991606,
+        "precision": 0.36897542291733165,
+        "recall": 1.0,
+        "n_pred_tokens": 9399,
+        "n_gold_tokens": 3468,
+        "latency_ms": 93.18110000458546,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-42464899",
+        "f1": 0.6098447307565246,
+        "precision": 0.43868821292775667,
+        "recall": 1.0,
+        "n_pred_tokens": 4208,
+        "n_gold_tokens": 1846,
+        "latency_ms": 79.33040001080371,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13480122",
+        "f1": 0.4320030995738086,
+        "precision": 0.27551272547566097,
+        "recall": 1.0,
+        "n_pred_tokens": 12141,
+        "n_gold_tokens": 3345,
+        "latency_ms": 251.8557999865152,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-16164135",
+        "f1": 0.7870663306343504,
+        "precision": 0.648894783377542,
+        "recall": 1.0,
+        "n_pred_tokens": 11310,
+        "n_gold_tokens": 7339,
+        "latency_ms": 68.75599999330007,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-22878312",
+        "f1": 0.4128240649119336,
+        "precision": 0.26107634543178976,
+        "recall": 0.9858223062381852,
+        "n_pred_tokens": 3995,
+        "n_gold_tokens": 1058,
+        "latency_ms": 55.13789999531582,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-67966344",
+        "f1": 0.47346230158730157,
+        "precision": 0.31020474488137795,
+        "recall": 0.9994764397905759,
+        "n_pred_tokens": 6154,
+        "n_gold_tokens": 1910,
+        "latency_ms": 77.10929997847416,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-25752436",
+        "f1": 0.6679777122254997,
+        "precision": 0.5014763779527559,
+        "recall": 1.0,
+        "n_pred_tokens": 6096,
+        "n_gold_tokens": 3057,
+        "latency_ms": 67.41230000625364,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-7791507",
+        "f1": 0.33243857113359493,
+        "precision": 0.1993561168895493,
+        "recall": 1.0,
+        "n_pred_tokens": 4038,
+        "n_gold_tokens": 805,
+        "latency_ms": 63.17100001615472,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-570855",
+        "f1": 0.6049806308799115,
+        "precision": 0.43367185020628374,
+        "recall": 1.0,
+        "n_pred_tokens": 6302,
+        "n_gold_tokens": 2733,
+        "latency_ms": 72.22190001630224,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-14247831",
+        "f1": 0.6353600263634867,
+        "precision": 0.46558802221685586,
+        "recall": 1.0,
+        "n_pred_tokens": 4141,
+        "n_gold_tokens": 1928,
+        "latency_ms": 51.52140001882799,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-73443244",
+        "f1": 0.6126531632908226,
+        "precision": 0.4416005767844268,
+        "recall": 1.0,
+        "n_pred_tokens": 2774,
+        "n_gold_tokens": 1225,
+        "latency_ms": 37.26660000393167,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-7349929",
+        "f1": 0.5561381305369735,
+        "precision": 0.3851740545955422,
+        "recall": 1.0,
+        "n_pred_tokens": 3993,
+        "n_gold_tokens": 1538,
+        "latency_ms": 48.64520000410266,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-70260583",
+        "f1": 0.670612169410024,
+        "precision": 0.5044518642181414,
+        "recall": 1.0,
+        "n_pred_tokens": 3594,
+        "n_gold_tokens": 1813,
+        "latency_ms": 35.146000009262934,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-3485613",
+        "f1": 0.5252093354712275,
+        "precision": 0.3561246677941532,
+        "recall": 1.0,
+        "n_pred_tokens": 4139,
+        "n_gold_tokens": 1474,
+        "latency_ms": 62.90430002263747,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-70387599",
+        "f1": 0.4513552068473609,
+        "precision": 0.291451731761238,
+        "recall": 1.0,
+        "n_pred_tokens": 5428,
+        "n_gold_tokens": 1582,
+        "latency_ms": 85.64489998389035,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13050734",
+        "f1": 0.8019744960921431,
+        "precision": 0.6694135420958659,
+        "recall": 1.0,
+        "n_pred_tokens": 7281,
+        "n_gold_tokens": 4874,
+        "latency_ms": 58.22700000135228,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-3102140",
+        "f1": 0.6965569428679531,
+        "precision": 0.5343976777939042,
+        "recall": 1.0,
+        "n_pred_tokens": 3445,
+        "n_gold_tokens": 1841,
+        "latency_ms": 35.50619998713955,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-5742305",
+        "f1": 0.7617047344009801,
+        "precision": 0.6151236749116608,
+        "recall": 1.0,
+        "n_pred_tokens": 7075,
+        "n_gold_tokens": 4352,
+        "latency_ms": 63.53129999479279,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-10839226",
+        "f1": 0.7885148514851485,
+        "precision": 0.65129211645404,
+        "recall": 0.9989964877069744,
+        "n_pred_tokens": 3057,
+        "n_gold_tokens": 1993,
+        "latency_ms": 27.525499986950308,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-674032",
+        "f1": 0.6697263901147397,
+        "precision": 0.5034501061571125,
+        "recall": 1.0,
+        "n_pred_tokens": 3768,
+        "n_gold_tokens": 1897,
+        "latency_ms": 46.794099995167926,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-5320110",
+        "f1": 0.8472919418758257,
+        "precision": 0.7350446940178776,
+        "recall": 1.0,
+        "n_pred_tokens": 4363,
+        "n_gold_tokens": 3207,
+        "latency_ms": 39.56449998077005,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-1410698",
+        "f1": 0.7755430410297667,
+        "precision": 0.633377135348226,
+        "recall": 1.0,
+        "n_pred_tokens": 3805,
+        "n_gold_tokens": 2410,
+        "latency_ms": 41.60029999911785,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-11757865",
+        "f1": 0.5530529172320218,
+        "precision": 0.3822205551387847,
+        "recall": 1.0,
+        "n_pred_tokens": 2666,
+        "n_gold_tokens": 1019,
+        "latency_ms": 40.62670000712387,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-58274409",
+        "f1": 0.643217529191293,
+        "precision": 0.47427721088435376,
+        "recall": 0.9991043439319302,
+        "n_pred_tokens": 4704,
+        "n_gold_tokens": 2233,
+        "latency_ms": 99.98800000175834,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-4738019",
+        "f1": 0.642750527561892,
+        "precision": 0.47356844899507017,
+        "recall": 1.0,
+        "n_pred_tokens": 13185,
+        "n_gold_tokens": 6244,
+        "latency_ms": 235.96389999147505,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-17336734",
+        "f1": 0.7863220420613259,
+        "precision": 0.6478835978835978,
+        "recall": 1.0,
+        "n_pred_tokens": 3780,
+        "n_gold_tokens": 2449,
+        "latency_ms": 31.253699999069795,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-2144227",
+        "f1": 0.6592678482690078,
+        "precision": 0.49172226340499137,
+        "recall": 1.0,
+        "n_pred_tokens": 4047,
+        "n_gold_tokens": 1990,
+        "latency_ms": 48.698300000978634,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13088442",
+        "f1": 0.41078014184397166,
+        "precision": 0.2584791146019279,
+        "recall": 1.0,
+        "n_pred_tokens": 5602,
+        "n_gold_tokens": 1448,
+        "latency_ms": 85.23689999128692,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-1130329",
+        "f1": 0.6740871453780372,
+        "precision": 0.5084988736432521,
+        "recall": 0.999597423510467,
+        "n_pred_tokens": 4883,
+        "n_gold_tokens": 2484,
+        "latency_ms": 52.34080000082031,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-24800209",
+        "f1": 0.783710783295242,
+        "precision": 0.6443457464981209,
+        "recall": 1.0,
+        "n_pred_tokens": 2927,
+        "n_gold_tokens": 1886,
+        "latency_ms": 28.72370000113733,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-2522526",
+        "f1": 0.8456866804692893,
+        "precision": 0.7326318306827694,
+        "recall": 1.0,
+        "n_pred_tokens": 8363,
+        "n_gold_tokens": 6127,
+        "latency_ms": 52.556200011167675,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-41924999",
+        "f1": 0.39502043849869933,
+        "precision": 0.2461217874507988,
+        "recall": 1.0,
+        "n_pred_tokens": 4319,
+        "n_gold_tokens": 1063,
+        "latency_ms": 63.12529998831451,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-32845594",
+        "f1": 0.6535844279158095,
+        "precision": 0.48542548189938883,
+        "recall": 1.0,
+        "n_pred_tokens": 4254,
+        "n_gold_tokens": 2065,
+        "latency_ms": 49.276000005193055,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-50787604",
+        "f1": 0.4887010623936138,
+        "precision": 0.3233649215473046,
+        "recall": 1.0,
+        "n_pred_tokens": 12874,
+        "n_gold_tokens": 4163,
+        "latency_ms": 174.34290001983754,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-27859495",
+        "f1": 0.6595426373156656,
+        "precision": 0.4920280612244898,
+        "recall": 1.0,
+        "n_pred_tokens": 3136,
+        "n_gold_tokens": 1543,
+        "latency_ms": 42.085799999767914,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-631056",
+        "f1": 0.8950005567308763,
+        "precision": 0.8099556630390972,
+        "recall": 1.0,
+        "n_pred_tokens": 4962,
+        "n_gold_tokens": 4019,
+        "latency_ms": 55.64269999740645,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-72116674",
+        "f1": 0.6757949530383615,
+        "precision": 0.5103401128012306,
+        "recall": 1.0,
+        "n_pred_tokens": 5851,
+        "n_gold_tokens": 2986,
+        "latency_ms": 64.13340001017787,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-24786216",
+        "f1": 0.5366936349967781,
+        "precision": 0.3667677854976025,
+        "recall": 1.0,
+        "n_pred_tokens": 10219,
+        "n_gold_tokens": 3748,
+        "latency_ms": 113.76480001490563,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-82181",
+        "f1": 0.5929510783798001,
+        "precision": 0.42141468521010916,
+        "recall": 1.0,
+        "n_pred_tokens": 6687,
+        "n_gold_tokens": 2818,
+        "latency_ms": 59.8005999927409,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-72346465",
+        "f1": 0.5011832763607678,
+        "precision": 0.3343859649122807,
+        "recall": 1.0,
+        "n_pred_tokens": 2850,
+        "n_gold_tokens": 953,
+        "latency_ms": 37.506100023165345,
+        "error": null
+      }
+    ],
+    "markdownify": [
+      {
+        "doc_id": "wiki-79103310",
+        "f1": 0.5106758945663378,
+        "precision": 0.3428910421198339,
+        "recall": 1.0,
+        "n_pred_tokens": 10114,
+        "n_gold_tokens": 3468,
+        "latency_ms": 190.03470000461675,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-42464899",
+        "f1": 0.5767848773629121,
+        "precision": 0.4052689352360044,
+        "recall": 1.0,
+        "n_pred_tokens": 4555,
+        "n_gold_tokens": 1846,
+        "latency_ms": 150.88130001095124,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13480122",
+        "f1": 0.4097005327944149,
+        "precision": 0.2576247689463956,
+        "recall": 1.0,
+        "n_pred_tokens": 12984,
+        "n_gold_tokens": 3345,
+        "latency_ms": 702.3786999925505,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-16164135",
+        "f1": 0.7545753650010282,
+        "precision": 0.6058779823330306,
+        "recall": 1.0,
+        "n_pred_tokens": 12113,
+        "n_gold_tokens": 7339,
+        "latency_ms": 218.68319998611696,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-22878312",
+        "f1": 0.37422552664188347,
+        "precision": 0.23023306469178828,
+        "recall": 0.999054820415879,
+        "n_pred_tokens": 4591,
+        "n_gold_tokens": 1058,
+        "latency_ms": 154.65539999422617,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-67966344",
+        "f1": 0.43465391621129323,
+        "precision": 0.2777131219086413,
+        "recall": 0.9994764397905759,
+        "n_pred_tokens": 6874,
+        "n_gold_tokens": 1910,
+        "latency_ms": 333.39020001585595,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-25752436",
+        "f1": 0.6011799410029499,
+        "precision": 0.429776465626318,
+        "recall": 1.0,
+        "n_pred_tokens": 7113,
+        "n_gold_tokens": 3057,
+        "latency_ms": 220.36480001406744,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-7791507",
+        "f1": 0.3184335443037975,
+        "precision": 0.18936720771583157,
+        "recall": 1.0,
+        "n_pred_tokens": 4251,
+        "n_gold_tokens": 805,
+        "latency_ms": 151.51279998826794,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-570855",
+        "f1": 0.5866065679330329,
+        "precision": 0.41503416856492026,
+        "recall": 1.0,
+        "n_pred_tokens": 6585,
+        "n_gold_tokens": 2733,
+        "latency_ms": 277.05420000711456,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-14247831",
+        "f1": 0.6083938150836226,
+        "precision": 0.43718820861678004,
+        "recall": 1.0,
+        "n_pred_tokens": 4410,
+        "n_gold_tokens": 1928,
+        "latency_ms": 161.07339999871328,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-73443244",
+        "f1": 0.5168776371308017,
+        "precision": 0.3485064011379801,
+        "recall": 1.0,
+        "n_pred_tokens": 3515,
+        "n_gold_tokens": 1225,
+        "latency_ms": 95.22789999027736,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-7349929",
+        "f1": 0.524556616643929,
+        "precision": 0.3555247341655109,
+        "recall": 1.0,
+        "n_pred_tokens": 4326,
+        "n_gold_tokens": 1538,
+        "latency_ms": 186.81390001438558,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-70260583",
+        "f1": 0.620784112309536,
+        "precision": 0.4500993048659384,
+        "recall": 1.0,
+        "n_pred_tokens": 4028,
+        "n_gold_tokens": 1813,
+        "latency_ms": 86.16939999046735,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-3485613",
+        "f1": 0.468978682787146,
+        "precision": 0.30631753948462176,
+        "recall": 1.0,
+        "n_pred_tokens": 4812,
+        "n_gold_tokens": 1474,
+        "latency_ms": 218.1224999949336,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-70387599",
+        "f1": 0.4277988101676582,
+        "precision": 0.27210182318541454,
+        "recall": 1.0,
+        "n_pred_tokens": 5814,
+        "n_gold_tokens": 1582,
+        "latency_ms": 252.6326999941375,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13050734",
+        "f1": 0.759544958703444,
+        "precision": 0.6123115577889447,
+        "recall": 1.0,
+        "n_pred_tokens": 7960,
+        "n_gold_tokens": 4874,
+        "latency_ms": 197.71129998844117,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-3102140",
+        "f1": 0.6624685138539043,
+        "precision": 0.4952919020715631,
+        "recall": 1.0,
+        "n_pred_tokens": 3717,
+        "n_gold_tokens": 1841,
+        "latency_ms": 100.85960000287741,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-5742305",
+        "f1": 0.6792040577448303,
+        "precision": 0.5142384497223207,
+        "recall": 1.0,
+        "n_pred_tokens": 8463,
+        "n_gold_tokens": 4352,
+        "latency_ms": 184.42869998398237,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-10839226",
+        "f1": 0.749388982891521,
+        "precision": 0.5992182802164763,
+        "recall": 1.0,
+        "n_pred_tokens": 3326,
+        "n_gold_tokens": 1993,
+        "latency_ms": 68.67680000141263,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-674032",
+        "f1": 0.6228862255787228,
+        "precision": 0.45231282784930854,
+        "recall": 1.0,
+        "n_pred_tokens": 4194,
+        "n_gold_tokens": 1897,
+        "latency_ms": 137.58089998736978,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-5320110",
+        "f1": 0.8090312815338042,
+        "precision": 0.6793052319423851,
+        "recall": 1.0,
+        "n_pred_tokens": 4721,
+        "n_gold_tokens": 3207,
+        "latency_ms": 108.24490000959486,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-1410698",
+        "f1": 0.7553674972574831,
+        "precision": 0.6069000251825737,
+        "recall": 1.0,
+        "n_pred_tokens": 3971,
+        "n_gold_tokens": 2410,
+        "latency_ms": 108.56829999829642,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-11757865",
+        "f1": 0.5259354838709678,
+        "precision": 0.35679271708683474,
+        "recall": 1.0,
+        "n_pred_tokens": 2856,
+        "n_gold_tokens": 1019,
+        "latency_ms": 101.32290000910871,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-58274409",
+        "f1": 0.5729313662604234,
+        "precision": 0.4014742898238044,
+        "recall": 1.0,
+        "n_pred_tokens": 5562,
+        "n_gold_tokens": 2233,
+        "latency_ms": 166.15140001522377,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-4738019",
+        "f1": 0.5755634419505,
+        "precision": 0.4040639358053452,
+        "recall": 1.0,
+        "n_pred_tokens": 15453,
+        "n_gold_tokens": 6244,
+        "latency_ms": 490.1790000149049,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-17336734",
+        "f1": 0.7718247715096124,
+        "precision": 0.6284321272773928,
+        "recall": 1.0,
+        "n_pred_tokens": 3897,
+        "n_gold_tokens": 2449,
+        "latency_ms": 82.8414999996312,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-2144227",
+        "f1": 0.6432843058024891,
+        "precision": 0.47414820109602096,
+        "recall": 1.0,
+        "n_pred_tokens": 4197,
+        "n_gold_tokens": 1990,
+        "latency_ms": 123.09449998429045,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13088442",
+        "f1": 0.38577327827361135,
+        "precision": 0.2389833305826044,
+        "recall": 1.0,
+        "n_pred_tokens": 6059,
+        "n_gold_tokens": 1448,
+        "latency_ms": 228.58950000954792,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-1130329",
+        "f1": 0.6540284360189573,
+        "precision": 0.4859154929577465,
+        "recall": 1.0,
+        "n_pred_tokens": 5112,
+        "n_gold_tokens": 2484,
+        "latency_ms": 137.83779999357648,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-24800209",
+        "f1": 0.7568218298555376,
+        "precision": 0.6087798579728857,
+        "recall": 1.0,
+        "n_pred_tokens": 3098,
+        "n_gold_tokens": 1886,
+        "latency_ms": 65.46679997700267,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-2522526",
+        "f1": 0.8262980445043829,
+        "precision": 0.7040101114558198,
+        "recall": 1.0,
+        "n_pred_tokens": 8703,
+        "n_gold_tokens": 6127,
+        "latency_ms": 146.828099997947,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-41924999",
+        "f1": 0.3462540716612378,
+        "precision": 0.20937561552097694,
+        "recall": 1.0,
+        "n_pred_tokens": 5077,
+        "n_gold_tokens": 1063,
+        "latency_ms": 198.8561999751255,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-32845594",
+        "f1": 0.6229260935143288,
+        "precision": 0.452354874041621,
+        "recall": 1.0,
+        "n_pred_tokens": 4565,
+        "n_gold_tokens": 2065,
+        "latency_ms": 185.53340001381002,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-50787604",
+        "f1": 0.43387180823345495,
+        "precision": 0.27703467092566714,
+        "recall": 1.0,
+        "n_pred_tokens": 15027,
+        "n_gold_tokens": 4163,
+        "latency_ms": 549.2797000042628,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-27859495",
+        "f1": 0.6183129633340012,
+        "precision": 0.4475058004640371,
+        "recall": 1.0,
+        "n_pred_tokens": 3448,
+        "n_gold_tokens": 1543,
+        "latency_ms": 112.11180000100285,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-631056",
+        "f1": 0.8510322922181048,
+        "precision": 0.740692959823074,
+        "recall": 1.0,
+        "n_pred_tokens": 5426,
+        "n_gold_tokens": 4019,
+        "latency_ms": 114.46809998597018,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-72116674",
+        "f1": 0.6527489343097606,
+        "precision": 0.4845042998539672,
+        "recall": 1.0,
+        "n_pred_tokens": 6163,
+        "n_gold_tokens": 2986,
+        "latency_ms": 184.85419999342412,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-24786216",
+        "f1": 0.4516751024343215,
+        "precision": 0.29171855541718555,
+        "recall": 1.0,
+        "n_pred_tokens": 12848,
+        "n_gold_tokens": 3748,
+        "latency_ms": 406.5544000186492,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-82181",
+        "f1": 0.5685463532734792,
+        "precision": 0.39718111346018325,
+        "recall": 1.0,
+        "n_pred_tokens": 7095,
+        "n_gold_tokens": 2818,
+        "latency_ms": 204.23679999657907,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-72346465",
+        "f1": 0.47073351444801187,
+        "precision": 0.30781653746770027,
+        "recall": 1.0,
+        "n_pred_tokens": 3096,
+        "n_gold_tokens": 953,
+        "latency_ms": 104.97529999702238,
+        "error": null
+      }
+    ],
+    "trafilatura (best-config)": [
+      {
+        "doc_id": "wiki-79103310",
+        "f1": 0.5668982427462199,
+        "precision": 0.39557431276377325,
+        "recall": 1.0,
+        "n_pred_tokens": 8767,
+        "n_gold_tokens": 3468,
+        "latency_ms": 358.56690001673996,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-42464899",
+        "f1": 0.6932031543372137,
+        "precision": 0.5304597701149425,
+        "recall": 1.0,
+        "n_pred_tokens": 3480,
+        "n_gold_tokens": 1846,
+        "latency_ms": 275.8033999998588,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13480122",
+        "f1": 0.5494902992436699,
+        "precision": 0.3789545299920626,
+        "recall": 0.9991031390134529,
+        "n_pred_tokens": 8819,
+        "n_gold_tokens": 3345,
+        "latency_ms": 817.7119000174571,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-16164135",
+        "f1": 0.8180804815516665,
+        "precision": 0.6921625954918419,
+        "recall": 1.0,
+        "n_pred_tokens": 10603,
+        "n_gold_tokens": 7339,
+        "latency_ms": 327.80780000030063,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-22878312",
+        "f1": 0.4595652173913044,
+        "precision": 0.2984189723320158,
+        "recall": 0.999054820415879,
+        "n_pred_tokens": 3542,
+        "n_gold_tokens": 1058,
+        "latency_ms": 253.8150000036694,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-67966344",
+        "f1": 0.557434916899544,
+        "precision": 0.38760482716301903,
+        "recall": 0.9921465968586387,
+        "n_pred_tokens": 4889,
+        "n_gold_tokens": 1910,
+        "latency_ms": 378.0802999972366,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-25752436",
+        "f1": 0.7684766214177979,
+        "precision": 0.6240048989589713,
+        "recall": 1.0,
+        "n_pred_tokens": 4899,
+        "n_gold_tokens": 3057,
+        "latency_ms": 470.8494999795221,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-7791507",
+        "f1": 0.5375626043405676,
+        "precision": 0.3675799086757991,
+        "recall": 1.0,
+        "n_pred_tokens": 2190,
+        "n_gold_tokens": 805,
+        "latency_ms": 297.5983999785967,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-570855",
+        "f1": 0.7391480730223123,
+        "precision": 0.5862290862290862,
+        "recall": 1.0,
+        "n_pred_tokens": 4662,
+        "n_gold_tokens": 2733,
+        "latency_ms": 281.7460999940522,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-14247831",
+        "f1": 0.8542312804607887,
+        "precision": 0.745552977571539,
+        "recall": 1.0,
+        "n_pred_tokens": 2586,
+        "n_gold_tokens": 1928,
+        "latency_ms": 176.14160000812262,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-73443244",
+        "f1": 0.7257109004739336,
+        "precision": 0.5695025569502556,
+        "recall": 1.0,
+        "n_pred_tokens": 2151,
+        "n_gold_tokens": 1225,
+        "latency_ms": 169.44640001747757,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-7349929",
+        "f1": 0.6917022711940635,
+        "precision": 0.5287040220006876,
+        "recall": 1.0,
+        "n_pred_tokens": 2909,
+        "n_gold_tokens": 1538,
+        "latency_ms": 188.80299999727868,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-70260583",
+        "f1": 0.7406045751633987,
+        "precision": 0.5880635744404801,
+        "recall": 1.0,
+        "n_pred_tokens": 3083,
+        "n_gold_tokens": 1813,
+        "latency_ms": 246.5336000022944,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-3485613",
+        "f1": 0.7723342939481268,
+        "precision": 0.6291079812206573,
+        "recall": 1.0,
+        "n_pred_tokens": 2343,
+        "n_gold_tokens": 1474,
+        "latency_ms": 266.19390002451837,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-70387599",
+        "f1": 0.5515077566672477,
+        "precision": 0.38074608904933815,
+        "recall": 1.0,
+        "n_pred_tokens": 4155,
+        "n_gold_tokens": 1582,
+        "latency_ms": 362.3858999926597,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13050734",
+        "f1": 0.8355189851718522,
+        "precision": 0.7175033122331812,
+        "recall": 1.0,
+        "n_pred_tokens": 6793,
+        "n_gold_tokens": 4874,
+        "latency_ms": 250.23590002092533,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-3102140",
+        "f1": 0.9040019641541861,
+        "precision": 0.8248207885304659,
+        "recall": 1.0,
+        "n_pred_tokens": 2232,
+        "n_gold_tokens": 1841,
+        "latency_ms": 178.47359998268075,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-5742305",
+        "f1": 0.8177376925967681,
+        "precision": 0.6916719643992372,
+        "recall": 1.0,
+        "n_pred_tokens": 6292,
+        "n_gold_tokens": 4352,
+        "latency_ms": 292.199299990898,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-10839226",
+        "f1": 0.8584966616411803,
+        "precision": 0.7520754716981132,
+        "recall": 1.0,
+        "n_pred_tokens": 2650,
+        "n_gold_tokens": 1993,
+        "latency_ms": 123.49729999550618,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-674032",
+        "f1": 0.7995785036880928,
+        "precision": 0.6660814606741573,
+        "recall": 1.0,
+        "n_pred_tokens": 2848,
+        "n_gold_tokens": 1897,
+        "latency_ms": 169.85390000627376,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-5320110",
+        "f1": 0.9345767157219874,
+        "precision": 0.8771881838074398,
+        "recall": 1.0,
+        "n_pred_tokens": 3656,
+        "n_gold_tokens": 3207,
+        "latency_ms": 158.74550002627075,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-1410698",
+        "f1": 0.877755511022044,
+        "precision": 0.7823968821045794,
+        "recall": 0.9995850622406639,
+        "n_pred_tokens": 3079,
+        "n_gold_tokens": 2410,
+        "latency_ms": 156.1480000091251,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-11757865",
+        "f1": 0.659546925566343,
+        "precision": 0.4920328343795268,
+        "recall": 1.0,
+        "n_pred_tokens": 2071,
+        "n_gold_tokens": 1019,
+        "latency_ms": 147.88140001473948,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-58274409",
+        "f1": 0.7149031535136866,
+        "precision": 0.5563029397110114,
+        "recall": 1.0,
+        "n_pred_tokens": 4014,
+        "n_gold_tokens": 2233,
+        "latency_ms": 288.9267000136897,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-4738019",
+        "f1": 0.6835997372454565,
+        "precision": 0.519294743845642,
+        "recall": 1.0,
+        "n_pred_tokens": 12024,
+        "n_gold_tokens": 6244,
+        "latency_ms": 650.3677000000607,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-17336734",
+        "f1": 0.8528643566080446,
+        "precision": 0.7434729811778992,
+        "recall": 1.0,
+        "n_pred_tokens": 3294,
+        "n_gold_tokens": 2449,
+        "latency_ms": 104.0478999784682,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-2144227",
+        "f1": 0.7663263340396841,
+        "precision": 0.6213683223992502,
+        "recall": 0.9994974874371859,
+        "n_pred_tokens": 3201,
+        "n_gold_tokens": 1990,
+        "latency_ms": 207.23400000133552,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-13088442",
+        "f1": 0.46144040790312296,
+        "precision": 0.299917149958575,
+        "recall": 1.0,
+        "n_pred_tokens": 4828,
+        "n_gold_tokens": 1448,
+        "latency_ms": 352.60280000511557,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-1130329",
+        "f1": 0.747517303641288,
+        "precision": 0.596828447861605,
+        "recall": 1.0,
+        "n_pred_tokens": 4162,
+        "n_gold_tokens": 2484,
+        "latency_ms": 239.13669999456033,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-24800209",
+        "f1": 0.8719371243643088,
+        "precision": 0.7729508196721312,
+        "recall": 1.0,
+        "n_pred_tokens": 2440,
+        "n_gold_tokens": 1886,
+        "latency_ms": 116.68800000916235,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-2522526",
+        "f1": 0.9122310727313333,
+        "precision": 0.8386257870243635,
+        "recall": 1.0,
+        "n_pred_tokens": 7306,
+        "n_gold_tokens": 6127,
+        "latency_ms": 226.0056000086479,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-41924999",
+        "f1": 0.5803985803985804,
+        "precision": 0.40884615384615386,
+        "recall": 1.0,
+        "n_pred_tokens": 2600,
+        "n_gold_tokens": 1063,
+        "latency_ms": 256.4933999965433,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-32845594",
+        "f1": 0.7721069358758645,
+        "precision": 0.6288063337393422,
+        "recall": 1.0,
+        "n_pred_tokens": 3284,
+        "n_gold_tokens": 2065,
+        "latency_ms": 201.44560001790524,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-50787604",
+        "f1": 0.6012420566146736,
+        "precision": 0.4298399586990191,
+        "recall": 1.0,
+        "n_pred_tokens": 9685,
+        "n_gold_tokens": 4163,
+        "latency_ms": 601.0895000072196,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-27859495",
+        "f1": 0.7512171372930867,
+        "precision": 0.6015594541910332,
+        "recall": 1.0,
+        "n_pred_tokens": 2565,
+        "n_gold_tokens": 1543,
+        "latency_ms": 173.24849998112768,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-631056",
+        "f1": 0.9419899214813079,
+        "precision": 0.8903411608329641,
+        "recall": 1.0,
+        "n_pred_tokens": 4514,
+        "n_gold_tokens": 4019,
+        "latency_ms": 204.97160000377335,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-72116674",
+        "f1": 0.8244064053009388,
+        "precision": 0.701268201033349,
+        "recall": 1.0,
+        "n_pred_tokens": 4258,
+        "n_gold_tokens": 2986,
+        "latency_ms": 248.96579998312518,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-24786216",
+        "f1": 0.9244049821186335,
+        "precision": 0.8594359091951387,
+        "recall": 1.0,
+        "n_pred_tokens": 4361,
+        "n_gold_tokens": 3748,
+        "latency_ms": 502.08740000380203,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-82181",
+        "f1": 0.6951159348791317,
+        "precision": 0.532703213610586,
+        "recall": 1.0,
+        "n_pred_tokens": 5290,
+        "n_gold_tokens": 2818,
+        "latency_ms": 259.5034000114538,
+        "error": null
+      },
+      {
+        "doc_id": "wiki-72346465",
+        "f1": 0.5864615384615385,
+        "precision": 0.4148889856334349,
+        "recall": 1.0,
+        "n_pred_tokens": 2297,
+        "n_gold_tokens": 953,
+        "latency_ms": 155.6066000193823,
+        "error": null
+      }
+    ]
+  },
+  "warnings": []
+}

@@ -348,6 +348,10 @@ def main(argv=None):
                 f.write(json.dumps({"extractor": n, "doc_id": r["doc_id"], "title": r["output_title"],
                                     "text": r["output_text"]}, ensure_ascii=False) + "\n")
     (out_dir / "RESULTS.md").write_text(results_md(header, summary, paired, tax, by_type), encoding="utf-8")
+    wp = out_dir / "wikipedia.json"
+    if wp.exists():  # keep the real-page section (written by `python -m extract_bench.wikislice run`)
+        from . import wikislice
+        wikislice.splice_into_results(out_dir / "RESULTS.md", wikislice.section_md(json.loads(wp.read_text(encoding="utf-8"))))
 
     if not args.no_charts:
         from . import charts
