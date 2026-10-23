@@ -1,4 +1,4 @@
-# My benchmark ranked extractors one way. 40 real pages ranked them the other way.
+# My benchmark ranked extractors one way. Two sets of real pages ranked them two other ways.
 
 Every agent that reads the web first turns HTML into text. I built a small benchmark of open-source extractors for that step.
 
@@ -20,6 +20,17 @@ On the synthetic set, jusText returned an empty string on 15 of 40 pages. Those 
 
 So the synthetic set punished jusText for page types the real set does not contain. Even on the synthetic set, the top two were not significantly different once I resampled whole page types: [-0.005, +0.227].
 
+## Then I checked it on many sites
+
+Wikipedia is one site, so I added a second set of real pages. It is the public article-extraction benchmark from Zyte (MIT licence): 181 news and blog pages from 126 sites, with body text labelled by their team. I used all of it, and I did not retune anything.
+
+- readability-lxml: 0.960 [0.948, 0.970]
+- trafilatura, tuned on my synthetic dev pages: 0.960 [0.946, 0.971]
+- trafilatura, default: 0.949 [0.931, 0.964]
+- jusText: 0.718 [0.666, 0.769]
+
+The top two are tied, also when I resample whole sites. jusText is fourth, with an empty output on 30 of 181 pages. So the Wikipedia flip was a Wikipedia result. On many sites the synthetic top two hold up, and jusText sits in the middle, not first and not last.
+
 ## What it means if you benchmark extractors
 
 1. A tool that is last on one page mix can be first on another. Test on your own mix.
@@ -30,8 +41,8 @@ I also checked my pass/fail rule against two LLM judges on 140 outputs. Kappa wa
 
 ## What this does not show
 
-- It is not a new ranking. It is 40 articles on one site template, not 40 layouts.
-- It says nothing about non-English pages, recipes, forums or listings. The Wikipedia slice has none.
+- It is not one final ranking. Wikipedia is 40 articles on one template. The Zyte set is news and blog pages only, and its authors published results for these tools on it, so the tools may have been tuned against it.
+- It says nothing about non-English pages, recipes, forums or listings. Neither real set has them.
 - No human labels exist for the judges, and the Wikipedia gold leaves out infobox text and tables.
 
-One command reruns everything. The Wikipedia slice ships page ids, revision links and hashes, not the text (CC BY-SA).
+One command reruns everything. The two real-page slices ship ids, links and hashes, not the text (CC BY-SA for Wikipedia, and the Zyte pages belong to the sites that published them).

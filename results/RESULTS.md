@@ -121,3 +121,41 @@ Caveats specific to this slice:
 - Inline citation markers such as [12] are in the HTML but not in the gold, a small precision cost for every tool.
 - 40 pages is small. The slice is a check on direction, not a second benchmark.
 - HTML and gold text are not in git (CC BY-SA 4.0). `corpus/wikipedia/manifest.json` has page ids, revision permalinks and SHA-256 hashes; `python -m extract_bench.wikislice build` redraws the pages and `run` refetches the pinned revisions and re-scores them. Text: Wikipedia contributors, CC BY-SA 4.0.
+
+## External-gold check (Zyte article-extraction-benchmark)
+
+181 real article pages from 126 sites. Gold is the human-labelled `articleBody` from https://github.com/scrapinghub/article-extraction-benchmark (commit 4a3bc979f7), so it was written by neither this project nor the tool authors. Every page with non-empty gold is used, nothing is picked or dropped by outcome. Same metrics code as above, 10000 bootstrap resamples, seed 1234. The page interval resamples pages; the site interval resamples whole sites, because pages of one site share a template. Leak rate is not computed (no boilerplate labels). The tuned trafilatura config is the one frozen from the synthetic dev split, not retuned here.
+
+| Extractor | F1 [95% CI, pages] | F1 [95% CI, sites] | Precision | Recall | Empty outputs | Median ms |
+|---|---|---|---|---|---|---|
+| readability-lxml | 0.960 [0.948, 0.970] | 0.960 [0.947, 0.970] | 0.943 | 0.984 | 0 of 181 | 29 |
+| trafilatura (best-config) | 0.960 [0.946, 0.971] | 0.960 [0.944, 0.973] | 0.948 | 0.983 | 0 of 181 | 30 |
+| trafilatura | 0.949 [0.931, 0.964] | 0.949 [0.930, 0.965] | 0.934 | 0.983 | 0 of 181 | 31 |
+| justext | 0.718 [0.666, 0.769] | 0.718 [0.654, 0.779] | 0.741 | 0.742 | 30 of 181 | 17 |
+| bs4-naive | 0.639 [0.608, 0.669] | 0.639 [0.602, 0.674] | 0.504 | 1.000 | 0 of 181 | 17 |
+| html2text | 0.620 [0.588, 0.651] | 0.620 [0.582, 0.657] | 0.485 | 1.000 | 0 of 181 | 19 |
+| markdownify | 0.611 [0.579, 0.643] | 0.611 [0.573, 0.649] | 0.476 | 1.000 | 0 of 181 | 39 |
+
+Paired F1 difference, readability-lxml minus each other tool (page resampling, then site resampling):
+
+- trafilatura: +0.011 [-0.004, +0.029], not significantly different; by site +0.011 [-0.005, +0.030], not significantly different
+- justext: +0.242 [+0.192, +0.294], significantly different; by site +0.242 [+0.182, +0.306], significantly different
+- html2text: +0.340 [+0.309, +0.372], significantly different; by site +0.340 [+0.304, +0.377], significantly different
+- bs4-naive: +0.321 [+0.291, +0.352], significantly different; by site +0.321 [+0.287, +0.357], significantly different
+- markdownify: +0.349 [+0.318, +0.381], significantly different; by site +0.349 [+0.312, +0.386], significantly different
+- trafilatura (best-config): +0.000 [-0.011, +0.013], not significantly different; by site +0.000 [-0.013, +0.016], not significantly different
+
+How it compares with the other two slices:
+
+- Synthetic order (test F1): readability-lxml > trafilatura (best-config) > trafilatura > html2text > bs4-naive > markdownify > justext
+- Zyte order (F1): readability-lxml > trafilatura (best-config) > trafilatura > justext > bs4-naive > html2text > markdownify
+- Wikipedia order (F1): justext > readability-lxml > trafilatura > trafilatura (best-config) > bs4-naive > html2text > markdownify
+- Spearman against synthetic: 0.60 over the 6 default-config tools, 0.75 over 7 rows.
+- Spearman against Wikipedia: 0.83 over the 6 default-config tools.
+
+Caveats specific to this slice:
+
+- News and blog article pages only, so it says little about recipes, forums, listings or documentation. Pages were fetched with JavaScript off.
+- The labelled body is plain paragraphs. Tools that keep headings, captions, bylines or link lists lose a little precision although some of that text is arguably content. Recall is the fairer column for them.
+- The dataset's own README publishes results for trafilatura, readability and jusText on these pages, so the tool authors could have tuned against it. This slice is not blind to them.
+- Page HTML and gold text are not in git. `corpus/zyte/manifest.json` has ids, URLs, token counts and SHA-256 hashes; `python -m extract_bench.zyteslice run` downloads the pinned commit and checks them. Source licence: MIT, Copyright (c) 2020 Scrapinghub (repo LICENSE and README, checked 23 Oct 2026).

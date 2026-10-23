@@ -1,0 +1,1641 @@
+{
+ "source": "https://github.com/scrapinghub/article-extraction-benchmark",
+ "pinned_commit": "4a3bc979f76c0df73cb95fe272e2fc1b96f9f010",
+ "licence": "MIT, Copyright (c) 2020 Scrapinghub (repo LICENSE and README, checked 23 Oct 2026)",
+ "rule": "every item in ground-truth.json with non-empty articleBody, in id order; nothing dropped by outcome",
+ "n_items_in_source": 181,
+ "skipped": [],
+ "n_pages": 181,
+ "n_sites": 126,
+ "pages": [
+  {
+   "id": "042bb7b5fedab6eac7db576522b89b93904c237d344bcbe14a6a5ab7f7335856",
+   "url": "https://www.wsj.com/articles/google-stadia-microsoft-xcloud-apple-arcade-so-many-ways-to-playand-pay-11574168580",
+   "site": "wsj.com",
+   "gold_tokens": 67,
+   "html_gz_sha256": "a15deb96287f2dc3a586fb57617c83c78d50b412ceb1b204bedb7816eba1e698",
+   "html_sha256": "bd5214ed6100e7d8a062f7f642127359d502d903035f83ca460b8951fb23b729",
+   "gold_sha256": "4ba01a6c4896f23197bd7fce5d8c093eca746a370e0e5e38378b0fa77b53d172"
+  },
+  {
+   "id": "04a6711caa7c687592777718866e781e976e0fe684faebe8b3cedcef8cd0ea34",
+   "url": "https://www.nytimes.com/2019/11/19/opinion/republicans-elections-impeachment.html",
+   "site": "nytimes.com",
+   "gold_tokens": 897,
+   "html_gz_sha256": "6bb15fd353836498145ad2254f22600388454f052c2d3aa2dd41fdd46a31059b",
+   "html_sha256": "65ac270fa6091fdc9eae60fe418c0ceedd37694e33261387ab99457cf608be8d",
+   "gold_sha256": "a289976a572f514fbed430e8f49e63328489e0ec2f8f73e548e7fb66c97f179e"
+  },
+  {
+   "id": "05844573ca7e1fba714d715bb11ca08c26e25328999c74a1cb3bc8a0e4399f0f",
+   "url": "https://www.ctpost.com/news/us/article/New-SUVs-and-electric-vehicles-highlight-L-A-14848164.php",
+   "site": "ctpost.com",
+   "gold_tokens": 759,
+   "html_gz_sha256": "11b507029be61ae870ab5b8bcfbdb47012739e2a64b070362784950f7d3dcd8a",
+   "html_sha256": "bf61c464e02cb00fd08f9b614753d2a7729e754ff13c1c37d1220ab9efc125bd",
+   "gold_sha256": "6b155d1a5a087f612f31ed9cf0c0d72114736f52ab2e7b3a358aae63470754cf"
+  },
+  {
+   "id": "06e5123e4ef7cfb4533250dc45d1e03d0838fc66223f45c583c4d12f48b4da85",
+   "url": "https://venturebeat.com/2019/11/18/new-york-state-attorney-general-investigating-wework-and-former-ceo/",
+   "site": "venturebeat.com",
+   "gold_tokens": 548,
+   "html_gz_sha256": "4011d05a0bd7a8bf24b10ee6b64d53d865befb3b51b7872246fec4f6ec40ad3e",
+   "html_sha256": "290ee8dc0cd18bfe8e6493c76857b4f86c0e7d0292c33ec8ac5d1b21996db96d",
+   "gold_sha256": "4614327daf392fd1f001e0f29258c40e97a227a77e2b24628f79eea28b864c54"
+  },
+  {
+   "id": "06ee193de4bd611f7fafbab0c59b0f6fe3495093516720632cd093b24c7a0e98",
+   "url": "https://www.slashgear.com/the-vw-id-space-vizzion-is-a-weird-ev-sports-wagon-with-a-secret-message-19600475/",
+   "site": "slashgear.com",
+   "gold_tokens": 824,
+   "html_gz_sha256": "71c8def0ff4114d9cbe8515ec143a24b297a3e67d3a225121fbc3d1fdb87f100",
+   "html_sha256": "f3c89476097baae61c1f6e765d8b32b890ac20dd238232e163970204bd0665f6",
+   "gold_sha256": "facb40566ed7a6d8fac7cc69274933b78a8d281aae71d631a26e1ea84b5a1a41"
+  },
+  {
+   "id": "076f4f33bf75059db581bedf36e76fb65e89a8f7752db3339aa3ea11c5122f32",
+   "url": "https://www.newsnation.in/fact-check/news/fact-check-is-an-oxygen-bar-in-delhi-offering-fresh-air-for-rs-300-244592.html",
+   "site": "newsnation.in",
+   "gold_tokens": 384,
+   "html_gz_sha256": "fb6a09c1ea99f9f4b4105fe9d3307bed5df5cab9f07195544e412a3992000f6e",
+   "html_sha256": "9fba9b01f3596b996bd539f027d06ab03842d4610656532c7dc4271e5515010c",
+   "gold_sha256": "4328086ff08cb24aa59ea2801760060a040102d9eb376abaaa8ba7393e783c48"
+  },
+  {
+   "id": "08f793762792bd252c75fb57544cdf506ffcc04785136cb87503f02364b82b56",
+   "url": "https://www.cbssports.com/nfl/news/browns-player-on-mason-rudolphs-role-in-fight-with-myles-garrett-he-asked-for-it/",
+   "site": "cbssports.com",
+   "gold_tokens": 547,
+   "html_gz_sha256": "9d75ab56e6794b44843de3947408ed2fc4b1ef8bf8b17fd81c3f4f25022bfc3f",
+   "html_sha256": "a50ccf1137753fdde9cf84bae9837d9f641676f9b4d80c79ec045fb5b7dd83fa",
+   "gold_sha256": "f0085cd9a816f813d4a386132622e4f49e67903ddfaa5b179714b395b68fd00e"
+  },
+  {
+   "id": "098bb3e96c0acdf36efdcde45fb9cca3f8c82c7cb2071b76097a1b96155f1eb2",
+   "url": "https://www.latimes.com/entertainment-arts/business/story/2019-11-19/disney-plus-kevin-mayer",
+   "site": "latimes.com",
+   "gold_tokens": 638,
+   "html_gz_sha256": "d1aadcca5ccc6951aa2908196fd19129bbcca934852f917c58299c2cd55a8b87",
+   "html_sha256": "a861a458723d5f9f0e281dba368a87d96f0ef9393a8233378a8b71b5d863653c",
+   "gold_sha256": "450cb325d03beadfaf34c511bfab133a2341bd5f5eff9b6e52d12b3c29c01289"
+  },
+  {
+   "id": "0d46122928b6f468cc4bbc694051d0dbae5702bc75a16dab82a99b58daf150a0",
+   "url": "https://www.sportsnet.ca/tennis/argentina-comfortably-wins-davis-cup-opener-chile/",
+   "site": "sportsnet.ca",
+   "gold_tokens": 809,
+   "html_gz_sha256": "95e61eace74d18040982a654ea8157dc57a15ffed78c5fa86797e104144159e4",
+   "html_sha256": "e8c4ba439129e2856db617ddc3e40dde6e3464638cb4cc607aa20b3fdc98742c",
+   "gold_sha256": "3f90641b554d5adfd1e30a4e6c82faa08beac71db4b9a453d40de20679e17ae2"
+  },
+  {
+   "id": "0dd1357045727799a447563fd8851f4ebe79f042073ea16991a9b67aa595f81a",
+   "url": "http://www.theparadigmng.com/2018/10/09/breaking-lawan-moves-motion-senates-adjournment-nzeribe-adedoyins-deaths/",
+   "site": "theparadigmng.com",
+   "gold_tokens": 195,
+   "html_gz_sha256": "155d7657a6812f938a03f7aa40eb0835190617663a8f319c9b1fc8ffbd2d36cb",
+   "html_sha256": "0318b96f70b6694138812d0d5d6676fec40ab832bf5bdaa0290052067991b0fb",
+   "gold_sha256": "6eb151a092eb041a3941a63645fc834960289bd246ccb2914d3ce43c59a77f41"
+  },
+  {
+   "id": "0e014df693f182824fe5e24030ddbe1d0b96ddb9685cf20d5766457ed32ffa2d",
+   "url": "https://theantijunecleaver.com/2014/09/make-arrowhead-water-a-part-of-your-mountain-hike-survival-kit/",
+   "site": "theantijunecleaver.com",
+   "gold_tokens": 443,
+   "html_gz_sha256": "49726882164d9be96fa15e61df32dda7d411da3dbf970a74d04b4ec8ab8f5eaa",
+   "html_sha256": "615bca501ab120dba4b6cfb6cfad2ccc1e1bc2b2cd660626c99c3c9a03ef8c5d",
+   "gold_sha256": "e077ad6c787d9ef0628d661bf1dcd5f6bf7388bb7109300a5af5d6e2f375334d"
+  },
+  {
+   "id": "0ec95c7261d122f304728e90c983450ef1ce1e0b423546835c397d50aaf0d0f2",
+   "url": "http://entermedia.co.kr/news/news_view.html?idx=8576&page=1&bc=03&mc=08&find=&sch_date=",
+   "site": "entermedia.co.kr",
+   "gold_tokens": 590,
+   "html_gz_sha256": "d97ee4f67fbe3ef088b24acbe9b06c2b6314ddf58d5ad37cecb5a27ed34a330c",
+   "html_sha256": "e7a3da89b05368f9bf63fc1cbdbfe6a520ea8f1b7730b411e7c7fd5fd81c2d1d",
+   "gold_sha256": "df6b2dba9035c331ff61b7ddaf22ab99d6c5617bde337b32e54b4b1a9b82b22c"
+  },
+  {
+   "id": "11ea381ad92b5448cf66eae62f52ac565361a244c8881615fc6a7bb523cc0c32",
+   "url": "http://www.autoracing.com.br/classificacao-nascar/",
+   "site": "autoracing.com.br",
+   "gold_tokens": 407,
+   "html_gz_sha256": "8cf08f7b82f2275307f6c17d8e09c5396ee4cd770de75e6f9e1d96d256cfae86",
+   "html_sha256": "38b960f1f8e919b170e0ba540c4596ba73f7524a150f5a9f504f3cae5a8e46bf",
+   "gold_sha256": "0413ba71ab90e91bb6f6aa4c07284115d92354b62aedc3e45dea1ff91b303124"
+  },
+  {
+   "id": "14cc2a0ca59c62a8c9f205a171e9ccf4ef4cf69b0c642f51c8c65c051b39024f",
+   "url": "https://www.sciencealert.com/nasa-finds-water-plumes-above-the-surface-of-jupiter-s-icy-moon-europa",
+   "site": "sciencealert.com",
+   "gold_tokens": 401,
+   "html_gz_sha256": "6207fa3ef6b7e58d521b9d6aef9cdb18cc3434b1b164a2df7b9ef679f637902d",
+   "html_sha256": "3f7f2e1c11ab36802e83b90ead35eed3bc680a789e615c571774c46b29fd3d3f",
+   "gold_sha256": "d8c673a5c3a868f3eaf6e153ec4e4ddffaae7e21c99b03b519adfef33a4da09d"
+  },
+  {
+   "id": "156770d676ce79905198e1c8407f81e5ecfb617d9aa44712718707eb7e3b8e38",
+   "url": "https://thehill.com/homenews/news/471033-south-dakota-governor-doubles-down-on-meth-were-on-it-anti-drug-campaign",
+   "site": "thehill.com",
+   "gold_tokens": 356,
+   "html_gz_sha256": "94997f9b340913155ba98ef754af798f722d0ef2744169026439d8cdc44f4609",
+   "html_sha256": "ee567de721caab9f0efda8073387e381315000cea559dda17b35d704763dcb83",
+   "gold_sha256": "7613a92750e51dd5ac4520adf6afa61ba04cc4bcae47feaef91ed0789d6de3ac"
+  },
+  {
+   "id": "16c30add7e96315e9cc957d85aa876ccb6b70055f0ddab51547a586117cc1f56",
+   "url": "https://www.vox.com/science-and-health/2019/11/8/20948348/delhi-india-air-pollution-quality-cause",
+   "site": "vox.com",
+   "gold_tokens": 2386,
+   "html_gz_sha256": "9ee9c3727664f336831b570455b937f76b968def4570a7ff8425a118fca22bd4",
+   "html_sha256": "b79c27793d32ac828208ae96056248ca5b23051cd71ef412a1d2ab44ee665a55",
+   "gold_sha256": "326f8b56725747430f7376ddf4c61730dbd0d5eb9988210bf7203be03e40de5f"
+  },
+  {
+   "id": "1ace8c85aaee21b9d4505eca506d50c4721c29db62848b567a9703bfe0583892",
+   "url": "https://techcrunch.com/2019/11/18/new-york-state-attorney-general-reportedly-investigating-wework/",
+   "site": "techcrunch.com",
+   "gold_tokens": 233,
+   "html_gz_sha256": "d5750b912ff7b1ef0bd72de7657f67fff10e886bea9841d1236cd25183bb569e",
+   "html_sha256": "94ce9306b74bf9f1979b165b05514c6896ee9e7afebecdcebc85887c36bf98ff",
+   "gold_sha256": "ac83a18bdf24cc26cffe746c44cbd4f60a18399b907811c4004ed6a8e4d86d2d"
+  },
+  {
+   "id": "1ee91d1fce65e09be8b8d2d29eab771546d98ca2ba5c862941e660e9fec12432",
+   "url": "https://www.polygraph.info/a/fact-check-russia-us-al-tanf-rukban/30279001.html",
+   "site": "polygraph.info",
+   "gold_tokens": 930,
+   "html_gz_sha256": "a336d3544af66198feb10d8cebc96b80063e38947229a9885be61d6b2fc11972",
+   "html_sha256": "16c4dcf1b4018dba7d767172650edb5c7bd0885417f0247a92c625b3a22cd2ca",
+   "gold_sha256": "1f88119f0663975551dad8f434d4ff09df040cfd27b93349e6bfdb6563661101"
+  },
+  {
+   "id": "1f765c48780665e89cc3af1f7c9af47876e9fae9b5be4a936b0649e10f5e3198",
+   "url": "https://sputniknews.com/columnists/201911181077343476-royal-self-indicting-arrogance/",
+   "site": "sputniknews.com",
+   "gold_tokens": 763,
+   "html_gz_sha256": "87e52bc3a7c755ae3dc847866ffff58493156f748c748a5901613ffde27821a1",
+   "html_sha256": "7c08067b447ab5f522cc7743630e0f7618e7ec4fe2f621c0e87c4ff107da5e91",
+   "gold_sha256": "6a303ea6ffc75b6dc0028d144816bb22586479c06b76e6b24579e4ada5ebaf2f"
+  },
+  {
+   "id": "20b2b64916b00b25203c9f1bf14248922f4d522f18328e9f876cce116df0083e",
+   "url": "http://www.remember8090.it/black-friday-per-nostalgici-le-occasioni-da-non-perdere/",
+   "site": "remember8090.it",
+   "gold_tokens": 348,
+   "html_gz_sha256": "6b18d91920a63dc39287663040de692a513980d1c5b671dc24a229cb982c72ef",
+   "html_sha256": "a7ad4d6c1b6f32145d928e0a36bb065e774f564b459c1192c13eed2c0d7849f6",
+   "gold_sha256": "08d6df31f9f34cef9cd148cfd12de5883ba021984e110c5652c3262825b586d0"
+  },
+  {
+   "id": "21486419bb109c5a62a68957f528e6ff29c92f58d8d3c1f2837c86ff3f3e11f9",
+   "url": "https://kabarislamia.com/2015/03/30/jangan-membenci-satu-kaum-secara-berlebihan/",
+   "site": "kabarislamia.com",
+   "gold_tokens": 308,
+   "html_gz_sha256": "f5bf40ae6e2a7669ce1e42aeda51fe5d02c679f2a7655d171d6ed0d1cfaa7530",
+   "html_sha256": "6a5d6571a6273193c10c6e7bccfa37b4d1a335a80d1249bc9a39d4135c6449ee",
+   "gold_sha256": "653afc28290b98d02a4f5dad12901d60ad32575e31c0b53d9996be8e81a4c04a"
+  },
+  {
+   "id": "232a43fb15abde807427b2a7bf4f772e27b8760554370956d8291df4e8166dbf",
+   "url": "https://www.macrumors.com/2019/11/18/13-inch-macbook-pro-scissor-keyboard-2020/",
+   "site": "macrumors.com",
+   "gold_tokens": 256,
+   "html_gz_sha256": "686a17852b4a688588a44809797beee0257617c6264d2f22468467ba43010f17",
+   "html_sha256": "d773af9e0db0371a1cab119511df23fa51a56e311cece8982f06989c7b746125",
+   "gold_sha256": "c38402b268d3e37663536cb135184b4a9fe6277a4da1983b7fe8285da3a3283a"
+  },
+  {
+   "id": "23aaecd14171f96cfd201a8a46666097e286ad71f74f29347a78c5ecba50da1e",
+   "url": "http://comoeducarseusfilhos.com.br/blog/uma-palinha-das-brincadeiras-musicais-do-grupo-serelepe/",
+   "site": "comoeducarseusfilhos.com.br",
+   "gold_tokens": 304,
+   "html_gz_sha256": "ad388d750b9df53e7225871bd87028cacf7a54e451110a5b9fd48c6022e8133f",
+   "html_sha256": "8d97b9d76b9da191797bc06757ad1b9fbf61dfd534a731fb6e9241933fdcc5fe",
+   "gold_sha256": "1b9223d80c05ba87bc9109274c6fce47c3a4733bda233664ff37a1e4c5072c5a"
+  },
+  {
+   "id": "264dc3ae31249cb1f50c50986e0952a4708c2e705d18a2d8bf0e525da6e2b485",
+   "url": "https://www.twincities.com/2019/11/19/parise-scores-2-goals-wild-beat-sabres-4-1/",
+   "site": "twincities.com",
+   "gold_tokens": 619,
+   "html_gz_sha256": "4f02da6abe4f2453b3eeedd19be634cb78708aa663e09133e726d8d1bc5332df",
+   "html_sha256": "7d97577161cebd7cdbbfc0403209839fd357ada299547923e6efeb7ca3a52cd3",
+   "gold_sha256": "915aae225229ed3ba24ea930ec38ace4b9682d2da55c394c5de15bb480295ea8"
+  },
+  {
+   "id": "287e4d9f4af31733aad6534aefb2bd00fb344ec8d6ebf1ac99dbc4d762da0ca4",
+   "url": "https://www.ign.com/articles/2019/11/18/daily-deals-more-black-friday-deals-are-live-including-ps4-dualshock-controller-apple-airpods-and-watches-and-more",
+   "site": "ign.com",
+   "gold_tokens": 1921,
+   "html_gz_sha256": "6b2942b39eaf24c9fc99f31461f574e76b319eb54e1c54513f096cf294daffdd",
+   "html_sha256": "9305cd8b79b6e0cafddf64ec71270c31edca02a4e9d1b76208cf0270a763773a",
+   "gold_sha256": "06a3ed46e964295cfc412613f0f57bedc687357b3a45222fc509db2f9bcd7497"
+  },
+  {
+   "id": "291a8bf33ee49074f33dcff37544ac40506cae450db83b6cb63f02b9920b51c2",
+   "url": "https://www.crn.com/news/cloud/tim-cook-on-apple-being-pulled-into-the-enterprise-",
+   "site": "crn.com",
+   "gold_tokens": 645,
+   "html_gz_sha256": "ce8f90e92976ab65fc17320e1643d6315eaf7cb050702352cb4d950941c5a536",
+   "html_sha256": "a884e93491a7ffffc3f91135903b2d6ce8de2ca8ae5af4a06d86a28bb9138536",
+   "gold_sha256": "45e90a6fbf84ac8215575baabac404658b56ab20f67c13fd0bf54730ae41eda0"
+  },
+  {
+   "id": "2c46804d9db4a85e8f8d31128ce0e11d02f25c7120c2faa5ec0664c604a47717",
+   "url": "https://www.cbsnews.com/news/michael-webb-fort-worth-dramatic-video-shows-rescue-of-8-year-old-kidnapping-victim/",
+   "site": "cbsnews.com",
+   "gold_tokens": 418,
+   "html_gz_sha256": "ec11d0ff4f50c237f1524767d9ce402b166f10251a71ab8d5ebbb06af0681b40",
+   "html_sha256": "7888cfd9a9e824e09851e916d64e20291b71fc210cf0f39c99be1c0a0bd86638",
+   "gold_sha256": "b532ae656e35fc7ababab1c0e364316ff364d6362d029730c059462a587556d4"
+  },
+  {
+   "id": "2f42ef1d3ea0c96e56355d3db93d0e06b47e760b74f6f4261278b8cd1c246dd6",
+   "url": "https://www.wired.com/story/the-future-of-banking-is-youre-broke/",
+   "site": "wired.com",
+   "gold_tokens": 1300,
+   "html_gz_sha256": "9059a50c8de75226f6e9bd0c5d876a8264d0aff13b17ae89546422a77d1bc91d",
+   "html_sha256": "c67c891c057c1af7af50a0251555b5dd9f36517a14ea88b6fd98255526896409",
+   "gold_sha256": "33d1b744d6287005d21a88638da0a9928b622d01259c45441475368ac80fa61f"
+  },
+  {
+   "id": "30b771a40a4e96156d398716c877deef54b05d091770d2717c98e4c6b670010c",
+   "url": "https://www.morebikes.co.uk/7908/bike-style-book-soundtrack-review/",
+   "site": "morebikes.co.uk",
+   "gold_tokens": 226,
+   "html_gz_sha256": "107fb3afc6463436a73c8c493878664cf1a4260f2096614446881fa691b8c881",
+   "html_sha256": "0bf992fc44b0313e2ac54a7528bc777889d0c7c3c5a5734d2b1f6496df31de8c",
+   "gold_sha256": "86cc7f8cfe8f764aad78b9464cac7f493b79d93ab70fd09cca1ee6d491b62528"
+  },
+  {
+   "id": "3252222e61fe78982cffe0b0bad2b089c27b32f65852d1c5d3951517f3c2e295",
+   "url": "http://comoeducarseusfilhos.com.br/blog/a-fantastica-loja-dos-materiais-educativos/",
+   "site": "comoeducarseusfilhos.com.br",
+   "gold_tokens": 478,
+   "html_gz_sha256": "da05e8136233ee0d0281649eb3b220999f4b3552b4c1c11a3736d96cc47999c2",
+   "html_sha256": "e88bf56b1df5b9c36834d7ea625942cf532d2d60fa7e5e01b3cab2f855b01272",
+   "gold_sha256": "1253f0ac3075864aa21fdf041bffa88e3475cb6ba353cef7467e49682364e9e7"
+  },
+  {
+   "id": "33fe2471fd553c6570f93997f208b4f39bf30be5947c3cfa620ee8eff3355ab9",
+   "url": "https://www.inexhibit.com/marker/54885/",
+   "site": "inexhibit.com",
+   "gold_tokens": 736,
+   "html_gz_sha256": "dff05248674c94f9f3308835eaefa658ce1e99dc345d0884262fcf0a199757ea",
+   "html_sha256": "30c872684a8b4805539a5843a601466fd7b37fce425d9b7558e35f6a423839a4",
+   "gold_sha256": "d97a483ebecd2da483c5e3014cbf359e7f86c0a557b4fb2271cfdb089645df8a"
+  },
+  {
+   "id": "34a7328535ad4e60b059f81d37eec5d25c2bc8de759ce9a7b5e47ac7dc6fd1b0",
+   "url": "https://www.linknaija.com/2018/10/nollywood-actress-kate-henshaw-is.html",
+   "site": "linknaija.com",
+   "gold_tokens": 93,
+   "html_gz_sha256": "8f4f2e779d98bf034eedc1df6470814d266bc2405bd20812ace4bbd5e07f3721",
+   "html_sha256": "caecae611764cc36fd309ec6200a1ac33a7fbe3a5d34ab9508a25186bcd5622f",
+   "gold_sha256": "089e77a49d36eab91e6f1b0f40bd8928118ac68a197b5146b57fd7fd0673528b"
+  },
+  {
+   "id": "358cc4a080456476b0f883c56bdce796874c286ed6efab25f5718dd95fab42a8",
+   "url": "https://www.linknaija.com/2018/08/breaking-news-chelsea-activate-716m.html",
+   "site": "linknaija.com",
+   "gold_tokens": 90,
+   "html_gz_sha256": "7890fe586e9b58b2efc9430edf528408900cc21dc875d787440ac8486e66e8ad",
+   "html_sha256": "8c963f5daaa5445b927fb43a2c36bac7c8fe94bc46a20b3217a9d51c6ef2308f",
+   "gold_sha256": "d208643020701d5e3bd8d34150bf8900cb50889fb8811c33bbc1713d9aeff81e"
+  },
+  {
+   "id": "359fee228518d55b921194561e9ca88e428df81940246f8fac7a75398377daea",
+   "url": "https://www.sciencealert.com/we-finally-have-a-global-geological-map-of-saturn-s-moon-titan",
+   "site": "sciencealert.com",
+   "gold_tokens": 493,
+   "html_gz_sha256": "da6f48d2513c0b1122de21faae68268050e6a977bca1b293b7f989523f9947ef",
+   "html_sha256": "fe34ea61a22879e39299a1103f84eb8e004500478defb208eb936029963420be",
+   "gold_sha256": "067086135904ed3a35ef9ffec6d009e551dbe357223bb5308cbb411b96fc3539"
+  },
+  {
+   "id": "35b158918c676ff2c74445517db76c83db70a805cc50b64e1369b354a027fcbd",
+   "url": "https://www.cleveland.com/entertainment/2019/11/doobie-brothers-to-reunite-with-michael-mcdonald-for-blossom-show.html",
+   "site": "cleveland.com",
+   "gold_tokens": 155,
+   "html_gz_sha256": "c9d938bfe567471eb0b4e0c3125c4bbf343fde48a24e7621b846f3d4d9d5d907",
+   "html_sha256": "60edf90190f0998304d0f1db0127cd9b73a820a9c156ccbabae1d6c22063a65d",
+   "gold_sha256": "902c2cbfb23834361c62c921b2ac6751cdc5409b4f44adca2479226529cad9db"
+  },
+  {
+   "id": "360c732d1fdbfc6895d7096c0c0b8c0d581bb1af80160f4c6a0f1fd9ff85e469",
+   "url": "https://www.cityam.com/alibaba-to-raise-up-to-12-9bn-in-landmark-hong-kong-listing/",
+   "site": "cityam.com",
+   "gold_tokens": 355,
+   "html_gz_sha256": "f3a01ec30b1b7bd8b9a942def46bf4fa56310e65f9bbc86cf0fa6b476e84f6d1",
+   "html_sha256": "cbac2bfc0b8bb36e6b31b657b705fa9da7224ce9918556a19a1115b4b1171fef",
+   "gold_sha256": "80f6b8a40c302a8c5835ef25f64ec8dd90a417d899d809c94d54d0f3fdb85a6b"
+  },
+  {
+   "id": "374ac9a59a85196cdacc1679fb8993521a7b7d9d6533720f102300be1c7face4",
+   "url": "https://www.cnbc.com/2019/11/20/emirates-inks-order-for-30-boeing-787-jets-talks-expansion-plans.html",
+   "site": "cnbc.com",
+   "gold_tokens": 441,
+   "html_gz_sha256": "14e966b4f34d71d13320dbf8e93bd4235592eb5330fac2d9e1fd3923cad5a005",
+   "html_sha256": "e9213d3a1b42edb2d687d1f99f39fb2cbecac6ba9413b088a86c4142eaf78d38",
+   "gold_sha256": "f9c118d1b7154766dae4e7dfcc9da90196de65a9a3abbba5ced9a29f15612a2d"
+  },
+  {
+   "id": "39d5c43beb60605c3eec760c99500e62e7bd71ebbe4ae05edf382125e1b0b80a",
+   "url": "https://www.deccanherald.com/business/economy-business/beijing-tariff-demands-may-expand-us-china-trade-deal-777916.html",
+   "site": "deccanherald.com",
+   "gold_tokens": 522,
+   "html_gz_sha256": "650422a3efa4721c9b555c19f4af04249020942cb51463acc11f6c053c773a4b",
+   "html_sha256": "2c0a6acf97b33e0104c428f6c01286c5f2b11fb48dd596594ce79b0da23698f8",
+   "gold_sha256": "e4862134fa650b905f7a48425fbbc568d1dd6aa4a196270ce6bb71b013712b1e"
+  },
+  {
+   "id": "3c5bf8db4272925bf1dd5713fc325e179fd0d1cc6fb8c77aa2d917cfd2518a32",
+   "url": "https://www.livescience.com/most-detailed-universe-simulation.html",
+   "site": "livescience.com",
+   "gold_tokens": 739,
+   "html_gz_sha256": "9ba7fbf6b7dd0d9ab0b5367d5db8b4cfbfa8f163247d9ee6c689bbfc8e5eb345",
+   "html_sha256": "52250eae0d66e3572968e39459f1b98d90cf8d8a3b5968a5ba4805452bc46571",
+   "gold_sha256": "746786fb00e0979f3e406055b6076f7e7ab8c5dfd4e005e06f2a334fb42f00b3"
+  },
+  {
+   "id": "3c6d3381ef52ca26be2fbde19c1b0fe17d85682b726dfecf5e300c1ca34546b1",
+   "url": "http://www.wday.ru/articles/mastera-vkusa-i-krasotyi-23-samyih-krutyih-fudblogera-po-versii-wday-ru-id119898",
+   "site": "wday.ru",
+   "gold_tokens": 7963,
+   "html_gz_sha256": "970fe390c66c54c0263864dcb76611e1b897aefda4c2f116f839c913c134f712",
+   "html_sha256": "4b8ed05ef03299f2ed8f1ed78d0d3c97de4570352f53378ce8466e70ea6258cd",
+   "gold_sha256": "f1d12adc0e3ab6af0cb5648b83db969bf622be3cbcb51606c9f79f8cc7c250ad"
+  },
+  {
+   "id": "3cb22bfabed8de715c0813a7bb5052363c96bd71ccce3bb2dfb3ab9d1d7a9bbc",
+   "url": "https://www.slashgear.com/2020-audi-e-tron-sportback-revealed-as-electric-4-door-coupe-19600369/",
+   "site": "slashgear.com",
+   "gold_tokens": 1066,
+   "html_gz_sha256": "c431764a7c617af63ebc2904b398af8e48abe25e3fdd2a1bf2dbe50d8a96d0b5",
+   "html_sha256": "7a47f549c952778e069f51810298956b0d7196da0789c718a56fcbf105d335a6",
+   "gold_sha256": "51c691cb3d9f463956a023b7fb76d630f14508c56c4204a1a9f769adabf6952b"
+  },
+  {
+   "id": "3cb5e2f46626d5bb0345759453036f7eabc0b0c7796b796513606bf693060ced",
+   "url": "https://www.autoindustriya.com/auto-industry-news/all-new-2020-sentra-is-what-we-really-want-from-nissan-ph.html",
+   "site": "autoindustriya.com",
+   "gold_tokens": 508,
+   "html_gz_sha256": "573f3e6b72b974b567f87adcb82be04da1a31584e72420e766d1888eb183eedb",
+   "html_sha256": "8faa5da3ae745c1f24ddfe4d8606c07077f84ad1ee12a4d3a788af277da61063",
+   "gold_sha256": "35659b6f11cdfc107db54c4069aa52748a6a7631631069b87068706e0133f8aa"
+  },
+  {
+   "id": "3ce1c8fdf6ad2ded9e48a68be71eb069fc453ef1b75f47698428a1fdda0deb24",
+   "url": "https://www.catchitkansas.com/content/news/Friday-State-Swim-Results-474349633.html",
+   "site": "catchitkansas.com",
+   "gold_tokens": 102,
+   "html_gz_sha256": "e39a965840d81da22e9e741fb74884e4d04900c607764ec8a0190ddedba47afb",
+   "html_sha256": "8800f1f0c9ff4288e39e9ffd32c650381a8f5add038fe45f4d898487938ef886",
+   "gold_sha256": "a0da6b40ca3a25b65dec99aebabd9443f7c5320bcd0205518eebc62b8078882d"
+  },
+  {
+   "id": "3d8f3404cf975af824d7866b7679bc45189c3eea6adb32f0a125a0904b1abbb2",
+   "url": "https://www.indiewire.com/2019/11/mary-steenburgen-jessie-buckley-wild-rose-glasgow-best-original-song-1202189233/",
+   "site": "indiewire.com",
+   "gold_tokens": 2405,
+   "html_gz_sha256": "cddc2955a6289eb2e87cca4a7bb9ca827c2d28e9d08c434e30737ba1ab275b39",
+   "html_sha256": "d640c7ae5d24aebb483242b4c17f72572995a5ac4e884ce17644e202b3833daf",
+   "gold_sha256": "9dd89b49817c0dd75df3555eee0f0d69f115afe5068a602b3734efd60f0c66b9"
+  },
+  {
+   "id": "3f65af7b6b98b1c9ae9a3e0d8a09a85600cdc44e26e4b3a6db96a31f4b1767e3",
+   "url": "https://www.nj.com/entertainment/2019/11/florida-man-exists-south-dakota-hold-my-beer-meth-were-on-it.html",
+   "site": "nj.com",
+   "gold_tokens": 529,
+   "html_gz_sha256": "2e4ce6b4f3899f0535608ffee7cb182b8b5a2917ebf5d4af4b672cae58c20963",
+   "html_sha256": "96fd9f69b40e23e7d1ada59f9e2e254289bd2ba3eea082e7547be51d7ba668da",
+   "gold_sha256": "14dd6da8f0e77a79379755ea48d91ecff25e2a0800b84a24623126c97a80ae80"
+  },
+  {
+   "id": "4219d096902dad9fd9d57e881e7928ca66bdf5334c2bc7dfddaa264887777a7a",
+   "url": "https://theantijunecleaver.com/2017/12/spiced-honey-pear-jam-recipe/",
+   "site": "theantijunecleaver.com",
+   "gold_tokens": 1052,
+   "html_gz_sha256": "d0740c799e4b7bced1d8ddfcd392385456d2ac7863c0d9ef4bddcbc27550a328",
+   "html_sha256": "6523b9dd2fac018d384188ba8d45790e71a7c5361fa5005a1fc090d30cf81b03",
+   "gold_sha256": "e06e490c2e1cc28646648684cadb69463236c29026558084b6aaa627a9b17301"
+  },
+  {
+   "id": "42aad16bde9288623543642a9ce1a396be83e2db44aa2ff8cbbfe46e14abd7cc",
+   "url": "https://www.aljazeera.com/ajimpact/nasas-commercial-moon-shot-musk-bezos-firms-bid-191119041538885.html",
+   "site": "aljazeera.com",
+   "gold_tokens": 596,
+   "html_gz_sha256": "aec7f8c6d0e8e728d041f974bb9db554158492cfb4fe7f14546b086d3cd22293",
+   "html_sha256": "11c4de7c98db6b3b6656e9ef128e1e2c4326888fd90ba0ac0e20f6effa91dd7a",
+   "gold_sha256": "1666f7ae06b4ccbc622771b57ba20e92d8a06ddd22bf5bf5851cf8b18ac5b1f0"
+  },
+  {
+   "id": "432362af0be43f6da757ea778bd7f2f000094a565bdebac5af7442987a5372f3",
+   "url": "https://nypost.com/2019/11/18/chinese-hunter-catches-bubonic-plague-after-eating-wild-rabbit/",
+   "site": "nypost.com",
+   "gold_tokens": 171,
+   "html_gz_sha256": "9a922bd426b3feac770f5b0a3f7d1d312d93dd1266194d781424fbfb81713cab",
+   "html_sha256": "81915717b406332d57725c4f919649d083bf482d2ed11dde5a780ab5c782e2d6",
+   "gold_sha256": "5dc6aa600f109e47bb5f98d1e4bc0ff4a77f464c2b403814c500e62445e2534a"
+  },
+  {
+   "id": "4648a420af9984d45b76a4afedf4f74965f8a2e0bf1c69bd3da2dc189020f3c9",
+   "url": "https://www.expapp.com/blog/introducing-junior-gaspard-new-ceo-experience/",
+   "site": "expapp.com",
+   "gold_tokens": 1078,
+   "html_gz_sha256": "a395c039c1cebe371fe64107dda749a8342f3c5161999b1d43ba2df15f2b8bfe",
+   "html_sha256": "24b70179e26aaac07474a979aa20acd670e89ab53861b41ac58185438f8131d1",
+   "gold_sha256": "c605aa9ef23ab87c641af0afc6a9e469d5c002f90ab03f4126c825a96dc2bdc3"
+  },
+  {
+   "id": "4a44ab3e4c41d56ce9b79eb07acb06aed1bc52aba68a950f06e7de7ef848400a",
+   "url": "https://www.rt.com/news/473849-3-morales-supporters-killed-bolivia/",
+   "site": "rt.com",
+   "gold_tokens": 203,
+   "html_gz_sha256": "90c097265cae32d946723c91188029d2260e859c25b27503149a7dfbda18be87",
+   "html_sha256": "eb303e58e5703c495f611f968d452c935994ae0a70419de8717cb3cd5473b968",
+   "gold_sha256": "2d4b9ad94c8c2a4b372e5feeb0d85ae689c44c560f5d5c86611a0ccae24ea043"
+  },
+  {
+   "id": "51374560f40088e227f0053ff1bb0b8525d10a8d7bfbff1cd6033f42347fd85b",
+   "url": "https://www.foxbusiness.com/markets/home-depot-sales-earnings-retail",
+   "site": "foxbusiness.com",
+   "gold_tokens": 223,
+   "html_gz_sha256": "787e9d95a4c40562d880382cdf540234a7b0f9f3b4fd064d45a910f78daf88b6",
+   "html_sha256": "f4e5804be8a44d19fac0d36b46c6c73df3720b98f87d6afa7fb6592d06cb0446",
+   "gold_sha256": "9fd9562318fdf1e86b00f959296ed7c784d5352fd857be973512af1fb397d636"
+  },
+  {
+   "id": "51d066b0602c9421d8d6410bc4b931700978409a3faa2a984e8fbde519ad7241",
+   "url": "https://www.nbcdfw.com/news/local/We-Got-Her-Video-Shows-Dramatic-Rescue-of-Kidnapped-Fort-Worth-Girl-565107452.html",
+   "site": "nbcdfw.com",
+   "gold_tokens": 422,
+   "html_gz_sha256": "b59bc2cf4f0ff95c3fe69fa89002f36ce8564f9aae8726088fd5e4d62465f126",
+   "html_sha256": "19989b2a750651980443169c9d5a4e5dc0c9398e55808f005303f39e578d8f5d",
+   "gold_sha256": "09eb030cadebc839d6da076ad2de04156e8a3c9b63dbc4425728b5d890da85d9"
+  },
+  {
+   "id": "5211188428849a31e309ef2475746563ff788b1591c89818c08d5abedec4ef5e",
+   "url": "http://jeongdongtheater.com/blog/2018/10/12/palace-tale-jang-noksu-reviews-klook-visitors/",
+   "site": "jeongdongtheater.com",
+   "gold_tokens": 464,
+   "html_gz_sha256": "6a2e21002a875e48924ac26f8357df9d433451e5e3f344b8a2f2887429ed4375",
+   "html_sha256": "d5b27d535c104425358f0599de7848afa847b1907550c67102b22de16ed993d4",
+   "gold_sha256": "a3fb0c1987192c38227101b8ba6c9bbc405e223755e92b47d72ba5d924adef91"
+  },
+  {
+   "id": "55bb6340e3d7dd8632ba45179ae43c39f8ad0cfcecb4719e3b9cf6106ffb70a3",
+   "url": "https://dealbreaker.com/2019/11/opening-bell-11-18-19",
+   "site": "dealbreaker.com",
+   "gold_tokens": 384,
+   "html_gz_sha256": "2d21d0deb638950b98fc54827550b0cd955cc05593c5040d9fb9e56c302bfb99",
+   "html_sha256": "6a6acf686777c1600f58bb8bf60853d269c73ba28a1ab60fe10019061ce8f4d2",
+   "gold_sha256": "70dd733ba47aca7a7214da1347b6f42cb7423fe7b12a73416e9406234efc28d6"
+  },
+  {
+   "id": "57b4dafd18cfd0531b69f81e87158648227c673ef159f8d8c87d34e34bdb21f2",
+   "url": "https://blog.comwrap.com/die-elektronische-patientenakte-der-lange-marsch-ins-digitale-gesundheitswesen",
+   "site": "blog.comwrap.com",
+   "gold_tokens": 2142,
+   "html_gz_sha256": "7622c548273940d52bf2bd1d9e466e87ac717bb49bc349d1b755f052b2bc4a32",
+   "html_sha256": "993349306b757af5fb6cffcf1031bdce09b3f11a4c605468b80a2808fcfe75ba",
+   "gold_sha256": "41a9be07c73664f0c557bc98225fb8fa1d467e8b7dbbb3e8883436278df8bdfc"
+  },
+  {
+   "id": "57d46c9d751e3fd3ffaf3ede7ac20cebd30eacb5ea78e1a6aa0a72059244e7ca",
+   "url": "https://www.reuters.com/article/us-global-markets/asian-shares-soft-as-trade-doubts-creep-back-in-idUSKBN1XT00W",
+   "site": "reuters.com",
+   "gold_tokens": 574,
+   "html_gz_sha256": "eeee909b6028d1b69651b652dc8a7d457acb3ed3f2e8f3547a05dabef3c58305",
+   "html_sha256": "02fcfcbdcc40fba2934fec8c70cb6dcd53ca0dd079632761f98ed9ffc13480f6",
+   "gold_sha256": "0f69c71dc2c0dda8d4a23836973ddbe9b0685540cc8e33b883b2a32aa23cf2ef"
+  },
+  {
+   "id": "57e2e98887a1965689955921208e32f410b10e2b95c907e74e57982d3edf3cc6",
+   "url": "https://my6sense.com/2018/07/02/native-ad-platform-my6sense-names-mobile-marketing-pioneer-ivan-braiker-chief-strategy-officer/",
+   "site": "my6sense.com",
+   "gold_tokens": 608,
+   "html_gz_sha256": "5cc976067a8d884f714a12bcc06938e200615bbfa2f17b310c4cf79eb44de652",
+   "html_sha256": "c002f5412b0559ba87c45902cbba0517c77b09bc17b32faa51286eecef4a5066",
+   "gold_sha256": "44fdacb3f0e7aa97be5c71022d2150bfdea5c407d77e8655817a6f66c7a602ea"
+  },
+  {
+   "id": "5a822960e9a2cb1e664d334b6c936c5cb6e41fb5331877538c2c8339cb59d57e",
+   "url": "https://www.nbcnews.com/news/world/house-hitler-was-born-will-become-police-station-austria-says-n1086531",
+   "site": "nbcnews.com",
+   "gold_tokens": 221,
+   "html_gz_sha256": "afffe83a7c65eee2452d71eac939adf640709d7dfa63fc0c68533cad774bc447",
+   "html_sha256": "cccb6d4bc36b801a1a912b949252540563227e04b261152f654c77346bdf3e02",
+   "gold_sha256": "9b931cf8f09588ea1158038da062e96f582874d042e78384e7939cdc4df713de"
+  },
+  {
+   "id": "5ae11e580afc12d3ba1a12944281e6a7a5dded5c98b4efcf24aedcb28f0d5b22",
+   "url": "https://www.ascom.com/news-and-events/Ascom-business-news/Ascom-announces-a-strategic-distribution-partnership-with-GE-Healthcare-in-Europe-for-intensive-care-units.html",
+   "site": "ascom.com",
+   "gold_tokens": 347,
+   "html_gz_sha256": "7a88960b73883d0f74775c86e348213be92e1e7bd0bd0575843ee26bf3ecc779",
+   "html_sha256": "fd855743b8b1d25e743f9f9b3f7655902537852505a5df8648327340495fb0cc",
+   "gold_sha256": "70de7b19d54416860b562483818388c6cc00da3a76c8ad581b4973aa9d4d8d94"
+  },
+  {
+   "id": "5caf91b8a4423735f866b089d2611ea14503584cf3b6f487c6d26eb7b9521fca",
+   "url": "https://www.sfgate.com/news/crime/article/The-Latest-Man-stabbed-to-death-on-San-Francisco-14848218.php",
+   "site": "sfgate.com",
+   "gold_tokens": 282,
+   "html_gz_sha256": "9c8a100aa8739d73b38b9500bac1d62f1771c895b6e78e77efc1462063686c3d",
+   "html_sha256": "2cb9508a6a03ee1953f0f039387cc6c35c9bd3f83e515b1f6684cb9cef93cb59",
+   "gold_sha256": "eec090e8d35e1b6ee10923eddf2c67af6ba9bf1938e91ccba9d291c81ac21b7c"
+  },
+  {
+   "id": "5f03fc173ebc6abdfae50b96ce0b05a6137b7d3f2ef379be35a9bb8ca9f49e87",
+   "url": "https://www.beachbodyondemand.com/blog/a-little-more-obsessed-meal-prep",
+   "site": "beachbodyondemand.com",
+   "gold_tokens": 1966,
+   "html_gz_sha256": "0c2a9de1206c866ba47c38e741befad76191cedce978aa5e787fd641044153f1",
+   "html_sha256": "82d202770f8e9c87a89b9c40fd5131098c9455deb5aaeafc611eb4dc21995987",
+   "gold_sha256": "c58918677aa7a50b4013611093952b6019b4e57ec2aab18b861793f9cc63ab0e"
+  },
+  {
+   "id": "5f9c5ed5d64dfe682d9bde13b9b4f032a3ebdbf165c06ec49c0705bcbe106e3b",
+   "url": "https://www.indiapost.com/with-shattered-dreams-deportees-return-home-from-us/",
+   "site": "indiapost.com",
+   "gold_tokens": 270,
+   "html_gz_sha256": "c7b33455687c81586f92f481100a83730942f45067edc85b40c2de6fc0489f42",
+   "html_sha256": "7a1da9cc044749e7370fdc359920f4ec9c327f0623104fa7124623bd355bbe15",
+   "gold_sha256": "21b9c1631f4b804cebb8380bd6e98ab2cb0dd496cb9e9442339b9ddf511963d6"
+  },
+  {
+   "id": "5fa3154ec031ab35411a457d78eb5aa92c0e803c5329bd05c001e6d64009e206",
+   "url": "https://www.theguardian.com/commentisfree/2019/nov/18/the-guardian-view-on-hong-kong-a-city-on-the-brink",
+   "site": "theguardian.com",
+   "gold_tokens": 649,
+   "html_gz_sha256": "f7614c7a56dfb51b532298808a9fa7c51466769ced4a710c436007800bf25bf8",
+   "html_sha256": "93956205e42f317c73b1674dc460265f934e753ad6eb489720dbd8b416ecc540",
+   "gold_sha256": "af120f10e700de7db4e9d417f75281fa192ee58679986d2cdfad54e526d1218a"
+  },
+  {
+   "id": "5fa5679de56c43edf70685762c2d1f2de296432ae53aa46e075b552fee17cab8",
+   "url": "https://gizmodo.com/so-this-is-the-future-of-apple-innovation-1839927963",
+   "site": "gizmodo.com",
+   "gold_tokens": 906,
+   "html_gz_sha256": "be4a41a23c13099e2bb31c5d3f99ab4484f29b4294551adbc46b47fbc3eb15ff",
+   "html_sha256": "e67414bd350f6330cdf4e4ae0e1e204eec2df0beaffa6de92b70a22b5e9f8930",
+   "gold_sha256": "ec2c45cf43cd529c2085293e8624d5622783cec65be5cf503419d1a2693d289b"
+  },
+  {
+   "id": "5fbc7ccb504c755ae23a85499a17518483d7862b74b4a5c34d86ede1a1a4448e",
+   "url": "https://www.zdnet.com/article/best-tech-gadgets/",
+   "site": "zdnet.com",
+   "gold_tokens": 845,
+   "html_gz_sha256": "af5d9fb49b870ee3ad0c43e163ab40e1d45d5e515eeb270579665e88f944fa04",
+   "html_sha256": "a23bcc236fa7112edad498bc6cd308c65d843e7527af128ada3668729b442a7e",
+   "gold_sha256": "34de0b4a1b4857015a93930e21b470fd2b1c8a55313e019262907227e2f43f50"
+  },
+  {
+   "id": "612cd29826624e68ce96789c8049e16279dfd2fceb27434eea7943b2aaf84e90",
+   "url": "https://www.morebikes.co.uk/7721/clymer-workshop-manual-review/",
+   "site": "morebikes.co.uk",
+   "gold_tokens": 179,
+   "html_gz_sha256": "7dff703438b2fba6db39dbccdacb61f2c0757f73634ba1b9cf17aa11c5fac5da",
+   "html_sha256": "e48f11000499fc07a0c997b556b7d600ea9b11d64744813181f90b4a7c17808d",
+   "gold_sha256": "3c8a3210b2c8460f8dd90b7dce7bff5306e94604e9fc8b7e70e92151f12ae1a6"
+  },
+  {
+   "id": "624fcd903d56fc7055fa7097b330629450c095ad6937318deb027be7803bbf35",
+   "url": "https://www.express.co.uk/news/world/1206313/hong-kong-latest-china-protesters-police-china-hong-kong-riots-Polytechnic-University",
+   "site": "express.co.uk",
+   "gold_tokens": 403,
+   "html_gz_sha256": "ef2cfe274dc5602b290ec5b04410f4636f853bceab6bc82c5c51850ec3325520",
+   "html_sha256": "90eeae22e2e000a01f4a1ab0a112e7174f678dac8044db60c0e03436d77a16e7",
+   "gold_sha256": "e18ebc07691df723d3d8340aa3e8dfe662170f5816e50ca4b37fe02769c10f44"
+  },
+  {
+   "id": "63db31a161b3c5b64e88c2978635cbc38d342ba82fd2c5335321203dcc55c76f",
+   "url": "https://www.vg247.com/2019/11/20/star-wars-jedi-fallen-order-pc-review/",
+   "site": "vg247.com",
+   "gold_tokens": 1815,
+   "html_gz_sha256": "19ec2637e4a7416b3bf183eea0e32907a3720ace7bdd5eb113282a519b5325c2",
+   "html_sha256": "ce2c03c5ea313d34eb34fc1f3c926f41fd365b8d92405c74dd9f877023115c8c",
+   "gold_sha256": "cb736bb758df4041a05016268eb4f7b7b702fbb6ec7958df3c14eb962bf7b66e"
+  },
+  {
+   "id": "65408257dbe4b41f71a35ade24e30243265095fc1d4988a35b9a6ca52f2b4eab",
+   "url": "https://www.moneycontrol.com/news/business/markets/economy-in-stress-and-markets-on-a-high-time-to-be-careful-4656421.html",
+   "site": "moneycontrol.com",
+   "gold_tokens": 721,
+   "html_gz_sha256": "1bc0a66b89d80deb81e1f68c9c1bdd74d2cf68f56bb824088479af733a5573af",
+   "html_sha256": "76a707555b2ca15b9bf2df1eff4c45fb8b26435c3261a5e46e31bf0bda60e300",
+   "gold_sha256": "61e67b690005efa7b50ed60356f88709f3901c94fdcbb5e43334156c16456e54"
+  },
+  {
+   "id": "65bf3048b500bbd84928d9122f99617ca898216b91add1d8b2ac09c670484a5c",
+   "url": "https://appleinsider.com/articles/19/11/18/16-inch-macbook-pro-review-the-keyboard-is-probably-enough-to-convince-those-waiting",
+   "site": "appleinsider.com",
+   "gold_tokens": 3555,
+   "html_gz_sha256": "5adc4d12737394d450ae2e3bd52f7ead301d9068b779245008623bbf298a8203",
+   "html_sha256": "1e514ec03c8ca616341cdb47d373cf72a01bf7f90d94b808b6cfa06b674f7f69",
+   "gold_sha256": "173ad684d5ceee67252033438e6362b98f2d3ac5bb17eb5c7f9c738d826d339e"
+  },
+  {
+   "id": "65ce3a4577a0306994efa190a0d96e84014f9d4257ad54753e807ede518f02c0",
+   "url": "https://www.detroitnews.com/story/sports/college/2019/11/19/tuesdays-college-football-eastern-michigan-routs-northern-illinois-become-bowl-eligible/4244754002/",
+   "site": "detroitnews.com",
+   "gold_tokens": 314,
+   "html_gz_sha256": "8d1dd56a897934caf229cef2a40fd515ad3954a53ec08bfd834597476c3bdc31",
+   "html_sha256": "e65c24b3e27358a60ad0d4cb5aa4649af334b18e3ed754af23feac8e9478b024",
+   "gold_sha256": "acbaa031dcb01041a9a7390f54b2c10a0fcf363a046db392f936a86121131fe3"
+  },
+  {
+   "id": "680c2848e94a96f961a0964631de94ac572f83c45bfd0bec2deafa893bcfe15c",
+   "url": "https://digg.com/2019/is-stadia-good-worth-it-reviews",
+   "site": "digg.com",
+   "gold_tokens": 1300,
+   "html_gz_sha256": "6fdce94063729d66b717efacf9f333dc0d82dfa77c4a254fa1d6bb28a670a89f",
+   "html_sha256": "e666e0b4fe8a3ec9f791d958ed4202f76198d6649a26bafb1c6d2f60efc269b2",
+   "gold_sha256": "b502610a39cd7bdf2cf282d99be4278e9d6d321278cb8f4d86987687de44664e"
+  },
+  {
+   "id": "686bb170effe273eaff1c0f88e412172e8d972518a6d1454c896f52aafaa9643",
+   "url": "https://www.space.com/jupiter-moon-europa-water-vapor-confirmed.html",
+   "site": "space.com",
+   "gold_tokens": 650,
+   "html_gz_sha256": "48a61d84b136cf3aa40e69e0e77b199d472d43423ecc4c60c0ee60c6253d6369",
+   "html_sha256": "b9f4b5b8639dddd3221a92b268c910e1e2d09eb560a73014eba19e1d61a8086d",
+   "gold_sha256": "d533913ad7cc4d9756c65d4143cbbb907596ecf010c66e08cd087ae4bc0d2f3e"
+  },
+  {
+   "id": "6a72de37e8f98f4eee6c0821e593b35ce536cef6c8b424c5e1dd747ebe6621ba",
+   "url": "https://www.dawgsbynature.com/2019/11/18/20970600/browns-defensive-snap-counts-stats-and-notes-week-11",
+   "site": "dawgsbynature.com",
+   "gold_tokens": 878,
+   "html_gz_sha256": "3912c6798d90d8b2c86b6367a7e3cd4e14dc12ef7e5bdb585084cff443e93c79",
+   "html_sha256": "f94fd5caa6a09a08abaf107d592c4c27aac21fe704c69c5d2a96955dd78d7810",
+   "gold_sha256": "6b23b5d6b6ebab0cc0c846a416e09cee5db7590ae156c0081c8768f6c140fff6"
+  },
+  {
+   "id": "6ebac05f637ece8aa57c298a2a5e3a8047f546f855d0f29cc683cea60ce85c85",
+   "url": "https://thehill.com/blogs/blog-briefing-room/news/471031-new-york-man-pleads-guilty-to-threatening-to-kill-omar",
+   "site": "thehill.com",
+   "gold_tokens": 384,
+   "html_gz_sha256": "683a99fcd39ca2065de67ea7a93a3c355928b2834b32d60bdab60445ec5344fb",
+   "html_sha256": "1899a0d9b27f4eac2fa78ff4243e4f37481518c7a67a3bc80cd0100dc0c6b9f3",
+   "gold_sha256": "6b90f8481b0690f6c5d50f89bc164d811392cf0120157f4aa23862a01eb14661"
+  },
+  {
+   "id": "702d1da63b8e064cb70617620e45c2d116b4912c9bc9d518dcf5ce54bb8057ed",
+   "url": "https://www.nytimes.com/2019/11/18/business/trump-trade-war-china.html",
+   "site": "nytimes.com",
+   "gold_tokens": 1567,
+   "html_gz_sha256": "ce0a3c1c8a1dfb6dc0286db51f93a07d887bdd54a8d83c58bf6e5c9faaa8a68a",
+   "html_sha256": "8ab86beda68f2af6a2a0cb9e0cbbfa9050379ce9b315a8ce660131f598c51037",
+   "gold_sha256": "1afb050d87f6e96134da48bd6edc7f76d7c4e1aa38ed013a5d915266000c5148"
+  },
+  {
+   "id": "70cb2d5bca75ab5a8f6bb378a38a52f882f6bda508de93b12502e74936d86ff2",
+   "url": "https://www.bbc.com/news/newsbeat-50470672",
+   "site": "bbc.com",
+   "gold_tokens": 444,
+   "html_gz_sha256": "e09afa44a3afc4fc73e4bcbaf62fef7a49933b8263b8b66ddc9383a186f5d691",
+   "html_sha256": "b7f98b6a0a3b7431119626e77ac872a08d39c1f2146cd27fde9bf23aa063e734",
+   "gold_sha256": "cfee5b89ba479f0800ff210531ff092bb0cca6d44c0402e770e2b3efa243703c"
+  },
+  {
+   "id": "776a1c046798b474e410f6edf3225d6a27fecd0de6aac22aef7b7f64fe87caaf",
+   "url": "https://www.usatoday.com/story/news/nation/2019/11/19/meth-were-it-south-dakota-campaign-working-kristi-noem-says/4236383002/",
+   "site": "usatoday.com",
+   "gold_tokens": 293,
+   "html_gz_sha256": "c0d82c54fd351698059ef8a5bbe4db084c5f66261f84a8bedef7616ebd0f701a",
+   "html_sha256": "a33bfdc5312725d9defe74ebacedfebf8511e2b9752bb1cbebc0825b038220b8",
+   "gold_sha256": "96536f40ab78d92c3150ff3032fb352b37564746b6540715099f1eddda474923"
+  },
+  {
+   "id": "7837c9d66c815b9a21dd669a3dc21677c3f084b1b7dd603d56e87867d8970dd3",
+   "url": "https://kabarislamia.com/2015/10/27/sejarah-pecahnya-islam-jadi-sunni-dan-syiah/",
+   "site": "kabarislamia.com",
+   "gold_tokens": 946,
+   "html_gz_sha256": "8182598fd7c78a6f27664839c6b93729af129d7a5b5190379d3ffa6fe5ef986d",
+   "html_sha256": "caa918f5656702ee4011df94cf95bf594eee7a01f1c7e46e803ec75c7a83326c",
+   "gold_sha256": "f82478328583be7c38ce6849099f34510589e38beb3a2b3bebcb519f7b4e9db4"
+  },
+  {
+   "id": "785affa2c34e6e4844ef080e98e1a1e532eeeb671bdacebfb9e98ad7320ff382",
+   "url": "https://www.theverge.com/2019/11/19/20973355/noah-hawley-star-trek-4-chris-pine-write-direct-jj-abrams-paramount-report",
+   "site": "theverge.com",
+   "gold_tokens": 357,
+   "html_gz_sha256": "160dde252650b7222b63230bb35af19bed9d41fafe01484c5225d1a7fdeec689",
+   "html_sha256": "cb487005b06f6c536fbe97dfdfecec6b815ca0684b77ca31baf7a579b529f506",
+   "gold_sha256": "ce941af84d077933f586aeef1a21839073f65bc787c85b4aa48e5dc3684b4a20"
+  },
+  {
+   "id": "7916ecca969ffdd8f6fc32d171fbe0dd63db40fe4c1d2ade02b1dec5929a162f",
+   "url": "https://www.aljazeera.com/news/2019/11/service-members-killed-afghanistan-helicopter-crash-191120070028895.html",
+   "site": "aljazeera.com",
+   "gold_tokens": 287,
+   "html_gz_sha256": "89915d5b409ad837c02f9986fa3e068785f4566ed74b15efe4aed6c672af9093",
+   "html_sha256": "9857c0b954df2fae67c494c5c5724422241cc43470edd1f9458681659f67a2a4",
+   "gold_sha256": "5dac8394f710782bb69f48c0613a8791515a376ce2ecb1ee6218e9bd2b6a26e6"
+  },
+  {
+   "id": "7a457a4f71735c17b8b34fafc88835d225cf879b2d812311857a64cfc891eee9",
+   "url": "https://www.nbcnews.com/news/us-news/new-york-man-pleads-guilty-threatening-kill-rep-ilhan-omar-n1085406",
+   "site": "nbcnews.com",
+   "gold_tokens": 328,
+   "html_gz_sha256": "903b272f63ff4b0769ba2b152b527d9512391e29c4df22c0e4f6b669e48b2998",
+   "html_sha256": "4afe4bd42ded0a053f06cc4a23808dfd04cae7eba4e7a889873f4938ca10e37e",
+   "gold_sha256": "c2f011a72669cd4459e5f7f8cc2c203fa1f9587f9e3b1e33655a8c194d6dc49d"
+  },
+  {
+   "id": "7a664e40d256470fdb12d10c3f8d1c6db0581e9b080c71765e55f273a3ac7d03",
+   "url": "https://www.cbsnews.com/news/impeachment-hearings-key-moments-from-kurt-volkers-and-tim-morrisons-testimony-2019-11-19/",
+   "site": "cbsnews.com",
+   "gold_tokens": 960,
+   "html_gz_sha256": "c4e5ae410fe622c2071e7787b82d0c503d4566d38ece12fcc7f6cd3f3bdc39e6",
+   "html_sha256": "1c1817f5d0138081a5c7861763e146d0955516c439531994baa8de8acaa732e6",
+   "gold_sha256": "4b04b4dc3cffb14615de300a112d8b118c0a85ae0295d5cc138b66c25c937558"
+  },
+  {
+   "id": "7ab16ade32386ece353b8d31fc3bb7e660189efd5bf3c8549aaba101ad3f5ef5",
+   "url": "https://www.wsj.com/articles/is-football-violence-a-crime-11574121884",
+   "site": "wsj.com",
+   "gold_tokens": 88,
+   "html_gz_sha256": "84d1a776ea06b259ba95febfc0f393a91a9005d133933642f51fdea0ef73931d",
+   "html_sha256": "d988055533f823539cab2d25919d6fd8ed5839f55da2519d31a962aaf7134a67",
+   "gold_sha256": "52e1a2007ae4fac5f956f4ce1cc7e349e04ed912f1714d2bf3c0de25545ed569"
+  },
+  {
+   "id": "7bb1ca90354313840329d2f569ea9fb3a582df2aa0a5e3669f8fc567eb6ea61b",
+   "url": "https://gizmodo.com/a-man-developed-feather-duvet-lung-after-getting-new-be-1839924942",
+   "site": "gizmodo.com",
+   "gold_tokens": 597,
+   "html_gz_sha256": "d5e819b2faad1cd137a582f255804fb3ebd6b1c5d5463760b856bcf17b8a9550",
+   "html_sha256": "ea13bbce6e769a05535e19a94cf55b4108be73b1ab9ca1d8357cffa005f5c13c",
+   "gold_sha256": "968a46125dfc2939ee979bd8394416c977d03bc62f0e0310296bcec4a704adcc"
+  },
+  {
+   "id": "7de5241947a5f7147fe9787c6f6fa16685bfe66e6c35510a68780f27690dc4f0",
+   "url": "https://www.detroitnews.com/story/news/nation/2019/11/19/thousands-teachers-pack-indiana-statehouse-protest/40651467/",
+   "site": "detroitnews.com",
+   "gold_tokens": 713,
+   "html_gz_sha256": "1e974f83edc87751268bba22fbe5ab28f9204e2e9a6dcd2d9a947fc6da4137a9",
+   "html_sha256": "6b544e04a58f7bb03c29f2062a4320f81677340956ff6ea888b77f321a694719",
+   "gold_sha256": "ddb7f8c061a1881b5f3f1bfd44074e9dc73f04b3119bc34705d4cd4d46b563b1"
+  },
+  {
+   "id": "7dfc3e359d7c0ca48ac9046ae5759286cedf80abe7526fc6c6e6546b9ba43e33",
+   "url": "https://www.foxnews.com/entertainment/james-van-der-beek-eliminated-dancing-with-the-stars-wife-suffers-miscarriage",
+   "site": "foxnews.com",
+   "gold_tokens": 542,
+   "html_gz_sha256": "409074e17e679b0165fecd10981ffedd5bdea7e14beef34ce6a0fc871ec39109",
+   "html_sha256": "5052aff1dfe80470242b47f3e1e401740c8a1213f19ecd15b03817b885c781ef",
+   "gold_sha256": "5ffec04c3ae2efaac0efffe123228f46254343198c2fafe1339c607c9ecc255a"
+  },
+  {
+   "id": "7f93c1944a41d01960f8a16fdfda6c562e86f04ead8375ab796c4278402df9a8",
+   "url": "https://www.newsweek.com/cannabis-use-disorder-rising-us-states-where-weed-legal-1471170",
+   "site": "newsweek.com",
+   "gold_tokens": 776,
+   "html_gz_sha256": "3bbee572413bad56dd929ce4e02e5bc8988ce90542ef29913b728664d99a1a4e",
+   "html_sha256": "1d1e7b7bd665cb0cb0fb6d4896fc88ebe70b9b093346de6452c387afdbb33634",
+   "gold_sha256": "f97365256232de2dd2eb300e976490e7fad16222be70f7284e77fae9f6a34cd3"
+  },
+  {
+   "id": "8267acacb9e4a109b1f7ee7bafe735b73e9c94180b703b131f9e90c9be044f39",
+   "url": "https://www.hollywoodreporter.com/news/google-bets-future-launch-stadia-game-streaming-service-1255663",
+   "site": "hollywoodreporter.com",
+   "gold_tokens": 1139,
+   "html_gz_sha256": "0e2743edb0e48c7730a9d484506aeaa5a3485955fbedb3450a45053cfe4a586d",
+   "html_sha256": "11365430750896841ecef17833475d3e833978fe754f89deee97ce5aeba39d9a",
+   "gold_sha256": "45c573b4b44612ae28088beb036565f56b1decec91d19f55575175d96a4b5010"
+  },
+  {
+   "id": "82b6d780c792df78dcfb00484d50c86fbc7f324a9eb5835b7615f028edb9a574",
+   "url": "https://hosted.ap.org/berkshireeagle/article/6486944b076b4df99a583a3a7c85574d/unpredictable-sondland-faces-questions-about-trump-ukraine",
+   "site": "hosted.ap.org",
+   "gold_tokens": 757,
+   "html_gz_sha256": "69c7ab6bcab6cb8d0113a7e8858d943069998cb033a7880a3293facc8e225fa3",
+   "html_sha256": "3ab8511ce7a0494271ee3f4ac750000cfa2a9a354ec200bc82945f9fbacc0058",
+   "gold_sha256": "8db2c5d97c415c3f87c239f35b750275687d526d4e6ba29b4a72bb80c2652da5"
+  },
+  {
+   "id": "833caf3bdba53dcf48de273cf646370eebe9ac565744b0d0e941e298e1b79730",
+   "url": "https://www.albawaba.com/news/world-community-lashes-out-us-no-longer-considering-israeli-settlements-illegal-1322354",
+   "site": "albawaba.com",
+   "gold_tokens": 767,
+   "html_gz_sha256": "95051801e0f09cce7b5a14b8ad6513a0f65daf65158b7761f78518806f110c46",
+   "html_sha256": "ce6ff55f8fa9fb3a4186357485407e16e77b0939d6a15c7a2decf87c89bd6dbd",
+   "gold_sha256": "920421588f9c9428f277798a27fd766c3f6d6f4aac8da70af1d7b2fcbea71983"
+  },
+  {
+   "id": "8380689f358c1e3a0f6fca6e11ed13e5304a74060139f7a584347db213950446",
+   "url": "https://www.snopes.com/fact-check/marie-yovanovitch-net-worth/",
+   "site": "snopes.com",
+   "gold_tokens": 392,
+   "html_gz_sha256": "7888137d878b7f95dc012e84ce531140d913255c61af79fd783d7a59697400aa",
+   "html_sha256": "d184a7f5ddeeb80d29e95d3a68da6a1ced708cc64571edf238de63727c25eb0c",
+   "gold_sha256": "73aaf63988ec5a109410f2f83ed7e92ce35a818fdeb64f0e8e3f72c017544889"
+  },
+  {
+   "id": "851498a2b9f4f0b578ac9700c245253dbc147a06c0fb3499adebf1c2d5663c29",
+   "url": "https://slate.com/culture/2019/11/john-ford-science-fiction-fantasy-books.html",
+   "site": "slate.com",
+   "gold_tokens": 3553,
+   "html_gz_sha256": "37aa6a7cd061bd5152fcaa3b6444cfede4ad18b7460119fd11a3c6b0a0908c5d",
+   "html_sha256": "129e6340f1c462f666183ba7f375281030ed9c078245aeee0df80443f6c05f14",
+   "gold_sha256": "b53977a595361b182edeab16c66af10bc1e1ab9bb55dbbbbfcf15c767fa65843"
+  },
+  {
+   "id": "85439e26c41c75901820d01a13e8cea7836abb58635ea3986f71a163ab0311d3",
+   "url": "https://www.lhpat-tm.com/blog/decision-info/index-2726.html",
+   "site": "lhpat-tm.com",
+   "gold_tokens": 18,
+   "html_gz_sha256": "11881af27d8eec587f67ba1860d04c53d93444973252f3990be3d330a9bfb66c",
+   "html_sha256": "e66c4c0083e9fd41c5d7f28db5c465b51f601aa46f110b6e43d86948b7e381ec",
+   "gold_sha256": "d667ec4d213df3efac28e6498dc9e580224bbfbae6e5a7361c52db57a4d08fac"
+  },
+  {
+   "id": "8634d1211c3f2b73041e6cadd5d59676619838949999a83a23c51a3195b44892",
+   "url": "https://www.latimes.com/business/story/2019-11-19/gannett-gatehouse-merger-future-local-news",
+   "site": "latimes.com",
+   "gold_tokens": 1323,
+   "html_gz_sha256": "390c42fffa221e0f99412fbaa63d32c1c309dc1e6cb33913c14d5f871a1e9535",
+   "html_sha256": "ed46befe355306db144e4824be64d94f31f8ad49f70b983ddaca36fd450eb2c1",
+   "gold_sha256": "5b11eb4a321eec6379771d52bed1ef84a0610d10d856f62eb04186ae46f9d7c5"
+  },
+  {
+   "id": "87438a0dacbeb979e72522f42b9020048da13dc5a079477114190c8855701b7f",
+   "url": "https://www.oregonlive.com/advice/2019/11/dear-abby-husband-springs-for-business-class-flight-to-india-but-leaves-wife-in-economy-seat.html",
+   "site": "oregonlive.com",
+   "gold_tokens": 607,
+   "html_gz_sha256": "880fff86b02141cd7fbb3c7f8b2ddd515b7b7a8d98daf8bd278b44d9a94b7261",
+   "html_sha256": "f46970b4b070f5d979eec973cae0bf1a1849d18624d5c5a5d053ea07817fe33c",
+   "gold_sha256": "9a6b32abe6ec1eba0a67e5dfb59e9df93a1934dd7ca7d1a610b4bbbabcad7380"
+  },
+  {
+   "id": "87bf60570e6e2e33cb1f0fdb5600d6c85012e60be25ba6fa587b8f90eb9a3770",
+   "url": "https://www.washingtonexaminer.com/opinion/in-prince-andrews-dumpster-fire-epstein-interview-the-truth-comes-out",
+   "site": "washingtonexaminer.com",
+   "gold_tokens": 531,
+   "html_gz_sha256": "6ffa9769e53e4c656941af36e56e57b6386ffcf17433a6212f80d873f54f1be3",
+   "html_sha256": "d1909ea4c598656fd125036e7e0a9a18baa8bced8a0b38618d0383d033fba216",
+   "gold_sha256": "3f4ddc8bb56472613ce28e29a3f70c352824dd46d687e35e692ce0555cd3031d"
+  },
+  {
+   "id": "88c328b68b038a625b4b3f8c322215caa30b0e88af0754bd71056ffc15c7b4b7",
+   "url": "https://www.telegraph.co.uk/tennis/2019/11/19/tennis-podcast-davis-cup-finals-launch-madrid-feelings-mixed/",
+   "site": "telegraph.co.uk",
+   "gold_tokens": 220,
+   "html_gz_sha256": "76edfaf125350bce431bf5fa63c26c527101532d9b6654bba9d1bd059576642e",
+   "html_sha256": "7cd1c399d7922b6f3a6255a346b53f1067d05270a98e89b555f5039eec18c740",
+   "gold_sha256": "4d4d529eadeef0ec213f6dac9684c68f14b388840eeeb88d37994c8208dd8304"
+  },
+  {
+   "id": "8b194530308204139d9c8f7d495a26b117c78756ac1802cfc3c0a8bfdf2c0d50",
+   "url": "https://www.thesun.co.uk/news/10371941/hunter-diagnosed-bubonic-plague-eating-rabbit-third-beijing-local-contract-medieval-disease/",
+   "site": "thesun.co.uk",
+   "gold_tokens": 511,
+   "html_gz_sha256": "9e13eea4de63a61d3a82ba7a2c52b40c56b29b99696a53a97de5bf45794802cc",
+   "html_sha256": "7321ec229304c7db22902d3dbd19595500158b7d61f720922110fcc7f535adc0",
+   "gold_sha256": "a2dc89f795eec00b4510f6f73c11c10bf650260cbd17e613c8756a3f230403b6"
+  },
+  {
+   "id": "8cad00dc22de45ba42e9540421b5f78333f7ac57b385d69acb27a53b9fd69f0c",
+   "url": "http://jeongdongtheater.com/blog/2018/10/15/palace-tale-jang-noksu-beauty-korea-revealed-2018-welcome-daehak-ro-festival-actual-scene/",
+   "site": "jeongdongtheater.com",
+   "gold_tokens": 443,
+   "html_gz_sha256": "3294a57ae27309ab87b44bb5fc43b26dc3bf193142e19556ca95bed80f86f035",
+   "html_sha256": "739d96dc2f5aa928ac3b10328f3252af16698a50bcdfb5d04ad5a89f0735d41e",
+   "gold_sha256": "854ee287e67cfdc8b975692e0ba1f53db6797fc85fad00321ae53b399ecf51bb"
+  },
+  {
+   "id": "8e3efab59f48fd29a1e1e7aa135880c4251a9f090f94999668cdbaec59d30b5a",
+   "url": "https://profootballtalk.nbcsports.com/2019/11/19/anthony-lynn-we-needed-to-win-this-game/",
+   "site": "profootballtalk.nbcsports.com",
+   "gold_tokens": 191,
+   "html_gz_sha256": "b26debbd84fccd9df1b201011445e84215d172c63e573a51636eb3401af377fd",
+   "html_sha256": "d5c9bcb83cd35e42663041665f430d81949b34b8d20f8789039dc92177558803",
+   "gold_sha256": "f63b2ba8b1067301fdacb1cd1d2067b70911f879cc6ecf351c3ce18093b91a0f"
+  },
+  {
+   "id": "921019755f4a96ac4abf9dbcb4ef9d5ac202624a542d5ea70912330aa6fcc71f",
+   "url": "https://news.sky.com/story/jose-mourinho-agrees-deal-to-replace-mauricio-pochettino-as-tottenham-manager-11865382",
+   "site": "news.sky.com",
+   "gold_tokens": 438,
+   "html_gz_sha256": "71d75fbc3cf682723d6578f8723d4fc75c05400d092ae04eb8cf2a18cf88ccf4",
+   "html_sha256": "e8356bc2e1eed2db13edeecee59ada000bd44212191d54e8d619416122535b47",
+   "gold_sha256": "b50928cc6c36369803b1fdb185c93ce35d98ba9cec3675b71764855f16e03aa9"
+  },
+  {
+   "id": "94fbcc26772088646cb977cecf1abc4012847a1f6927d09505cbf0c3d417ba07",
+   "url": "https://www.inexhibit.com/marker/milan-design-week-2018-michael-anastassiades-light-installation-flos/",
+   "site": "inexhibit.com",
+   "gold_tokens": 174,
+   "html_gz_sha256": "68821ed617d9242b0445e0b6440aec51bdfc04c408ada4bb6a8bd96acbdc5ca8",
+   "html_sha256": "4ac88d3c34b4469681879fbfdaab020a83c76b0fa9149c72a825e99dc363a0c7",
+   "gold_sha256": "2854ca28cad166fefc778b1305c89e81667c628cc9179f72f5a22a8af65dbe6d"
+  },
+  {
+   "id": "95301fb7883e0ee5214d1111554d30dd97e08c6380d7699369c0b9c15f42e6aa",
+   "url": "https://vortexcannon.org/about-bugs/",
+   "site": "vortexcannon.org",
+   "gold_tokens": 103,
+   "html_gz_sha256": "dfa64b2fc32e1be4c0645962aa1921781538245e997929fa4c363c5ca27dc9e0",
+   "html_sha256": "88d09a764d2aa0a4228315aa718c3e5b2bcde4463d9a9b3b54d000c7e5efc1da",
+   "gold_sha256": "511162128802d2ed792e7c2817fef7b4c700d257a4475f4453d346eb244362a5"
+  },
+  {
+   "id": "961bd85ca85aaf791b278cc4a60058e92d57c4f32a3411cf8e7d802af183c926",
+   "url": "http://www.therepublic.com/2019/11/20/cpd_arrests_six_in_drug_investigation/",
+   "site": "therepublic.com",
+   "gold_tokens": 448,
+   "html_gz_sha256": "3b51520386a045df1bdba08679e84aec4c320d8ae39822fc2e640689ebe432c8",
+   "html_sha256": "23784cd3ba19de2fe2019c159c6d8c2a5fa494669a972ed55df08f75509a900c",
+   "gold_sha256": "4deb4d85c60450e392f108edd54f38934222ed391802f7f075b05b98aab3f886"
+  },
+  {
+   "id": "9a440270bf8625d586039dfae1b8df409b467524e075124cd7a5424a5806901b",
+   "url": "https://www.cbssports.com/soccer/news/uefa-euro-2020-qualifying-tracking-every-team-to-clinch-a-spot-as-wales-punches-ticket/",
+   "site": "cbssports.com",
+   "gold_tokens": 502,
+   "html_gz_sha256": "e4ba48711dee6b0c13c1397ab948a5c60a3b18732494f6d04bd7aa8595479a70",
+   "html_sha256": "b0e0e3b545a773a89da2ba7b8c46287c257211d23e93b0d288cf162346cdd7de",
+   "gold_sha256": "019d905809227ff64341ca0569c32c85d364f095928c75a28142e2281ee6f7ca"
+  },
+  {
+   "id": "9cb8224b660f36c932823ab613fb76a07928fcbc41956c4c1f96f4ecab9202aa",
+   "url": "https://www.billboard.com/articles/news/8544119/doobie-brothers-reunite-50th-anniversary-tour-north-america-2020",
+   "site": "billboard.com",
+   "gold_tokens": 644,
+   "html_gz_sha256": "bde8661ee2027221393e7da9e4ec8e22fe4fbfae23ba6f7bbed7a8034fbdfe1a",
+   "html_sha256": "79324d2b997ac53ddba1610cc328cf6cd05179c1aba99615a6ffd23ee82392e5",
+   "gold_sha256": "0cd3648a59d6bc42bd761c48f6883d5456607a39536270fff9ed118a21dcf601"
+  },
+  {
+   "id": "9da36ae4714bfccc72374c6c146e9d1cd3cca39e2110bd67ccdbcc806f4cf139",
+   "url": "http://entermedia.co.kr/news/news_view.html?idx=8723&page=1&bc=&mc=&find=&sch_date=",
+   "site": "entermedia.co.kr",
+   "gold_tokens": 549,
+   "html_gz_sha256": "b89b3d1d9609aa7b7814ee389413eb5b792d78e60f0c291d1ea57774a80d2240",
+   "html_sha256": "955068406f0fd5528338a5003deae820b27f244a6952c934937094acd639d56c",
+   "gold_sha256": "f28c6fd34ff2f07b74d206a1eac1e49ab25dd3e9470ecbff574630fac581ade5"
+  },
+  {
+   "id": "9e8c9f082a8d77c58c17bda03b6b4bb6a1d6883fe196c252db4ca83b9991e0d3",
+   "url": "https://www.politifact.com/west-virginia/statements/2019/nov/18/david-mckinley/what-value-drugs-come-us-border/",
+   "site": "politifact.com",
+   "gold_tokens": 583,
+   "html_gz_sha256": "67b1e82df59a52cc65c1e2aae81005db32b12dc2b924dd8e93ab8d2280d6f73c",
+   "html_sha256": "9c2b749bcabbb7344f7dfcc3f0607f363058013578d1cc72e82131ee38e1b2a0",
+   "gold_sha256": "c29b8557addcdaae29e8eea909fb08d7497f7f6dd3bd14fb4493201191570665"
+  },
+  {
+   "id": "9ebb3af65694a953005df5bd3869b2cefc263e1dea0471e3ef361c66a264cdd3",
+   "url": "https://www.chron.com/business/article/New-car-sales-plunge-10-percent-in-October-14847624.php",
+   "site": "chron.com",
+   "gold_tokens": 472,
+   "html_gz_sha256": "cced63d7a17a443a3cf0f85c2011e777d4e005202e065f5639265c63811a8fbd",
+   "html_sha256": "2eeefd4fe6fa31205cf6c5fbbbc3a9d5d8190749bc9af78022a4b33a1fb6db3d",
+   "gold_sha256": "7f31b9aa6b160a8a7ba0c0e6d3661789250073ff858385adc72f524c7dc17909"
+  },
+  {
+   "id": "9eef8162bbb67b0bd73792313b91b87dc9304f43f85f479e67e71c166417451e",
+   "url": "https://www.msn.com/en-us/health/other/the-man-whose-duvet-nearly-killed-him-how-this-medical-mystery-was-solved/ar-BBWXwNX",
+   "site": "msn.com",
+   "gold_tokens": 914,
+   "html_gz_sha256": "2e3e4867f4f893ca8be43743595fb42086af326aac62ded09936904a445bef1a",
+   "html_sha256": "9b76fe0aafb8c6bf7901596dbefa4fbb21fefe232c25fc24d90ddc817689613e",
+   "gold_sha256": "9eaa9e27cebf49130c7e1ce272449ddab78a5b3685fc56b3349d8795d6c45885"
+  },
+  {
+   "id": "a078b3656adc0295d0e37bd4f599342f4a0894da2451e0ef3038ac045434fef3",
+   "url": "https://www.forbes.com/sites/brucelee/2019/11/18/how-this-mans-bedding-gave-him-feather-duvet-lung/",
+   "site": "forbes.com",
+   "gold_tokens": 1005,
+   "html_gz_sha256": "26b0d4de341b6fb4cffb87da59fb4799cba717cca4eae2a74ff00562a4589985",
+   "html_sha256": "fce8b20b72a1d2c3324eb2cc2bd13149bfaa5ab9ec2d219eef92c2abe1b9ba83",
+   "gold_sha256": "1bdec7bc32d54bea68683c95238d8211d52efced4b25580ac8df3b25d777e13a"
+  },
+  {
+   "id": "a1fca19b884e0e946ad3fbe2a7f5031e5e3b23372702a76db302b6143c77cb31",
+   "url": "https://nypost.com/2019/11/19/three-taliban-prisoners-flown-to-qatar-for-hostage-swap/",
+   "site": "nypost.com",
+   "gold_tokens": 527,
+   "html_gz_sha256": "7f99fe8f99091d7a80bc8981758939732e3ed52385fdc7ad7ce8aaa49b7f74d6",
+   "html_sha256": "111ca9a76729ef09fc72329beb871b935d9480a05df42d28a6b78271e91c8f8f",
+   "gold_sha256": "a2f04b3cf773ea48faa6d3a047912ba47e4951370de0fe95e72a79f48cea904e"
+  },
+  {
+   "id": "a6968f427cdb786531cfb326518e674bd8b48af94df7c5c6165cdf40e944357a",
+   "url": "https://www.ctpost.com/news/article/Deval-Patrick-takes-nascent-2020-campaign-to-14847854.php",
+   "site": "ctpost.com",
+   "gold_tokens": 531,
+   "html_gz_sha256": "5626c4e510a8a7019e43300f15f29b133ccabc827f1b52a8e2cbae47e24b7bf7",
+   "html_sha256": "698adf83c5b8e5d70c0a952d8801391eb86b90c2d36ad4398407e5a49909620e",
+   "gold_sha256": "21cd90a68c3f1aab52fafd324cdef0adb16d38b33460296f5b6f5d5da430eadf"
+  },
+  {
+   "id": "a860fb5eda1ac75df3bc95ba096ade649fdbb1bb566adb9fee3cb13e59f37604",
+   "url": "https://vortexcannon.org/dare-to-play-3-october-pack-2/",
+   "site": "vortexcannon.org",
+   "gold_tokens": 182,
+   "html_gz_sha256": "ca110ed28a1a15b548d5deb044689b35711bd984487a80d16c8f298fb9318618",
+   "html_sha256": "78fc3e89dcf0c0c406fc41f4220ac1a01c240ed3fab5954db5f30e2863a0df22",
+   "gold_sha256": "2c655b0b913f2c4e6125e987fdce4b28b9a5cc7769addb5c3a5db40075ed9927"
+  },
+  {
+   "id": "aadb38e527d5379306de3b910ec62cb2447cc1035686b2b2d152580f8f8a1ea2",
+   "url": "https://www.autoindustriya.com/auto-industry-news/lexus-wants-you-to-go-topless-with-2020-lc500-convertible.html",
+   "site": "autoindustriya.com",
+   "gold_tokens": 407,
+   "html_gz_sha256": "a483602c9bace503e6e67cc0c7034d0c68e56d397f8ba1ff08d62f9a5a19160d",
+   "html_sha256": "d042ecb07ef0c0dedb1ef114579c4d85628db603c4bb49556ec4d2b21b9f4cb6",
+   "gold_sha256": "47290935d33ffc03966d7311c2076b6135adf7a33572f8f791dfbc0963d5ac75"
+  },
+  {
+   "id": "aade2ec8d1e7b0919aef1001c3ef0573f8a239e22d4d751d8e664f04ea77ef0d",
+   "url": "https://mspoweruser.com/google-stadia-red-dead-redemption-2-doesnt-run-at-a-stable-60fps/",
+   "site": "mspoweruser.com",
+   "gold_tokens": 299,
+   "html_gz_sha256": "734c986fd4c0ac440a61aaa40d6f5c2b337d08cabad4cfb36bdfa863564bc88d",
+   "html_sha256": "2898bce5b26edea861a3605ae7a1fc30147d859a5ee06cfdbaa348d8745bca04",
+   "gold_sha256": "860fcbabcaa66ee6e8b91a872a9aa3969240152cee0cb5bc34658c52cbfebbc9"
+  },
+  {
+   "id": "abd9d6291b6bfae0c3ffad8ab7623b482c6da46face0271dc42af6324d8f0ce5",
+   "url": "https://www.msn.com/en-us/news/us/doctors-offer-to-give-free-flu-shots-to-detained-migrants-warn-of-epidemic/ar-BBWZedJ?srcref=rss",
+   "site": "msn.com",
+   "gold_tokens": 994,
+   "html_gz_sha256": "76013ba362c6e37a0e0b16edde805c043732394ce3ae258a21b0945780be2bb3",
+   "html_sha256": "6e4b9359eb963ecfd615969239e215f1ff9c97a84f9e7c57ea0427f8aedae4ea",
+   "gold_sha256": "1aa6d38aaeda89188769018ef123f14faf2f2377bb78f6ecafc0cb39812f1398"
+  },
+  {
+   "id": "ac1bfdd4c510f679c58f1b62101630d40fda20a16703235ae0f56b65a465e423",
+   "url": "https://www.rollingstone.com/music/music-news/doobie-brothers-michael-mcdonald-50th-anniversary-tour-914341/",
+   "site": "rollingstone.com",
+   "gold_tokens": 668,
+   "html_gz_sha256": "4bb91741e4141a2023d51b69dbbeafb828eaf41380b8127db7194bbea862db27",
+   "html_sha256": "61bca1b0d74bc35fdab462db1ab3adf29723d93ce7d75012c1eb2b49d67b2e10",
+   "gold_sha256": "db173adbf62f823b35da41eebb1564122d857b4bfd0595ae64e5b9f4be213e9d"
+  },
+  {
+   "id": "ac3c035520461017a7c5b248d8e39ef063cad4c0c7d7b7ecd68aff8f15099485",
+   "url": "https://blog.givewell.org/2018/09/10/september-2018-open-thread/#comment-949890",
+   "site": "blog.givewell.org",
+   "gold_tokens": 68,
+   "html_gz_sha256": "39b982e778a0f61915970fea00018746ecf46b1eca953352720daf2e007d83e7",
+   "html_sha256": "c4071c811c3d87f72d6dcd16c54fa7300897be43fa186cb0c44bb604360d18d0",
+   "gold_sha256": "44a872c005a9d8800d58ff3d47393d96f26b49f7d850febc589b3f663d90279c"
+  },
+  {
+   "id": "ad826691a8a2f9c4ce50cf0b885af933c4b5119c1f6235cd7df1dfb83f255bcc",
+   "url": "https://9to5mac.com/2019/11/18/macbook-deals-airpods-more/",
+   "site": "9to5mac.com",
+   "gold_tokens": 589,
+   "html_gz_sha256": "7198ea7ec0862494be56671a5805f45a0b002b4405e3194732674660bf55d158",
+   "html_sha256": "42886860c0550815ad44dadc5d55cfc5dcb8368f1037ff3ef497bd712996e5f5",
+   "gold_sha256": "50f36f400607ec8efc59046792ce9bd3f2ad2d48ecddf5bcbdd591a086715379"
+  },
+  {
+   "id": "ad9e9e596f21a6812fae27b5d9d622359826c368e471d7d5ff9ac4676eaac9cd",
+   "url": "https://blog.givewell.org/2018/10/09/a-grant-to-evidence-action-beta-to-prototype-test-and-scale-promising-programs/",
+   "site": "blog.givewell.org",
+   "gold_tokens": 1015,
+   "html_gz_sha256": "e3016ac53049d79ade068f5f312c47b36b32d18ade3d84c71c64bb8444ed574a",
+   "html_sha256": "7efc9125d131ed4c3babfbec6f10e07503e197697955aff74557cc614921a12b",
+   "gold_sha256": "37f9e804af9d59bee0e170d68d575f9a9552a00d1029ba7a183bf0fc5a2abd14"
+  },
+  {
+   "id": "aec5deeaada8b2fb81b55349da0229d5c77a4dc9605c1aaa31e5ce8b71358bc9",
+   "url": "https://www.sfgate.com/news/article/7-key-questions-heading-into-Wednesday-s-14848176.php",
+   "site": "sfgate.com",
+   "gold_tokens": 789,
+   "html_gz_sha256": "8cac77e52dc5d47208dd1c0b75cb600a9f400dba144e3285c85c509be169a4fa",
+   "html_sha256": "add172d0dbc0ed477265893e5f49d6bf6533dd860c5c24748cc8ca4b35912c63",
+   "gold_sha256": "df2f955036f5a11e9a8c8dca1bfb054617bdcbd8edd6951eda00f35f44ed1b38"
+  },
+  {
+   "id": "b0cf2bbf0192315eec95ede9c59bbf4ae58699275739d590edc24b012e3e8800",
+   "url": "https://www.pv-magazine.com/2019/11/20/south-koreas-roadmap-to-drive-down-solar-costs/",
+   "site": "pv-magazine.com",
+   "gold_tokens": 527,
+   "html_gz_sha256": "327ce27251a925357354934aea65c409699b811074c9d7abda9d2f02b834a0f3",
+   "html_sha256": "9813e74f21dbbf9e162057450d7e36e024b5439b84966c11a40acaa6c0a74a16",
+   "gold_sha256": "1c53a424d55b9dd7363c26d56425508d4dedd66773cef5c18034fcb42690303b"
+  },
+  {
+   "id": "b37be3535e1fb61e5a238b7fa1ead1ad98b651cb09f138efadac3d54a122fb21",
+   "url": "https://www.ctvnews.ca/sci-tech/snooze-cruise-study-sees-future-for-hibernating-astronauts-1.4690347",
+   "site": "ctvnews.ca",
+   "gold_tokens": 129,
+   "html_gz_sha256": "1200b8696febf7a9b491bd00b07e961f2100fabe420e6ca78cd2bc7103e34200",
+   "html_sha256": "d640464522a74f18cdc68b73f95eb9adf891b542c193d12544fbf5e75fd0eee6",
+   "gold_sha256": "06cbd6e1e0916f26fe012e207d88231568bc88dcd14e842b96a9806179034e44"
+  },
+  {
+   "id": "b3c19dd5f0612d098788fa5173e491b3280da6226b492f8fe110f4ab1896cca8",
+   "url": "https://www.mensagensreflexao.com.br/quem-se-ama",
+   "site": "mensagensreflexao.com.br",
+   "gold_tokens": 139,
+   "html_gz_sha256": "fb542943acc6e1ec4fc704b678fe0a50baaf0066820f913941735df8f333a313",
+   "html_sha256": "c9aef5b93c7f198f9f5954481c1bb8f856adc244ce48f584eff80cc8d1e98c8d",
+   "gold_sha256": "8c3932cf421e96cbea20c99d619bc3fd38dc1e0d0a8c8c27e8000e0476ee4f04"
+  },
+  {
+   "id": "b6906ca016bbfc64c90426e098c75b3e8c84457a77f51f1e7ea6941cb80c2147",
+   "url": "https://www.politifact.com/truth-o-meter/article/2019/nov/18/politifacts-guide-understanding-tariffs-and-intern/",
+   "site": "politifact.com",
+   "gold_tokens": 1173,
+   "html_gz_sha256": "9805c2a5068604b7797fee3e72cec0d7dede942a4d09998d83beb05d824a043a",
+   "html_sha256": "e3c9705caef926ac1404165eb4148f2b3a420d8526999cdc1c347b44de392077",
+   "gold_sha256": "d8b134b4ec3b6d8ccd6318e7f66651a253634c6ce71d329acae76d8612be4b28"
+  },
+  {
+   "id": "b6fb53e9fb043c98eb1e6530a1074c40922e29025f5454809f3938a7c174faa3",
+   "url": "http://www.remember8090.it/remake-serie-animata-de-i-cavalieri-dello-zodiaco-per-netflix/",
+   "site": "remember8090.it",
+   "gold_tokens": 185,
+   "html_gz_sha256": "3699b3f89d3a31a54f7936ee8bf201d8f0706b73a40509a16ca06646ab8ce432",
+   "html_sha256": "8c0ff884a5c3c72606f21528d5b2e6d37a1b46f05adbcf456c7ff344b7e37129",
+   "gold_sha256": "da0f804ab04abc21855560d78ae4e5db78cbf62d12f6bb7a6a9e50660b74d498"
+  },
+  {
+   "id": "ba07d1e64775f4090e39116c382111f5a2cfe9528dd179673f4e9bfcea370c15",
+   "url": "https://blog.comwrap.com/comwrap-auf-der-dmexco-2018",
+   "site": "blog.comwrap.com",
+   "gold_tokens": 385,
+   "html_gz_sha256": "7422f23792a9e4b4f511f3179cd2006a25ff785dc6c14c07e916bd59b9b28ad6",
+   "html_sha256": "f66ed98ca77fbbe6ec757433ead5b834732ad9e3d389b7034b5a05aaaed32b73",
+   "gold_sha256": "71c24bed250b776306d03cddaafccfa6188b5ed250a89fdc6e14efdaa98cf3d8"
+  },
+  {
+   "id": "ba4dfe2d3e817ff7b8b01172ccc307850fc5469bcdd26c3c48ca046cb88ab7cf",
+   "url": "https://www.express.co.uk/news/science/1205992/bubonic-plague-china-plague-news-the-plague-pneumonic-plague-in-china-2019-symptoms",
+   "site": "express.co.uk",
+   "gold_tokens": 428,
+   "html_gz_sha256": "f1b4d554bd8c9fa71ac96de967ca28a975a33dc216952a5b5f15697cb2ad302b",
+   "html_sha256": "35c81aae8e422a43571e3ec5506cfd1553e811cec06bf038d8cbe76e49764554",
+   "gold_sha256": "0f1eae6bc39d0310b96a32cf5801f3c902242a5f387c44cc63f5f07c2be3dd93"
+  },
+  {
+   "id": "bc13ff87b2630ffbebc33bc37b11178b14f03109055e1d17bf644f804b63d98a",
+   "url": "https://therealdeal.com/2019/11/18/thousands-of-wework-employees-to-be-laid-off-this-week/",
+   "site": "therealdeal.com",
+   "gold_tokens": 465,
+   "html_gz_sha256": "5bf38337c6e082e7cb6bc9a402ab3aa3558251c55dd83dfad09b0b257e369b1b",
+   "html_sha256": "84d371fdd00bb775ee460ba62031334d43c3bc90bac5d2839651e57a92a28c84",
+   "gold_sha256": "b45b3271f33b354f497cbff8b5671e0ddd44fc5ff1c8f6a12caec1f7d00a8863"
+  },
+  {
+   "id": "bd673bd7988144f0ab7b9c5e19fed140fb5aaa30d8894cb045b72d3b79a7dc54",
+   "url": "https://www.livescience.com/feather-duvet-lung.html",
+   "site": "livescience.com",
+   "gold_tokens": 538,
+   "html_gz_sha256": "f68da2daf217b47ece1d50508c02473c73fae0557abe7a26427463dee64426b9",
+   "html_sha256": "fbaaa1887e9172dac009e532dc362bd9ccb459a6b612ccb5735900a33bce5f35",
+   "gold_sha256": "d7b8d191656616845fa5862aa340039e582b30c876a63b19dc4f913030992af4"
+  },
+  {
+   "id": "bdb56ac83513635db1d8b9eb46b2da4c0de8da2f1f28f5bf5163df3eb3d3ec06",
+   "url": "https://www.quantamagazine.org/tuft-cells-that-taste-danger-set-off-immune-responses-20191115/",
+   "site": "quantamagazine.org",
+   "gold_tokens": 2709,
+   "html_gz_sha256": "08b73c531f6e34647501e5dc4c23ad82ed69abaeeccd259636b9394b1f31d9d6",
+   "html_sha256": "483b9b1acb7064e6a10beb0c3f72ae9561895d710078f9241ff83debf48d3320",
+   "gold_sha256": "bc31b74641697969e8c7012f37ecf5c1a6f5f34b9f4c0a2bb2be8d268cf65f2b"
+  },
+  {
+   "id": "c00962aabe7bdd1fca78f5360ea7fa93cd7674863b05157e00827506a7aa58c4",
+   "url": "https://www.thespacereview.com/article/3834/1",
+   "site": "thespacereview.com",
+   "gold_tokens": 2137,
+   "html_gz_sha256": "91e408c6bbe7fb1eb4d8f68e2b8358801a216ea134402a59fa235d803290cc7c",
+   "html_sha256": "892fe8ee0b5566382ef5e503f98f3750c762dd3ab89b471344a24abe159b6094",
+   "gold_sha256": "4b6a6c4f4c248942774664a7f0ed57b199cda455b7adfd9aaf9959c65e286d3d"
+  },
+  {
+   "id": "c13b9c0e04fb28d445d22e92bff6ab7f7800a429930677c28c4dad89f3269869",
+   "url": "https://www.spokesman.com/stories/2019/nov/19/meth-were-on-it-spokane-ad-agencies-divided-on-sou/",
+   "site": "spokesman.com",
+   "gold_tokens": 714,
+   "html_gz_sha256": "83a35046ad92d7610444f786f5436bc71290a4dc70592d46ea0532bf4b9edaa3",
+   "html_sha256": "30df2371db67dc36e9cd568bca484daa4334a8d6d7b4287d7f21d621f2e9a828",
+   "gold_sha256": "e57b4ed1c14325d5af894d713d304a6ee36b07ae90bc99ff469416aa8ee9cb69"
+  },
+  {
+   "id": "c467d507551a836efa9cfe843ba5d7bafe519750e04d0c9ff0decf44f013f829",
+   "url": "https://detroit.cbslocal.com/2019/11/19/michigan-officials-6th-fatality-linked-to-eastern-equine-encephalitis-reported/",
+   "site": "detroit.cbslocal.com",
+   "gold_tokens": 145,
+   "html_gz_sha256": "23f2dc88339328d24263998cbdfe8c3c9692e5150661119da8ea42a3b80f23d6",
+   "html_sha256": "b98ab095405d4bcdc53efe206fc80f291c8145a2fad840690d02c1749f370f33",
+   "gold_sha256": "ecebf24f5a7615f7b260df77f3acdd369b6bfe518fadb7777bfb6e248d7c7bde"
+  },
+  {
+   "id": "c4a3637c6696f238cf9fe1c7fbb17bbb6731a71d4f5fe399b9b4fc3294a96a6b",
+   "url": "https://gto-normativy.ru/skajrim-skorost-bega-kak-uvelichit/",
+   "site": "gto-normativy.ru",
+   "gold_tokens": 116,
+   "html_gz_sha256": "1d42ab0b3f01be46d70300a7cac6c1be1857a24e4f7c3e2b74ff92a0f7ef5a31",
+   "html_sha256": "564f390daec2d943c116f5e0d1bffcd85028188c0c3069ffe5829421a4ad85be",
+   "gold_sha256": "78b5c512e2e93406d0f835db415fa214cf6704143db230f7ea878480bdb5eca3"
+  },
+  {
+   "id": "c50845a7158af12ee75acea301a3ea0dad1e848d6b9dbdb43ba7f2d825b2528b",
+   "url": "https://www.space.com/nasa-picks-spacex-blue-origin-private-moon-lander-companies.html",
+   "site": "space.com",
+   "gold_tokens": 717,
+   "html_gz_sha256": "d64bf7db81eb03e8c8944e1c758dd28c8a131049057ab28724319502f2b0c2cd",
+   "html_sha256": "ef3c8abaa8a6501aefc94adfe639c7aea76f941655a47bfa6bcf9cf36acab98a",
+   "gold_sha256": "7c4d8278a660a613ebe5ac79969f8c6cfe771b753519eb398ec4356eeaf3eda8"
+  },
+  {
+   "id": "c582d3b772578e8feaa3cfd8f5ae8100bb6f0bc66048204a9a398395841c1164",
+   "url": "https://www.bigbrandsystem.com/business-focus/",
+   "site": "bigbrandsystem.com",
+   "gold_tokens": 3208,
+   "html_gz_sha256": "306c382e23ed591dc80873fef55a316f328ed53592bd354769e7d2cec34bd70b",
+   "html_sha256": "fe5d506f91d3eab44ba3ead64dfe9c19d7ba6dd4cf95608cd789a1bb911f793a",
+   "gold_sha256": "364192bb2d993192a24952376aefb98b186f75342626bc17d4621d24ecd01c9d"
+  },
+  {
+   "id": "c58aa507c4deebd660f69905f9abb8f96d935f6e7210f597ed4cd32b3f39f7f7",
+   "url": "https://www.usatoday.com/story/news/politics/2019/11/19/prison-guards-arrested-alleged-failure-check-jeffrey-epstein/4082679002/",
+   "site": "usatoday.com",
+   "gold_tokens": 1555,
+   "html_gz_sha256": "8e7dbbc714d4b0bf581c51be492557acf9600cfba727f1d1d22923828de76903",
+   "html_sha256": "0e1f1ec81e67ffe4673b585c18502cc1cece8bbc27c4a06070eec560e5071127",
+   "gold_sha256": "40b56d9f4c82c8c914b84ae22eb397375c4f75fb9f507a52cbea3dadfc44a5a7"
+  },
+  {
+   "id": "c69e539d689a8335a69042727f1b58edab09d5d99fb607ec625a63151a537dc2",
+   "url": "https://www.ascom.com/news-and-events/Ascom-business-news/ascom-and-draeger-introduce-integrated-clinical-alarm-management-solution-in-north-america-to-improve-patient-care.html",
+   "site": "ascom.com",
+   "gold_tokens": 363,
+   "html_gz_sha256": "ff6cd9f96e3a9b1fa10033aed15660cee7116ebe3169931ce1423bb61c408388",
+   "html_sha256": "3d056b1fe8efdab0133da55233c442319850dbd76ab571360a55330b57bea5ca",
+   "gold_sha256": "ec38ebcef81585e8b55e5503ff5a6115e827be1b4d11d9aca943fc8ca3f40162"
+  },
+  {
+   "id": "c7e39ac49fa1235f5d50f83bf2444248bd3aa4e6df044377916c812dd109ba23",
+   "url": "https://www.bbc.com/news/world-europe-50473792",
+   "site": "bbc.com",
+   "gold_tokens": 660,
+   "html_gz_sha256": "5e02de1d7fd7d30a0b00081e6a30323b80088665f03c5aef4791620e5b3e7444",
+   "html_sha256": "73055b991dd7bc60d5f54b5e4433812de52b2fac0557e1ff4eb125bfef73dd3f",
+   "gold_sha256": "e9044ce4c1eb5159a2cbc53a19cd4851dec1555b854a7782f8e7207f0c14b8cd"
+  },
+  {
+   "id": "c81e134ed49902bcf69b551426b4a346c5a77ae993cac8bda68b5541a664ef4c",
+   "url": "https://www.floridatoday.com/story/sports/high-school/2019/11/20/hs-roundup-viera-defeats-rockledge-remain-undefeated/4246736002/",
+   "site": "floridatoday.com",
+   "gold_tokens": 317,
+   "html_gz_sha256": "1a2966fd5766f20ff0a0e1dd28e06ada9a22ebc591ba245e911eba8c53dadcbb",
+   "html_sha256": "942475f635ad37bf22e78290abf2470c80d999e58623f441500ba62ae6a61001",
+   "gold_sha256": "725c93853d734e91d6b161620dd20f847edada187a603ea70bf8093c78f1a2d0"
+  },
+  {
+   "id": "c82b3d1d540bbbd6081bdfb78b4c068c583aa766bcaaefe7ad16d24e5413a829",
+   "url": "http://www.wday.ru/articles/53-letnyaya-model-posmotri-na-krasotku-kotoraya-prevratilas-v-staruhu-id120424",
+   "site": "wday.ru",
+   "gold_tokens": 331,
+   "html_gz_sha256": "b2b9a46bf97acafc0f89ecaaa6ed7889e20ac9d235732bea2892d0b77e268914",
+   "html_sha256": "5838644f1c7a9c517ef87b1e187b7f1a3e38540b6432e82a1df5e0020ece15e5",
+   "gold_sha256": "e3e08f3be8a0b93dcbd40579d045370f58a8fa0b1e7f419054af9575c96aeb10"
+  },
+  {
+   "id": "c90731f051d033e49e4cfcc920895051bbc3b54ef1a11519abcf22a115c3aa79",
+   "url": "https://www.deccanherald.com/international/impeachment-sham-completely-debunked-white-house-777897.html",
+   "site": "deccanherald.com",
+   "gold_tokens": 732,
+   "html_gz_sha256": "ed56b60c733e94096a5c889b0a5aa7efb48bde6e535a1032bed31af50da24d1c",
+   "html_sha256": "5cfdf1942a05d0ea737927fd0584bd9f1981989131bb0f65be790ee9a8f28df8",
+   "gold_sha256": "0dc49785d5d5b4401b15b0e5831f202fb66cf4cfdd56cfc8986fbe92caae49c9"
+  },
+  {
+   "id": "cc03ddb5ef7d5f1fdb8a87f5e6dfd058a2a70acedf2551655a898dc5c18eb79e",
+   "url": "http://www.autoracing.com.br/calendario-stock-car-2018/",
+   "site": "autoracing.com.br",
+   "gold_tokens": 125,
+   "html_gz_sha256": "34bd39f0e3602a106be90f53f747203e5397d9baf2dcbc955441438cec90cf52",
+   "html_sha256": "0588c6306ce6f18ac5116526ce472533efccb59a0977f7401d38ff76a2bcd3ae",
+   "gold_sha256": "435a720e77e66aeef9ca4f61173fdfafd720ec8c1578a47b029432aaca148ddc"
+  },
+  {
+   "id": "cc4aa22b8212aec7d289667c0a965569e6f06b9e9196ff8b02219bf2bc1b90d0",
+   "url": "https://9to5mac.com/2019/11/18/techy-gift-guide/",
+   "site": "9to5mac.com",
+   "gold_tokens": 1861,
+   "html_gz_sha256": "5abe6647fe947b874b06194b27d3805e60f9f2b2477410938ef835999a0a7836",
+   "html_sha256": "62d079840f65430acaef80260f181599336944d5d9db7fc32ecd8753e703716d",
+   "gold_sha256": "38bc19a339e0ba62ddf566540cb8ddcf65e6aaea283423a9db54c3f6f5b4a3e3"
+  },
+  {
+   "id": "d0382c0d9573a0a7beb1e649012d04ec7275ac23513ca6ca59e51477b028283c",
+   "url": "https://www.timesunion.com/news/us/article/PG-E-begins-new-mass-power-shutoff-over-fire-14848251.php",
+   "site": "timesunion.com",
+   "gold_tokens": 710,
+   "html_gz_sha256": "d431c44bd88eb2f3d4fa7a64fae67bf7873d2c4fc0a5574199d7d4f86c7df3b7",
+   "html_sha256": "723704ff65524206e30071498965a69007a3205dbbb45cb23ae8aac89cd1a272",
+   "gold_sha256": "bfa6975c5e5e1b9db6d71d72c83245fc3aa96cd8fac64ff7d92dc1bc62d834a5"
+  },
+  {
+   "id": "d1c57d7821e5a5b27fb468c59489601bb2a042b1c05221166e3221d2b5dc217f",
+   "url": "https://spacenews.com/nasa-adds-five-companies-to-commercial-lunar-lander-program/",
+   "site": "spacenews.com",
+   "gold_tokens": 806,
+   "html_gz_sha256": "70664acc81bda1e02e352e7b272de727e670742a4cec5377cd2c94d9193a4edb",
+   "html_sha256": "68f3b8a6655a15b039fa7b19164b95f956407bed73abe3974b0842bb340eb448",
+   "gold_sha256": "0a1f893a06bea53c5efad5cec46a95e456650f22d2cf73e9905b38029748a8cc"
+  },
+  {
+   "id": "d48aeb9cf2f2ff15769a57513249b4a6a669159f3e50b335e741d4206a824e88",
+   "url": "https://www.wired.com/story/instagram-business-accounts-analytics/",
+   "site": "wired.com",
+   "gold_tokens": 1420,
+   "html_gz_sha256": "8f1a796a8adb172199d7cc71e0ba62d2404d5f57cacf6283bc5e94146891b419",
+   "html_sha256": "f75785c7341fc477b00c0774444c1dedd33ea35722f84c749dfe30d1f565ba14",
+   "gold_sha256": "8a794213339eb98f3efa9e31589b2fa3ddae6f5a502cc479d092e78e88ccef6c"
+  },
+  {
+   "id": "d605bdef2cde7308a9f2fbd1484d4a9c3da0167177245d346da61e455f42208d",
+   "url": "https://www.cnn.com/2019/11/18/investing/asian-market-latest/index.html",
+   "site": "cnn.com",
+   "gold_tokens": 298,
+   "html_gz_sha256": "11dd01c1c734b5d579e9220e2d364146e823ff118d4420dfab7f4899aca9e461",
+   "html_sha256": "85b1d12e8e379515ed4eb0dacf920f68b07a918f154fa99fb425f53c6ad400a4",
+   "gold_sha256": "7232c0ee6a3005ffc48f7c7a1ae0b0f73ea244dac39bd308991eb11e79188a2a"
+  },
+  {
+   "id": "d90bda7ed14df19574f4ca8b1ccde5752a78f40058af1393e81cc99adb3e8756",
+   "url": "http://www.panarmenian.net/eng/news/275221/",
+   "site": "panarmenian.net",
+   "gold_tokens": 309,
+   "html_gz_sha256": "ceaa2b63601580b0a364dadc1e809c5521c79daefba6c3392b39010bb4fe6fdd",
+   "html_sha256": "cdb3969b6af7164f6db9029ddb5596651ddb600a7b9e3b7c835780c4161593f6",
+   "gold_sha256": "60287be673090326dbff87c313e059a06d06bc0537ddb3a22f494d3238e23ce9"
+  },
+  {
+   "id": "db6b0816c612296c7f1f001c6df874214fcca0da0fc86fb3aea9358c7f681754",
+   "url": "https://www.chron.com/news/world/article/Esper-says-US-providing-Vietnam-with-coast-guard-14848382.php",
+   "site": "chron.com",
+   "gold_tokens": 253,
+   "html_gz_sha256": "e30a0d95f1ad3b0583389dc7b848ef443d8671ce4df35e6dc176b7b4bb0c131c",
+   "html_sha256": "55ce6fa6b47b4c2a0b6351b7d65de06dc87cf3a95b9de33613b0971608ee603f",
+   "gold_sha256": "89cbc4eec6e30171519750fdfaaf62718cf4b99bde48c506dada6b27e055c125"
+  },
+  {
+   "id": "dc7ccccc1f34eb2928cb238739aaf18c712d59d8d34b41acfb29178aeba65356",
+   "url": "https://www.albawaba.com/news/sweden-drops-its-investigation-rape-allegation-against-julian-assange-1322369",
+   "site": "albawaba.com",
+   "gold_tokens": 403,
+   "html_gz_sha256": "288ba443e047d6251139155f3abdf86712d5078c53f1df4fc215903edea76a22",
+   "html_sha256": "a4961b9dc725a91ab435fb70d46f95815f3f21f28dda634501eb4f619b3af1d0",
+   "gold_sha256": "e56307042470b22a0de096a5685fc9ed660618837e41db577beb10b7f7d09b12"
+  },
+  {
+   "id": "dfd43bc0d46e7aaa78ba10fbcb5b9fdfe78771d36cb4c7497e17fb6f69170ec5",
+   "url": "https://my6sense.com/2018/02/15/bi-research-shows-mix-native-ad-units-generate-highest-engagement-metrics-marketers-greatest-revenue-publishers/",
+   "site": "my6sense.com",
+   "gold_tokens": 761,
+   "html_gz_sha256": "626c68715754b56893c5d659d806dea622a2b57df3ceb0eaf1e9375e3cac8f67",
+   "html_sha256": "4fd2206f43bedd173514dc72872271035c72cf3c7826a9a98cbc82ac032d300b",
+   "gold_sha256": "773be1ca514ad940e668ac680280bc2084b33b7760fa34d461f9cd222d4f8154"
+  },
+  {
+   "id": "e100c9612ad8495db03b2a9f968952d0eaa4853d9b32ded6a29f8e313a974873",
+   "url": "https://wccftech.com/stadia-destiny-2-1080p-medium-rdr2-1440p/",
+   "site": "wccftech.com",
+   "gold_tokens": 325,
+   "html_gz_sha256": "ad726d037d99f2a66dc6691d17f7743055c0633dd355bdc08430d3e2f9710260",
+   "html_sha256": "f8b9a3e15017cf1abbf576f6bb49da2e3067b7c9a7d613781264fe7005fd6dea",
+   "gold_sha256": "cd3aba952e38ab3ef65c86cc99a8e8cd717261c83e39f8644af25bda30787c53"
+  },
+  {
+   "id": "e1c7023ee2148901b086256fdd30a0893d10b0720b510d5ff07a021109347266",
+   "url": "https://phys.org/news/2019-11-hibernating-astronauts-smaller-spacecraft.html",
+   "site": "phys.org",
+   "gold_tokens": 742,
+   "html_gz_sha256": "41569d2533a3fcdd50110353a50cb59816dff3baffb2e8da4bf034e5d9051380",
+   "html_sha256": "91e7903ac34e47dceb22a1413fdd7f7c37b0dd16152bf3739720fb8cdb2382ae",
+   "gold_sha256": "779d475bfe47dbf42cfe14329ae8078f4520eef492991aa2367e826353f27e70"
+  },
+  {
+   "id": "e1cd54e5577d077df83a12a4753c3c8bf2d88d68cd709cc4c442874777581c4a",
+   "url": "https://practicalhorsemanmag.com/news/4-things-to-do-in-october",
+   "site": "practicalhorsemanmag.com",
+   "gold_tokens": 160,
+   "html_gz_sha256": "138ca84a97bde900ef0c2eb4b1ed8eabe1c49ecb35e8fa0eb937c42201765f44",
+   "html_sha256": "b89e5ad3358467567d30e2983222d05684ebba7742af876f8525e28efef8cb6b",
+   "gold_sha256": "315d83d798e0c345ffbe6f26e58e25ae391728aabfa407cd75cad0a759c3d20e"
+  },
+  {
+   "id": "e372e42c0a3df7b86e1c0bacf7bc14d042144a01e88833bc5a643d61b3547090",
+   "url": "https://www.jpost.com/Breaking-News/Son-of-former-German-president-stabbed-to-death-in-Berlin-608399",
+   "site": "jpost.com",
+   "gold_tokens": 64,
+   "html_gz_sha256": "540f6d01efaa630c2ed5e224fa2f385299c6351e403ef473099a636340a329fa",
+   "html_sha256": "b8685baf9f2887e5b462c227a2e4ed705c128cfcbd8f737cb4b3880b568a951b",
+   "gold_sha256": "b02a5085192ec57a80e32241a73eba75fc8f3b53ff663b086e79e23fe01e5d36"
+  },
+  {
+   "id": "e4c6a3b482403a8f60190ba27248cd52b250b86f5d4a8a10edcf7062c64fc3f5",
+   "url": "https://www.washingtonexaminer.com/opinion/why-beijing-will-bring-slaughter-to-hong-kong",
+   "site": "washingtonexaminer.com",
+   "gold_tokens": 450,
+   "html_gz_sha256": "f69fdd6d0e8ef896f5fe505af2c75a42b9df54d1c8d57d85763cfe074cae0b24",
+   "html_sha256": "4509ec5743f444bc014171731ac59b127eb13e4684efec7dbd1c1f1c5c3d48f4",
+   "gold_sha256": "fbb5f98fd4e90b1aa1d53ff52f7ecd7d88eb4df23f7ae5304a4fa3dee29cde84"
+  },
+  {
+   "id": "e593d7fe88f9f5cd6587ac172be2db6055d40b6f071023f97ab1ce373534261e",
+   "url": "https://www.healthline.com/nutrition/how-to-overcome-binge-eating",
+   "site": "healthline.com",
+   "gold_tokens": 2339,
+   "html_gz_sha256": "5afeb59c1f93900f1bed77e8697eb164be140efb2b813ac179c999d3333a04ce",
+   "html_sha256": "dcd825893ca9065b9ac405a7a1e767d6f5e4de76532686d2359b079dc6ae371c",
+   "gold_sha256": "7005355312ff3b308cdf31d58e3df0bb80384a63f5a6a6101435758d5144c49e"
+  },
+  {
+   "id": "e7301133baab43596f19076beab32096f6405b868e0a69bcfc3349e595d62475",
+   "url": "http://www.theparadigmng.com/2018/10/09/saraki-melaye-ben-bruce-drag-igp-idris-court-demand-n500m/",
+   "site": "theparadigmng.com",
+   "gold_tokens": 198,
+   "html_gz_sha256": "1d722058bf4ef7afeb4b56e0bf82e837a6a68fe9a41ded2544ea0c28d49abb3d",
+   "html_sha256": "fe0d5eab84e88cc5a1e0b920907eb0e468dadc5c4e2869bcbf4fb75dc18efb63",
+   "gold_sha256": "fa02eaa690e1bb2fe1270885bd0f095fffdab664eea55c2eadfb9bcd4dbf9b3e"
+  },
+  {
+   "id": "e7994d5500875202d93e736e8f0c8a0436107d10add94ce3789001b8c5c32358",
+   "url": "https://hosted.ap.org/citizensvoice/article/2896af5086674d4bbbbd454dec217c63/uk-tories-under-fire-twitter-name-switch-during-debate",
+   "site": "hosted.ap.org",
+   "gold_tokens": 636,
+   "html_gz_sha256": "1cd48bb91e5496e9d45ef697c03ea812fe698a465b072ab274b66d1e56f38df4",
+   "html_sha256": "7ac704e08feed8744faca29d697431539f73508eeb8209ce0af3fb0c08781720",
+   "gold_sha256": "bcf479b8dcf6f946e5264bdbdb03632c4d4fb3fc79136968f21ee5e42b35d17c"
+  },
+  {
+   "id": "e7d77f1869803e24667fa0b985cff27fb4139951a5ffa494bc9ba810df48fb30",
+   "url": "https://bgr.com/2019/11/19/apple-black-friday-2019-deals-best-available-now/",
+   "site": "bgr.com",
+   "gold_tokens": 1024,
+   "html_gz_sha256": "24d14d87c5176bc92bd13221f5357ba89bb4d6e8c30443c06b1460a3576b1560",
+   "html_sha256": "15dc53317d3bcfc1b47defdbcff2be97680f4ec0f849e76abc96dd2845f63ba0",
+   "gold_sha256": "db0793a1ca4d370de3b1250fb57ba0f8eb14def99b47251ea513977745a2d20a"
+  },
+  {
+   "id": "ea25dd7edff4d27973600f35728f20aed5a3eedcc23257d9c3afc3d3e840c3de",
+   "url": "https://www.smithsonianmag.com/smart-news/three-cases-plague-diagnosed-china-180973578/",
+   "site": "smithsonianmag.com",
+   "gold_tokens": 745,
+   "html_gz_sha256": "8fb8d9d344dc0c49a0e8d2369b070b964ebd4df8e48f4dd72e2b83eb6b749068",
+   "html_sha256": "3c5e019300ad282a6c67eee5d0266074fdc6ebac67941fe85e6e60889c94c9fc",
+   "gold_sha256": "2a526d1dfa728e8eb911640510a0d1fb5ad7029107c44818800d54be01427c49"
+  },
+  {
+   "id": "eb62ac8425e5573947ecde962d14433d18e5725cc4a8c908fe22f678e96a65a1",
+   "url": "https://www.foxnews.com/entertainment/scooter-braun-frustrated-big-machine-scott-borchetta-taylor-swift-feud-report",
+   "site": "foxnews.com",
+   "gold_tokens": 789,
+   "html_gz_sha256": "8c51bdb5ac10d773df3112c119845eaae9a3bb398c3f071ddcadebba41b396d0",
+   "html_sha256": "036cef6da36ef0ddc4e2ae5cd36fd1f9139b13e2a15d1f0c175a5c7de63d7819",
+   "gold_sha256": "2c0b4338b6e76f43fb2c7e46c2341bc2101d3243bc723eadf5c06b6c7516ec30"
+  },
+  {
+   "id": "ec3878db7e49b1ed354c511b132e3de5f773ff4fc8014163df58c22fffd93d2f",
+   "url": "https://www.beachbodyondemand.com/blog/ilana-muhlstein-game-day-snacks",
+   "site": "beachbodyondemand.com",
+   "gold_tokens": 750,
+   "html_gz_sha256": "1139c0fb2e25b2ebaa323865ae43dbe0a406a63f1a9bdfa35875d606e134e7c8",
+   "html_sha256": "3815dff90d0222abb860c181cb0b692244072c1cf077be52edd20fa6c8d87ce7",
+   "gold_sha256": "b458bffc86f51d358b113458c5f62bbdba917dc83e32d66ddf189caa45c6afdc"
+  },
+  {
+   "id": "ec7fc408c5ce66c22692a3f696c682f3de794bacfaca405d9a0dac5957051e5a",
+   "url": "https://www.bigbrandsystem.com/success-mindset/",
+   "site": "bigbrandsystem.com",
+   "gold_tokens": 2199,
+   "html_gz_sha256": "2170e4ce5d2b0cfcce1e4623696f13138abef71baae89b5408cb1c5ead768e13",
+   "html_sha256": "00e3c037db970fb41613a4e57ac698e734ff147077e2666215c3c9345167b5df",
+   "gold_sha256": "5103f3908881343ca773b51bde8bc325071f38f3230e82494385c5c03cdab897"
+  },
+  {
+   "id": "ecb46e3e489d2aac92b2563112e1801077b4219a6db9751f18e228bcaf457802",
+   "url": "https://www.timesunion.com/sports/article/Nelson-s-OT-goal-lifts-Isles-14848099.php",
+   "site": "timesunion.com",
+   "gold_tokens": 643,
+   "html_gz_sha256": "17a88757506e8537d473a3daa1f9a5428dd2cd0d2db073b928e3626ac22e5375",
+   "html_sha256": "7689c847ce90919cae4f0f8218b4b136e3d64e54a7b40034fda707d7bf5693f5",
+   "gold_sha256": "4ca08910785a4d8d1b489dac8504574e0810f6c0b7f44752fbce9bc9b5186f72"
+  },
+  {
+   "id": "eecd2575093b85933997521d6babddd397599419588d7096c5c19dc4ffe2ea72",
+   "url": "https://www.mysanantonio.com/sports/article/LeBron-sets-triple-double-mark-Lakers-hold-off-14848253.php",
+   "site": "mysanantonio.com",
+   "gold_tokens": 936,
+   "html_gz_sha256": "6722dccbc754e3a9814698a0d10c6dbb8a8e8778b74bf166f882de1432f3fb0e",
+   "html_sha256": "19c5930265474da042716ce667029d128d8c257f7dd2effb1bbbdf7eb76c4871",
+   "gold_sha256": "5f9b7d7b10934e536e6a86fbc8bb2a7231f76da7ba92316cc309ce8c0c66a929"
+  },
+  {
+   "id": "ef2b3f268a67950c16563de9ca3209163c7618868c0216739e1e794e7884cc20",
+   "url": "https://www.mysanantonio.com/news/article/Cat-found-in-New-Mexico-after-going-missing-in-14848175.php",
+   "site": "mysanantonio.com",
+   "gold_tokens": 112,
+   "html_gz_sha256": "0d215a281113921bd580cf75c398124aa69fe5aee09ef67c51c3e3a2692de45e",
+   "html_sha256": "c48085a23775ac94dc468a4bb2b31502abda8b2fc3e5b2e83c43a79a3a15b343",
+   "gold_sha256": "9eead81c12f7a967a6c3a64a586e2616d689c2f86116b2240046d00b37a16e8b"
+  },
+  {
+   "id": "ef4e67b66d63b5facef55c06a94d85f2ae01a0a1a4a3a1bcfe2499c8c8a7dacf",
+   "url": "https://www.cnn.com/2019/11/18/politics/donald-trump-health-walter-reed/index.html",
+   "site": "cnn.com",
+   "gold_tokens": 815,
+   "html_gz_sha256": "463833acc42c808b6e727100280a962bd75dd4c2cdf7e883a7afcfd107b4f892",
+   "html_sha256": "fc39059e3ab6dcdc5ca2d47882259cae354f64e506de8f2dd9f15e16e33c8c38",
+   "gold_sha256": "ce4b6ad62c112a606628e38880b05fb7f87bab7660ab3af026b859963345ea0c"
+  },
+  {
+   "id": "f105de6e63ca91ea482f60193f6252092557f969f2fd128ff68c0d4d6b90dd7d",
+   "url": "http://note100yen.com/en-180816.html",
+   "site": "note100yen.com",
+   "gold_tokens": 42,
+   "html_gz_sha256": "00c4f12f2d10b2deb9ee2b5867925ca522766c6c107a398c0a460fab30a5af8e",
+   "html_sha256": "62e86bc2eb0cbcdc27d83d7548f11205a018b32f26973b0ded34b4fc8fa4cb6d",
+   "gold_sha256": "0c81e1eaf824bc7c9f50b0ec0e5ccc6ee6740a98c6cd3a08c58e6e5a66125608"
+  },
+  {
+   "id": "f344ca5fb36e130f4344235fa22726f3367e09c211c120f21d9ae92effe902db",
+   "url": "https://www.hawaiinewsnow.com/2019/11/19/scientists-use-hawaii-telescope-spot-water-vapor-one-jupiters-moon/",
+   "site": "hawaiinewsnow.com",
+   "gold_tokens": 207,
+   "html_gz_sha256": "20f39b76e131cb1ff28dd27d67b6c533113ebc7de73c5ffb65c67a446a33558a",
+   "html_sha256": "5c7b331b06ef94408976707cb278424c715fd36fd344587557a238937a4b2d32",
+   "gold_sha256": "065fff642643879389d4af0af2bb1c806a423a232123d20def37592bcfb62f2a"
+  },
+  {
+   "id": "f5c90a6d5253c3a21ff3168c64bea4b5ffade7a1ba5bed952a59ebee0d648d98",
+   "url": "https://www.nationalreview.com/2019/11/trump-impeachment-inquiry-adam-schiff-working-against-the-clock/",
+   "site": "nationalreview.com",
+   "gold_tokens": 1808,
+   "html_gz_sha256": "c0add0e031b36f55a06835d3e47696a228591697389d01e1b64910283318b34d",
+   "html_sha256": "f8cc63b4f98f5aee0602d67482bb5e3cd40958efaedbce47153a7de19fe346fb",
+   "gold_sha256": "fcd7b408b35b3caa8300f95308e0141772a9ddcc6f590191cf9fb3cd62488da3"
+  },
+  {
+   "id": "f6ac15a4d98511396da23e4428deb5605422b1c8bbc8284e771f6896bdccf57f",
+   "url": "http://jaraguadosul.com.br/news/servi-o-de-atendimento-domiciliar-registra-arrombamento-em-dois-ve-culos",
+   "site": "jaraguadosul.com.br",
+   "gold_tokens": 83,
+   "html_gz_sha256": "4b9848d84a6a156a69515e2da81b5244a81a83a46bd3b387e01865d5fc27f3db",
+   "html_sha256": "970b66878958c4e8c23e64b8718325e242d845574b3962fe76af05e90c23b072",
+   "gold_sha256": "7220936e308b2c6838d9d388c38b281427581c1ca6be7b3c2e40affa19dea6e0"
+  },
+  {
+   "id": "f81c6c05d9cbc93316992fa23ef74ec405194e292611f2e94f6a814868903665",
+   "url": "https://www.businessinsider.com/how-to-retire-early-steps-for-early-retirement",
+   "site": "businessinsider.com",
+   "gold_tokens": 1521,
+   "html_gz_sha256": "e4fc02f71d73cf5c8f44debdc01f83d181d552e8ca762f51eb2a547cfe99beac",
+   "html_sha256": "fb980b3190b43ff45e7b6edc4bc270ca374b1c7c4546ccf607c2299f2dd1ea08",
+   "gold_sha256": "f3b20acf755dc6e3ac19a65cf7184b948f7a64433fde08481b635e879ce0d50b"
+  },
+  {
+   "id": "f8ff621a0b9b7646cc0d57d37416feabba2bf78ef5dd0bfc5b080f9f97bbe584",
+   "url": "https://www.barrons.com/articles/home-depot-stock-earnings-report-51574168486",
+   "site": "barrons.com",
+   "gold_tokens": 368,
+   "html_gz_sha256": "50935dd2ab2550151ef00aef88e302c36a1998b8868d3f7a14952deec9c62e37",
+   "html_sha256": "874e56f212ba6d621f963d62eb5eb09147d2b8603928a641e9563d67e3ba06a1",
+   "gold_sha256": "4cff502bab96f1a9466c7a5f57d47224e1679855843584410c5d8ea55a8b325c"
+  },
+  {
+   "id": "fde930b01859de8311c6a14f8aa8c72be0659b551367803deb6736cf3526cf2e",
+   "url": "https://www.businessinsider.com/10-things-in-tech-you-need-to-know-today-november-19-2019-11",
+   "site": "businessinsider.com",
+   "gold_tokens": 435,
+   "html_gz_sha256": "36f3d54cb13f629fe1c3dfd2839e86697a01476bf58c329618ef1d78cd65f06f",
+   "html_sha256": "eb8b36099d97dea10dbfb773c76313c63644a2c3b84333aaa99ed9ba7f6d7b29",
+   "gold_sha256": "a695b29d08e8fd827a44b0a0359d100314484f8a09c2885a296b03e15f7e06e0"
+  },
+  {
+   "id": "ff0f958ade714ebfaf5c0b42b1c0152a62063f4e6f72141406ccefc4a2677f21",
+   "url": "http://vse-diety.com/dieta-atkinsa.html",
+   "site": "vse-diety.com",
+   "gold_tokens": 872,
+   "html_gz_sha256": "ca639b7556e4702617b875adb031389e222edb242f756fa85be778287d0279d4",
+   "html_sha256": "2190cb40a75f3946e20c0fed19da801be591f672d6482775a5b2f06fb022cf00",
+   "gold_sha256": "47a3ae7c380046243c045064fcce495d32ffdecb9a6d3e6345902fc828447c34"
+  },
+  {
+   "id": "ffc109d474fdee1a59fa554df8b09643f4a7d45b23eceabad66f0712c3f7daed",
+   "url": "https://www.cnbc.com/2019/11/19/beauty-stock-coty-could-surge-after-kylie-jenner-makeover.html",
+   "site": "cnbc.com",
+   "gold_tokens": 367,
+   "html_gz_sha256": "289ffe22e5f779f3841a9892045c206063613883e59aeb70783f44996e2e58e0",
+   "html_sha256": "cbbc09fb636e57f7243e898f6fa0f4924d73b0838628d70b6d6464e164eff653",
+   "gold_sha256": "6a42880fe1d255a21480ab5e673e3528faac7ea8149ea97b624843c14e8693a9"
+  }
+ ]
+}

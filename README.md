@@ -6,7 +6,7 @@ Everything runs locally. No API keys, no network at run time, no paid services. 
 
 ![F1 with confidence intervals](charts/f1_ci.png)
 
-> **Read this first.** The ranking in the table below is from synthetic pages I wrote, and it does not hold on real pages. On 40 real Wikipedia articles (gold from the Wikipedia API, not from me) jusText is first at 0.849 [0.812, 0.882], readability-lxml second at 0.788 [0.744, 0.829], trafilatura third at 0.735 [0.694, 0.775]. Spearman rank correlation with the synthetic order is 0.20. It is one site template, so it is a warning about the synthetic ranking, not a new ranking. See [Real-page check (Wikipedia)](#real-page-check-wikipedia).
+> **Read this first.** The ranking in the table below is from synthetic pages I wrote. I checked it on two real-page slices with gold I did not write, and they disagree with each other. On 40 Wikipedia articles (one site template) jusText is first at 0.849 [0.812, 0.882], readability-lxml second at 0.788, trafilatura third at 0.735. On 181 article pages from 126 sites, labelled by people at Scrapinghub, readability-lxml is first at 0.960 [0.948, 0.970], tuned trafilatura is level with it at 0.960 [0.946, 0.971], and jusText is fourth at 0.718 [0.666, 0.769]. So the synthetic top two hold up on the many-site slice, and the jusText win is a Wikipedia result. See [Real-page check (Wikipedia)](#real-page-check-wikipedia) and [External-gold check (Zyte)](#external-gold-check-zyte).
 
 ## Why this exists
 
@@ -142,6 +142,8 @@ python -m extract_bench.side_checks      # jusText stoplists + readability short
 python -m extract_bench.demo blog_comments-2   # one page, every tool, side by side
 python -m extract_bench.wikislice build  # optional, needs network: redraw 40 Wikipedia pages, cache HTML + gold under .cache/
 python -m extract_bench.wikislice run    # score the Wikipedia slice, adds a section to results/RESULTS.md
+python -m extract_bench.zyteslice build  # optional, needs network: download the pinned Zyte dataset (181 pages), write the manifest
+python -m extract_bench.zyteslice run    # score the Zyte slice, adds a section to results/RESULTS.md
 python -m pytest -q                      # full suite (one test runs the whole benchmark in --quick mode)
 ```
 
@@ -202,6 +204,37 @@ Caveats that matter when reading this:
 - **The gold drops infobox text, tables and captions**, and the reference lists are removed from it. Tools that keep those pay in precision. Keeping the See also / bibliography / external-links text in the gold (a sensitivity check chosen after the first run) moves F1 by at most 0.02 and does not change the order, so most of the precision cost is the footnote list and infobox text, which the API extract never has. Recall is the fairer column for tools that keep tables.
 - **Licensing.** Wikipedia text is CC BY-SA 4.0. The fetched HTML and the gold text are not in this repo: `corpus/wikipedia/manifest.json` has the page ids, revision permalinks and SHA-256 hashes, and `python -m extract_bench.wikislice build` / `run` refetch and score them (1 request per second, descriptive User-Agent, cached under `.cache/`). Text: Wikipedia contributors, CC BY-SA 4.0. The scores and per-page numbers in `results/` are mine. Refetching later can show a different render of an old revision; the run prints a warning when a hash differs.
 
+## External-gold check (Zyte)
+
+The Wikipedia slice has gold I did not write but only one site template. The synthetic slice has many layouts but I wrote the gold. This slice fixes both: pages from many sites, body text labelled by other people.
+
+- **Source:** the article-extraction-benchmark dataset from Zyte (formerly Scrapinghub), https://github.com/scrapinghub/article-extraction-benchmark, pinned at commit 4a3bc979f76c0df73cb95fe272e2fc1b96f9f010. Licence: MIT, Copyright (c) 2020 Scrapinghub (their LICENSE file and README).
+- **Pages:** all 181 items in their `ground-truth.json`, 126 different sites. Nothing is picked or dropped by how any tool scored. Pages were saved with JavaScript off.
+- **Gold:** their human-labelled `articleBody`, normalised the same way as the other slices (whitespace, zero-width characters). Plain paragraphs.
+- **Same code:** the repo's own `metrics.score`, `run.evaluate` and bootstrap, seed 1234, 10,000 resamples. The trafilatura "best-config" row is still the config frozen from the synthetic dev split. I did not retune anything on this data.
+
+| Extractor | F1 [95% CI, pages] | F1 [95% CI, sites] | Precision | Recall |
+|---|---|---|---|---|
+| readability-lxml | 0.960 [0.948, 0.970] | 0.960 [0.947, 0.970] | 0.943 | 0.984 |
+| trafilatura (best-config) | 0.960 [0.946, 0.971] | 0.960 [0.944, 0.973] | 0.948 | 0.983 |
+| trafilatura | 0.949 [0.931, 0.964] | 0.949 [0.930, 0.965] | 0.934 | 0.983 |
+| jusText | 0.718 [0.666, 0.769] | 0.718 [0.654, 0.779] | 0.741 | 0.742 |
+| bs4-naive | 0.639 [0.608, 0.669] | 0.639 [0.602, 0.674] | 0.504 | 1.000 |
+| html2text | 0.620 [0.588, 0.651] | 0.620 [0.582, 0.657] | 0.485 | 1.000 |
+| markdownify | 0.611 [0.579, 0.643] | 0.611 [0.573, 0.649] | 0.476 | 1.000 |
+
+readability-lxml minus tuned trafilatura is +0.000 [-0.011, +0.013] over pages and [-0.013, +0.016] over sites: a tie. Against default trafilatura it is +0.011 [-0.004, +0.029], also a tie. jusText returned an empty string on 30 of 181 pages and is 0.24 F1 behind the top two.
+
+**What it says about the earlier slices.** The order agrees with the synthetic order on the top three (readability-lxml, tuned trafilatura, trafilatura) and on the converters at the bottom. It disagrees on jusText: last on synthetic, first on Wikipedia, fourth here. Spearman against the synthetic order is 0.60 over the 6 default-config tools, and 0.83 against the Wikipedia order. So the Wikipedia result does not generalise to other sites, and the synthetic ranking of the top two is not contradicted by independent gold from 126 sites. The synthetic ranking is still wrong about jusText being last, partly because it is penalised there for page types this slice does not have.
+
+Caveats:
+
+- **News and blog articles only.** Nothing here about recipes, forums, listings or documentation pages.
+- **Not blind.** The dataset's own README publishes results for readability, trafilatura and jusText on these pages, so those tools may have been tuned against them. The top two sit at 0.96 here, so there is little room left to separate them.
+- **Plain-paragraph gold.** Tools that keep headings, captions or bylines lose a little precision. Recall is the fairer column for the three that keep everything (recall 1.000).
+- **Different metric from theirs.** Their README reports numbers with their own scorer, so the figures are not comparable with mine.
+- **Licensing.** Their repo is MIT. The page HTML and article text inside it belong to the sites that published them, so they are not in this repo. `corpus/zyte/manifest.json` has ids, URLs, token counts and SHA-256 hashes. `python -m extract_bench.zyteslice run` downloads the pinned commit into `.cache/zyte/` (git-ignored) and warns if a hash differs.
+
 ## The corpus
 
 `extract_bench/build_corpus.py` generates 10 page types x 6 variants from a fixed seed:
@@ -259,26 +292,26 @@ All text is normalized first: markdown links and images become their visible tex
 
 ## Limits
 
-- **Synthetic pages.** Template text and my guesses at common layouts. The Wikipedia slice above is the first real-page check and it reorders the tools (jusText first, not last), so the synthetic ranking should not be read as a ranking of real pages. The slice is one site template, 40 articles.
+- **Synthetic pages.** Template text and my guesses at common layouts. The Wikipedia slice reorders the tools (jusText first, not last), but it is one site template. The Zyte slice (181 pages, 126 sites) agrees with the synthetic top two and puts jusText fourth. So the synthetic ranking is wrong about jusText and not contradicted about readability-lxml and trafilatura, and neither slice covers recipes, forums or listings.
 - **Same author for pages and gold** on the 60 synthetic pages. I decided what counts as content, and the listing-page sensitivity check shows how much one decision can move the ranking. The Wikipedia slice does not have this problem, but its gold (the API extract) leaves out infobox text and tables.
 - **No JavaScript rendering.** Static HTML only.
 - **Small n, few templates.** 40 test pages, 4 per type, from 10 templates. Per-type cells are directions, not rankings, and the honest unit of variation is closer to 10 page types than 40 pages.
 - **Metric is not a human, and neither is the judge.** The judges were run on a 20-per-tool sample (140 items), not all 420 outputs. Bag-of-words F1 ignores order and formatting. Two LLM judges were run on 140 items (above), but no human labels exist, and the two judges disagree with each other about as often as with the metric.
 - **Uneven tuning.** Only trafilatura got a tuned row. The side check shows jusText recovers on German and French with the right stoplist, but not on Italian or Hindi.
-- **No third-party content in git.** The 60 synthetic pages are generated by `build_corpus.py` from sentence banks written for this project, with invented company names. The Wikipedia slice is CC BY-SA, so its HTML and gold text are kept out of the repo (manifest, hashes and a fetch script only).
+- **No third-party content in git.** The 60 synthetic pages are generated by `build_corpus.py` from sentence banks written for this project, with invented company names. The Wikipedia slice is CC BY-SA and the Zyte slice is news and blog text, so their HTML and gold text are kept out of the repo (manifest, hashes and a fetch script only).
 - **One machine** for latency. Latency also moves a little on every rerun; every other number is identical run to run.
 
 ## What I would do next
 
 1. Hand-label about 40 of the 140 judged items (GOOD or BAD, blind to both the metric and the judges). Then measure each judge's true-positive and true-negative rate against a human, with bootstrap intervals. Today the judges are only compared with the metric and with each other.
-2. Done in part: the Wikipedia slice has gold I did not write, and the ranking did not hold. Still missing: real pages from several different site templates (news, docs, forums, shops), with gold labelled by someone other than me.
+2. Done in part: the Wikipedia slice and the Zyte slice have gold I did not write. Still missing: independent gold for the page types the Zyte slice lacks (recipes, forums, listings, docs, shops), and non-English pages.
 3. Write the listing-page rule down before scoring and report a second gold variant, so the one judgment call that moves the ranking is visible in the main table.
 4. Pre-register the stricter metric rule (precision and recall both at least 0.9) and test it on fresh pages instead of the ones it was picked on.
 5. Tune jusText (right stoplist per language) and the other tools with the same dev-only grid, so tuning is even.
 
 ## Licence
 
-MIT, see [LICENSE](LICENSE). It covers the code and the generated corpus. It does not cover Wikipedia text, which is CC BY-SA 4.0 and is not stored here.
+MIT, see [LICENSE](LICENSE). It covers the code and the generated corpus. It does not cover Wikipedia text (CC BY-SA 4.0) or the Zyte dataset pages and text (their repo is MIT, but the articles belong to the sites), and none of that is stored here.
 
 ## Layout
 
@@ -297,7 +330,8 @@ extract_bench/
   judge_report.py   judge vs metric vs judge, writes results/JUDGE.md
   demo.py           one page, every tool, side by side
   wikislice.py      Wikipedia real-page slice: seeded page draw, fetch + cache, normaliser, scoring
-corpus/             60 HTML fixtures + gold.jsonl; corpus/wikipedia/manifest.json (ids, revisions, hashes only)
+  zyteslice.py      external-gold slice: pinned Zyte dataset download, loader, site-level bootstrap, scoring
+corpus/             60 HTML fixtures + gold.jsonl; corpus/wikipedia/manifest.json and corpus/zyte/manifest.json (ids, URLs, hashes only)
 results/            summary.json, paired.json, taxonomy.json, excerpts.json, per_doc.csv, outputs.jsonl, RESULTS.md,
                     judge_*.json + JUDGE.md (LLM judge runs)
 charts/             f1_ci.png, f1_by_page_type.png, leak_vs_recall.png, latency.png

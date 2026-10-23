@@ -352,6 +352,10 @@ def main(argv=None):
     if wp.exists():  # keep the real-page section (written by `python -m extract_bench.wikislice run`)
         from . import wikislice
         wikislice.splice_into_results(out_dir / "RESULTS.md", wikislice.section_md(json.loads(wp.read_text(encoding="utf-8"))))
+    zp = out_dir / "zyte.json"
+    if zp.exists():  # keep the external-gold section (written by `python -m extract_bench.zyteslice run`)
+        from . import zyteslice
+        zyteslice.splice_into_results(out_dir / "RESULTS.md", zyteslice.section_md(json.loads(zp.read_text(encoding="utf-8"))))
 
     if not args.no_charts:
         from . import charts
